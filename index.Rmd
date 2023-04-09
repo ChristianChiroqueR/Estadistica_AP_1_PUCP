@@ -1,9 +1,10 @@
 --- 
-title: "Estadística para el Análisis Política I"
+title: "Estadística para el Análisis Político I"
 author: "Docente: Christian Chiroque Ruiz"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
+# Sesión 1: 
 
+## Introducción
