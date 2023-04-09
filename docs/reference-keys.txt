@@ -1,7 +1,11 @@
 introducción-al-r-studio
-tipos-de-elementos-en-el-r
-las-unidades-mínimas
+elementos-básicos-en-el-r
 las-estructuras-en-el-r
+los-vectores
+un-vector-especial-los-factores
+data-frames
+propiedades
+índices
 manipulación-de-datos-y-estadísticos-descriptivos
 preparación
 entorno-de-trabajo

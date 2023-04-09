@@ -7,11 +7,9 @@ site: bookdown::bookdown_site
 
 # Introducción al R Studio
 
-## Tipos de elementos en el R
+## Elementos básicos en el R
 
-### Las unidades mínimas
-
-Vamos a examinar la clase de algunos de los elementos más básicos en R: 
+Vamos a examinar la clase de algunos de los elementos más básicos en R: los números, los caracteres y los elementos lógicos. 
 
 ```{r message=FALSE, warning=FALSE}
 class(1.5)
@@ -23,7 +21,7 @@ class("rojo")
 class(TRUE) 
 ```
 
-Tener en cuenta que también podemos coercionarlos
+En R, los datos pueden ser coercionados, es decir, forzados, para transformarlos de un tipo a otro.
 
 ```{r message=FALSE, warning=FALSE}
 as.numeric("5")
@@ -55,5 +53,162 @@ Por ejemplo, uno puede escribir esta sentencia X <-5+5 y
 Sin embargo, el sistema no acepta lo siguiente: 5+5 = X
 
 
-## Las estructuras en el R
+## Las Estructuras en el R
+
+![](http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
+
+### Los vectores
+
+- Un vector es una colección de uno o más datos del mismo tipo.
+
+- Tipo. Un vector tiene el mismo tipo que los datos que contiene. Si tenemos un vector que contiene datos de tipo numérico, el vector será también de tipo numérico. Los vectores son atómicos, pues sólo pueden contener datos de un sólo tipo, no es posible mezclar datos de tipos diferentes dentro de ellos.
+
+- Largo. Es el número de elementos que contiene un vector. El largo es la única dimensión que tiene esta estructura de datos.
+
+- NO TIENE DIMENSIÓN (dim)
+
+Ejemplo: Vamos a crear tres vectores: uno numérico, uno de caracter y uno lógico. Podemos utilizar la función `length()` para medir el largo de estos (cuántos elementos contiene).
+
+```{r}
+vector_numerico <- c(1, 2, 3, 4, 5)
+length(vector_numerico)
+```
+
+```{r}
+vector_caracter <- c("arbol", "casa", "persona")
+length(vector_caracter)
+```
+
+```{r}
+vector_logico<- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+length(vector_logico)
+```
+
+También podemos utilizar la función `class()` para corroborar que cada vector tiene la misma clase de los elementos que contiene.
+
+```{r}
+class(vector_numerico)
+class(vector_caracter)
+class(vector_logico)
+```
+
+Tener en cuenta que los vectores también pueden tener valores perdidos (NA). 
+
+```{r}
+vector_con_NA <- c(1,2,3,NA,5)  
+length(vector_con_NA)
+class(vector_con_NA)
+```
+
+### Un vector especial: los factores
+
+Un factor es un tipo de datos específico en R. Puede ser descrito como un dato numérico representado por una etiqueta.
+
+Supongamos que tenemos un conjunto de datos que representan el género de personas encuestadas por teléfono, pero estos se encuentran capturados con los números 1 y 2.
+
+```{r}
+genero <- c(1,1,1,2,2,1,2)
+```
+
+El número 1 corresponde a Mujer y el 2 a Hombre. A diferencia del carácter, el factor tiene NIVELES (levels).
+
+Podemos crear un vector de tipo factor con la función `factor()`.
+
+```{r}
+genero_en_factor=factor(genero, 
+       levels= 1:2,
+       labels=c("Mujer", "Hombre"))
+genero_en_factor
+```
+En la práctica, muchas veces vamos a ver las variables de tipo factor en nuestro análisis. Por ello, debes ser muy cuidadoso en la preparación previa que debes realizar a la base de datos antes de aplicar las funciones. 
+
+Asimismo, un factor puede estar ordenado o no ordenado. Esto nos sirve, por ejemplo, para crear variables de tipo ordinal. Podemos indicarlo ello, con el argumento `ordered=`.
+
+Veamos:
+
+```{r}
+confianza=c(1, 1, 3, 2)
+confianza_en_factor=factor(confianza, 
+       levels= 1:3,
+       labels=c("Bajo", "Medio", "Alto"), 
+       ordered = TRUE)
+confianza_en_factor
+```
+Vemos que nos indica los niveles, pero en este caso están ordenados de menor a mayor. 
+
+
+### Data frames
+
+Los data frames son estructuras de datos de dos dimensiones (rectangulares) que pueden contener datos de diferentes tipos, por lo tanto, son heterogéneas. Compuesto por vectores. 
+
+Estructura más usada para ciencia de datos. 
+
+Mientras que en una matriz todas las celdas deben contener datos del mismo tipo, los renglones de un data frame admiten datos de distintos tipos, pero sus columnas conservan la restricción de contener datos de un sólo tipo.
+
+En términos generales, los renglones en un data frame representan casos, individuos u observaciones, mientras que las columnas representan atributos, rasgos o variables.
+
+```{r}
+mi_df <- data.frame(
+  "variable1" = 1:3, 
+  "variable2" = c(1.2, 3.4, 4.5),
+  "variable3" = as.character(c("a", "b", "c")),
+  "variable4" = as.factor(c("1", "2", "3"))
+  ) #Para crear un DT los vectores de insumo deben ser del mismo largo
+mi_df
+str(mi_df)
+```
+### Propiedades
+
+Un data.frame tiene:
+
+- Dimensión: un número de filas y un número de columnas. 
+
+```{r}
+dim(mi_df) #FILAS Y COLUMNAS
+```
+
+- Largo: número de casos
+
+```{r}
+length(mi_df)
+```
+- Nombre de columnas: Podemos consultar el nombre de las columnas (variables) con la función `names()`.
+
+```{r}
+names(mi_df) 
+```
+
+
+### Índices
+
+- Usar índices para obtener subconjuntos es el procedimiento más universal en R, pues funciona para todas las estructuras de datos.
+
+- Un índice en R representa una posición.
+
+- Cuando usamos índices le pedimos a R que extraiga de una estructura los datos que se encuentran en una o varias posiciones específicas dentro de ella.
+
+
+Ejemplos:
+
+- Seleccionar la columna 2:
+
+```{r}
+mi_df [,2]
+```
+Para seleccionar una columna, también podemos usar el símbolo de `$`. Es bastante usado en varias funciones. 
+
+```{r}
+mi_df$variable2
+```
+- Seleccionar el caso (fila) 2:
+
+```{r}
+mi_df [2,]
+```
+
+- Seleccionar el elemento que se encuentra en la fila 2 y la columna 2:
+
+```{r}
+mi_df [2,2]
+```
 
