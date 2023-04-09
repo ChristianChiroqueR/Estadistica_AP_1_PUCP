@@ -1,4 +1,4 @@
-sesión-1
-introducción
+introducción-a-la-estadística-y-al-r-studio
+elementos-básicos
 the-pool-of-tears
 a-caucus-race-and-a-long-tale
