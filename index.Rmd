@@ -5,6 +5,55 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Introducción a la Estadística y al R Studio
+# Introducción al R Studio
 
-## Elementos básicos
+## Tipos de elementos en el R
+
+### Las unidades mínimas
+
+Vamos a examinar la clase de algunos de los elementos más básicos en R: 
+
+```{r message=FALSE, warning=FALSE}
+class(1.5)
+
+# Para escribir valores character siempre entre comillas
+class("rojo") 
+
+# Para escribir valores booleanos siempre usar mayúscula.
+class(TRUE) 
+```
+
+Tener en cuenta que también podemos coercionarlos
+
+```{r message=FALSE, warning=FALSE}
+as.numeric("5")
+
+as.integer(5.1)
+
+as.character(5)
+```
+
+Podemos asignarles etiquetas (nombres) a esos elementos.
+
+```{r message=FALSE, warning=FALSE}
+x <- 5.5
+class(x)
+
+y <- "perro"
+class(y)
+
+z <- TRUE
+class(z)
+```
+
+
+Considerar que también se puede usar el signo "=". Sin embargo, tiene algunas diferencias en cuanto a su uso en el programa. 
+
+Por ejemplo, uno puede escribir esta sentencia X <-5+5 y
+5+5->X. 
+
+Sin embargo, el sistema no acepta lo siguiente: 5+5 = X
+
+
+## Las estructuras en el R
+

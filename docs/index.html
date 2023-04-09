@@ -136,9 +136,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Estadística AP I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción a la Estadística y al R Studio</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción al R Studio</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#elementos-básicos"><i class="fa fa-check"></i><b>1.1</b> Elementos básicos</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#tipos-de-elementos-en-el-r"><i class="fa fa-check"></i><b>1.1</b> Tipos de elementos en el R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#las-unidades-mínimas"><i class="fa fa-check"></i><b>1.1.1</b> Las unidades mínimas</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Las estructuras en el R</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
 <ul>
@@ -196,10 +200,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="author"><em>Docente: Christian Chiroque Ruiz</em></p>
 <p class="date"><em>2023-04-08</em></p>
 </div>
-<div id="introducción-a-la-estadística-y-al-r-studio" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Sesión 1</span> Introducción a la Estadística y al R Studio<a href="index.html#introducción-a-la-estadística-y-al-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="elementos-básicos" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Elementos básicos<a href="index.html#elementos-básicos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introducción-al-r-studio" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Sesión 1</span> Introducción al R Studio<a href="index.html#introducción-al-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tipos-de-elementos-en-el-r" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tipos de elementos en el R<a href="index.html#tipos-de-elementos-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="las-unidades-mínimas" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Las unidades mínimas<a href="index.html#las-unidades-mínimas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos a examinar la clase de algunos de los elementos más básicos en R:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para escribir valores character siempre entre comillas</span></span>
+<span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;rojo&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para escribir valores booleanos siempre usar mayúscula.</span></span>
+<span id="cb5-2"><a href="index.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>Tener en cuenta que también podemos coercionarlos</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;5&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">5.1</span>)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;5&quot;</code></pre>
+<p>Podemos asignarles etiquetas (nombres) a esos elementos.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">5.5</span></span>
+<span id="cb13-2"><a href="index.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="index.html#cb15-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;perro&quot;</span></span>
+<span id="cb15-2"><a href="index.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb17-2"><a href="index.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(z)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>Considerar que también se puede usar el signo “=”. Sin embargo, tiene algunas diferencias en cuanto a su uso en el programa.</p>
+<p>Por ejemplo, uno puede escribir esta sentencia X &lt;-5+5 y
+5+5-&gt;X.</p>
+<p>Sin embargo, el sistema no acepta lo siguiente: 5+5 = X</p>
+</div>
+</div>
+<div id="las-estructuras-en-el-r" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Las estructuras en el R<a href="index.html#las-estructuras-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

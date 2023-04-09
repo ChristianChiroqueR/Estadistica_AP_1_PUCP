@@ -1,5 +1,7 @@
-introducción-a-la-estadística-y-al-r-studio
-elementos-básicos
+introducción-al-r-studio
+tipos-de-elementos-en-el-r
+las-unidades-mínimas
+las-estructuras-en-el-r
 manipulación-de-datos-y-estadísticos-descriptivos
 preparación
 entorno-de-trabajo
