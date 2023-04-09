@@ -5,6 +5,6 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Sesión 1: 
+# Introducción a la Estadística y al R Studio
 
-## Introducción
+## Elementos básicos
