@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
 <li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Elementos básicos en el R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
@@ -154,6 +154,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
 <li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
 </ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
 <ul>
@@ -258,8 +265,8 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 </ul>
 </div>
 </div>
-<div id="elementos-básicos-en-el-r" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Elementos básicos en el R<a href="index.html#elementos-básicos-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="los-objetos-elementos-básicos-en-el-r" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Los objetos: elementos básicos en el R<a href="index.html#los-objetos-elementos-básicos-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos a examinar la clase de algunos de los elementos más básicos en R: los números, los caracteres y los elementos lógicos.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -336,8 +343,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <span id="cb36-2"><a href="index.html#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
 <span id="cb36-3"><a href="index.html#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Mujer&quot;</span>, <span class="st">&quot;Hombre&quot;</span>))</span>
 <span id="cb36-4"><a href="index.html#cb36-4" aria-hidden="true" tabindex="-1"></a>genero_en_factor</span></code></pre></div>
-<pre><code>## [1] Mujer  Mujer  Mujer  Hombre Hombre
-## [6] Mujer  Hombre
+<pre><code>## [1] Mujer  Mujer  Mujer  Hombre Hombre Mujer  Hombre
 ## Levels: Mujer Hombre</code></pre>
 <p>En la práctica, muchas veces vamos a ver las variables de tipo factor en nuestro análisis. Por ello, debes ser muy cuidadoso en la preparación previa que debes realizar a la base de datos antes de aplicar las funciones.</p>
 <p>Asimismo, un factor puede estar ordenado o no ordenado. Esto nos sirve, por ejemplo, para crear variables de tipo ordinal. Podemos indicarlo ello, con el argumento <code>ordered=</code>.</p>
@@ -365,14 +371,10 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <span id="cb40-5"><a href="index.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;variable4&quot;</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>))</span>
 <span id="cb40-6"><a href="index.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="co">#Para crear un DT los vectores de insumo deben ser del mismo largo</span></span>
 <span id="cb40-7"><a href="index.html#cb40-7" aria-hidden="true" tabindex="-1"></a>mi_df</span></code></pre></div>
-<pre><code>##   variable1 variable2 variable3
-## 1         1       1.2         a
-## 2         2       3.4         b
-## 3         3       4.5         c
-##   variable4
-## 1         1
-## 2         2
-## 3         3</code></pre>
+<pre><code>##   variable1 variable2 variable3 variable4
+## 1         1       1.2         a         1
+## 2         2       3.4         b         2
+## 3         3       4.5         c         3</code></pre>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="index.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mi_df)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    3 obs. of  4 variables:
 ##  $ variable1: int  1 2 3
@@ -397,8 +399,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <li>Nombre de columnas: Podemos consultar el nombre de las columnas (variables) con la función <code>names()</code>.</li>
 </ul>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mi_df) </span></code></pre></div>
-<pre><code>## [1] &quot;variable1&quot; &quot;variable2&quot; &quot;variable3&quot;
-## [4] &quot;variable4&quot;</code></pre>
+<pre><code>## [1] &quot;variable1&quot; &quot;variable2&quot; &quot;variable3&quot; &quot;variable4&quot;</code></pre>
 </div>
 <div id="índices" class="section level3 hasAnchor" number="1.3.5">
 <h3><span class="header-section-number">1.3.5</span> Índices<a href="index.html#índices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -420,17 +421,83 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <li>Seleccionar el caso (fila) 2:</li>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="index.html#cb54-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,]</span></code></pre></div>
-<pre><code>##   variable1 variable2 variable3
-## 2         2       3.4         b
-##   variable4
-## 2         2</code></pre>
+<pre><code>##   variable1 variable2 variable3 variable4
+## 2         2       3.4         b         2</code></pre>
 <ul>
 <li>Seleccionar el elemento que se encuentra en la fila 2 y la columna 2:</li>
 </ul>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="index.html#cb56-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 3.4</code></pre>
-
 </div>
+</div>
+<div id="nuestras-herramientas-paquetes-y-funciones" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Nuestras herramientas: Paquetes y funciones<a href="index.html#nuestras-herramientas-paquetes-y-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="paquetes" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Paquetes<a href="index.html#paquetes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En R, un paquete es un conjunto de herramientas y funciones predefinidas que permiten a los usuarios realizar tareas específicas, como análisis de datos o visualización de gráficos. Los paquetes pueden ser instalados desde los repositorios de CRAN u otros lugares (como repositorios).</p>
+<p>Para instalar un paquete necesitas escribir <code>install.packages("nombre_del_paquete")</code>. Luego de instalarlo, para comenzar a utilizarlo debes abrirlo con el siguiente comando <code>library(nombre_del_paquete)</code>.</p>
+</div>
+<div id="funciones" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Funciones<a href="index.html#funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Las funciones son bloques de código que realizan una tarea específica. Pueden ser definidas por el usuario o pueden ser proporcionadas por un paquete (esto es lo más común).</p></li>
+<li><p>Las funciones toman argumentos, que son valores que se pasan a la función para que los utilice en su tarea.</p></li>
+<li><p>Los argumentos de una función son variables o valores que se pasan a la función para que sean utilizados en la tarea que se está realizando. Algunos argumentos son obligatorios, lo que significa que deben ser proporcionados para que la función pueda realizar su tarea, mientras que otros son opcionales y tienen un valor predeterminado si no se especifican.</p></li>
+<li><p>Para ver qué argumentos tiene una función puedes entrar a la documentación de la misma.</p></li>
+<li><p>Por ejemplo, el paquete “dplyr” es un conjunto de herramientas que se utiliza para manipular y transformar datos en R. Una de las funciones de “dplyr” es “filter”, que se utiliza para filtrar filas en un conjunto de datos. Un argumento obligatorio para la función “filter” es el conjunto de datos que se va a filtrar, mientras que un argumento opcional es la condición que se utilizará para filtrar los datos.</p></li>
+</ul>
+</div>
+</div>
+<div id="abrir-una-base-de-datos" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Abrir una base de datos<a href="index.html#abrir-una-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En la práctica tenemos el reto de manipular bases de datos que se encuentran en distintos tipos de archivo. Algunas veces se encuentran en formato .xlsx (Excel regular), pero otras veces las encontramos en formato .csv (separado con comas o puntos y comas), .sav (archivos desde el SPSS), entre otros.</p>
+<p>Para ello, tenemos dos opciones. La más sencilla es utilizar el paquete <code>rio</code> y utilizamos la función <code>import()</code>. Este paquete es una navaja suiza porque te permite abrir distintos formatos con la misma función.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb58-2"><a href="index.html#cb58-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
+<span id="cb58-3"><a href="index.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA
+## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL
+## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE
+## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL
+##   VOTOS_VALIDOS_OP VOTOS_VALIDOS VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES
+## 1                6         11148         1034         340            15748
+## 2               24         11148         1034         340            15748
+## 3               35         11148         1034         340            15748
+##   VOTOS_EMITIDOS
+## 1          12522
+## 2          12522
+## 3          12522</code></pre>
+<p>O también podemos utilizar el paquete <code>readxl()</code> que pertenece al universo de <strong>Tidyverse</strong>. Lo bueno de esta función es que cuando visualizas la data se realiza de forma más ordenada.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb60-2"><a href="index.html#cb60-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
+<span id="cb60-3"><a href="index.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 11
+##   UBIGEO DEPARTAMENTO PROVIN…¹ DISTR…² ORGAN…³ VOTOS…⁴ VOTOS…⁵ VOTOS…⁶ VOTOS…⁷ NUMER…⁸
+##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 010101 AMAZONAS     CHACHAP… CHACHA… FUERZA…       6   11148    1034     340   15748
+## 2 010101 AMAZONAS     CHACHAP… CHACHA… PARTID…      24   11148    1034     340   15748
+## 3 010101 AMAZONAS     CHACHAP… CHACHA… DESPER…      35   11148    1034     340   15748
+## # … with 1 more variable: VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names
+## #   ¹​PROVINCIA, ²​DISTRITO, ³​ORGANIZACIÓN_POLITICA, ⁴​VOTOS_VALIDOS_OP, ⁵​VOTOS_VALIDOS,
+## #   ⁶​VOTOS_BLANCO, ⁷​VOTOS_NULOS, ⁸​NUMERO_ELECTORES</code></pre>
+<p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
+</div>
+<div id="manipulación-de-datos-con-tidyverse" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Manipulación de datos con Tidyverse<a href="index.html#manipulación-de-datos-con-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Por manipulación de datos nos referimos a que, una vez que tengamos nuestro data frame, es usual aplicar algunas funciones para personalizar aún más la data con la que estamos trabajando.</p>
+<p>Algunas de estas funciones son por ejemplo:</p>
+<ul>
+<li><p>Filtrar data: Normalmente no utilizamos toda la data disponible, sino sólo una parte. Para ello podemos filtrar la data con ciertos criterios.</p></li>
+<li><p>Seleccionar columnas: El mismo razonamiento que el punto anterior. Para hacer más ágil la manipulación de un data frame, podemos quedarnos sólo con aquellas columnas que vamos a utilizar.</p></li>
+<li><p>Ordenar según una variable: Hay ocasiones en que necesitamos que nuestra data esté ordenada según una determinada variable.</p></li>
+<li><p>Crear estadísticos de resumen: Lo veremos en la siguiente sesión, pero siempre necesitamos crear estadísticos de resumen, como los relaciones a tendencia central, posición o dispersión.</p></li>
+<li><p>Crear nuevas variable: Esto nos permite generar nuevas variables a partir de las que ya se encuentran en nuestra data.</p></li>
+</ul>
+<p>Para todas estas funciones mencionadas se recomienda utilizar el paquete <code>dplyr()</code>. Pueden visualizar un video tutorial aquí:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/etxZRx3Jx8o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p>El uso de Tidyverse será transversal a lo largo del curso.</p>
+
 </div>
 </div>
             </section>

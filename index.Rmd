@@ -66,7 +66,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 - Escala ordinal: Es un caso particular. No son nominales porque tienen un orden natural y no son numéricas porque usan etiquetas (niveles). Ej: Nivel de satisfacción con el Poder Ejecutivo. 
 
 
-## Elementos básicos en el R
+## Los objetos: elementos básicos en el R
 
 Vamos a examinar la clase de algunos de los elementos más básicos en R: los números, los caracteres y los elementos lógicos. 
 
@@ -269,3 +269,68 @@ mi_df [2,]
 mi_df [2,2]
 ```
 
+## Nuestras herramientas: Paquetes y funciones
+
+### Paquetes
+
+En R, un paquete es un conjunto de herramientas y funciones predefinidas que permiten a los usuarios realizar tareas específicas, como análisis de datos o visualización de gráficos. Los paquetes pueden ser instalados desde los repositorios de CRAN u otros lugares (como repositorios).
+
+Para instalar un paquete necesitas escribir `install.packages("nombre_del_paquete")`. Luego de instalarlo, para comenzar a utilizarlo debes abrirlo con el siguiente comando `library(nombre_del_paquete)`.
+
+### Funciones
+
+- Las funciones son bloques de código que realizan una tarea específica. Pueden ser definidas por el usuario o pueden ser proporcionadas por un paquete (esto es lo más común). 
+
+- Las funciones toman argumentos, que son valores que se pasan a la función para que los utilice en su tarea.
+
+- Los argumentos de una función son variables o valores que se pasan a la función para que sean utilizados en la tarea que se está realizando. Algunos argumentos son obligatorios, lo que significa que deben ser proporcionados para que la función pueda realizar su tarea, mientras que otros son opcionales y tienen un valor predeterminado si no se especifican. 
+
+- Para ver qué argumentos tiene una función puedes entrar a la documentación de la misma. 
+
+- Por ejemplo, el paquete "dplyr" es un conjunto de herramientas que se utiliza para manipular y transformar datos en R. Una de las funciones de "dplyr" es "filter", que se utiliza para filtrar filas en un conjunto de datos. Un argumento obligatorio para la función "filter" es el conjunto de datos que se va a filtrar, mientras que un argumento opcional es la condición que se utilizará para filtrar los datos.
+
+
+## Abrir una base de datos
+
+En la práctica tenemos el reto de manipular bases de datos que se encuentran en distintos tipos de archivo. Algunas veces se encuentran en formato .xlsx (Excel regular), pero otras veces las encontramos en formato .csv (separado con comas o puntos y comas), .sav (archivos desde el SPSS), entre otros. 
+
+Para ello, tenemos dos opciones. La más sencilla es utilizar el paquete `rio` y utilizamos la función `import()`. Este paquete es una navaja suiza porque te permite abrir distintos formatos con la misma función. 
+
+```{r}
+library(rio)
+elecciones_2011<-import("RESULTADOS_EG_PRESIDENCIAL_2011.xls")
+head(elecciones_2011,3)
+```
+
+O también podemos utilizar el paquete `readxl()` que pertenece al universo de **Tidyverse**. Lo bueno de esta función es que cuando visualizas la data se realiza de forma más ordenada. 
+
+```{r}
+library(readxl)
+elecciones_2011<-read_excel("RESULTADOS_EG_PRESIDENCIAL_2011.xls")
+head(elecciones_2011,3)
+```
+
+Si deseas utilizar esta segunda forma, puedes aplicar la función `read_csv()` para archivos separados con comas. 
+
+
+## Manipulación de datos con Tidyverse
+
+Por manipulación de datos nos referimos a que, una vez que tengamos nuestro data frame, es usual aplicar algunas funciones para personalizar aún más la data con la que estamos trabajando. 
+
+Algunas de estas funciones son por ejemplo:
+
+- Filtrar data: Normalmente no utilizamos toda la data disponible, sino sólo una parte. Para ello podemos filtrar la data con ciertos criterios. 
+
+- Seleccionar columnas: El mismo razonamiento que el punto anterior. Para hacer más ágil la manipulación de un data frame, podemos quedarnos sólo con aquellas columnas que vamos a utilizar. 
+- Ordenar según una variable: Hay ocasiones en que necesitamos que nuestra data esté ordenada según una determinada variable. 
+
+- Crear estadísticos de resumen: Lo veremos en la siguiente sesión, pero siempre necesitamos crear estadísticos de resumen, como los relaciones a tendencia central, posición o dispersión. 
+
+- Crear nuevas variable: Esto nos permite generar nuevas variables a partir de las que ya se encuentran en nuestra data. 
+
+Para todas estas funciones mencionadas se recomienda utilizar el paquete `dplyr()`. Pueden visualizar un video tutorial aquí:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/etxZRx3Jx8o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+El uso de Tidyverse será transversal a lo largo del curso. 

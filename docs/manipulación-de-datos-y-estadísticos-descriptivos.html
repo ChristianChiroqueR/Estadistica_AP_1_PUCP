@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
 <li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Elementos básicos en el R</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
@@ -154,6 +154,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
 <li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
 </ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
 <ul>
@@ -223,8 +230,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Ahora bien, DE PREFERENCIA, siempre que inicies un R Markdown o Script en el R Studio tienes que abrir los paquetes que vas a utilizar. En este caso vamos a utilizar el paquete Tidyverse (que ya incluye muchos otros paquetes ya explicados). Puedes abrirlo con el siguiente comando:</li>
 </ul>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb58-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb62-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <ul>
 <li>Recuerda que la función library(nombre_del_paquete) sirve para abrir los paquetes YA INSTALADOS. Si te sale un mensaje que dice que “no existe el paquete” debes instalarlo con la función install.packages(línea previa).</li>
 </ul>
@@ -237,56 +244,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.2.1</span> Importación<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para la parte I, II y III de esta clase utilizaremos la base de datos de los resultados de las elecciones presidenciales del 2011.</p>
 <p>Vamos a realizar un breve reporte sobre los porcentajes obtenidos por la organización política “Gana Perú”.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb59-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb59-2" aria-hidden="true" tabindex="-1"></a>elecciones <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb63-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-2" aria-hidden="true" tabindex="-1"></a>elecciones <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span></code></pre></div>
 <p>Luego de abrir una base de datos, siempre te recomiendo darle un primer vistazo.</p>
 <p>Puedes ver las primeras diez filas con:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTAMENTO PROVINCIA DISTR…¹
-##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;  
-##  1 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  2 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  3 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  4 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  5 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  6 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  7 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  8 010101 AMAZONAS     CHACHAPO… CHACHA…
-##  9 010101 AMAZONAS     CHACHAPO… CHACHA…
-## 10 010101 AMAZONAS     CHACHAPO… CHACHA…
-## # … with 7 more variables:
-## #   ORGANIZACIÓN_POLITICA &lt;chr&gt;,
-## #   VOTOS_VALIDOS_OP &lt;dbl&gt;,
-## #   VOTOS_VALIDOS &lt;dbl&gt;,
-## #   VOTOS_BLANCO &lt;dbl&gt;,
-## #   VOTOS_NULOS &lt;dbl&gt;,
-## #   NUMERO_ELECTORES &lt;dbl&gt;, …</code></pre>
+##    UBIGEO DEPARTAMENTO PROVI…¹ DISTR…² ORGAN…³ VOTOS…⁴ VOTOS…⁵ VOTOS…⁶ VOTOS…⁷ NUMER…⁸
+##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 010101 AMAZONAS     CHACHA… CHACHA… FUERZA…       6   11148    1034     340   15748
+##  2 010101 AMAZONAS     CHACHA… CHACHA… PARTID…      24   11148    1034     340   15748
+##  3 010101 AMAZONAS     CHACHA… CHACHA… DESPER…      35   11148    1034     340   15748
+##  4 010101 AMAZONAS     CHACHA… CHACHA… GANA P…    2971   11148    1034     340   15748
+##  5 010101 AMAZONAS     CHACHA… CHACHA… FONAVI…       7   11148    1034     340   15748
+##  6 010101 AMAZONAS     CHACHA… CHACHA… JUSTIC…       4   11148    1034     340   15748
+##  7 010101 AMAZONAS     CHACHA… CHACHA… FUERZA…    2651   11148    1034     340   15748
+##  8 010101 AMAZONAS     CHACHA… CHACHA… PARTID…       2   11148    1034     340   15748
+##  9 010101 AMAZONAS     CHACHA… CHACHA… ALIANZ…    1479   11148    1034     340   15748
+## 10 010101 AMAZONAS     CHACHA… CHACHA… ALIANZ…     773   11148    1034     340   15748
+## # … with 1 more variable: VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names
+## #   ¹​PROVINCIA, ²​DISTRITO, ³​ORGANIZACIÓN_POLITICA, ⁴​VOTOS_VALIDOS_OP, ⁵​VOTOS_VALIDOS,
+## #   ⁶​VOTOS_BLANCO, ⁷​VOTOS_NULOS, ⁸​NUMERO_ELECTORES</code></pre>
 <p>También puedes hacerle click en Environment o colocar:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
 </div>
 <div id="verificar-el-tipo-de-variable" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Verificar el tipo de variable<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos las variables, podemos utilizar la función <code>names(nombre_de_data)</code></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elecciones)</span></code></pre></div>
-<pre><code>##  [1] &quot;UBIGEO&quot;               
-##  [2] &quot;DEPARTAMENTO&quot;         
-##  [3] &quot;PROVINCIA&quot;            
-##  [4] &quot;DISTRITO&quot;             
-##  [5] &quot;ORGANIZACIÓN_POLITICA&quot;
-##  [6] &quot;VOTOS_VALIDOS_OP&quot;     
-##  [7] &quot;VOTOS_VALIDOS&quot;        
-##  [8] &quot;VOTOS_BLANCO&quot;         
-##  [9] &quot;VOTOS_NULOS&quot;          
-## [10] &quot;NUMERO_ELECTORES&quot;     
-## [11] &quot;VOTOS_EMITIDOS&quot;</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elecciones)</span></code></pre></div>
+<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;          &quot;PROVINCIA&quot;            
+##  [4] &quot;DISTRITO&quot;              &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;     
+##  [7] &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;          &quot;VOTOS_NULOS&quot;          
+## [10] &quot;NUMERO_ELECTORES&quot;      &quot;VOTOS_EMITIDOS&quot;</code></pre>
 <p>Puedes editar los nombres si deseas. En este caso vamos a cambiar el nombre de la variable <strong>ORGANIZACIÓN_POLITICA</strong> por <strong>ORG_POL</strong>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb65-1" aria-hidden="true" tabindex="-1"></a>elecciones<span class="ot">&lt;-</span> elecciones <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ORG_POL=</span>ORGANIZACIÓN_POLITICA)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb69-1" aria-hidden="true" tabindex="-1"></a>elecciones<span class="ot">&lt;-</span> elecciones <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ORG_POL=</span>ORGANIZACIÓN_POLITICA)</span></code></pre></div>
 <blockquote>
 <p><strong>Observación: Ten en cuenta que aquí estamos sobre escribiendo.</strong></p>
 </blockquote>
 <p>Veamos si el formato es adecuado.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elecciones)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elecciones)</span></code></pre></div>
 <pre><code>## tibble [23,958 × 11] (S3: tbl_df/tbl/data.frame)
 ##  $ UBIGEO          : chr [1:23958] &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; ...
 ##  $ DEPARTAMENTO    : chr [1:23958] &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; ...
@@ -306,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Aquí nos debemos preguntar: a lo largo de nuestro trabajo, vamos a utilizar toda la data o sólo una parte?</p>
 <p>En este caso puntual, sólo vamos a utilizar aquellos resultados de la organización política Gana Perú. Por ello, vamos a hacer un filtro con ese criterio y vamos a **crear un subset o una data ya filtrada”.</p>
 <p>A esta data la llamaremos <strong>elecciones_GN</strong>.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb68-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="ot">&lt;-</span> elecciones<span class="sc">%&gt;%</span> <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb72-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="ot">&lt;-</span> elecciones<span class="sc">%&gt;%</span> <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) </span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -314,17 +310,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> Estadísticos de tendencia central<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como nuestro objetivo es explorar el porcentaje de votos válidos obtenidos por Gana Perú, vamos a crear esa variable en base a dos variable observables: el número de votos obtenidos y el número total de votos válidos.</p>
 <p>Utilizamos la función <code>mutate()</code>.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb69-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="ot">&lt;-</span>elecciones_GN <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">porc.voto=</span>VOTOS_VALIDOS_OP<span class="sc">/</span>VOTOS_VALIDOS<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="ot">&lt;-</span>elecciones_GN <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">porc.voto=</span>VOTOS_VALIDOS_OP<span class="sc">/</span>VOTOS_VALIDOS<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
 <p>Ahora podemos calculas los tres estadísticos de tendencia central con la función <code>summarise()</code>.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb70-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="sc">%&gt;%</span> </span>
-<span id="cb70-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb70-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb70-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mediana=</span><span class="fu">median</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="sc">%&gt;%</span> </span>
+<span id="cb74-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb74-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mediana=</span><span class="fu">median</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   Media Mediana
 ##   &lt;dbl&gt;   &lt;dbl&gt;
 ## 1  38.9    35.1</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recuerda que colocamos na.rm = TRUE para que haga el cálculo omitiendo</span></span>
-<span id="cb72-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aquellas celdas vacías (valores perdidos)</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recuerda que colocamos na.rm = TRUE para que haga el cálculo omitiendo</span></span>
+<span id="cb76-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aquellas celdas vacías (valores perdidos)</span></span></code></pre></div>
 <hr />
 </div>
 <div id="estadísticos-de-posición" class="section level2 hasAnchor" number="2.4">
@@ -338,27 +334,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Se utilizan para describir la dispersión de los datos alrededor de la mediana, así como identificar valores atípicos o extremos en el conjunto de datos.</p></li>
 </ul>
 <p>Para calcular un determinado percentil podemos solicitarlo utilizando la función <code>summarise()</code> junto con <code>quantile()</code>. Vamos a solicitar los cuartiles (el percentil 25, 50 y 75) de la variable porc.voto:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb73-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">P25=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.25</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb73-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">P50=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.50</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb73-4"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">P75=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.75</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
+<span id="cb77-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">P25=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.25</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb77-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">P50=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.50</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb77-4"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">P75=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.75</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##     P25   P50   P75
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1  21.6  35.1  56.0</code></pre>
 <p>Si son muchos percentiles también puedes usar la función concatenar <code>c()</code>, como en el siguiente ejemplo:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb75-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb75-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(porc.voto, <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.25</span>,<span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
+<span id="cb79-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(porc.voto, <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.25</span>,<span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 1
-##   quantile(porc.voto, c(0.1, 0.25, 0.5…¹
-##                                    &lt;dbl&gt;
-## 1                                   11.4
-## 2                                   21.6
-## 3                                   35.1
-## 4                                   56.0
-## 5                                   70.7
-## # … with abbreviated variable name
-## #   ¹​`quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`</code></pre>
+##   `quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`
+##                                                               &lt;dbl&gt;
+## 1                                                              11.4
+## 2                                                              21.6
+## 3                                                              35.1
+## 4                                                              56.0
+## 5                                                              70.7</code></pre>
 <hr />
 </div>
 </div>
@@ -369,9 +363,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="el-rango" class="section level3 hasAnchor" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> El Rango<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El rango es una medida de dispersión que se utiliza para determinar la amplitud total de un conjunto de datos. Es la diferencia entre el valor máximo y el valor mínimo en un conjunto de datos. Es una medida muy sencilla de calcular y proporciona una idea general de la variabilidad de los datos. Sin embargo, no toma en cuenta la distribución de los datos en el conjunto, lo que puede hacer que la medida sea menos informativa en ciertos casos.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb77-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb77-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Rango=</span><span class="fu">max</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">-</span><span class="fu">min</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
+<span id="cb81-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Rango=</span><span class="fu">max</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">-</span><span class="fu">min</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   Rango
 ##   &lt;dbl&gt;
@@ -384,8 +378,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\sigma^2 = \frac{\sum_{i=1}^n (x_i - \mu)^2}{n}\]</span></p>
 <p>Matemáticamente, la varianza se define como la media aritmética de los cuadrados de las diferencias entre cada valor de la variable y la media.</p>
 <p>Lo calculamos utilizando la función <code>var()</code>:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb79-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Varianza=</span><span class="fu">var</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb83-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
+<span id="cb83-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Varianza=</span><span class="fu">var</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   Varianza
 ##      &lt;dbl&gt;
@@ -402,8 +396,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La desviación estándar se expresa en las mismas unidades que los datos originales, lo que la hace fácilmente interpretable.</p>
 <p>Una desviación estándar pequeña indica que los datos están muy concentrados alrededor de la media, mientras que una desviación estándar grande indica que los datos están más dispersos y que existe una mayor variabilidad en los mismos.</p>
 <p>Lo calculamos usando la función <code>sd()</code>:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb81-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Desv_est=</span><span class="fu">sd</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb85-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
+<span id="cb85-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Desv_est=</span><span class="fu">sd</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   Desv_est
 ##      &lt;dbl&gt;
@@ -415,8 +409,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El rango intercuartil (IQR por sus siglas en inglés) es una medida de dispersión utilizada en estadística que se define como la diferencia entre el tercer y primer cuartil de un conjunto de datos. En otras palabras, el IQR mide la distancia entre el 25% y el 75% de los datos ordenados de menor a mayor.</p>
 <p>El IQR es una medida de dispersión robusta que no se ve afectada por valores atípicos o extremos en los datos, a diferencia del rango o la desviación estándar. Es útil para resumir la variabilidad de los datos en un intervalo de valores que contiene la mayor parte de los datos y que no está influenciado por los valores extremos. El IQR se puede utilizar para identificar valores atípicos o para comparar la variabilidad entre diferentes conjuntos de datos.</p>
 <p>Lo calculamos utilizando la función <code>IQR()</code>:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb83-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb83-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">IQR=</span><span class="fu">IQR</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb87-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
+<span id="cb87-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">IQR=</span><span class="fu">IQR</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##     IQR
 ##   &lt;dbl&gt;
@@ -436,10 +430,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
 </ol>
 <p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
 <p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
 
 </div>
