@@ -1,4 +1,9 @@
-introducción-al-r-studio
+introducción
+los-pilares-de-la-estadística
+definición
+unidad-de-análisis
+tipos-de-variable
+escalas-de-medición
 elementos-básicos-en-el-r
 las-estructuras-en-el-r
 los-vectores

@@ -5,7 +5,66 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Introducción al R Studio
+# Introducción 
+
+## Los pilares de la Estadística
+
+### Definición
+
+La estadística es una rama de las matemáticas que se enfoca en el análisis, interpretación y presentación de datos. Los estadísticos se centran en la teoría estadística y en el desarrollo de métodos para analizar datos. Los estadísticos también pueden diseñar estudios experimentales para recopilar datos de una manera rigurosa y controlada.
+
+En términos generales, la estadística se divide en dos áreas principales: estadística descriptiva y estadística inferencial. La estadística descriptiva se centra en la organización y presentación de datos, mientras que la estadística inferencial se ocupa de la inferencia y la predicción a partir de datos.
+
+### Unidad de análisis
+
+En estadística, una unidad de análisis se refiere a la entidad o elemento individual que se estudia en una investigación o estudio estadístico.
+
+Esta entidad puede ser una persona, un animal, un objeto, una organización, un evento, una muestra, etc. Dependiendo del objetivo del estudio y de la pregunta que se pretenda responder, la unidad de análisis puede variar.
+
+Es importante tener en cuenta que la elección de la unidad de análisis puede tener un impacto significativo en los resultados de un estudio estadístico. Por lo tanto, es fundamental definir claramente la unidad de análisis y asegurarse de que sea coherente con los objetivos y la hipótesis de la investigación.
+
+
+### Tipos de variable
+
+En estadística, una variable es cualquier característica, propiedad o atributo que puede tomar diferentes valores y que se puede medir o observar en los elementos de una población o muestra.
+
+Distinguimos los tipos de variables porque diferentes métodos estadísticos pueden ser aplicados a cada tipo.
+
+**Variables numéricas**:
+
+- Se expresan en términos numéricos y se pueden medir con precisión.
+
+- Los valores representan diferentes magnitudes (cantidad) de la variable. 
+
+- Ejemplos: ingreso anual, número de sobrinos, edad y número de años de estudio.
+
+- También denominadas cuantitativas.
+	
+**Variables categóricas**:
+
+- No se expresan en términos numéricos y no se pueden medir con precisión.
+
+- Se miden utilizando un conjunto de categorías o etiquetas. 
+
+- Ejemplo: estado civil, departamento de residencia, tipo de música favorita. 
+
+- También denominadas cualitativas. 
+
+
+### Escalas de medición
+
+Identifica cómo es medida la variable. 
+
+Para las variables numéricas:
+Se utiliza la escala de intervalo: Existe una distancia específica entre cada par de valores y es comparable. Ej: Existe la misma distancia entre 1500 y 1000 soles que entre 1000 soles y 500 soles. 
+
+Para las variables categóricas: Se utiliza: 
+
+- Escala nominal: 
+Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de intensidad). Las distintas categorías son llamadas “niveles”. 
+
+- Escala ordinal: Es un caso particular. No son nominales porque tienen un orden natural y no son numéricas porque usan etiquetas (niveles). Ej: Nivel de satisfacción con el Poder Ejecutivo. 
+
 
 ## Elementos básicos en el R
 
@@ -54,8 +113,6 @@ Sin embargo, el sistema no acepta lo siguiente: 5+5 = X
 
 
 ## Las Estructuras en el R
-
-![](http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
 
 ### Los vectores
 

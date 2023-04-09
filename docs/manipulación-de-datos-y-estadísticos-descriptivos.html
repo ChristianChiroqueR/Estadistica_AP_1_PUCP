@@ -136,16 +136,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Estadística AP I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción al R Studio</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.1</b> Elementos básicos en el R</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Las Estructuras en el R</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.2.1</b> Los vectores</a></li>
-<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.2.2</b> Un vector especial: los factores</a></li>
-<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.2.3</b> Data frames</a></li>
-<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.2.4</b> Propiedades</a></li>
-<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.2.5</b> Índices</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Elementos básicos en el R</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.3.2</b> Un vector especial: los factores</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.3.3</b> Data frames</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
@@ -236,25 +243,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Puedes ver las primeras diez filas con:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTAMENTO PROVINCIA
-##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;    
-##  1 010101 AMAZONAS     CHACHAPO…
-##  2 010101 AMAZONAS     CHACHAPO…
-##  3 010101 AMAZONAS     CHACHAPO…
-##  4 010101 AMAZONAS     CHACHAPO…
-##  5 010101 AMAZONAS     CHACHAPO…
-##  6 010101 AMAZONAS     CHACHAPO…
-##  7 010101 AMAZONAS     CHACHAPO…
-##  8 010101 AMAZONAS     CHACHAPO…
-##  9 010101 AMAZONAS     CHACHAPO…
-## 10 010101 AMAZONAS     CHACHAPO…
-## # … with 8 more variables:
-## #   DISTRITO &lt;chr&gt;,
+##    UBIGEO DEPARTAMENTO PROVINCIA DISTR…¹
+##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;  
+##  1 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  2 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  3 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  4 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  5 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  6 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  7 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  8 010101 AMAZONAS     CHACHAPO… CHACHA…
+##  9 010101 AMAZONAS     CHACHAPO… CHACHA…
+## 10 010101 AMAZONAS     CHACHAPO… CHACHA…
+## # … with 7 more variables:
 ## #   ORGANIZACIÓN_POLITICA &lt;chr&gt;,
 ## #   VOTOS_VALIDOS_OP &lt;dbl&gt;,
 ## #   VOTOS_VALIDOS &lt;dbl&gt;,
 ## #   VOTOS_BLANCO &lt;dbl&gt;,
-## #   VOTOS_NULOS &lt;dbl&gt;, …</code></pre>
+## #   VOTOS_NULOS &lt;dbl&gt;,
+## #   NUMERO_ELECTORES &lt;dbl&gt;, …</code></pre>
 <p>También puedes hacerle click en Environment o colocar:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
 </div>
@@ -343,15 +350,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb75-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
 <span id="cb75-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(porc.voto, <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.25</span>,<span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 1
-##   quantile(porc.voto, c(0.1, 0…¹
-##                            &lt;dbl&gt;
-## 1                           11.4
-## 2                           21.6
-## 3                           35.1
-## 4                           56.0
-## 5                           70.7
-## # … with abbreviated variable
-## #   name
+##   quantile(porc.voto, c(0.1, 0.25, 0.5…¹
+##                                    &lt;dbl&gt;
+## 1                                   11.4
+## 2                                   21.6
+## 3                                   35.1
+## 4                                   56.0
+## 5                                   70.7
+## # … with abbreviated variable name
 ## #   ¹​`quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`</code></pre>
 <hr />
 </div>
@@ -430,10 +436,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
 </ol>
 <p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
 <p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
 
 </div>
