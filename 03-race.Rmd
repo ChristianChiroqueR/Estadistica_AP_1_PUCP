@@ -1,1 +1,7 @@
-# A caucus-race and a long tale
+# Visualización de datos con ggplot2
+
+## Base de datos
+
+
+
+## 

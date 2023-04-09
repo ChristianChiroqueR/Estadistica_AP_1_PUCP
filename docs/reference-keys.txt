@@ -1,4 +1,6 @@
 introducción-a-la-estadística-y-al-r-studio
 elementos-básicos
-the-pool-of-tears
-a-caucus-race-and-a-long-tale
+manipulación-de-datos-y-estadísticos-descriptivos
+visualización-de-datos-con-ggplot2
+base-de-datos
+section
