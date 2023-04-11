@@ -36,3 +36,14 @@ curvas-de-distribución-de-frecuencias
 visualización-de-datos-con-ggplot2
 base-de-datos-1
 section
+estadística-inferencial-introducción
+antecedentes-de-los-protagonistas
+la-desviación-estándar-1
+la-curva-normal
+elementos-básicos-de-probabilidad
+conceptos
+curva-normal-y-probabilidades
+ahora-sí-estadística-inferencial
+definiciones
+estimación-puntual
+estimación

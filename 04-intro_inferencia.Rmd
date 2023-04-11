@@ -1,0 +1,53 @@
+# Estadística Inferencial: Introducción
+
+## Antecedentes de los protagonistas
+
+### La desviación estándar 
+
+- La desviación estándar es una parte integral de la estadística inferencial y entender su funcionamiento nos ayudará a utilizarla más adelante. 
+
+- Recuerda, la desviación estándar es la raíz cuadrada de la sumatoria de todas las diferencias entre los valores observados y su media. 
+
+$$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
+- La desviación estándar se llama "estándar" porque **proporciona una unidad de medida común** para comparar unidades observadas de medida muy diferente. Por ejemplo:
+
+Forma de puntuación  | Fórmula
+------------- | -------------
+Puntuación en bruto  | $$X$$
+Puntuación de desviación  | $$X - \bar{X}$$
+Puntuación estandarizada Z  | $$Z = \frac{X - \bar{X}}{S_X}$$
+
+
+### La curva normal
+
+
+
+
+## Elementos básicos de probabilidad
+
+### Conceptos
+
+
+
+
+### Curva normal y probabilidades
+
+
+
+
+## Ahora sí: Estadística Inferencial
+
+### Definiciones
+
+
+
+
+
+### Estimación puntual
+
+
+
+
+
+
+### Estimación 
