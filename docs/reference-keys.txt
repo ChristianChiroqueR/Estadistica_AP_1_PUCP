@@ -51,6 +51,7 @@ error-de-muestreo
 distribuciones-de-muestreo.
 error-estándar
 teorema-del-límite-central
+ley-de-los-grandes-números
 intervalo-de-confianza-de-una-media
 ejemplo-enades-2022
 abrir-base-de-datos
