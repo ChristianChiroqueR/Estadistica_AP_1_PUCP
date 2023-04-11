@@ -307,7 +307,7 @@ summary(enades$p17)
 
 Podemos graficarlo
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 enades |> 
   ggplot() + 
   aes(x=p17)+
@@ -355,6 +355,18 @@ interval_m
 
 ```
 
+Para verlo mejor podemos utilizar el paquete `kableExtra`:
+
+```{r message=FALSE, warning=FALSE}
+library(kableExtra)
+interval_m |> 
+  kbl() |> 
+  kable_styling()
+```
+
+
+
+
 También podemos calcularla utilizando una sola función:
 
 ```{r}
@@ -387,10 +399,24 @@ enades %>%
   group_by(zona3) %>% 
   summarise(mean = mean(p17, na.rm = TRUE),
             ci_lower = ciMean(p17, na.rm = T)[1],
-            ci_upper = ciMean(p17, na.rm = T)[2])
+            ci_upper = ciMean(p17, na.rm = T)[2]) |> 
+  kbl() |> 
+  kable_styling()
 ```
 
 Según el cálculo, para Lima Metropolitana la media poblacional se encuentra entre 4.09 y 4.62, mientras que para Perú sin Lima se encuentra entre 4.48 y 4.88. 
 
+### Visualización
+
 > Interpretación: Se superponen los intervalos? Posiblemente no exista diferencia a nivel poblacional. 
+
+```{r message=FALSE, warning=FALSE}
+library(gplots)
+plotmeans(enades$p17~enades$zona3, p=0.95, 
+          xlab="Ámbito", ylab="Aceptación desigualdad", 
+          main="Gráfico de medias de Aceptación de la desigualdad en el Perú")
+```
+
+
+
 

@@ -58,3 +58,4 @@ identificar-una-variable-numérica
 cálculo-del-estimador-puntual-media-muestral
 cálculo-del-intervalo-de-confianza-al-95
 comparación-de-ic-entre-grupos
+visualización
