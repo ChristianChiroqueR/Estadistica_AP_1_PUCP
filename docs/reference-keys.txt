@@ -37,9 +37,9 @@ visualización-de-datos-con-ggplot2
 base-de-datos-1
 section
 estadística-inferencial-introducción
-antecedentes-de-los-protagonistas
+antecedentes-relevantes
 la-desviación-estándar-1
-la-curva-normal
+la-distribución-curva-normal
 elementos-básicos-de-probabilidad
 conceptos
 curva-normal-y-probabilidades

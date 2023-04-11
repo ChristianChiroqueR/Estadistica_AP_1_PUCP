@@ -196,10 +196,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-de-los-protagonistas"><i class="fa fa-check"></i><b>4.1</b> Antecedentes de los protagonistas</a>
+<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-relevantes"><i class="fa fa-check"></i><b>4.1</b> Antecedentes relevantes</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-desviación-estándar-1"><i class="fa fa-check"></i><b>4.1.1</b> La desviación estándar</a></li>
-<li class="chapter" data-level="4.1.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-curva-normal"><i class="fa fa-check"></i><b>4.1.2</b> La curva normal</a></li>
+<li class="chapter" data-level="4.1.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-distribución-curva-normal"><i class="fa fa-check"></i><b>4.1.2</b> La distribución (curva) normal</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-probabilidad"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de probabilidad</a>
 <ul>
@@ -234,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="estadística-inferencial-introducción" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Sesión 4</span> Estadística Inferencial: Introducción<a href="estadística-inferencial-introducción.html#estadística-inferencial-introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="antecedentes-de-los-protagonistas" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Antecedentes de los protagonistas<a href="estadística-inferencial-introducción.html#antecedentes-de-los-protagonistas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="antecedentes-relevantes" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Antecedentes relevantes<a href="estadística-inferencial-introducción.html#antecedentes-relevantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="la-desviación-estándar-1" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> La desviación estándar<a href="estadística-inferencial-introducción.html#la-desviación-estándar-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -243,32 +243,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Recuerda, la desviación estándar es la raíz cuadrada de la sumatoria de todas las diferencias entre los valores observados y su media.</p></li>
 </ul>
 <p><span class="math display">\[\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}\]</span>
-- La desviación estándar se llama “estándar” porque <strong>proporciona una unidad de medida común</strong> para comparar unidades observadas de medida muy diferente. Por ejemplo:</p>
+- La desviación estándar se llama “estándar” porque <strong>proporciona una unidad de medida común</strong> para comparar unidades observadas de medida muy diferente. Ejemplo: imaginemos que tenemos la variable ingreso que tiene media 120 y desviación estándar 10 y deseamos analizar el caso X = 130.</p>
 <table>
 <thead>
 <tr class="header">
 <th>Forma de puntuación</th>
 <th>Fórmula</th>
+<th>Ejemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Puntuación en bruto</td>
 <td><span class="math display">\[X\]</span></td>
+<td>130 soles</td>
 </tr>
 <tr class="even">
 <td>Puntuación de desviación</td>
 <td><span class="math display">\[X - \bar{X}\]</span></td>
+<td>10 soles</td>
 </tr>
 <tr class="odd">
 <td>Puntuación estandarizada Z</td>
 <td><span class="math display">\[Z = \frac{X - \bar{X}}{S_X}\]</span></td>
+<td>1 SD</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Presta atención a las unidades de medida!</p>
+</blockquote>
+<ul>
+<li><p>En el ejemplo anterior podemos corroborar que nosotros podemos medir la lejanía de una observación respecto a su media, no sólo en las unidades originales, sino diciendo <strong>cuántas desviaciones estándar</strong> la separa de su media. Está última medida se conoce como puntuaciones Z y es muy útil para comparar niveles de dispersión de variables observadas.</p></li>
+<li><p>Algunas reglas: 1) mientras más lejana esté una observación de su media, mayor será su puntuación de desvación y su puntuación Z. 2) El signo de la puntuación Z indica si la observación está por debajo o por encima de la media.</p></li>
+</ul>
 </div>
-<div id="la-curva-normal" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> La curva normal<a href="estadística-inferencial-introducción.html#la-curva-normal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="la-distribución-curva-normal" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> La distribución (curva) normal<a href="estadística-inferencial-introducción.html#la-distribución-curva-normal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure">
+<img src="https://www.researchgate.net/profile/Pedro-Romero-Aroca/publication/275021043/figure/fig1/AS:294595071102976@1447248346180/Distribucion-normal-y-sus-porcentajes-respecto-de-la-desviacion-estandar.png" alt="" />
+<p class="caption">alt text</p>
+</div>
 </div>
 </div>
 <div id="elementos-básicos-de-probabilidad" class="section level2 hasAnchor" number="4.2">

@@ -1,6 +1,6 @@
 # Estadística Inferencial: Introducción
 
-## Antecedentes de los protagonistas
+## Antecedentes relevantes
 
 ### La desviación estándar 
 
@@ -9,18 +9,23 @@
 - Recuerda, la desviación estándar es la raíz cuadrada de la sumatoria de todas las diferencias entre los valores observados y su media. 
 
 $$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
-- La desviación estándar se llama "estándar" porque **proporciona una unidad de medida común** para comparar unidades observadas de medida muy diferente. Por ejemplo:
+- La desviación estándar se llama "estándar" porque **proporciona una unidad de medida común** para comparar unidades observadas de medida muy diferente. Ejemplo: imaginemos que tenemos la variable ingreso que tiene media 120 y desviación estándar 10 y deseamos analizar el caso X = 130. 
 
-Forma de puntuación  | Fórmula
-------------- | -------------
-Puntuación en bruto  | $$X$$
-Puntuación de desviación  | $$X - \bar{X}$$
-Puntuación estandarizada Z  | $$Z = \frac{X - \bar{X}}{S_X}$$
+Forma de puntuación  | Fórmula | Ejemplo
+------------- | ------------- | -------------
+Puntuación en bruto  | $$X$$  | 130 soles
+Puntuación de desviación  | $$X - \bar{X}$$ | 10 soles
+Puntuación estandarizada Z  | $$Z = \frac{X - \bar{X}}{S_X}$$ | 1 SD
 
+> Presta atención a las unidades de medida!
 
-### La curva normal
+- En el ejemplo anterior podemos corroborar que nosotros podemos medir la lejanía de una observación respecto a su media, no sólo en las unidades originales, sino diciendo **cuántas desviaciones estándar** la separa de su media. Está última medida se conoce como puntuaciones Z y es muy útil para comparar niveles de dispersión de variables observadas. 
 
+- Algunas reglas: 1) mientras más lejana esté una observación de su media, mayor será su puntuación de desvación y su puntuación Z. 2) El signo de la puntuación Z indica si la observación está por debajo o por encima de la media. 
 
+### La distribución (curva) normal
+
+![alt text](https://www.researchgate.net/profile/Pedro-Romero-Aroca/publication/275021043/figure/fig1/AS:294595071102976@1447248346180/Distribucion-normal-y-sus-porcentajes-respecto-de-la-desviacion-estandar.png)
 
 
 ## Elementos básicos de probabilidad
