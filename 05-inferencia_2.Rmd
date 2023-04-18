@@ -1,0 +1,156 @@
+# Estadística Inferencial II
+
+## Ejercicio de repaso
+
+Abramos los paquetes que vamos a necesitar:
+
+```{r}
+library(pacman)
+p_load(haven, tidyverse, lsr, kableExtra)
+```
+
+
+Continuemos con el ejercicio que vimos en la última clase utilizando la ENADES.
+
+```{r}
+enades<-read_spss("data/ENADES_2022.sav") # Con esta función abrimos archivos de SPSS
+# enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav")
+```
+
+Elijamos la variable P17: 
+
+- En una escala del 1 al 10, en la que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable”. ¿Hasta qué punto es aceptable la desigualdad en el Perú? Dígame un número de 1 a 10, recuerde que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable (RESPUESTA ESPONTÁNEA)
+
+```{r}
+enades$p17<-as.numeric(enades$p17) #Lo convertimos a numérica
+summary(enades$p17) # Calculamos estadísticos de resumen de forma rápida.
+```
+
+### Pasos previos
+
+- Cuál es la variable?
+
+Nivel de aceptación de la desigualdad en el Perú.
+
+- Qué deseamos saber?
+
+Con nuestra muestra deseamos conocer el parámetro poblacional, es decir, la media de aceptación en la población. 
+
+
+### Estimación puntual
+
+El estimador puntual es una estadística descriptiva que se utiliza para estimar el valor desconocido de un parámetro poblacional a partir de una muestra. El estimador puntual proporciona una única estimación del valor del parámetro y se calcula a partir de los datos de la muestra.
+
+En este caso, la mejor estimación de la media población es simplemente la media muestral. 
+
+```{r}
+mean(enades$p17, na.rm=TRUE) #Calculamos la media, obviando valores perdidos. 
+```
+
+### Estimación por intervalo
+
+Ahora, una vez identificado el estimador puntual, podemos cambiar nuestra estimación, ahora utilizando intervalos. 
+
+La clase pasada lo hicimos con la fórmula, paso por paso. Ahora, utilizaremos una función: 
+
+```{r}
+#library(lsr) #Recuerda que esta función está en el paquete lsr
+ciMean(enades$p17, na.rm = T) # Calculamos el intervalo de confianza de p17, obviando valores perdidos. 
+```
+
+### Estimación por intervalo entre grupos: Comparación
+
+Ahora bien, en la mayoría de casos lo que deseamos es comparar grupos poblacionales. Por ejemplo:
+
+- Quién gana en promedio más dinero, los hombres o las mujeres?
+
+- Quién apoya más, en promedio, a la democracia, los de la zona A o la zona B?
+
+- Entre otros. 
+
+Lo primero que necesitamos para comparar es justamente un grupo de comparación. Ya hablando en programación del R, necesitamos un **factor**. 
+
+Recuerda que el factor era una variable que visualmente son números, pero teóricamente sabemos que cada número es un nivel. 
+
+Utilizaremos la variable zona3, la cual separa a los encuestados según su procedencia en: Lima Metropolitana y Perú sin Lima. 
+
+Veamos:
+
+```{r}
+enades$zona3<-factor(enades$zona3, # Nombre de la variable a convertir
+                     levels=1:2, # Definimos los niveles (esta variable sólo tenía 2 niveles)
+                     labels=c("Lima Metropolitana", "Perú sin Lima")) #Colocamos sus etiquetas
+
+#Con este comando hemos sobreescrito la variable zona3. Ahora lo que inicialmente era una variable numérica, ahora es un factor. 
+```
+
+Corroboremos:
+
+```{r}
+str(enades$zona3) #Solicitamos la estructura de la variable zona3
+```
+
+Solicitemos el intervalo de confianza de la variable p17 para cada grupo identificado:
+
+```{r}
+p17_segun_zona<-enades %>% 
+  group_by(zona3) %>% #Agrupamos por zona
+  summarise(mean = mean(p17, na.rm = TRUE), #Utilizamos summarise y pedimos la media,
+            ci_lower = ciMean(p17, na.rm = T)[1], # También el PRIMER ELEMENTO de la función ciMean
+            ci_upper = ciMean(p17, na.rm = T)[2]) #Y el SEGUNDO ELEMENTO de la función ciMean
+```
+
+```{r}
+p17_segun_zona
+```
+
+
+Según el cálculo, para Lima Metropolitana la media poblacional se encuentra entre 4.09 y 4.62, mientras que para Perú sin Lima se encuentra entre 4.48 y 4.88. 
+
+### Barras de error
+
+En el contexto de intervalos de confianza, las barras de error se utilizan para representar el nivel de incertidumbre en una estimación puntual del parámetro poblacional. Un intervalo de confianza es un rango de valores plausible para el valor del parámetro poblacional, y se construye a partir de una muestra aleatoria y un nivel de confianza específico.
+
+Las barras de error en un gráfico de intervalos de confianza se construyen a partir de los límites superior e inferior del intervalo de confianza. Generalmente se dibujan líneas verticales que se extienden desde el valor estimado del parámetro (que puede ser una media, una proporción, una diferencia de medias, etc.) hasta los límites del intervalo de confianza.
+
+Por ejemplo, si se estima la media de una variable a partir de una muestra y se desea construir un intervalo de confianza al 95%, las barras de error se construirán a partir del límite inferior y superior del intervalo de confianza, que contendrán el verdadero valor de la media poblacional con una probabilidad del 95%.
+
+Las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. Si las barras de error son muy pequeñas, esto sugiere que la estimación es muy precisa y que hay una alta confianza en la validez del intervalo de confianza. Por otro lado, si las barras de error son grandes, esto sugiere que la estimación es menos precisa y que hay una mayor incertidumbre en el intervalo de confianza.
+
+
+```{r message=FALSE, warning=FALSE}
+library(gplots)
+plotmeans(enades$p17~enades$zona3, p=0.95, 
+          xlab="Ámbito", ylab="Aceptación desigualdad", 
+          main="Gráfico de medias de Aceptación de la desigualdad en el Perú")
+```
+
+
+```{r}
+p17_segun_zona |> #Data
+  ggplot()+       #Iniciamos el ggplot. A partir de ahora son +! ya no |>!
+  aes(y=mean, x=zona3)+  #Los grupos en el eje X y la media en el eje Y
+  geom_errorbar(aes(ymin=ci_lower, ymax=ci_upper), width=0.2)+ #Graficamos la barra de error
+  geom_text(aes(label=paste(round(mean, 2))), vjust=0, size=5) #Colocamos el texto del valor de la media
+```
+> Una guía: Se superponen los intervalos?  
+
+
+### Ahora hazlo tú!
+
+
+
+
+## Intervalo de una proporción
+
+
+### Definición
+
+
+
+
+### Fórmula
+
+
+
+

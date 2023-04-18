@@ -66,7 +66,7 @@ Con este ejemplo, para el intervalo de 66 - 72 podemos afirmar lo siguiente:
 
 -   La probabilidad de seleccionar al azar un caso entre estas dos puntuaciones es 68%.
 
-## Ejemplo con R
+## Ejercicio con R
 
 -   Usted tiene la siguiente variable con distribución normal, de media 100 y desviación estándar 20.
 
@@ -221,7 +221,7 @@ df <- data.frame(media=medias)
 ```{r}
 df |> 
   ggplot()+
-  aes(x=medias) |> 
+  aes(x=medias) + 
   geom_histogram(bins = 10)
 ```
 
@@ -289,7 +289,7 @@ El Tablero de Galton ilustra cómo la distribución de frecuencias de los result
 ![](figures/IC_MEDIAS.jpg)
 - Ese valor que se suma y se resta a la media muestral es el **término de error**, sin embargo, es más conocido como margen de error. 
 
-## Ejemplo: ENADES 2022
+## Ejercicio con R: ENADES 2022
 
 El Instituto de Estudios Peruanos, por encargo de Oxfam en Perú, elaboró la I Encuesta Nacional de percepción de Desigualdades – ENADES 2022. Este estudio pone a disposición del público el análisis estadístico más completo a la fecha sobre la percepción de las diferentes formas de desigualdad en el Perú.
 
@@ -387,55 +387,7 @@ interval_m |>
 
 
 
-También podemos calcularla utilizando una sola función:
 
-```{r}
-library(lsr)
-ciMean(enades$p17, na.rm = T)
-```
-
-### Comparación de IC entre grupos
-
-Primero definamos un grupo de comparación. En este caso necesitamos un factor. Utilizaremos la variable zona3, la cual separa a los encuestados según su procedencia en: Lima Metropolitana y Perú sin Lima. 
-
-Veamos:
-
-```{r}
-enades$zona3<-factor(enades$zona3, 
-                     levels=1:2, 
-                     labels=c("Lima Metropolitana", "Perú sin Lima"))
-```
-
-Corroboremos:
-
-```{r}
-str(enades$zona3)
-```
-
-Solicitemos el intervalo de confianza de la variable p17 para cada grupo identificado:
-
-```{r}
-enades %>% 
-  group_by(zona3) %>% 
-  summarise(mean = mean(p17, na.rm = TRUE),
-            ci_lower = ciMean(p17, na.rm = T)[1],
-            ci_upper = ciMean(p17, na.rm = T)[2]) |> 
-  kbl() |> 
-  kable_styling()
-```
-
-Según el cálculo, para Lima Metropolitana la media poblacional se encuentra entre 4.09 y 4.62, mientras que para Perú sin Lima se encuentra entre 4.48 y 4.88. 
-
-### Visualización
-
-> Interpretación: Se superponen los intervalos? Posiblemente no exista diferencia a nivel poblacional. 
-
-```{r message=FALSE, warning=FALSE}
-library(gplots)
-plotmeans(enades$p17~enades$zona3, p=0.95, 
-          xlab="Ámbito", ylab="Aceptación desigualdad", 
-          main="Gráfico de medias de Aceptación de la desigualdad en el Perú")
-```
 
 
 
