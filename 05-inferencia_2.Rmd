@@ -57,7 +57,7 @@ En este caso, la mejor estimación de la media población es simplemente la medi
 mean(enades$p17, na.rm=TRUE) #Calculamos la media, obviando valores perdidos. 
 ```
 
-### Estimación por intervalo
+### IC para una media
 
 Ahora, una vez identificado el estimador puntual, podemos cambiar nuestra estimación, ahora utilizando intervalos. 
 
@@ -68,7 +68,7 @@ La clase pasada lo hicimos con la fórmula, paso por paso. Ahora, utilizaremos u
 ciMean(enades$p17, na.rm = T) # Calculamos el intervalo de confianza de p17, obviando valores perdidos. 
 ```
 
-### Estimación por intervalo entre grupos: Comparación
+### IC para una media según grupos
 
 Ahora bien, en la mayoría de casos lo que deseamos es comparar grupos poblacionales. Por ejemplo:
 
@@ -169,11 +169,11 @@ Calcule:
 
 - Calcule el intervalo de confianza de la media poblacional. 
 
-- Calcule los intervalos de confianza de la media según si el individuo vive en el área urbana o rural (D08B). En otras palabras, compare la media de la variable en esos dos grupos. 
+- Calcule los intervalos de confianza de la media según si el individuo vive en el área urbana o rural (area2). En otras palabras, compare la media de la variable en esos dos grupos. 
 
 - Realice un gráfico de barras de error. Existe indicio de DIFERENCIA entre los dos grupos?
 
-> Tienes 10 minutos!
+> Tienes 15 minutos!
 
 
 ## Intervalo de una proporción
@@ -209,16 +209,198 @@ $\hat{p}$ = Proporción muestral de la categoría elegida
 z = Puntuación crítica dependiendo de nuestro nivel de confianza elegido
 
 
-$$\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$ = Error estándar de una proporción
+$\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$ = Error estándar de una proporción
 
 
-### Cálculo con la fórmula
+### IC de proporción con la fórmula
+
+Primero ubiquemos una variable categórica. Utilicemos la p11.1:
+
+¿Qué tan desigual es el acceso de los peruanos a la EDUCACIÓN?
+1. Muy desigual
+2. Poco desigual
+3. Nada desigual
+
+```{r}
+#Configuramos nuestra variable como factor
+enades$p11.1<-factor(enades$p11.1, # Nombre de la variable a convertir
+                     levels=1:3, # Definimos los niveles (esta variable sólo tenía 2 niveles)
+                     labels=c("Muy desigual", "Poco desigual", "Nada desigual")) #Colocamos sus etiquetas
+```
 
 
 
+La muestra se divide entre estas tres opciones. Ahora elegimos **UNA CATEGORÍA** de estas tres a la que vamos a calcular la proporción. En este caso vamos a elegir la proporción de individuos que afirmó que el acceso a la educación en el Perú es "Muy desigual".
 
 
-### Cálculo con la función
+```{r}
+#Calculamos p
+enades |> 
+  count(p11.1) |> 
+  mutate(p=n/sum(n))
+```
+
+Ahora sabemos que nuestro $\hat{p}$ = 0.59
 
 
+```{r}
+p<-0.5961
+```
+
+El número total de casos es:
+
+```{r}
+n<- 1530
+```
+
+
+Ahora definimos la puntuación crítica. Cuánto era para 95% de confianza?
+
+```{r}
+z<-1.96
+```
+
+Ahora el error estándar $\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
+
+```{r}
+error_estandar<- sqrt((p*(1-p))/n)
+```
+
+Nuestro límite inferior es la proporción muestral menos z*error estándar:
+
+```{r}
+limite_inferior<- p-z*error_estandar
+limite_inferior
+```
+Y el límite superior es la proporción muestral más z*error estándar:
+
+```{r}
+limite_superior<- p+z*error_estandar
+limite_superior
+```
+
+Lo podemos colocar todo en un data frame
+
+```{r}
+resultados<-data.frame(p, error_estandar, limite_inferior, limite_superior)
+resultados |> 
+  kbl() |> 
+  kable_styling()
+```
+
+
+
+### IC de proporción con `prop.test()`
+
+Ahora bien, también podemos utilizar la función `prop.test()`:
+
+Recordemos:
+
+```{r}
+enades |> 
+  count(p11.1) |> 
+  mutate(p=n/sum(n))
+```
+
+Colocamos la **frecuencia** de la categoría elegida y el tamaño total de la muestra. 
+
+```{r}
+prop.test(912, 1530)$conf.int
+```
+
+> Por qué colocamos frecuencia? Porque así está configurada esta función. 
+
+
+### IC de proporción según grupos
+
+Ahora comparemos la proporción elegida (aquellos que creen que el acceso de los peruanos a la EDUCACIÓN es MUY DESIGUAL) entre el sector rural y urbano (area2).
+
+```{r}
+enades$area2<- factor(enades$area2, # Nombre de la variable a convertir
+                     levels=1:2, # Definimos los niveles (esta variable sólo tenía 2 niveles)
+                     labels=c("Urbano", "Rural")) #Colocamos sus etiquetas
+```
+
+
+Primero, nos tenemos que preguntar cuál es la frecuencia en cada grupo
+
+```{r}
+enades |> 
+  group_by(area2) |> 
+  count(p11.1) |> 
+  mutate(p=n/sum(n))
+```
+
+```{r}
+enades |> 
+  count(area2)
+```
+
+
+Ahora calculamos la función teniendo en cuenta que:
+
+- En el primer grupo hay 769 casos de éxito de un total de 1273. 
+
+Lo ingresamos a la función:
+
+```{r}
+prop.test(x=c(769), n=c(1273))$conf.int
+```
+
+- En el segundo grupo hay 143 casos de éxito de un total de 257.
+
+```{r}
+prop.test(x=c(143), n=c(257))$conf.int
+```
+
+
+Lo podemos ordenar en un data.frame.
+
+```{r}
+resultados_prop<-  data.frame(Grupo =c("Urbano", "Rural"), 
+                              P =c(0.60, 0.55), 
+                              Lim_inf=c(0.57, 0.49), 
+                              Lim_sup= c(0.63,0.61))
+```
+
+```{r}
+resultados_prop
+```
+
+Lo visualizamos:
+
+```{r}
+resultados_prop |> #Data
+  ggplot()+       #Iniciamos el ggplot. A partir de ahora son +! ya no |>!
+  aes(y=p, x=Grupo)+  #Los grupos en el eje X y la media en el eje Y
+  geom_errorbar(aes(ymin=Lim_inf, ymax=Lim_sup), width=0.2)+ #Graficamos la barra de error
+  xlab("Procedencia") + #Etiqueta del eje X
+  ylab("P la cobertura en educación es Muy Desigual") # Etiqueta del eje y
+```
+
+Otra alternativa es pedirlos al mismo tiempo en la función `prop.test()`. En este caso lo que nos muestra, es el **intervalo de la diferencia**.
+
+```{r}
+prop.test(x=c(769, 143), n=c(1273, 257))$conf.int
+```
+En este caso, se sigue la siguiente interpretación:
+
+Si el intervalo de confianza no contiene el valor cero, esto sugiere que las proporciones de los dos grupos son significativamente diferentes y que la hipótesis nula de que las proporciones son iguales debe ser rechazada. Por otro lado, si el intervalo de confianza contiene el valor cero, no podemos rechazar la hipótesis nula y no podemos concluir que las proporciones son significativamente diferentes.
+
+
+### Ahora hazlo tú!
+
+Cree un .Rmd y realice lo siguiente:
+
+Utilizando la variable "ideología2" (1: Izquierda, 2:Centro, 3:Derecha):
+
+Realice lo siguiente:
+
+- Brinde el estimador puntual de la proporción de población de Izquierda en el Perú. 
+
+- Calcule el intervalo de confianza de la proporción poblacional de Izquierda en el Perú. 
+
+- Calcule por separado, utilizando prop.test(), la proporción de población de izquierda en el área urbano y rural (area2).
+
+- Mediante la función prop.test(), compare los dos grupos y evalúe el intervalo de confianza de la diferencia en los p poblacionales.  
 

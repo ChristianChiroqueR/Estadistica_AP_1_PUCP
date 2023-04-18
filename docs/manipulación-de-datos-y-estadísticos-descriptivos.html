@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-17" />
+<meta name="date" content="2023-04-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -234,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
 <li class="chapter" data-level="5.1.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="5.1.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-por-intervalo"><i class="fa fa-check"></i><b>5.1.3</b> Estimación por intervalo</a></li>
-<li class="chapter" data-level="5.1.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-por-intervalo-entre-grupos-comparación"><i class="fa fa-check"></i><b>5.1.4</b> Estimación por intervalo entre grupos: Comparación</a></li>
+<li class="chapter" data-level="5.1.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
+<li class="chapter" data-level="5.1.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
 <li class="chapter" data-level="5.1.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
 <li class="chapter" data-level="5.1.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
@@ -243,8 +243,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
 <li class="chapter" data-level="5.2.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
-<li class="chapter" data-level="5.2.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#cálculo-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> Cálculo con la fórmula</a></li>
-<li class="chapter" data-level="5.2.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#cálculo-con-la-función"><i class="fa fa-check"></i><b>5.2.4</b> Cálculo con la función</a></li>
+<li class="chapter" data-level="5.2.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
+<li class="chapter" data-level="5.2.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
+<li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -486,10 +488,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
 </ol>
 <p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
 <p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
 <p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 <p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
 
 </div>

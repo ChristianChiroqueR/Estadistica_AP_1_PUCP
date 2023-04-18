@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-17" />
+<meta name="date" content="2023-04-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -234,8 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
 <li class="chapter" data-level="5.1.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="5.1.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-por-intervalo"><i class="fa fa-check"></i><b>5.1.3</b> Estimación por intervalo</a></li>
-<li class="chapter" data-level="5.1.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-por-intervalo-entre-grupos-comparación"><i class="fa fa-check"></i><b>5.1.4</b> Estimación por intervalo entre grupos: Comparación</a></li>
+<li class="chapter" data-level="5.1.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
+<li class="chapter" data-level="5.1.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
 <li class="chapter" data-level="5.1.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
 <li class="chapter" data-level="5.1.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
@@ -243,8 +243,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
 <li class="chapter" data-level="5.2.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
-<li class="chapter" data-level="5.2.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#cálculo-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> Cálculo con la fórmula</a></li>
-<li class="chapter" data-level="5.2.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#cálculo-con-la-función"><i class="fa fa-check"></i><b>5.2.4</b> Cálculo con la función</a></li>
+<li class="chapter" data-level="5.2.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
+<li class="chapter" data-level="5.2.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
+<li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -312,8 +314,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="estadística-inferencial-ii.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Calculamos la media, obviando valores perdidos. </span></span></code></pre></div>
 <pre><code>## [1] 4.571334</code></pre>
 </div>
-<div id="estimación-por-intervalo" class="section level3 hasAnchor" number="5.1.3">
-<h3><span class="header-section-number">5.1.3</span> Estimación por intervalo<a href="estadística-inferencial-ii.html#estimación-por-intervalo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ic-para-una-media" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> IC para una media<a href="estadística-inferencial-ii.html#ic-para-una-media" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora, una vez identificado el estimador puntual, podemos cambiar nuestra estimación, ahora utilizando intervalos.</p>
 <p>La clase pasada lo hicimos con la fórmula, paso por paso. Ahora, utilizaremos una función:</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="estadística-inferencial-ii.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(lsr) #Recuerda que esta función está en el paquete lsr</span></span>
@@ -321,8 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>##          2.5%    97.5%
 ## [1,] 4.413023 4.729645</code></pre>
 </div>
-<div id="estimación-por-intervalo-entre-grupos-comparación" class="section level3 hasAnchor" number="5.1.4">
-<h3><span class="header-section-number">5.1.4</span> Estimación por intervalo entre grupos: Comparación<a href="estadística-inferencial-ii.html#estimación-por-intervalo-entre-grupos-comparación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ic-para-una-media-según-grupos" class="section level3 hasAnchor" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> IC para una media según grupos<a href="estadística-inferencial-ii.html#ic-para-una-media-según-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora bien, en la mayoría de casos lo que deseamos es comparar grupos poblacionales. Por ejemplo:</p>
 <ul>
 <li><p>Quién gana en promedio más dinero, los hombres o las mujeres?</p></li>
@@ -366,7 +368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb139-2"><a href="estadística-inferencial-ii.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>p17<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
 <span id="cb139-3"><a href="estadística-inferencial-ii.html#cb139-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Aceptación desigualdad&quot;</span>, </span>
 <span id="cb139-4"><a href="estadística-inferencial-ii.html#cb139-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Gráfico de medias de Aceptación de la desigualdad en el Perú&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
 <p>Sin embargo, te recomiendo utilizar <code>ggplot()</code>!</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="estadística-inferencial-ii.html#cb140-1" aria-hidden="true" tabindex="-1"></a>p17_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
 <span id="cb140-2"><a href="estadística-inferencial-ii.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
@@ -375,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb140-5"><a href="estadística-inferencial-ii.html#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
 <span id="cb140-6"><a href="estadística-inferencial-ii.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
 <span id="cb140-7"><a href="estadística-inferencial-ii.html#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Nivel de aceptación de la desigualdad&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
 <blockquote>
 <p>Una guía: Se superponen los intervalos?</p>
 </blockquote>
@@ -391,11 +393,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>Brinde el estimador puntual de la media poblacional.</p></li>
 <li><p>Calcule el intervalo de confianza de la media poblacional.</p></li>
-<li><p>Calcule los intervalos de confianza de la media según si el individuo vive en el área urbana o rural (D08B). En otras palabras, compare la media de la variable en esos dos grupos.</p></li>
+<li><p>Calcule los intervalos de confianza de la media según si el individuo vive en el área urbana o rural (area2). En otras palabras, compare la media de la variable en esos dos grupos.</p></li>
 <li><p>Realice un gráfico de barras de error. Existe indicio de DIFERENCIA entre los dos grupos?</p></li>
 </ul>
 <blockquote>
-<p>Tienes 10 minutos!</p>
+<p>Tienes 15 minutos!</p>
 </blockquote>
 </div>
 </div>
@@ -420,13 +422,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Donde:</p>
 <p><span class="math inline">\(\hat{p}\)</span> = Proporción muestral de la categoría elegida</p>
 <p>z = Puntuación crítica dependiendo de nuestro nivel de confianza elegido</p>
-<p><span class="math display">\[\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</span> = Error estándar de una proporción</p>
+<p><span class="math inline">\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> = Error estándar de una proporción</p>
 </div>
-<div id="cálculo-con-la-fórmula" class="section level3 hasAnchor" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Cálculo con la fórmula<a href="estadística-inferencial-ii.html#cálculo-con-la-fórmula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ic-de-proporción-con-la-fórmula" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> IC de proporción con la fórmula<a href="estadística-inferencial-ii.html#ic-de-proporción-con-la-fórmula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Primero ubiquemos una variable categórica. Utilicemos la p11.1:</p>
+<p>¿Qué tan desigual es el acceso de los peruanos a la EDUCACIÓN?
+1. Muy desigual
+2. Poco desigual
+3. Nada desigual</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="estadística-inferencial-ii.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Configuramos nuestra variable como factor</span></span>
+<span id="cb141-2"><a href="estadística-inferencial-ii.html#cb141-2" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>p11<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb141-3"><a href="estadística-inferencial-ii.html#cb141-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb141-4"><a href="estadística-inferencial-ii.html#cb141-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Muy desigual&quot;</span>, <span class="st">&quot;Poco desigual&quot;</span>, <span class="st">&quot;Nada desigual&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code></pre></div>
+<p>La muestra se divide entre estas tres opciones. Ahora elegimos <strong>UNA CATEGORÍA</strong> de estas tres a la que vamos a calcular la proporción. En este caso vamos a elegir la proporción de individuos que afirmó que el acceso a la educación en el Perú es “Muy desigual”.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="estadística-inferencial-ii.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculamos p</span></span>
+<span id="cb142-2"><a href="estadística-inferencial-ii.html#cb142-2" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb142-3"><a href="estadística-inferencial-ii.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb142-4"><a href="estadística-inferencial-ii.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   p11.1             n      p
+##   &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
+## 1 Muy desigual    912 0.596 
+## 2 Poco desigual   503 0.329 
+## 3 Nada desigual    80 0.0523
+## 4 &lt;NA&gt;             35 0.0229</code></pre>
+<p>Ahora sabemos que nuestro <span class="math inline">\(\hat{p}\)</span> = 0.59</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="estadística-inferencial-ii.html#cb144-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fl">0.5961</span></span></code></pre></div>
+<p>El número total de casos es:</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="estadística-inferencial-ii.html#cb145-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span> <span class="dv">1530</span></span></code></pre></div>
+<p>Ahora definimos la puntuación crítica. Cuánto era para 95% de confianza?</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="estadística-inferencial-ii.html#cb146-1" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fl">1.96</span></span></code></pre></div>
+<p>Ahora el error estándar <span class="math inline">\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="estadística-inferencial-ii.html#cb147-1" aria-hidden="true" tabindex="-1"></a>error_estandar<span class="ot">&lt;-</span> <span class="fu">sqrt</span>((p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p))<span class="sc">/</span>n)</span></code></pre></div>
+<p>Nuestro límite inferior es la proporción muestral menos z*error estándar:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="estadística-inferencial-ii.html#cb148-1" aria-hidden="true" tabindex="-1"></a>limite_inferior<span class="ot">&lt;-</span> p<span class="sc">-</span>z<span class="sc">*</span>error_estandar</span>
+<span id="cb148-2"><a href="estadística-inferencial-ii.html#cb148-2" aria-hidden="true" tabindex="-1"></a>limite_inferior</span></code></pre></div>
+<pre><code>## [1] 0.5715129</code></pre>
+<p>Y el límite superior es la proporción muestral más z*error estándar:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="estadística-inferencial-ii.html#cb150-1" aria-hidden="true" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> p<span class="sc">+</span>z<span class="sc">*</span>error_estandar</span>
+<span id="cb150-2"><a href="estadística-inferencial-ii.html#cb150-2" aria-hidden="true" tabindex="-1"></a>limite_superior</span></code></pre></div>
+<pre><code>## [1] 0.6206871</code></pre>
+<p>Lo podemos colocar todo en un data frame</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="estadística-inferencial-ii.html#cb152-1" aria-hidden="true" tabindex="-1"></a>resultados<span class="ot">&lt;-</span><span class="fu">data.frame</span>(p, error_estandar, limite_inferior, limite_superior)</span>
+<span id="cb152-2"><a href="estadística-inferencial-ii.html#cb152-2" aria-hidden="true" tabindex="-1"></a>resultados <span class="sc">|&gt;</span> </span>
+<span id="cb152-3"><a href="estadística-inferencial-ii.html#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb152-4"><a href="estadística-inferencial-ii.html#cb152-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+p
+</th>
+<th style="text-align:right;">
+error_estandar
+</th>
+<th style="text-align:right;">
+limite_inferior
+</th>
+<th style="text-align:right;">
+limite_superior
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.5961
+</td>
+<td style="text-align:right;">
+0.0125444
+</td>
+<td style="text-align:right;">
+0.5715129
+</td>
+<td style="text-align:right;">
+0.6206871
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="cálculo-con-la-función" class="section level3 hasAnchor" number="5.2.4">
-<h3><span class="header-section-number">5.2.4</span> Cálculo con la función<a href="estadística-inferencial-ii.html#cálculo-con-la-función" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ic-de-proporción-con-prop.test" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> IC de proporción con <code>prop.test()</code><a href="estadística-inferencial-ii.html#ic-de-proporción-con-prop.test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora bien, también podemos utilizar la función <code>prop.test()</code>:</p>
+<p>Recordemos:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="estadística-inferencial-ii.html#cb153-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb153-2"><a href="estadística-inferencial-ii.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb153-3"><a href="estadística-inferencial-ii.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   p11.1             n      p
+##   &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
+## 1 Muy desigual    912 0.596 
+## 2 Poco desigual   503 0.329 
+## 3 Nada desigual    80 0.0523
+## 4 &lt;NA&gt;             35 0.0229</code></pre>
+<p>Colocamos la <strong>frecuencia</strong> de la categoría elegida y el tamaño total de la muestra.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="estadística-inferencial-ii.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="dv">912</span>, <span class="dv">1530</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
+<pre><code>## [1] 0.5709514 0.6207178
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<blockquote>
+<p>Por qué colocamos frecuencia? Porque así está configurada esta función.</p>
+</blockquote>
+</div>
+<div id="ic-de-proporción-según-grupos" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> IC de proporción según grupos<a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora comparemos la proporción elegida (aquellos que creen que el acceso de los peruanos a la EDUCACIÓN es MUY DESIGUAL) entre el sector rural y urbano (area2).</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="estadística-inferencial-ii.html#cb157-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span> <span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb157-2"><a href="estadística-inferencial-ii.html#cb157-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb157-3"><a href="estadística-inferencial-ii.html#cb157-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code></pre></div>
+<p>Primero, nos tenemos que preguntar cuál es la frecuencia en cada grupo</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="estadística-inferencial-ii.html#cb158-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb158-2"><a href="estadística-inferencial-ii.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
+<span id="cb158-3"><a href="estadística-inferencial-ii.html#cb158-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb158-4"><a href="estadística-inferencial-ii.html#cb158-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 4
+## # Groups:   area2 [2]
+##   area2  p11.1             n      p
+##   &lt;fct&gt;  &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
+## 1 Urbano Muy desigual    769 0.604 
+## 2 Urbano Poco desigual   409 0.321 
+## 3 Urbano Nada desigual    67 0.0526
+## 4 Urbano &lt;NA&gt;             28 0.0220
+## 5 Rural  Muy desigual    143 0.556 
+## 6 Rural  Poco desigual    94 0.366 
+## 7 Rural  Nada desigual    13 0.0506
+## 8 Rural  &lt;NA&gt;              7 0.0272</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="estadística-inferencial-ii.html#cb160-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb160-2"><a href="estadística-inferencial-ii.html#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(area2)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   area2      n
+##   &lt;fct&gt;  &lt;int&gt;
+## 1 Urbano  1273
+## 2 Rural    257</code></pre>
+<p>Ahora calculamos la función teniendo en cuenta que:</p>
+<ul>
+<li>En el primer grupo hay 769 casos de éxito de un total de 1273.</li>
+</ul>
+<p>Lo ingresamos a la función:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="estadística-inferencial-ii.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
+<pre><code>## [1] 0.5765493 0.6309849
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<ul>
+<li>En el segundo grupo hay 143 casos de éxito de un total de 257.</li>
+</ul>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="estadística-inferencial-ii.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
+<pre><code>## [1] 0.4933505 0.6177753
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>Lo podemos ordenar en un data.frame.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="estadística-inferencial-ii.html#cb166-1" aria-hidden="true" tabindex="-1"></a>resultados_prop<span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(<span class="at">Grupo =</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>), </span>
+<span id="cb166-2"><a href="estadística-inferencial-ii.html#cb166-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">P =</span><span class="fu">c</span>(<span class="fl">0.60</span>, <span class="fl">0.55</span>), </span>
+<span id="cb166-3"><a href="estadística-inferencial-ii.html#cb166-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Lim_inf=</span><span class="fu">c</span>(<span class="fl">0.57</span>, <span class="fl">0.49</span>), </span>
+<span id="cb166-4"><a href="estadística-inferencial-ii.html#cb166-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Lim_sup=</span> <span class="fu">c</span>(<span class="fl">0.63</span>,<span class="fl">0.61</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="estadística-inferencial-ii.html#cb167-1" aria-hidden="true" tabindex="-1"></a>resultados_prop</span></code></pre></div>
+<pre><code>##    Grupo    P Lim_inf Lim_sup
+## 1 Urbano 0.60    0.57    0.63
+## 2  Rural 0.55    0.49    0.61</code></pre>
+<p>Lo visualizamos:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="estadística-inferencial-ii.html#cb169-1" aria-hidden="true" tabindex="-1"></a>resultados_prop <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
+<span id="cb169-2"><a href="estadística-inferencial-ii.html#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
+<span id="cb169-3"><a href="estadística-inferencial-ii.html#cb169-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>p, <span class="at">x=</span>Grupo)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
+<span id="cb169-4"><a href="estadística-inferencial-ii.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Lim_inf, <span class="at">ymax=</span>Lim_sup), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
+<span id="cb169-5"><a href="estadística-inferencial-ii.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
+<span id="cb169-6"><a href="estadística-inferencial-ii.html#cb169-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;P la cobertura en educación es Muy Desigual&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
+<p>Otra alternativa es pedirlos al mismo tiempo en la función <code>prop.test()</code>. En este caso lo que nos muestra, es el <strong>intervalo de la diferencia</strong>.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="estadística-inferencial-ii.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>, <span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
+<pre><code>## [1] -0.02108879  0.11641800
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>En este caso, se sigue la siguiente interpretación:</p>
+<p>Si el intervalo de confianza no contiene el valor cero, esto sugiere que las proporciones de los dos grupos son significativamente diferentes y que la hipótesis nula de que las proporciones son iguales debe ser rechazada. Por otro lado, si el intervalo de confianza contiene el valor cero, no podemos rechazar la hipótesis nula y no podemos concluir que las proporciones son significativamente diferentes.</p>
+</div>
+<div id="ahora-hazlo-tú-1" class="section level3 hasAnchor" number="5.2.6">
+<h3><span class="header-section-number">5.2.6</span> Ahora hazlo tú!<a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cree un .Rmd y realice lo siguiente:</p>
+<p>Utilizando la variable “ideología2” (1: Izquierda, 2:Centro, 3:Derecha):</p>
+<p>Realice lo siguiente:</p>
+<ul>
+<li><p>Brinde el estimador puntual de la proporción de población de Izquierda en el Perú.</p></li>
+<li><p>Calcule el intervalo de confianza de la proporción poblacional de Izquierda en el Perú.</p></li>
+<li><p>Calcule por separado, utilizando prop.test(), la proporción de población de izquierda en el área urbano y rural (area2).</p></li>
+<li><p>Mediante la función prop.test(), compare los dos grupos y evalúe el intervalo de confianza de la diferencia en los p poblacionales.</p></li>
+</ul>
 
 </div>
 </div>
