@@ -248,6 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
 <li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#prueba-de-hipótesis-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Introducción</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-2-ver-distribución-muestral"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Ver distribución muestral</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -373,7 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-3"><a href="estadística-inferencial-introducción.html#cb89-3" aria-hidden="true" tabindex="-1"></a>variable_aleatoria <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> media, <span class="at">sd =</span> desviacion_estandar)</span>
 <span id="cb89-4"><a href="estadística-inferencial-introducción.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(variable_aleatoria)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   31.87   85.03   98.28   98.54  112.06  166.82</code></pre>
+##   37.47   84.99   99.46   99.71  114.15  176.45</code></pre>
 <ul>
 <li>Visualicemos si tiene la curva normal.</li>
 </ul>
@@ -383,11 +393,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb91-4"><a href="estadística-inferencial-introducción.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb91-5"><a href="estadística-inferencial-introducción.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>variable_aleatoria) <span class="sc">+</span> </span>
 <span id="cb91-6"><a href="estadística-inferencial-introducción.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 <ul>
 <li>Comprobemos la teoría. Pintemos las líneas de -1 SD, -2 SD, -3SD, la media, +1 SD, +2 SD y +3SD. Recuerda que la desviación estándar es 20.</li>
 </ul>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p>Cuánto porcentaje de casos se encuentran entre 80 (-1SD) y 120 (+1SD)?</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="estadística-inferencial-introducción.html#cb92-1" aria-hidden="true" tabindex="-1"></a>variable_aleatoria <span class="sc">|&gt;</span> </span>
 <span id="cb92-2"><a href="estadística-inferencial-introducción.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
@@ -395,7 +405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb92-4"><a href="estadística-inferencial-introducción.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb92-5"><a href="estadística-inferencial-introducción.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>##     n     p
-## 1 668 0.668</code></pre>
+## 1 663 0.663</code></pre>
 <ul>
 <li>Y de 60 a 140?</li>
 </ul>
@@ -405,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb94-4"><a href="estadística-inferencial-introducción.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb94-5"><a href="estadística-inferencial-introducción.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>##     n     p
-## 1 957 0.957</code></pre>
+## 1 951 0.951</code></pre>
 </div>
 <div id="elementos-básicos-de-la-inferencia" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Elementos básicos de la inferencia<a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -460,7 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb98-3"><a href="estadística-inferencial-introducción.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb98-4"><a href="estadística-inferencial-introducción.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>poblacion) <span class="sc">|&gt;</span> </span>
 <span id="cb98-5"><a href="estadística-inferencial-introducción.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <ul>
 <li>Como dato previo sabemos que en esta población la media es de 2.71. Ojo, normalmente nosotros no sabemos cuál es el parámetro poblacional, sólo lo planteamos así con fines didácticos.</li>
 </ul>
@@ -521,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb112-2"><a href="estadística-inferencial-introducción.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb112-3"><a href="estadística-inferencial-introducción.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>medias) <span class="sc">+</span> </span>
 <span id="cb112-4"><a href="estadística-inferencial-introducción.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <ul>
 <li>Descubrimos que cuando obtenemos muchas muestras y calculamos sus estadísticos (medias), estan en conjunto adquieren una <strong>distribución normal</strong>. Esto ocurre, a pesar de que la distribución de las puntuaciones originales <strong>no tenía distribución normal</strong>.</li>
 </ul>
@@ -618,7 +628,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb117-2"><a href="estadística-inferencial-introducción.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb117-3"><a href="estadística-inferencial-introducción.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>p17)<span class="sc">+</span></span>
 <span id="cb117-4"><a href="estadística-inferencial-introducción.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 </div>
 <div id="cálculo-del-estimador-puntual-media-muestral" class="section level3 hasAnchor" number="4.6.3">
 <h3><span class="header-section-number">4.6.3</span> Cálculo del estimador puntual: media muestral<a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h3>

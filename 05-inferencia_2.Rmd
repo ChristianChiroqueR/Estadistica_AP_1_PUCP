@@ -404,3 +404,120 @@ Realice lo siguiente:
 
 - Mediante la función prop.test(), compare los dos grupos y evalúe el intervalo de confianza de la diferencia en los p poblacionales.  
 
+
+
+
+## Prueba de hipótesis: Introducción
+
+### Definición
+
+Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población. Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.
+
+Para aplicar una prueba debemos seguir pasos muy ordenados y entender qué estamos haciendo en cada uno de ellos.
+
+![](figures/prueba_pasos.png)
+
+> En términos referenciales, es como seguir un proceso de investigación policial! Vamos a utilizar esta analogía!
+
+![](figures/detective.jpg)
+
+
+ 
+
+### Paso 1: Establer hipótesis
+
+> En este punto somos como detectives (como Benoit Blanc en Knives Out) y estas son nuestras hipótesis de investigación. Si vamos a investigar un crimen partimos con la H0 que la persona investigada es inocente. Nuestra hipótesis alterna es que es culpable!
+
+Las hipótesis son afirmaciones o suposiciones acerca de una población o de un conjunto de datos que se pretende analizar.
+
+En el contexto de las pruebas de hipótesis, se suelen plantear dos hipótesis: la hipótesis nula (H0) y la hipótesis alternativa (H1). La hipótesis nula establece que no hay diferencia significativa entre las muestras o poblaciones que se están comparando, mientras que la hipótesis alternativa indica que sí existe una diferencia significativa.
+
+
+| Hipótesis        | Descripción                         | 
+|----------------------------|---------------------------------|
+| Hipótesis nula (H0)        | Es una afirmación que se establece inicialmente y que se asume verdadera a menos que se disponga de suficiente evidencia para rechazarla. La hipótesis nula generalmente establece que **no hay diferencia significativa entre dos grupos** o variables que se están comparando, o que no hay efecto de un tratamiento o una intervención.                           | 
+| Hipótesis alternativa (H1)   | Es la afirmación opuesta a la hipótesis nula y establece que **sí hay una diferencia significativa entre los dos grupos** o variables que se están comparando, o que sí hay un efecto de un tratamiento o intervención. La hipótesis alternativa se utiliza para probar lo que se espera demostrar si se rechaza la hipótesis nula.                 | 
+
+Tener en cuenta que la forma cómo planteamos nuestras hipótesis va a repercutir en todo el flujograma. 
+
+### Paso 2: Ver distribución muestral
+
+![](figures/detective_escena.jpg)
+
+> Antes de ver los hechos, debemos ver el contexto en el cual se encuentran. No es lo mismo que el investigado sea joven que adulto. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!
+
+Recuerdas todos los principios de la curva normal, desviaciones estándar, errores estándar (en el caso de las distribuciones muestrales), etc? Eso también se aplica aquí. 
+
+Partimos de la idea de que si se extraen muchas muestras repetidas (como en la clase anterior), los estadísticos muestrales se centrarán alrededor de un valor con una distribución aproximadamente normal. 
+
+En este caso debemos corroborar una característica: que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro. 
+
+
+### Paso 3: Establecer nivel de significancia
+
+> Cuando investigamos un crimen debemos cotejar el comportamiento del investigado frente a una actitud vista como normal o regular. Si encontramos que el investigado asistía a lugares muy fuera de su rutina puede ser un indicio!
+
+Como en el caso del intervalo de confianza, elegir el nivel de confianza con el que estamos trabajando es vital. 
+
+El nivel de significancia en una prueba de hipótesis es la probabilidad máxima de que un resultado observado sea producto del azar, es decir, que no haya una diferencia real entre las muestras o poblaciones que se están comparando. Es un valor establecido previamente por el investigador antes de realizar la prueba de hipótesis y representa el umbral a partir del cual se considera que los resultados son estadísticamente significativos (o en nuestro caso, a partir de qué punto catalogamos un hecho como sospechoso).
+
+Por ejemplo, si se realiza una prueba de hipótesis con un nivel de significancia del 5%, esto significa que hay una probabilidad máxima del 5% de que los resultados observados se deban al azar, y que hay una diferencia real entre las muestras o poblaciones que se están comparando. En otras palabras, si el valor p obtenido en la prueba de hipótesis es menor que el nivel de significancia establecido, se rechaza la hipótesis nula y se concluye que hay evidencia suficiente para aceptar la hipótesis alternativa.
+
+> Por ejemplo, si investigamos un robo y nos damos cuenta que el sospechoso, que había vivido toda su vida en Lima y nunca había viajado a ningún departamento, justamente había decidido mudarse a Europa a los pocos días de acontecido el robo.
+
+Es importante destacar que el nivel de significancia elegido puede tener un impacto en la interpretación de los resultados y que, en última instancia, es el investigador quien debe decidir el nivel adecuado en función del contexto de la investigación y del grado de incertidumbre que esté dispuesto a asumir.
+
+### Paso 4: Aplicar test estadístico y obtener p-value
+
+> Ahora debemos recopilar evidencia!
+
+![](figures/detective_rastro.jpg)
+
+Tenemos que identificar el comportamiento extraño, pero para eso debemos saber cuál es el comportamiento normal. 
+
+En estadística, el **comportamiento** normal nos lo entrega un test estadístico. Este nos brinda un **estadístico de prueba**, el cual va a ser la referencia con la cual vamos a medir la rareza de lo que encontramos en la práctica en nuestra data. 
+
+
+Antes de seguir te pido que recuerdes esto:
+
+![](figures/ejemplo_paso4.png)
+Ok, ahora sí. El test estadístico lo que te indica es cuál es el valor de umbral a la confianza elegida, pero en términos de EE (en el ejemplo de arriba, sería 20). 
+
+Luego de eso, tomandolo como referencia, te dice qué tan raro es el estadístico **OBSERVADO** en tu muestra y te brinda la probabilidad de que eso ocurriese. Esa probabilidad es tu p-valor. 
+
+En el ejemplo anterior, sabemos que 59 o 141 estaban dentro de ese otro 5% de probabilidad. Sin embargo, el test estadístico nos da la **probabilidad exacta**, esta probabilidad exacta se llama **p-valor**.
+
+### Paso 5: Tomar una decisión
+
+> Ahora, de acuerdo a la evidencia. Debes tomar una decisión. Si el evento es demasiado raro entonces tienes que rechazar la hipótesis nula (es inocente). Si el evento es normal entonces NO puedes rechazar una hipótesis nula. 
+
+![](figures/sospechoso.jpg)
+
+
+Si el p-valor es menor que el nivel de significancia establecido (por ejemplo, α = 0.05), se rechaza la hipótesis nula (H0: Medias iguales).
+
+Si el p-valor es mayor que el nivel de significancia establecido NO rechazamos la hipótesis nula.
+
+Es importante tener en cuenta que el p-valor no proporciona información sobre la magnitud de la diferencia observada entre las muestras o poblaciones que se están comparando, sino simplemente sobre la probabilidad de que los resultados observados sean producto del azar. Además, la interpretación del p-valor debe contextualizarse adecuadamente y no se debe basar únicamente en la regla general del nivel de significancia establecido.
+
+![](figures/pasos_pvalor.jpg)
+
+> OJO: EN TÉRMINOS ESTRICTOS NUNCA DECIMOS QUE **ACEPTAMOS** LA ALTERNATIVA.
+
+### Paso 6: Interpretación
+
+> El paso final de la investigación es dar tu conclusión como detective. Entonces decimos que con un 95% podemos rechazar que el sospechoso sea inocente, por lo que lo presentamos al Poder Judicial para que un juez dictamine la sentencia. Cumplimos con nuestro trabajo.
+
+![](figures/JUEZ.jpg)
+
+El paso final es proporcionar una interpretación de los resultados. 
+
+Podemos utilizar el siguiente fraseo.
+
+SI EL P-VALOR <0.05
+
+A un 95% de confianza, obtuvimos un p-valor de _____, por lo que rechazamos la hipótesis nula de que _______ y concluimos que existe _______ estadísticamente significativa.
+
+SI EL P-VALOR >=0.05
+
+A un 95% de confianza, obtuvimos un p-valor de _____, por lo que **NO** rechazamos la hipótesis nula de que _______ y concluimos que **NO** existe _______ estadísticamente significativa.

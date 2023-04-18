@@ -248,6 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
 <li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#prueba-de-hipótesis-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Introducción</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-2-ver-distribución-muestral"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Ver distribución muestral</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -510,32 +520,32 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
 <span id="cb58-2"><a href="index.html#cb58-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb58-3"><a href="index.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA
-## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL
-## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE
-## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL
-##   VOTOS_VALIDOS_OP VOTOS_VALIDOS VOTOS_BLANCO VOTOS_NULOS
-## 1                6         11148         1034         340
-## 2               24         11148         1034         340
-## 3               35         11148         1034         340
-##   NUMERO_ELECTORES VOTOS_EMITIDOS
-## 1            15748          12522
-## 2            15748          12522
-## 3            15748          12522</code></pre>
+<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO
+## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+##       ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS
+## 1           FUERZA NACIONAL                6         11148
+## 2 PARTIDO POLITICO ADELANTE               24         11148
+## 3        DESPERTAR NACIONAL               35         11148
+##   VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES VOTOS_EMITIDOS
+## 1         1034         340            15748          12522
+## 2         1034         340            15748          12522
+## 3         1034         340            15748          12522</code></pre>
 <p>O también podemos utilizar el paquete <code>readxl()</code> que pertenece al universo de <strong>Tidyverse</strong>. Lo bueno de esta función es que cuando visualizas la data se realiza de forma más ordenada.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb60-2"><a href="index.html#cb60-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb60-3"><a href="index.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
-##   UBIGEO DEPAR…¹ PROVI…² DISTR…³ ORGAN…⁴ VOTOS…⁵ VOTOS…⁶ VOTOS…⁷ VOTOS…⁸
-##   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 010101 AMAZON… CHACHA… CHACHA… FUERZA…       6   11148    1034     340
-## 2 010101 AMAZON… CHACHA… CHACHA… PARTID…      24   11148    1034     340
-## 3 010101 AMAZON… CHACHA… CHACHA… DESPER…      35   11148    1034     340
-## # … with 2 more variables: NUMERO_ELECTORES &lt;dbl&gt;,
-## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names ¹​DEPARTAMENTO,
-## #   ²​PROVINCIA, ³​DISTRITO, ⁴​ORGANIZACIÓN_POLITICA, ⁵​VOTOS_VALIDOS_OP,
-## #   ⁶​VOTOS_VALIDOS, ⁷​VOTOS_BLANCO, ⁸​VOTOS_NULOS</code></pre>
+##   UBIGEO DEPARTAMENTO PROVINCIA DISTR…¹ ORGAN…² VOTOS…³ VOTOS…⁴ VOTOS…⁵
+##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 010101 AMAZONAS     CHACHAPO… CHACHA… FUERZA…       6   11148    1034
+## 2 010101 AMAZONAS     CHACHAPO… CHACHA… PARTID…      24   11148    1034
+## 3 010101 AMAZONAS     CHACHAPO… CHACHA… DESPER…      35   11148    1034
+## # … with 3 more variables: VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
+## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names ¹​DISTRITO,
+## #   ²​ORGANIZACIÓN_POLITICA, ³​VOTOS_VALIDOS_OP, ⁴​VOTOS_VALIDOS,
+## #   ⁵​VOTOS_BLANCO</code></pre>
 <p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
 </div>
 <div id="manipulación-de-datos-con-tidyverse" class="section level2 hasAnchor" number="1.6">

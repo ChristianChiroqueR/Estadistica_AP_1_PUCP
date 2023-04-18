@@ -73,3 +73,11 @@ ic-de-proporción-con-la-fórmula
 ic-de-proporción-con-prop.test
 ic-de-proporción-según-grupos
 ahora-hazlo-tú-1
+prueba-de-hipótesis-introducción
+definición-2
+paso-1-establer-hipótesis
+paso-2-ver-distribución-muestral
+paso-3-establecer-nivel-de-significancia
+paso-4-aplicar-test-estadístico-y-obtener-p-value
+paso-5-tomar-una-decisión
+paso-6-interpretación

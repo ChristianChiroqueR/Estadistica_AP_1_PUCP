@@ -248,6 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
 <li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#prueba-de-hipótesis-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Introducción</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-2-ver-distribución-muestral"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Ver distribución muestral</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -305,22 +315,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Puedes ver las primeras diez filas con:</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTAMENTO PROVINCIA DISTR…¹ ORGAN…² VOTOS…³ VOTOS…⁴ VOTOS…⁵
-##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 010101 AMAZONAS     CHACHAPO… CHACHA… FUERZA…       6   11148    1034
-##  2 010101 AMAZONAS     CHACHAPO… CHACHA… PARTID…      24   11148    1034
-##  3 010101 AMAZONAS     CHACHAPO… CHACHA… DESPER…      35   11148    1034
-##  4 010101 AMAZONAS     CHACHAPO… CHACHA… GANA P…    2971   11148    1034
-##  5 010101 AMAZONAS     CHACHAPO… CHACHA… FONAVI…       7   11148    1034
-##  6 010101 AMAZONAS     CHACHAPO… CHACHA… JUSTIC…       4   11148    1034
-##  7 010101 AMAZONAS     CHACHAPO… CHACHA… FUERZA…    2651   11148    1034
-##  8 010101 AMAZONAS     CHACHAPO… CHACHA… PARTID…       2   11148    1034
-##  9 010101 AMAZONAS     CHACHAPO… CHACHA… ALIANZ…    1479   11148    1034
-## 10 010101 AMAZONAS     CHACHAPO… CHACHA… ALIANZ…     773   11148    1034
+##    UBIGEO DEPARTAMENTO PROVIN…¹ DISTR…² ORGAN…³ VOTOS…⁴ VOTOS…⁵ VOTOS…⁶
+##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 010101 AMAZONAS     CHACHAP… CHACHA… FUERZA…       6   11148    1034
+##  2 010101 AMAZONAS     CHACHAP… CHACHA… PARTID…      24   11148    1034
+##  3 010101 AMAZONAS     CHACHAP… CHACHA… DESPER…      35   11148    1034
+##  4 010101 AMAZONAS     CHACHAP… CHACHA… GANA P…    2971   11148    1034
+##  5 010101 AMAZONAS     CHACHAP… CHACHA… FONAVI…       7   11148    1034
+##  6 010101 AMAZONAS     CHACHAP… CHACHA… JUSTIC…       4   11148    1034
+##  7 010101 AMAZONAS     CHACHAP… CHACHA… FUERZA…    2651   11148    1034
+##  8 010101 AMAZONAS     CHACHAP… CHACHA… PARTID…       2   11148    1034
+##  9 010101 AMAZONAS     CHACHAP… CHACHA… ALIANZ…    1479   11148    1034
+## 10 010101 AMAZONAS     CHACHAP… CHACHA… ALIANZ…     773   11148    1034
 ## # … with 3 more variables: VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
-## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names ¹​DISTRITO,
-## #   ²​ORGANIZACIÓN_POLITICA, ³​VOTOS_VALIDOS_OP, ⁴​VOTOS_VALIDOS,
-## #   ⁵​VOTOS_BLANCO</code></pre>
+## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names ¹​PROVINCIA,
+## #   ²​DISTRITO, ³​ORGANIZACIÓN_POLITICA, ⁴​VOTOS_VALIDOS_OP,
+## #   ⁵​VOTOS_VALIDOS, ⁶​VOTOS_BLANCO</code></pre>
 <p>También puedes hacerle click en Environment o colocar:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
 </div>
@@ -488,10 +498,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
 </ol>
 <p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
 <p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 <p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
 
 </div>

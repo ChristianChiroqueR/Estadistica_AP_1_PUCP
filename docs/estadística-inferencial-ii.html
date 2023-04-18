@@ -248,6 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
 <li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#prueba-de-hipótesis-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Introducción</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-2-ver-distribución-muestral"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Ver distribución muestral</a></li>
+<li class="chapter" data-level="5.3.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -368,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb139-2"><a href="estadística-inferencial-ii.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>p17<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
 <span id="cb139-3"><a href="estadística-inferencial-ii.html#cb139-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Aceptación desigualdad&quot;</span>, </span>
 <span id="cb139-4"><a href="estadística-inferencial-ii.html#cb139-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Gráfico de medias de Aceptación de la desigualdad en el Perú&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>Sin embargo, te recomiendo utilizar <code>ggplot()</code>!</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="estadística-inferencial-ii.html#cb140-1" aria-hidden="true" tabindex="-1"></a>p17_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
 <span id="cb140-2"><a href="estadística-inferencial-ii.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
@@ -377,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb140-5"><a href="estadística-inferencial-ii.html#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
 <span id="cb140-6"><a href="estadística-inferencial-ii.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
 <span id="cb140-7"><a href="estadística-inferencial-ii.html#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Nivel de aceptación de la desigualdad&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <blockquote>
 <p>Una guía: Se superponen los intervalos?</p>
 </blockquote>
@@ -588,7 +598,7 @@ limite_superior
 <span id="cb169-4"><a href="estadística-inferencial-ii.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Lim_inf, <span class="at">ymax=</span>Lim_sup), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
 <span id="cb169-5"><a href="estadística-inferencial-ii.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
 <span id="cb169-6"><a href="estadística-inferencial-ii.html#cb169-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;P la cobertura en educación es Muy Desigual&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
 <p>Otra alternativa es pedirlos al mismo tiempo en la función <code>prop.test()</code>. En este caso lo que nos muestra, es el <strong>intervalo de la diferencia</strong>.</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="estadística-inferencial-ii.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>, <span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] -0.02108879  0.11641800
@@ -608,6 +618,114 @@ limite_superior
 <li><p>Calcule por separado, utilizando prop.test(), la proporción de población de izquierda en el área urbano y rural (area2).</p></li>
 <li><p>Mediante la función prop.test(), compare los dos grupos y evalúe el intervalo de confianza de la diferencia en los p poblacionales.</p></li>
 </ul>
+</div>
+</div>
+<div id="prueba-de-hipótesis-introducción" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Prueba de hipótesis: Introducción<a href="estadística-inferencial-ii.html#prueba-de-hipótesis-introducción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="definición-2" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Definición<a href="estadística-inferencial-ii.html#definición-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población. Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.</p>
+<p>Para aplicar una prueba debemos seguir pasos muy ordenados y entender qué estamos haciendo en cada uno de ellos.</p>
+<p><img src="figures/prueba_pasos.png" /></p>
+<blockquote>
+<p>En términos referenciales, es como seguir un proceso de investigación policial! Vamos a utilizar esta analogía!</p>
+</blockquote>
+<p><img src="figures/detective.jpg" /></p>
+</div>
+<div id="paso-1-establer-hipótesis" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Paso 1: Establer hipótesis<a href="estadística-inferencial-ii.html#paso-1-establer-hipótesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>En este punto somos como detectives (como Benoit Blanc en Knives Out) y estas son nuestras hipótesis de investigación. Si vamos a investigar un crimen partimos con la H0 que la persona investigada es inocente. Nuestra hipótesis alterna es que es culpable!</p>
+</blockquote>
+<p>Las hipótesis son afirmaciones o suposiciones acerca de una población o de un conjunto de datos que se pretende analizar.</p>
+<p>En el contexto de las pruebas de hipótesis, se suelen plantear dos hipótesis: la hipótesis nula (H0) y la hipótesis alternativa (H1). La hipótesis nula establece que no hay diferencia significativa entre las muestras o poblaciones que se están comparando, mientras que la hipótesis alternativa indica que sí existe una diferencia significativa.</p>
+<table>
+<colgroup>
+<col width="45%" />
+<col width="54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hipótesis</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hipótesis nula (H0)</td>
+<td>Es una afirmación que se establece inicialmente y que se asume verdadera a menos que se disponga de suficiente evidencia para rechazarla. La hipótesis nula generalmente establece que <strong>no hay diferencia significativa entre dos grupos</strong> o variables que se están comparando, o que no hay efecto de un tratamiento o una intervención.</td>
+</tr>
+<tr class="even">
+<td>Hipótesis alternativa (H1)</td>
+<td>Es la afirmación opuesta a la hipótesis nula y establece que <strong>sí hay una diferencia significativa entre los dos grupos</strong> o variables que se están comparando, o que sí hay un efecto de un tratamiento o intervención. La hipótesis alternativa se utiliza para probar lo que se espera demostrar si se rechaza la hipótesis nula.</td>
+</tr>
+</tbody>
+</table>
+<p>Tener en cuenta que la forma cómo planteamos nuestras hipótesis va a repercutir en todo el flujograma.</p>
+</div>
+<div id="paso-2-ver-distribución-muestral" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Paso 2: Ver distribución muestral<a href="estadística-inferencial-ii.html#paso-2-ver-distribución-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/detective_escena.jpg" /></p>
+<blockquote>
+<p>Antes de ver los hechos, debemos ver el contexto en el cual se encuentran. No es lo mismo que el investigado sea joven que adulto. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!</p>
+</blockquote>
+<p>Recuerdas todos los principios de la curva normal, desviaciones estándar, errores estándar (en el caso de las distribuciones muestrales), etc? Eso también se aplica aquí.</p>
+<p>Partimos de la idea de que si se extraen muchas muestras repetidas (como en la clase anterior), los estadísticos muestrales se centrarán alrededor de un valor con una distribución aproximadamente normal.</p>
+<p>En este caso debemos corroborar una característica: que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro.</p>
+</div>
+<div id="paso-3-establecer-nivel-de-significancia" class="section level3 hasAnchor" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Paso 3: Establecer nivel de significancia<a href="estadística-inferencial-ii.html#paso-3-establecer-nivel-de-significancia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Cuando investigamos un crimen debemos cotejar el comportamiento del investigado frente a una actitud vista como normal o regular. Si encontramos que el investigado asistía a lugares muy fuera de su rutina puede ser un indicio!</p>
+</blockquote>
+<p>Como en el caso del intervalo de confianza, elegir el nivel de confianza con el que estamos trabajando es vital.</p>
+<p>El nivel de significancia en una prueba de hipótesis es la probabilidad máxima de que un resultado observado sea producto del azar, es decir, que no haya una diferencia real entre las muestras o poblaciones que se están comparando. Es un valor establecido previamente por el investigador antes de realizar la prueba de hipótesis y representa el umbral a partir del cual se considera que los resultados son estadísticamente significativos (o en nuestro caso, a partir de qué punto catalogamos un hecho como sospechoso).</p>
+<p>Por ejemplo, si se realiza una prueba de hipótesis con un nivel de significancia del 5%, esto significa que hay una probabilidad máxima del 5% de que los resultados observados se deban al azar, y que hay una diferencia real entre las muestras o poblaciones que se están comparando. En otras palabras, si el valor p obtenido en la prueba de hipótesis es menor que el nivel de significancia establecido, se rechaza la hipótesis nula y se concluye que hay evidencia suficiente para aceptar la hipótesis alternativa.</p>
+<blockquote>
+<p>Por ejemplo, si investigamos un robo y nos damos cuenta que el sospechoso, que había vivido toda su vida en Lima y nunca había viajado a ningún departamento, justamente había decidido mudarse a Europa a los pocos días de acontecido el robo.</p>
+</blockquote>
+<p>Es importante destacar que el nivel de significancia elegido puede tener un impacto en la interpretación de los resultados y que, en última instancia, es el investigador quien debe decidir el nivel adecuado en función del contexto de la investigación y del grado de incertidumbre que esté dispuesto a asumir.</p>
+</div>
+<div id="paso-4-aplicar-test-estadístico-y-obtener-p-value" class="section level3 hasAnchor" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Paso 4: Aplicar test estadístico y obtener p-value<a href="estadística-inferencial-ii.html#paso-4-aplicar-test-estadístico-y-obtener-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Ahora debemos recopilar evidencia!</p>
+</blockquote>
+<p><img src="figures/detective_rastro.jpg" /></p>
+<p>Tenemos que identificar el comportamiento extraño, pero para eso debemos saber cuál es el comportamiento normal.</p>
+<p>En estadística, el <strong>comportamiento</strong> normal nos lo entrega un test estadístico. Este nos brinda un <strong>estadístico de prueba</strong>, el cual va a ser la referencia con la cual vamos a medir la rareza de lo que encontramos en la práctica en nuestra data.</p>
+<p>Antes de seguir te pido que recuerdes esto:</p>
+<p><img src="figures/ejemplo_paso4.png" />
+Ok, ahora sí. El test estadístico lo que te indica es cuál es el valor de umbral a la confianza elegida, pero en términos de EE (en el ejemplo de arriba, sería 20).</p>
+<p>Luego de eso, tomandolo como referencia, te dice qué tan raro es el estadístico <strong>OBSERVADO</strong> en tu muestra y te brinda la probabilidad de que eso ocurriese. Esa probabilidad es tu p-valor.</p>
+<p>En el ejemplo anterior, sabemos que 59 o 141 estaban dentro de ese otro 5% de probabilidad. Sin embargo, el test estadístico nos da la <strong>probabilidad exacta</strong>, esta probabilidad exacta se llama <strong>p-valor</strong>.</p>
+</div>
+<div id="paso-5-tomar-una-decisión" class="section level3 hasAnchor" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> Paso 5: Tomar una decisión<a href="estadística-inferencial-ii.html#paso-5-tomar-una-decisión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Ahora, de acuerdo a la evidencia. Debes tomar una decisión. Si el evento es demasiado raro entonces tienes que rechazar la hipótesis nula (es inocente). Si el evento es normal entonces NO puedes rechazar una hipótesis nula.</p>
+</blockquote>
+<p><img src="figures/sospechoso.jpg" /></p>
+<p>Si el p-valor es menor que el nivel de significancia establecido (por ejemplo, α = 0.05), se rechaza la hipótesis nula (H0: Medias iguales).</p>
+<p>Si el p-valor es mayor que el nivel de significancia establecido NO rechazamos la hipótesis nula.</p>
+<p>Es importante tener en cuenta que el p-valor no proporciona información sobre la magnitud de la diferencia observada entre las muestras o poblaciones que se están comparando, sino simplemente sobre la probabilidad de que los resultados observados sean producto del azar. Además, la interpretación del p-valor debe contextualizarse adecuadamente y no se debe basar únicamente en la regla general del nivel de significancia establecido.</p>
+<p><img src="figures/pasos_pvalor.jpg" /></p>
+<blockquote>
+<p>OJO: EN TÉRMINOS ESTRICTOS NUNCA DECIMOS QUE <strong>ACEPTAMOS</strong> LA ALTERNATIVA.</p>
+</blockquote>
+</div>
+<div id="paso-6-interpretación" class="section level3 hasAnchor" number="5.3.7">
+<h3><span class="header-section-number">5.3.7</span> Paso 6: Interpretación<a href="estadística-inferencial-ii.html#paso-6-interpretación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>El paso final de la investigación es dar tu conclusión como detective. Entonces decimos que con un 95% podemos rechazar que el sospechoso sea inocente, por lo que lo presentamos al Poder Judicial para que un juez dictamine la sentencia. Cumplimos con nuestro trabajo.</p>
+</blockquote>
+<p><img src="figures/JUEZ.jpg" /></p>
+<p>El paso final es proporcionar una interpretación de los resultados.</p>
+<p>Podemos utilizar el siguiente fraseo.</p>
+<p>SI EL P-VALOR &lt;0.05</p>
+<p>A un 95% de confianza, obtuvimos un p-valor de _____, por lo que rechazamos la hipótesis nula de que _______ y concluimos que existe _______ estadísticamente significativa.</p>
+<p>SI EL P-VALOR &gt;=0.05</p>
+<p>A un 95% de confianza, obtuvimos un p-valor de _____, por lo que <strong>NO</strong> rechazamos la hipótesis nula de que _______ y concluimos que <strong>NO</strong> existe _______ estadísticamente significativa.</p>
 
 </div>
 </div>
