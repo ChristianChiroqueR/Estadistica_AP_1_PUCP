@@ -59,7 +59,7 @@ identificar-una-variable-numérica
 cálculo-del-estimador-puntual-media-muestral
 cálculo-del-intervalo-de-confianza-al-95
 estadística-inferencial-ii
-ejercicio-de-repaso
+recordemos
 pasos-previos
 estimación-puntual-1
 estimación-por-intervalo
@@ -69,3 +69,5 @@ ahora-hazlo-tú
 intervalo-de-una-proporción
 definición-1
 fórmula
+cálculo-con-la-fórmula
+cálculo-con-la-función

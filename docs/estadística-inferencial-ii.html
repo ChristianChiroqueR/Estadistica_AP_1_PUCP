@@ -230,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html"><i class="fa fa-check"></i><b>5</b> Estadística Inferencial II</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ejercicio-de-repaso"><i class="fa fa-check"></i><b>5.1</b> Ejercicio de repaso</a>
+<li class="chapter" data-level="5.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
 <li class="chapter" data-level="5.1.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
@@ -243,6 +243,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
 <li class="chapter" data-level="5.2.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
+<li class="chapter" data-level="5.2.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#cálculo-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> Cálculo con la fórmula</a></li>
+<li class="chapter" data-level="5.2.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#cálculo-con-la-función"><i class="fa fa-check"></i><b>5.2.4</b> Cálculo con la función</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -266,14 +268,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="estadística-inferencial-ii" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Sesión 5</span> Estadística Inferencial II<a href="estadística-inferencial-ii.html#estadística-inferencial-ii" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="ejercicio-de-repaso" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Ejercicio de repaso<a href="estadística-inferencial-ii.html#ejercicio-de-repaso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="recordemos" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Recordemos<a href="estadística-inferencial-ii.html#recordemos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Abramos los paquetes que vamos a necesitar:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="estadística-inferencial-ii.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb125-2"><a href="estadística-inferencial-ii.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span></code></pre></div>
+<span id="cb125-2"><a href="estadística-inferencial-ii.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
+<span id="cb125-3"><a href="estadística-inferencial-ii.html#cb125-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-4"><a href="estadística-inferencial-ii.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Esto equivale a:</span></span>
+<span id="cb125-5"><a href="estadística-inferencial-ii.html#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="co"># library(haven)</span></span>
+<span id="cb125-6"><a href="estadística-inferencial-ii.html#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb125-7"><a href="estadística-inferencial-ii.html#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="co"># library(lsr)</span></span>
+<span id="cb125-8"><a href="estadística-inferencial-ii.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="co"># library(kableExtra)</span></span>
+<span id="cb125-9"><a href="estadística-inferencial-ii.html#cb125-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-10"><a href="estadística-inferencial-ii.html#cb125-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Es útil cuando necesitamos abrir un gran número de librerías!</span></span></code></pre></div>
 <p>Continuemos con el ejercicio que vimos en la última clase utilizando la ENADES.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="estadística-inferencial-ii.html#cb126-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
-<span id="cb126-2"><a href="estadística-inferencial-ii.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
+<span id="cb126-2"><a href="estadística-inferencial-ii.html#cb126-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="estadística-inferencial-ii.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Si quiere abrirlo desde GitHub entonces corre la siguiente línea:</span></span>
+<span id="cb126-4"><a href="estadística-inferencial-ii.html#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
 <p>Elijamos la variable P17:</p>
 <ul>
 <li>En una escala del 1 al 10, en la que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable”. ¿Hasta qué punto es aceptable la desigualdad en el Perú? Dígame un número de 1 a 10, recuerde que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable (RESPUESTA ESPONTÁNEA)</li>
@@ -291,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Qué deseamos saber?</li>
 </ul>
-<p>Con nuestra muestra deseamos conocer el parámetro poblacional, es decir, la media de aceptación en la población.</p>
+<p>Con nuestra muestra deseamos conocer el parámetro poblacional, es decir, la media de aceptación de la desigualdad en la población.</p>
 </div>
 <div id="estimación-puntual-1" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Estimación puntual<a href="estadística-inferencial-ii.html#estimación-puntual-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -349,30 +361,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Las barras de error en un gráfico de intervalos de confianza se construyen a partir de los límites superior e inferior del intervalo de confianza. Generalmente se dibujan líneas verticales que se extienden desde el valor estimado del parámetro (que puede ser una media, una proporción, una diferencia de medias, etc.) hasta los límites del intervalo de confianza.</p>
 <p>Por ejemplo, si se estima la media de una variable a partir de una muestra y se desea construir un intervalo de confianza al 95%, las barras de error se construirán a partir del límite inferior y superior del intervalo de confianza, que contendrán el verdadero valor de la media poblacional con una probabilidad del 95%.</p>
 <p>Las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. Si las barras de error son muy pequeñas, esto sugiere que la estimación es muy precisa y que hay una alta confianza en la validez del intervalo de confianza. Por otro lado, si las barras de error son grandes, esto sugiere que la estimación es menos precisa y que hay una mayor incertidumbre en el intervalo de confianza.</p>
+<p>Podemos utilizar un comando básico como la función <code>plotmeans()</code>:</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="estadística-inferencial-ii.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
 <span id="cb139-2"><a href="estadística-inferencial-ii.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>p17<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
 <span id="cb139-3"><a href="estadística-inferencial-ii.html#cb139-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Aceptación desigualdad&quot;</span>, </span>
 <span id="cb139-4"><a href="estadística-inferencial-ii.html#cb139-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Gráfico de medias de Aceptación de la desigualdad en el Perú&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<p>Sin embargo, te recomiendo utilizar <code>ggplot()</code>!</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="estadística-inferencial-ii.html#cb140-1" aria-hidden="true" tabindex="-1"></a>p17_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
 <span id="cb140-2"><a href="estadística-inferencial-ii.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
 <span id="cb140-3"><a href="estadística-inferencial-ii.html#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>mean, <span class="at">x=</span>zona3)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
 <span id="cb140-4"><a href="estadística-inferencial-ii.html#cb140-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ci_lower, <span class="at">ymax=</span>ci_upper), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
-<span id="cb140-5"><a href="estadística-inferencial-ii.html#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>) <span class="co">#Colocamos el texto del valor de la media</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-122-1.png" width="672" />
-&gt; Una guía: Se superponen los intervalos?</p>
+<span id="cb140-5"><a href="estadística-inferencial-ii.html#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
+<span id="cb140-6"><a href="estadística-inferencial-ii.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
+<span id="cb140-7"><a href="estadística-inferencial-ii.html#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Nivel de aceptación de la desigualdad&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<blockquote>
+<p>Una guía: Se superponen los intervalos?</p>
+</blockquote>
+<p>Si los intervalos de confianza se superponen significa que no hay una diferencia estadísticamente significativa entre las estimaciones correspondientes a cada intervalo. Es decir, la diferencia entre las estimaciones no es lo suficientemente grande como para ser considerada significativa desde un punto de vista estadístico.</p>
+<p><strong>IMPORTANTE!!</strong></p>
+<p><strong>Es importante tener en cuenta que la superposición de los intervalos de confianza no es una prueba concluyente de que no hay una diferencia significativa entre las estimaciones. Se debe realizar una prueba de hipótesis para determinar si la diferencia es estadísticamente significativa o no. Sin embargo, la superposición de los intervalos de confianza puede ser una indicación inicial de que la diferencia no es significativa y que no se debe buscar más evidencia.</strong></p>
 </div>
 <div id="ahora-hazlo-tú" class="section level3 hasAnchor" number="5.1.6">
 <h3><span class="header-section-number">5.1.6</span> Ahora hazlo tú!<a href="estadística-inferencial-ii.html#ahora-hazlo-tú" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cree un .Rmd y realice lo siguiente:</p>
+<p>Utilizando la variable monto mínimo mensual que requiere su hogar para vivir (P08).</p>
+<p>Calcule:</p>
+<ul>
+<li><p>Brinde el estimador puntual de la media poblacional.</p></li>
+<li><p>Calcule el intervalo de confianza de la media poblacional.</p></li>
+<li><p>Calcule los intervalos de confianza de la media según si el individuo vive en el área urbana o rural (D08B). En otras palabras, compare la media de la variable en esos dos grupos.</p></li>
+<li><p>Realice un gráfico de barras de error. Existe indicio de DIFERENCIA entre los dos grupos?</p></li>
+</ul>
+<blockquote>
+<p>Tienes 10 minutos!</p>
+</blockquote>
 </div>
 </div>
 <div id="intervalo-de-una-proporción" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Intervalo de una proporción<a href="estadística-inferencial-ii.html#intervalo-de-una-proporción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="definición-1" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Definición<a href="estadística-inferencial-ii.html#definición-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En estadística, el intervalo de una proporción es un rango de valores posibles para la proporción de una característica en una población, que se estima a partir de una muestra aleatoria de la población. Al igual que con la media, el intervalo de una proporción se construye utilizando un nivel de confianza específico y se utiliza para determinar la precisión de la estimación de la proporción en la población.</p>
+<p>Por ejemplo, si se desea estimar la proporción de personas en una población que votará por un candidato específico, se puede seleccionar una muestra aleatoria de la población y estimar la proporción de personas que votarán por ese candidato en la muestra. A partir de esta estimación, se puede construir un intervalo de confianza que contendrá el valor real de la proporción en la población con un cierto nivel de confianza.</p>
+<p>El ancho del intervalo depende del tamaño de la muestra y del nivel de confianza especificado. A medida que el tamaño de la muestra aumenta, el intervalo se estrecha y se vuelve más preciso. Del mismo modo, a medida que se aumenta el nivel de confianza, el intervalo se amplía y se vuelve menos preciso.</p>
+<p>El intervalo de una proporción es una herramienta útil en la inferencia estadística, ya que permite a los investigadores cuantificar la incertidumbre en una estimación de la proporción y determinar si una diferencia entre dos proporciones es estadísticamente significativa.</p>
 </div>
 <div id="fórmula" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Fórmula<a href="estadística-inferencial-ii.html#fórmula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Recuerda que en este caso, al igual que en la media, todo gira en torno a los principios de la curva normal, el número de desviaciones estándar/errores estándar a la izquierda y a la derecha, el teorema central del límite y la ley de los grandes números. Si alguno de estos conceptos no están claros, te recomiendo regresar a la sesión 4 y repasarlos!</p>
+</blockquote>
+<p>Para calcular el intervalo de confianza de una proporción variamos un poco la fórmula que ya conocemos hasta ahora.</p>
+<p>Primero hay que tener en cuenta que cuando calculamos la proporción, nos estamos refiriendo específicamente a la proporción de <strong>UNA CATEGORÍA</strong> de una variable <strong>CATEGÓRICA</strong>. Hago el énfasis en ello porque siempre se genera la confusión de “a qué le estoy calculando la proporción”.</p>
+<p>Dicho de otra manera, nosotros debemos poner el ojo en una categoría de una variable nominal/ordinal al principio de este cálculo.</p>
+<p><span class="math display">\[\text{Intervalo de confianza para una proporción: } \hat{p} \pm z \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(\hat{p}\)</span> = Proporción muestral de la categoría elegida</p>
+<p>z = Puntuación crítica dependiendo de nuestro nivel de confianza elegido</p>
+<p><span class="math display">\[\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</span> = Error estándar de una proporción</p>
+</div>
+<div id="cálculo-con-la-fórmula" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Cálculo con la fórmula<a href="estadística-inferencial-ii.html#cálculo-con-la-fórmula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="cálculo-con-la-función" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Cálculo con la función<a href="estadística-inferencial-ii.html#cálculo-con-la-función" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
