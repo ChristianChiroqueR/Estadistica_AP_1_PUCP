@@ -440,17 +440,21 @@ En el contexto de las pruebas de hipótesis, se suelen plantear dos hipótesis: 
 
 Tener en cuenta que la forma cómo planteamos nuestras hipótesis va a repercutir en todo el flujograma. 
 
-### Paso 2: Ver distribución muestral
+### Paso 2: Verificar supuestos
 
 ![](figures/detective_escena.jpg)
 
-> Antes de ver los hechos, debemos ver el contexto en el cual se encuentran. No es lo mismo que el investigado sea joven que adulto. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!
+> Antes de ver los hechos, debemos ver el contexto en el cual se encuentran. No es lo mismo que el crimen se realice en una casa o al aire libre. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!
 
 Recuerdas todos los principios de la curva normal, desviaciones estándar, errores estándar (en el caso de las distribuciones muestrales), etc? Eso también se aplica aquí. 
 
 Partimos de la idea de que si se extraen muchas muestras repetidas (como en la clase anterior), los estadísticos muestrales se centrarán alrededor de un valor con una distribución aproximadamente normal. 
 
-En este caso debemos corroborar una característica: que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro. 
+En este caso debemos corroborar ciertas características de la distribución de nuestra muestra. Algunas de estas:
+
+- Que las variables provengan de una distribución gaussiana o normal. 
+
+- Que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro. 
 
 
 ### Paso 3: Establecer nivel de significancia

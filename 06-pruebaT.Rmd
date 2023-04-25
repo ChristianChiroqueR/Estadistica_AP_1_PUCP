@@ -1,0 +1,133 @@
+# Estadística Inferencial III: Prueba T
+
+## Recordemos
+
+### Prueba de hipótesis
+
+Habíamos dicho que una prueba de hipótesis estadística es una herramienta utilizada para evaluar si una **afirmación sobre una población** es **probablemente verdadera o falsa**, basándose en los **datos de una muestra** de esa población.
+
+Puedes pensar en una prueba de hipótesis como un juicio, en el cual el acusado es la hipótesis nula (afirmación a evaluar) y la hipótesis alternativa es la acusación. 
+
+
+### Flujograma
+
+También habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis. 
+
+![](figures/prueba_pasos.png)
+
+### Tipos de prueba de hipótesis
+
+Ahora bien, existen múltiples pruebas de hipótesis dependiendo de:
+
+- **Características de la data**: Con fines de este curso, vamos a abordar un conjunto de pruebas de hipótesis que están construidas para tratar con datos que siguen una distribución normal. Este tipo de pruebas de hipótesis se le conoce como **métodos paramétricos**. En otras palabras, vamos a asumir que las variables que estamos eligiendo provienen de una distribución normal. 
+
+
+- **Objetivo del investigador**: Una prueba de hipótesis nos puede servir para evaluar muchas afirmaciones sobre la población. 
+
+En este curso vamos a abordar algunas de las preguntas de investigación más conocidas: 
+
+
+a) La media de esta variable numérica es distinta en dos grupos a nivel de la población?
+
+b) La media de esta variable numérica es ditinta en tres a más grupos a nivel de la población?
+
+c) Dos variables categóricas están asociadas en la población?
+
+d) Dos variables numéricas están asociadas en la población?
+
+e) Es posible modelar la relación entre una variable numérica (dependiente) y un conjunto de variables (independientes)?
+
+
+![](figures/pruebas_curso.jpg)
+
+## Prueba T para diferencia de medias
+
+### Definición
+
+La prueba T para comparar una media en dos grupos es una técnica estadística que se utiliza para determinar si la diferencia entre las medias de dos grupos es estadísticamente significativa o simplemente el resultado del azar.
+
+La prueba T se basa en la **distribución T de Student**, que es una distribución de probabilidad que se utiliza cuando el tamaño de la muestra es pequeño o la varianza poblacional es desconocida. 
+
+> Será bastante común que en la descripción de una prueba de hipótesis se haga referencia a una distribución teórica que ayudará a establecer las probabilidades. Aquí está el core estadístico!
+
+### Paso 0: Análisis exploratorio de datos (EDA)
+
+No está en el flujograma, pero siempre debes seguir algunos pasos previos. 
+
+Desde lo más general a lo más específico, nosotros debemos:
+
+Abrir la base de datos: 
+
+```{r}
+library(pacman)
+p_load(haven, tidyverse, lsr, kableExtra)
+enades<-read_spss("data/ENADES_2022.sav")
+```
+
+Configurar las variables que vas a utilizar. 
+
+En este caso deseo comparar la variable ingreso...
+
+```{r}
+enades$p08<-as.numeric(enades$p08)
+str(enades$p08)
+```
+
+...En los grupos establecidos por la variable ámbito (urbano/rural)  
+
+```{r}
+enades$area2<-factor(enades$area2, # Nombre de la variable a convertir
+                     levels=1:2, # Definimos los niveles (esta variable sólo tenía 2 niveles)
+                     labels=c("Urbano", "Rural")) #Colocamos sus etiquetas
+str(enades$area2)
+```
+Ahora hacemos un primer sondeo de cuál es la media muestral...
+
+```{r}
+enades |> 
+  summarise(mean(p08, na.rm=T))
+```
+
+
+...y cuál es la media muestral en cada uno de los grupos seleccionados.
+
+```{r}
+enades |> 
+  group_by(area2) |> 
+  summarise(mean(p08, na.rm=T))
+```
+
+Ahora sí, procedemos a:
+
+### Paso 1: Establecer hipótesis
+
+
+
+
+### Paso 2: Verificar supuestos
+
+
+
+
+### Paso 3: Establecer nivel de significancia
+
+
+
+### Paso 4: Calcular estadístico de prueba y p-valor 
+
+
+
+### Paso 5: Tomar una decisión
+
+
+
+### Paso 6: Interpretación
+
+
+
+
+
+### ADVERTENCIA: 
+
+
+
