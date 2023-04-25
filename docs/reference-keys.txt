@@ -81,7 +81,7 @@ paso-3-establecer-nivel-de-significancia
 paso-4-aplicar-test-estadístico-y-obtener-p-value
 paso-5-tomar-una-decisión
 paso-6-interpretación
-estadística-inferencial-iii-prueba-t
+estadística-inferencial-iii-comparación-en-dos-muestras-independientes
 recordemos-1
 prueba-de-hipótesis
 flujograma
@@ -95,4 +95,5 @@ paso-3-establecer-nivel-de-significancia-1
 paso-4-calcular-estadístico-de-prueba-y-p-valor
 paso-5-tomar-una-decisión-1
 paso-6-interpretación-1
-advertencia
+ahora-hazlo-tú-2
+a-tener-en-cuenta-ph-para-igualdad-de-varianzas
