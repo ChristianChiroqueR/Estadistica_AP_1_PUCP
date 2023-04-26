@@ -429,7 +429,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb181-6"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 127 rows containing non-finite
 ## values (`stat_density()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-146-1.png" width="672" />
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-100-1.png" width="672" />
 De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
 <p>Otra forma de compararlo, es a través de un boxplot:</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb183-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
@@ -440,7 +440,7 @@ De forma predeterminada, vemos que la varianza, es decir cómo varian los datos 
 <span id="cb183-6"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 127 rows containing non-finite
 ## values (`stat_boxplot()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-147-1.png" width="672" />
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-101-1.png" width="672" />
 Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
 <p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
 </div>
