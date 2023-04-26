@@ -60,7 +60,7 @@ No está en el flujograma, pero siempre debes seguir algunos pasos previos.
 
 Desde lo más general a lo más específico, nosotros debemos:
 
-Abrir la base de datos. Vamos a seguir usando [enades](https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf): 
+Abrir la base de datos. Vamos a seguir usando ENADES. Puedes ver el cuestionario  [aqui](https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf): 
 
 ```{r}
 library(pacman)
@@ -68,7 +68,7 @@ p_load(haven, tidyverse, lsr, kableExtra)
 enades<-read_spss("data/ENADES_2022.sav")
 ```
 
-Configurar las variables que vas a utilizar. 
+**CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR** 
 
 En este caso deseo comparar la variable monto mínimo mensual que requiere su hogar para vivir (P08)...
 
@@ -86,6 +86,11 @@ enades$area2<-factor(enades$area2, # Nombre de la variable a convertir
 str(enades$area2)
 ```
 
+
+**EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES** 
+
+Si bien nos interesa calcular la media poblacional, primero tenemos que tener en cuenta cuál es la media en nuestra muestra. 
+
 Ahora hacemos un primer sondeo de cuál es la media muestral...
 
 ```{r}
@@ -102,7 +107,7 @@ enades |>
   summarise(mean(p08, na.rm=T))
 ```
 
-Ahora sí, procedemos a:
+Esto nos ayuda a corroborar que tenemos toda la información necesitaria lista para llevar a cabo una prueba de hipótesis. 
 
 
 ### Paso 1: Establecer hipótesis
@@ -225,14 +230,20 @@ Deseamos saber si existe diferencia en el promedio de esta variable en el sector
 - Realice una comparación de medias en ambos grupos utilizando la prueba de hipótesis más pertinente. Muestre sus resultados e interprete. 
 
 
-### A tener en cuenta: PH para igualdad de varianzas
+## A tener en cuenta: 
 
-Para poder verificar este supuesto de homogenedidad de varianzas de forma rigurosa podemos aplicar una **Prueba de Levene de Homogeneidad de Varianzas**.
+### Prueba de hipótesis para igualdad de varianzas
+
+Como te sugerí líneas arriba, siempre es bueno realizar una exploración visual con un boxplot para encontrar indicios sobre la existencia de homogeneidad de varianzas en dos o más grupos. 
+
+Sin perjuicio de ello, para poder verificar este supuesto de homogenedidad de varianzas de forma más rigurosa podemos aplicar una **Prueba de Levene de Homogeneidad de Varianzas**.
 
 ```{r message=FALSE, warning=FALSE}
 library(DescTools)
-LeveneTest(enades$p08, enades$area2)$"Pr(>F)"
+LeveneTest(enades$p08, enades$area2)
 ```
+Recordamos nuestras hipótesis a validar:
+
 Hipótesis  | Descripción | Notación
 ------------- | ------------- | -------------
 Hipótesis nula  | Las varianzas poblacionales son homogéneas | $H_0: v_1 = v_2$
@@ -240,4 +251,15 @@ Hipótesis alterna  | Las varianzas poblacionales son diferentes | $H_1: v_1 \ne
 
 
 Luego de realizar una prueba de Levene, a un 95% de confianza, obtuvimos un p-valor de 0.0001660599, por lo que rechazamos la hipótesis nula de que la varianza del monto mínimo mensual que requiere su hogar para vivir es igual/homogénea en el área urbana y en el área rural. Por ello, concluimos que existen diferencias estadísticamente significativas en las varianzas de ambos grupos poblacionales.
+
+
+### Valores faltantes en las encuestas
+
+![](figures/ENADES_ideologia.png)
+
+En las encuestas, los valores perdidos son aquellos que faltan en las respuestas proporcionadas por los encuestados. Esto puede suceder porque el encuestado decidió no responder a la pregunta, porque no entendió la pregunta o porque la pregunta simplemente no se aplicaba a él o ella.
+
+Para manejar los valores perdidos, a menudo se utiliza la técnica de imputación, que implica reemplazar los valores faltantes por algún valor estimado. En algunos casos, se puede asignar un valor específico, como 99 o 999, para indicar que el encuestado no sabe o no responde a la pregunta. Este enfoque se utiliza comúnmente en encuestas de opinión pública y otras encuestas que involucran preguntas sensibles.
+
+Sin embargo, es importante tener en cuenta que asignar un valor específico a los valores perdidos puede afectar los resultados de la encuesta y la validez de los análisis estadísticos posteriores. Por lo tanto, es importante evaluar cuidadosamente las estrategias de manejo de valores perdidos y elegir la opción más adecuada para el conjunto de datos y el análisis específicos.
 

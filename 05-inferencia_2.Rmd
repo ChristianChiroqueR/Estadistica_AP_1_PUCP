@@ -407,7 +407,7 @@ Realice lo siguiente:
 
 
 
-## Prueba de hipótesis: Introducción
+## Prueba de hipótesis: Una introducción
 
 ### Definición
 

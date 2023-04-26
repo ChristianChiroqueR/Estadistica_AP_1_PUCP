@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I</title>
-  <meta name="description" content="Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I" />
+  <title>Sesión 7 ANOVA: Comparación en más de dos muestras | Estadística para el Análisis Político I</title>
+  <meta name="description" content="Sesión 7 ANOVA: Comparación en más de dos muestras | Estadística para el Análisis Político I" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I" />
+  <meta property="og:title" content="Sesión 7 ANOVA: Comparación en más de dos muestras | Estadística para el Análisis Político I" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I" />
+  <meta name="twitter:title" content="Sesión 7 ANOVA: Comparación en más de dos muestras | Estadística para el Análisis Político I" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="visualización-de-datos-con-ggplot2.html"/>
+<link rel="prev" href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -330,231 +330,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="manipulación-de-datos-y-estadísticos-descriptivos" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Sesión 2</span> Manipulación de datos y estadísticos descriptivos<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#manipulación-de-datos-y-estadísticos-descriptivos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="preparación" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Preparación<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="entorno-de-trabajo" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Entorno de trabajo<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Crea la carpeta donde guardarás toda la información creada.</p></li>
-<li><p>Te recomiendo que para cada clase crees un Proyecto de R. Eso te permitirá mantener un orden.</p></li>
-<li><p>Una vez creado, puedes crear un R Markdown como este para empezar a trabajar.</p></li>
-</ul>
+<div id="anova-comparación-en-más-de-dos-muestras" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Sesión 7</span> ANOVA: Comparación en más de dos muestras<a href="anova-comparación-en-más-de-dos-muestras.html#anova-comparación-en-más-de-dos-muestras" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="recordemos-2" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Recordemos<a href="anova-comparación-en-más-de-dos-muestras.html#recordemos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="flujograma-1" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Flujograma<a href="anova-comparación-en-más-de-dos-muestras.html#flujograma-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>También habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis.</p>
+<p><img src="figures/prueba_pasos.png" /></p>
 </div>
-<div id="paquetes-a-utilizar" class="section level3 hasAnchor" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Paquetes a utilizar<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Ahora bien, DE PREFERENCIA, siempre que inicies un R Markdown o Script en el R Studio tienes que abrir los paquetes que vas a utilizar. En este caso vamos a utilizar el paquete Tidyverse (que ya incluye muchos otros paquetes ya explicados). Puedes abrirlo con el siguiente comando:</li>
-</ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb62-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<ul>
-<li>Recuerda que la función library(nombre_del_paquete) sirve para abrir los paquetes YA INSTALADOS. Si te sale un mensaje que dice que “no existe el paquete” debes instalarlo con la función install.packages(línea previa).</li>
-</ul>
-<hr />
+<div id="qué-sigue" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Qué sigue?<a href="anova-comparación-en-más-de-dos-muestras.html#qué-sigue" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/pruebas_curso.jpg" /></p>
 </div>
 </div>
-<div id="base-de-datos" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Base de datos<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="importación" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Importación<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para la parte I, II y III de esta clase utilizaremos la base de datos de los resultados de las elecciones presidenciales del 2011.</p>
-<p>Vamos a realizar un breve reporte sobre los porcentajes obtenidos por la organización política “Gana Perú”.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb63-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-2" aria-hidden="true" tabindex="-1"></a>elecciones <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span></code></pre></div>
-<p>Luego de abrir una base de datos, siempre te recomiendo darle un primer vistazo.</p>
-<p>Puedes ver las primeras diez filas con:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTA…¹ PROVI…² DISTR…³ ORGAN…⁴ VOTOS…⁵ VOTOS…⁶ VOTOS…⁷ VOTOS…⁸
-##    &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 010101 AMAZONAS  CHACHA… CHACHA… FUERZA…       6   11148    1034     340
-##  2 010101 AMAZONAS  CHACHA… CHACHA… PARTID…      24   11148    1034     340
-##  3 010101 AMAZONAS  CHACHA… CHACHA… DESPER…      35   11148    1034     340
-##  4 010101 AMAZONAS  CHACHA… CHACHA… GANA P…    2971   11148    1034     340
-##  5 010101 AMAZONAS  CHACHA… CHACHA… FONAVI…       7   11148    1034     340
-##  6 010101 AMAZONAS  CHACHA… CHACHA… JUSTIC…       4   11148    1034     340
-##  7 010101 AMAZONAS  CHACHA… CHACHA… FUERZA…    2651   11148    1034     340
-##  8 010101 AMAZONAS  CHACHA… CHACHA… PARTID…       2   11148    1034     340
-##  9 010101 AMAZONAS  CHACHA… CHACHA… ALIANZ…    1479   11148    1034     340
-## 10 010101 AMAZONAS  CHACHA… CHACHA… ALIANZ…     773   11148    1034     340
-## # … with 2 more variables: NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;,
-## #   and abbreviated variable names ¹​DEPARTAMENTO, ²​PROVINCIA, ³​DISTRITO,
-## #   ⁴​ORGANIZACIÓN_POLITICA, ⁵​VOTOS_VALIDOS_OP, ⁶​VOTOS_VALIDOS,
-## #   ⁷​VOTOS_BLANCO, ⁸​VOTOS_NULOS</code></pre>
-<p>También puedes hacerle click en Environment o colocar:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
+<div id="anova-de-un-factor" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> ANOVA de un factor<a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="figures/ANOVA.jpg" /></p>
+<div id="definición-4" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Definición<a href="anova-comparación-en-más-de-dos-muestras.html#definición-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El análisis de varianza (ANOVA) de un factor en R es una técnica estadística utilizada para comparar la media de una variable numérica entre más de dos grupos. Se realiza un ANOVA de un factor cuando se tiene un solo factor categórico (con tres o más niveles) que se utiliza para agrupar los datos, y se quiere determinar si existe una diferencia estadísticamente significativa entre las medias de los grupos.</p>
+<p>El ANOVA es una herramienta útil para analizar datos experimentales en los que se desea comparar las medias de más de dos grupos. En lugar de <strong>realizar múltiples pruebas t de dos muestras</strong>, el ANOVA nos permite realizar una sola prueba para determinar si hay una diferencia significativa entre los grupos.</p>
+<p>Los pasos para aplicación del ANOVA son los mismos que los seguidos para el T de Student, visto la clase anterior.</p>
 </div>
-<div id="verificar-el-tipo-de-variable" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Verificar el tipo de variable<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Veamos las variables, podemos utilizar la función <code>names(nombre_de_data)</code></p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elecciones)</span></code></pre></div>
-<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;         
-##  [3] &quot;PROVINCIA&quot;             &quot;DISTRITO&quot;             
-##  [5] &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;     
-##  [7] &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;         
-##  [9] &quot;VOTOS_NULOS&quot;           &quot;NUMERO_ELECTORES&quot;     
-## [11] &quot;VOTOS_EMITIDOS&quot;</code></pre>
-<p>Puedes editar los nombres si deseas. En este caso vamos a cambiar el nombre de la variable <strong>ORGANIZACIÓN_POLITICA</strong> por <strong>ORG_POL</strong>.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb69-1" aria-hidden="true" tabindex="-1"></a>elecciones<span class="ot">&lt;-</span> elecciones <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ORG_POL=</span>ORGANIZACIÓN_POLITICA)</span></code></pre></div>
-<blockquote>
-<p><strong>Observación: Ten en cuenta que aquí estamos sobre escribiendo.</strong></p>
-</blockquote>
-<p>Veamos si el formato es adecuado.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elecciones)</span></code></pre></div>
-<pre><code>## tibble [23,958 × 11] (S3: tbl_df/tbl/data.frame)
-##  $ UBIGEO          : chr [1:23958] &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; ...
-##  $ DEPARTAMENTO    : chr [1:23958] &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; ...
-##  $ PROVINCIA       : chr [1:23958] &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; ...
-##  $ DISTRITO        : chr [1:23958] &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; ...
-##  $ ORG_POL         : chr [1:23958] &quot;FUERZA NACIONAL&quot; &quot;PARTIDO POLITICO ADELANTE&quot; &quot;DESPERTAR NACIONAL&quot; &quot;GANA PERU&quot; ...
-##  $ VOTOS_VALIDOS_OP: num [1:23958] 6 24 35 2971 7 ...
-##  $ VOTOS_VALIDOS   : num [1:23958] 11148 11148 11148 11148 11148 ...
-##  $ VOTOS_BLANCO    : num [1:23958] 1034 1034 1034 1034 1034 ...
-##  $ VOTOS_NULOS     : num [1:23958] 340 340 340 340 340 340 340 340 340 340 ...
-##  $ NUMERO_ELECTORES: num [1:23958] 15748 15748 15748 15748 15748 ...
-##  $ VOTOS_EMITIDOS  : num [1:23958] 12522 12522 12522 12522 12522 ...</code></pre>
-<p>Ok, los caracteres están como <code>chr</code> y las variables numéricas como <code>num.</code></p>
+<div id="paso-0-análisis-exploratorio-de-datos-eda-1" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="abrir-la-data" class="section level4 hasAnchor" number="7.2.2.1">
+<h4><span class="header-section-number">7.2.2.1</span> Abrir la data<a href="anova-comparación-en-más-de-dos-muestras.html#abrir-la-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
-<div id="creación-de-subset" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Creación de subset<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Aquí nos debemos preguntar: a lo largo de nuestro trabajo, vamos a utilizar toda la data o sólo una parte?</p>
-<p>En este caso puntual, sólo vamos a utilizar aquellos resultados de la organización política Gana Perú. Por ello, vamos a hacer un filtro con ese criterio y vamos a **crear un subset o una data ya filtrada”.</p>
-<p>A esta data la llamaremos <strong>elecciones_GN</strong>.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb72-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="ot">&lt;-</span> elecciones<span class="sc">%&gt;%</span> <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) </span></code></pre></div>
-<hr />
+<div id="configuración-de-variables" class="section level4 hasAnchor" number="7.2.2.2">
+<h4><span class="header-section-number">7.2.2.2</span> Configuración de variables<a href="anova-comparación-en-más-de-dos-muestras.html#configuración-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+<div id="exploración-de-datos-muestrales" class="section level4 hasAnchor" number="7.2.2.3">
+<h4><span class="header-section-number">7.2.2.3</span> Exploración de datos muestrales<a href="anova-comparación-en-más-de-dos-muestras.html#exploración-de-datos-muestrales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
 </div>
-<div id="estadísticos-de-tendencia-central" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Estadísticos de tendencia central<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como nuestro objetivo es explorar el porcentaje de votos válidos obtenidos por Gana Perú, vamos a crear esa variable en base a dos variable observables: el número de votos obtenidos y el número total de votos válidos.</p>
-<p>Utilizamos la función <code>mutate()</code>.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="ot">&lt;-</span>elecciones_GN <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">porc.voto=</span>VOTOS_VALIDOS_OP<span class="sc">/</span>VOTOS_VALIDOS<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
-<p>Ahora podemos calculas los tres estadísticos de tendencia central con la función <code>summarise()</code>.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="sc">%&gt;%</span> </span>
-<span id="cb74-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb74-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mediana=</span><span class="fu">median</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 2
-##   Media Mediana
-##   &lt;dbl&gt;   &lt;dbl&gt;
-## 1  38.9    35.1</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recuerda que colocamos na.rm = TRUE para que haga el cálculo omitiendo</span></span>
-<span id="cb76-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aquellas celdas vacías (valores perdidos)</span></span></code></pre></div>
-<hr />
+<div id="paso-1-establecer-hipótesis-1" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Paso 1: Establecer hipótesis<a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Debemos plantear las hipótesis nula y alternativa.</p>
+<p>Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar algunas de estas. En el caso de la Prueba T, las hipótesis son las siguientes:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hipótesis</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hipótesis nula</td>
+<td>Las medias poblacionales <strong>en todos los grupos</strong> son iguales</td>
+</tr>
+<tr class="even">
+<td>Hipótesis alterna</td>
+<td>Al menos una de las medias de las muestras es diferente de las demás.</td>
+</tr>
+</tbody>
+</table>
+<p>Estas son las hipótesis que vamos a validar con nuestra prueba.</p>
 </div>
-<div id="estadísticos-de-posición" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Estadísticos de posición<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="percentiles" class="section level3 hasAnchor" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Percentiles<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Los estadísticos de posición son medidas que indican la posición relativa de un valor dentro de un conjunto de datos ordenados de menor a mayor.</p></li>
-<li><p>Los estadísticos de posición más utilizados son los percentiles (y sus derivados que son los cuartiles y deciles).</p></li>
-<li><p>Los estadísticos de posición son útiles para resumir los datos y obtener información sobre la distribución de los mismos.</p></li>
-<li><p>Se utilizan para describir la dispersión de los datos alrededor de la mediana, así como identificar valores atípicos o extremos en el conjunto de datos.</p></li>
-</ul>
-<p>Para calcular un determinado percentil podemos solicitarlo utilizando la función <code>summarise()</code> junto con <code>quantile()</code>. Vamos a solicitar los cuartiles (el percentil 25, 50 y 75) de la variable porc.voto:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb77-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">P25=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.25</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb77-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">P50=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.50</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb77-4"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">P75=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.75</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 3
-##     P25   P50   P75
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1  21.6  35.1  56.0</code></pre>
-<p>Si son muchos percentiles también puedes usar la función concatenar <code>c()</code>, como en el siguiente ejemplo:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb79-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(porc.voto, <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.25</span>,<span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 5 × 1
-##   `quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`
-##                                                               &lt;dbl&gt;
-## 1                                                              11.4
-## 2                                                              21.6
-## 3                                                              35.1
-## 4                                                              56.0
-## 5                                                              70.7</code></pre>
-<hr />
+<div id="paso-2-verificar-supuestos-2" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Paso 2: Verificar supuestos<a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>INDEPENDENCIA</strong></p>
+<p>Las muestras deben ser independientes. El muestreo debe ser aleatorio. Vamos a asumir ello porque normalmente no tenemos control sobre el proceso de muestreo.</p>
+<p><strong>DISTRITUCIÓN NORMAL</strong></p>
+<p>Para los fines de este curso, asumimos que la variable numérica proviene de una distribución normal en la población.</p>
+<p><strong>HOMOGENEIDAD DE VARIANZAS</strong></p>
+<p>Identificamos si las varianzas son iguales en los grupos analizados. En el caso de que sean diferentes, vamos a necesitar hacer un **ajuste* a la fórmular de cálculo.</p>
+<p><img src="figures/comparacion_varianzas.jpg" /></p>
+<p>Veamos antes una visualización de los datos:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb189-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb189-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
+<span id="cb189-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb189-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb189-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_density()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-108-1.png" width="672" />
+De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
+<p>Otra forma de compararlo, es a través de un boxplot:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb191-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb191-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
+<span id="cb191-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb191-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb191-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-109-1.png" width="672" />
+Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
+<p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
 </div>
+<div id="paso-3-establecer-nivel-de-significancia-2" class="section level3 hasAnchor" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> Paso 3: Establecer nivel de significancia<a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.</p>
+<p><span class="math display">\[\alpha = 0.05\]</span></p>
 </div>
-<div id="estadísticos-de-dispersión" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Estadísticos de dispersión<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las medidas de dispersión son una serie de estadísticos que nos permiten conocer la variabilidad o amplitud de los datos en un conjunto de observaciones. Estas medidas nos indican cuánto se alejan los valores de la media, la mediana o cualquier otro estadístico de tendencia central, lo que es de gran utilidad para entender la homogeneidad o heterogeneidad de la distribución de los datos.</p>
-<p>Las medidas de dispersión más comunes son el rango, la varianza, la desviación estándar, el rango intercuartílico y el coeficiente de variación.</p>
-<div id="el-rango" class="section level3 hasAnchor" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> El Rango<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El rango es una medida de dispersión que se utiliza para determinar la amplitud total de un conjunto de datos. Es la diferencia entre el valor máximo y el valor mínimo en un conjunto de datos. Es una medida muy sencilla de calcular y proporciona una idea general de la variabilidad de los datos. Sin embargo, no toma en cuenta la distribución de los datos en el conjunto, lo que puede hacer que la medida sea menos informativa en ciertos casos.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb81-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb81-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Rango=</span><span class="fu">max</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">-</span><span class="fu">min</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   Rango
-##   &lt;dbl&gt;
-## 1  98.1</code></pre>
-<p>En este caso vemos que los valores de la variable <strong>porc.voto</strong> tiene un rango de 98.1 unidades (porcentuales) .</p>
+<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-1" class="section level3 hasAnchor" number="7.2.6">
+<h3><span class="header-section-number">7.2.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="la-varianza" class="section level3 hasAnchor" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> La Varianza<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La varianza es una medida de dispersión que indica qué tan dispersos están los datos con respecto a su media.</p>
-<p><span class="math display">\[\sigma^2 = \frac{\sum_{i=1}^n (x_i - \mu)^2}{n}\]</span></p>
-<p>Matemáticamente, la varianza se define como la media aritmética de los cuadrados de las diferencias entre cada valor de la variable y la media.</p>
-<p>Lo calculamos utilizando la función <code>var()</code>:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb83-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb83-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Varianza=</span><span class="fu">var</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   Varianza
-##      &lt;dbl&gt;
-## 1     472.</code></pre>
-<p>En este ejemplo, el porcentaje de los Votos obtenidos por Gana Perú tiene una dispersión de 472 entre los distritos del Perú.</p>
-<blockquote>
-<p>Recuerda que la varianza puede servir a la hora de comparar dos variable que están medidas en las mismas unidades (como si comparáramos este porcentaje vs el obtenido por Fuerza 2011). Si deseamos analizar una única variable es más fácil ver la <strong>Desviación Estándar</strong>.</p>
-</blockquote>
+<div id="paso-5-tomar-una-decisión-2" class="section level3 hasAnchor" number="7.2.7">
+<h3><span class="header-section-number">7.2.7</span> Paso 5: Tomar una decisión<a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/rechazar_norechazar.jpg" />
+Tenemos los siguientes escenarios</p>
+<table>
+<thead>
+<tr class="header">
+<th>Resultado</th>
+<th>Decisión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p-value &lt;\alpha\)</span></td>
+<td>Rechazamos la hipótesis nula.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p-value &gt;=\alpha\)</span></td>
+<td>No rechazamos la hipótesis nula.</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="la-desviación-estándar" class="section level3 hasAnchor" number="2.5.3">
-<h3><span class="header-section-number">2.5.3</span> La Desviación Estándar<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Es la medida de dispersión más común y se calcula como la raíz cuadrada de la varianza. Nos indica cuánto se desvían los valores de la distribución con respecto a la media.</p>
-<p><span class="math display">\[\sqrt{\text{Var}(X)}\]</span></p>
-<p>La desviación estándar se expresa en las mismas unidades que los datos originales, lo que la hace fácilmente interpretable.</p>
-<p>Una desviación estándar pequeña indica que los datos están muy concentrados alrededor de la media, mientras que una desviación estándar grande indica que los datos están más dispersos y que existe una mayor variabilidad en los mismos.</p>
-<p>Lo calculamos usando la función <code>sd()</code>:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb85-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb85-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Desv_est=</span><span class="fu">sd</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   Desv_est
-##      &lt;dbl&gt;
-## 1     21.7</code></pre>
-<p>La forma de interpretación es que <strong>los valores observados están en promedio a una distancia de 21 unidades de la media</strong>.</p>
+<div id="paso-6-interpretación-2" class="section level3 hasAnchor" number="7.2.8">
+<h3><span class="header-section-number">7.2.8</span> Paso 6: Interpretación<a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>.</p>
 </div>
-<div id="el-rango-intercuartílico" class="section level3 hasAnchor" number="2.5.4">
-<h3><span class="header-section-number">2.5.4</span> El Rango intercuartílico<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El rango intercuartil (IQR por sus siglas en inglés) es una medida de dispersión utilizada en estadística que se define como la diferencia entre el tercer y primer cuartil de un conjunto de datos. En otras palabras, el IQR mide la distancia entre el 25% y el 75% de los datos ordenados de menor a mayor.</p>
-<p>El IQR es una medida de dispersión robusta que no se ve afectada por valores atípicos o extremos en los datos, a diferencia del rango o la desviación estándar. Es útil para resumir la variabilidad de los datos en un intervalo de valores que contiene la mayor parte de los datos y que no está influenciado por los valores extremos. El IQR se puede utilizar para identificar valores atípicos o para comparar la variabilidad entre diferentes conjuntos de datos.</p>
-<p>Lo calculamos utilizando la función <code>IQR()</code>:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb87-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb87-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">IQR=</span><span class="fu">IQR</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##     IQR
-##   &lt;dbl&gt;
-## 1  34.4</code></pre>
-<p>En este caso vemos que el IQR de la variable porc.voto es de 34.4.</p>
-<p>Es decir, la distancia entre el primer cuartil y el tercer cuartil es de 34 unidades en la escala de la variable (porcentaje).</p>
-<hr />
+<div id="extra-visualización" class="section level3 hasAnchor" number="7.2.9">
+<h3><span class="header-section-number">7.2.9</span> Extra: Visualización<a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="curvas-de-distribución-de-frecuencias" class="section level3 hasAnchor" number="2.5.5">
-<h3><span class="header-section-number">2.5.5</span> Curvas de distribución de frecuencias<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Las curvas de distribución son representaciones gráficas de la distribución de una variable aleatoria. Estas curvas se utilizan para mostrar cómo se distribuyen los valores de una variable en un conjunto de datos.</p>
-<p>El principal objetivo examinar las posiciones relativas de la media, la mediana y la moda, para estimar la FORMA DE UNA DISTRIBUCIÓN DE FRECUENCIAS.</p>
-<p><img src="https://www.biologyforlife.com/uploads/2/2/3/9/22392738/c101b0da6ea1a0dab31f80d9963b0368_orig.png" /></p>
-<p>Tenemos dos grandes opciones:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Distribución normal</strong>: Curva de distribución de frecuencias donde la media, la mediana y la moda de una variable son iguales entre sí y la distribución de la puntuaciones tiene forma de campana.</p></li>
-<li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
-</ol>
-<p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
-<p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
-<p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
-<p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
+<div id="ahora-hazlo-tú-3" class="section level3 hasAnchor" number="7.2.10">
+<h3><span class="header-section-number">7.2.10</span> Ahora hazlo tú!<a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>…</p>
 
 </div>
 </div>
@@ -564,8 +474,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualización-de-datos-con-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -596,7 +506,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/02-descriptivos.Rmd",
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/07-ANOVA.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -604,7 +514,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/02-descriptivos.Rmd",
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/07-ANOVA.Rmd",
 "text": null
 },
 "download": null,
