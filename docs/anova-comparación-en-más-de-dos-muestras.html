@@ -336,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.1</span> Recordemos<a href="anova-comparación-en-más-de-dos-muestras.html#recordemos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="flujograma-1" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Flujograma<a href="anova-comparación-en-más-de-dos-muestras.html#flujograma-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>También habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis.</p>
+<p>Anteriormente habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis.</p>
 <p><img src="figures/prueba_pasos.png" /></p>
 </div>
 <div id="qué-sigue" class="section level3 hasAnchor" number="7.1.2">
@@ -401,28 +401,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para los fines de este curso, asumimos que la variable numérica proviene de una distribución normal en la población.</p>
 <p><strong>HOMOGENEIDAD DE VARIANZAS</strong></p>
 <p>Identificamos si las varianzas son iguales en los grupos analizados. En el caso de que sean diferentes, vamos a necesitar hacer un **ajuste* a la fórmular de cálculo.</p>
-<p><img src="figures/comparacion_varianzas.jpg" /></p>
-<p>Veamos antes una visualización de los datos:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb189-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb189-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
-<span id="cb189-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb189-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb189-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb189-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_density()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-108-1.png" width="672" />
-De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
-<p>Otra forma de compararlo, es a través de un boxplot:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb191-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb191-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
-<span id="cb191-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb191-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb191-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb191-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_boxplot()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-109-1.png" width="672" />
-Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
-<p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
+<p>Vamos a hacer una exploración visual utilizando boxplot para verificar indicios de homogeneidad de varianzas.</p>
+<p>Luego, para validar, realizamos el test de Levene, el cual ya hemos aprendido que es una prueba de hipótesis en la que la H0 es: “Existe homogenidad de varianzas”.</p>
 </div>
 <div id="paso-3-establecer-nivel-de-significancia-2" class="section level3 hasAnchor" number="7.2.5">
 <h3><span class="header-section-number">7.2.5</span> Paso 3: Establecer nivel de significancia<a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -445,11 +425,11 @@ Tenemos los siguientes escenarios</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(p-value &lt;\alpha\)</span></td>
+<td><span class="math inline">\(p-value &lt;=\alpha\)</span></td>
 <td>Rechazamos la hipótesis nula.</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(p-value &gt;=\alpha\)</span></td>
+<td><span class="math inline">\(p-value &gt;\alpha\)</span></td>
 <td>No rechazamos la hipótesis nula.</td>
 </tr>
 </tbody>
@@ -461,10 +441,11 @@ Tenemos los siguientes escenarios</p>
 </div>
 <div id="extra-visualización" class="section level3 hasAnchor" number="7.2.9">
 <h3><span class="header-section-number">7.2.9</span> Extra: Visualización<a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>.</p>
 </div>
 <div id="ahora-hazlo-tú-3" class="section level3 hasAnchor" number="7.2.10">
 <h3><span class="header-section-number">7.2.10</span> Ahora hazlo tú!<a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>…</p>
+<p>.</p>
 
 </div>
 </div>

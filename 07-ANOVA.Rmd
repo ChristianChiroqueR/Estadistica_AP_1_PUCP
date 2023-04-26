@@ -4,7 +4,7 @@
 
 ### Flujograma
 
-También habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis. 
+Anteriormente habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis. 
 
 ![](figures/prueba_pasos.png)
 
@@ -68,35 +68,13 @@ Para los fines de este curso, asumimos que la variable numérica proviene de una
 
 Identificamos si las varianzas son iguales en los grupos analizados. En el caso de que sean diferentes, vamos a necesitar hacer un **ajuste* a la fórmular de cálculo.
 
-![](figures/comparacion_varianzas.jpg)
-
-Veamos antes una visualización de los datos:
+Vamos a hacer una exploración visual utilizando boxplot para verificar indicios de homogeneidad de varianzas. 
 
 ```{r}
-enades |> 
-  ggplot() + 
-  aes(x = p08, fill = area2) + 
-  geom_density(alpha = 0.3) +
-  scale_fill_manual(values = c("#00BFC4", "#F8766D")) +
-  labs(title = "Distribución de variable p08 por grupo", x = "Variable", y = "Densidad")
+
 ```
-De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)
 
-Otra forma de compararlo, es a través de un boxplot:
-
-```{r}
-enades |> 
-  ggplot() + 
-  aes(x = p08, fill = area2) + 
-  geom_boxplot() +
-  scale_fill_manual(values = c("#00BFC4", "#F8766D")) +
-  labs(title = "Distribución de variable p08 por grupo", x = "Variable", y = "Densidad") + coord_flip()
-  
-```
-Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano. 
-
-Para fines de este ejercicio, vamos a considerar que las **varianzas son diferentes en ambos grupos analizados**.
-
+Luego, para validar, realizamos el test de Levene, el cual ya hemos aprendido que es una prueba de hipótesis en la que la H0 es: "Existe homogenidad de varianzas".
 
 ### Paso 3: Establecer nivel de significancia
 
@@ -117,8 +95,8 @@ Tenemos los siguientes escenarios
 
 Resultado  | Decisión
 ------------- | -------------
-$p-value <\alpha$  | Rechazamos la hipótesis nula.
-$p-value >=\alpha$  | No rechazamos la hipótesis nula.
+$p-value <=\alpha$  | Rechazamos la hipótesis nula.
+$p-value >\alpha$  | No rechazamos la hipótesis nula.
 
 
 
@@ -129,10 +107,11 @@ $p-value >=\alpha$  | No rechazamos la hipótesis nula.
 
 ### Extra: Visualización
 
+.
 
 
 ### Ahora hazlo tú!
 
-...
+.
 
 
