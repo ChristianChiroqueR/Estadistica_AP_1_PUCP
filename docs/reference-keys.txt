@@ -34,8 +34,11 @@ la-desviación-estándar
 el-rango-intercuartílico
 curvas-de-distribución-de-frecuencias
 visualización-de-datos-con-ggplot2
-base-de-datos-1
-section
+ggplot2-una-herramienta-para-la-visualización
+descripción
+las-siete-capas
+slow-ggplot
+código
 estadística-inferencial-introducción
 antecedentes-relevantes
 la-desviación-estándar-1

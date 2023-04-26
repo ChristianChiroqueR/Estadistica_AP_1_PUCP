@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-04-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,8 +193,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#base-de-datos-1"><i class="fa fa-check"></i><b>3.1</b> Base de datos</a></li>
-<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#section"><i class="fa fa-check"></i><b>3.2</b> </a></li>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#ggplot2-una-herramienta-para-la-visualización"><i class="fa fa-check"></i><b>3.1</b> GGPLOT2: Una herramienta para la visualización</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#descripción"><i class="fa fa-check"></i><b>3.1.1</b> Descripción</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#las-siete-capas"><i class="fa fa-check"></i><b>3.1.2</b> Las siete capas</a></li>
+<li class="chapter" data-level="3.1.3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#slow-ggplot"><i class="fa fa-check"></i><b>3.1.3</b> Slow ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#código"><i class="fa fa-check"></i><b>3.2</b> Código</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
 <ul>
@@ -303,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Estadística para el Análisis Político I</h1>
 <p class="author"><em>Docente: Christian Chiroque Ruiz</em></p>
-<p class="date"><em>2023-04-25</em></p>
+<p class="date"><em>2023-04-26</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Sesión 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -430,8 +435,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <span id="cb36-2"><a href="index.html#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
 <span id="cb36-3"><a href="index.html#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Mujer&quot;</span>, <span class="st">&quot;Hombre&quot;</span>))</span>
 <span id="cb36-4"><a href="index.html#cb36-4" aria-hidden="true" tabindex="-1"></a>genero_en_factor</span></code></pre></div>
-<pre><code>## [1] Mujer  Mujer  Mujer  Hombre Hombre Mujer 
-## [7] Hombre
+<pre><code>## [1] Mujer  Mujer  Mujer  Hombre Hombre Mujer  Hombre
 ## Levels: Mujer Hombre</code></pre>
 <p>En la práctica, muchas veces vamos a ver las variables de tipo factor en nuestro análisis. Por ello, debes ser muy cuidadoso en la preparación previa que debes realizar a la base de datos antes de aplicar las funciones.</p>
 <p>Asimismo, un factor puede estar ordenado o no ordenado. Esto nos sirve, por ejemplo, para crear variables de tipo ordinal. Podemos indicarlo ello, con el argumento <code>ordered=</code>.</p>
@@ -487,8 +491,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <li>Nombre de columnas: Podemos consultar el nombre de las columnas (variables) con la función <code>names()</code>.</li>
 </ul>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mi_df) </span></code></pre></div>
-<pre><code>## [1] &quot;variable1&quot; &quot;variable2&quot; &quot;variable3&quot;
-## [4] &quot;variable4&quot;</code></pre>
+<pre><code>## [1] &quot;variable1&quot; &quot;variable2&quot; &quot;variable3&quot; &quot;variable4&quot;</code></pre>
 </div>
 <div id="índices" class="section level3 hasAnchor" number="1.3.5">
 <h3><span class="header-section-number">1.3.5</span> Índices<a href="index.html#índices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -544,43 +547,32 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
 <span id="cb58-2"><a href="index.html#cb58-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb58-3"><a href="index.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA
-## 1 010101     AMAZONAS CHACHAPOYAS
-## 2 010101     AMAZONAS CHACHAPOYAS
-## 3 010101     AMAZONAS CHACHAPOYAS
-##      DISTRITO     ORGANIZACIÓN_POLITICA
-## 1 CHACHAPOYAS           FUERZA NACIONAL
-## 2 CHACHAPOYAS PARTIDO POLITICO ADELANTE
-## 3 CHACHAPOYAS        DESPERTAR NACIONAL
-##   VOTOS_VALIDOS_OP VOTOS_VALIDOS
-## 1                6         11148
-## 2               24         11148
-## 3               35         11148
-##   VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES
-## 1         1034         340            15748
-## 2         1034         340            15748
-## 3         1034         340            15748
-##   VOTOS_EMITIDOS
-## 1          12522
-## 2          12522
-## 3          12522</code></pre>
+<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO
+## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+##       ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS
+## 1           FUERZA NACIONAL                6         11148
+## 2 PARTIDO POLITICO ADELANTE               24         11148
+## 3        DESPERTAR NACIONAL               35         11148
+##   VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES VOTOS_EMITIDOS
+## 1         1034         340            15748          12522
+## 2         1034         340            15748          12522
+## 3         1034         340            15748          12522</code></pre>
 <p>O también podemos utilizar el paquete <code>readxl()</code> que pertenece al universo de <strong>Tidyverse</strong>. Lo bueno de esta función es que cuando visualizas la data se realiza de forma más ordenada.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb60-2"><a href="index.html#cb60-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb60-3"><a href="index.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
-##   UBIGEO DEPARTAMENTO PROVI…¹ DISTR…² ORGAN…³
-##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-## 1 010101 AMAZONAS     CHACHA… CHACHA… FUERZA…
-## 2 010101 AMAZONAS     CHACHA… CHACHA… PARTID…
-## 3 010101 AMAZONAS     CHACHA… CHACHA… DESPER…
-## # … with 6 more variables:
-## #   VOTOS_VALIDOS_OP &lt;dbl&gt;,
-## #   VOTOS_VALIDOS &lt;dbl&gt;, VOTOS_BLANCO &lt;dbl&gt;,
-## #   VOTOS_NULOS &lt;dbl&gt;,
-## #   NUMERO_ELECTORES &lt;dbl&gt;,
-## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated
-## #   variable names ¹​PROVINCIA, ²​DISTRITO, …</code></pre>
+##   UBIGEO DEPARTAMENTO PROVINCIA DISTR…¹ ORGAN…² VOTOS…³ VOTOS…⁴ VOTOS…⁵
+##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 010101 AMAZONAS     CHACHAPO… CHACHA… FUERZA…       6   11148    1034
+## 2 010101 AMAZONAS     CHACHAPO… CHACHA… PARTID…      24   11148    1034
+## 3 010101 AMAZONAS     CHACHAPO… CHACHA… DESPER…      35   11148    1034
+## # … with 3 more variables: VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
+## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names ¹​DISTRITO,
+## #   ²​ORGANIZACIÓN_POLITICA, ³​VOTOS_VALIDOS_OP, ⁴​VOTOS_VALIDOS,
+## #   ⁵​VOTOS_BLANCO</code></pre>
 <p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
 </div>
 <div id="manipulación-de-datos-con-tidyverse" class="section level2 hasAnchor" number="1.6">

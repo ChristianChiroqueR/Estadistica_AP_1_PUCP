@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-04-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,8 +193,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#base-de-datos-1"><i class="fa fa-check"></i><b>3.1</b> Base de datos</a></li>
-<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#section"><i class="fa fa-check"></i><b>3.2</b> </a></li>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#ggplot2-una-herramienta-para-la-visualización"><i class="fa fa-check"></i><b>3.1</b> GGPLOT2: Una herramienta para la visualización</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#descripción"><i class="fa fa-check"></i><b>3.1.1</b> Descripción</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#las-siete-capas"><i class="fa fa-check"></i><b>3.1.2</b> Las siete capas</a></li>
+<li class="chapter" data-level="3.1.3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#slow-ggplot"><i class="fa fa-check"></i><b>3.1.3</b> Slow ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#código"><i class="fa fa-check"></i><b>3.2</b> Código</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
 <ul>
@@ -427,9 +432,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb181-4"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb181-5"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb181-6"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 127 rows containing non-finite
-## values (`stat_density()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-100-1.png" width="672" />
+<pre><code>## Warning: Removed 127 rows containing non-finite values
+## (`stat_density()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-104-1.png" width="672" />
 De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
 <p>Otra forma de compararlo, es a través de un boxplot:</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb183-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
@@ -438,9 +443,9 @@ De forma predeterminada, vemos que la varianza, es decir cómo varian los datos 
 <span id="cb183-4"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb183-5"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb183-6"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 127 rows containing non-finite
-## values (`stat_boxplot()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-101-1.png" width="672" />
+<pre><code>## Warning: Removed 127 rows containing non-finite values
+## (`stat_boxplot()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-105-1.png" width="672" />
 Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
 <p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
 </div>
@@ -460,8 +465,7 @@ Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano
 ##  Welch Two Sample t-test
 ## 
 ## data:  p08 by area2
-## t = 10.992, df = 466.14, p-value &lt;
-## 2.2e-16
+## t = 10.992, df = 466.14, p-value &lt; 2.2e-16
 ## alternative hypothesis: true difference in means between group Urbano and group Rural is not equal to 0
 ## 95 percent confidence interval:
 ##   815.0508 1169.9052

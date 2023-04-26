@@ -1,7 +1,73 @@
 # Visualización de datos con ggplot2
 
-## Base de datos
+
+## GGPLOT2: Una herramienta para la visualización
+
+### Descripción
+
+ggplot2 es una biblioteca de visualización de datos en R que se utiliza para crear gráficos de alta calidad y personalizados. Fue desarrollada por Hadley Wickham y se basa en la "Gramática de los gráficos" propuesta por Leland Wilkinson.
+
+En ggplot2, los gráficos se crean mediante la combinación de componentes llamados capas. Cada capa representa una parte del gráfico, como los datos, los ejes, la leyenda y la geometría utilizada para representar los datos, como barras, puntos, líneas, etc.
+
+ggplot2 también utiliza el concepto de "mapeo estético" para relacionar variables de los datos con propiedades visuales del gráfico, como el color, la forma y el tamaño. Esto permite crear gráficos altamente personalizados que resaltan patrones y tendencias en los datos.
+
+En resumen, ggplot2 es una herramienta poderosa y flexible para crear visualizaciones de datos en R, que se basa en una sintaxis intuitiva y coherente que facilita la creación de gráficos complejos y personalizados.
+
+
+### Las siete capas
+
+En ggplot2, las visualizaciones se crean mediante la combinación de capas. Cada capa representa una parte del gráfico, como los datos, los ejes, la leyenda y la geometría utilizada para representar los datos, como barras, puntos, líneas, etc. 
+
+![](figures/capas_ggplot2.png)
+
+A continuación, se describen brevemente las capas más comunes de ggplot2:
+
+1. Capa de datos (Data): Esta capa representa los datos que se van a visualizar y se proporcionan mediante un objeto de marco de datos o un tibble.
+
+2. Capa de mapeo estético (Aesthetics): Esta capa establece la relación entre las variables de los datos y las propiedades visuales del gráfico. Se utiliza la función aes() para establecer la relación. Por ejemplo, aes(x = variable_x, y = variable_y) establece que la variable x se va a representar en el eje x y la variable y en el eje y.
+
+3. Capa de geometría (Geometries): Esta capa representa la forma en que los datos se van a visualizar. La geometría se especifica utilizando una de las funciones geom_*() disponibles en ggplot2, como geom_point() para crear gráficos de dispersión, geom_line() para crear gráficos de líneas, geom_bar() para crear gráficos de barras, etc.
+
+4. Capa de facetas (Facets): Esta capa permite dividir los datos en subconjuntos y visualizarlos en diferentes paneles. Se utiliza la función facet_*() para crear facetas. Por ejemplo, facet_wrap(~variable_z) divide los datos en diferentes paneles según los valores de la variable z.
+
+5. Capa de transformaciones estadísticas (Statistical transformations): Esta capa permite aplicar transformaciones estadísticas a los datos antes de visualizarlos. Se utiliza la función stat_*() para aplicar transformaciones estadísticas. Por ejemplo, stat_smooth() ajusta una curva suave a los datos.
+
+6. Capa de coordenadas (Coordinates): Esta capa permite cambiar las coordenadas del gráfico. Se utiliza la función coord_*() para cambiar las coordenadas. Por ejemplo, coord_polar() cambia las coordenadas del gráfico a coordenadas polares.
+
+7. Capa de temas (Themes): Esta capa permite cambiar el aspecto visual del gráfico. Se utiliza la función theme_*() para cambiar el tema. Por ejemplo, theme_dark() cambia el tema del gráfico a un tema oscuro.
+
+Cada una de estas capas en ggplot2 tiene una función específica que ayuda a crear visualizaciones personalizadas y de alta calidad. La combinación adecuada de estas capas permite crear gráficos que resalten patrones y tendencias en los datos de manera efectiva.
+
+
+### Slow ggplot
+
+Es un enfoque utilizado para la creación de gráficos en ggplot. 
+
+La lógica de esta aproximación es incremental, es decir, teniendo en cuenta que el código requerido para generar un gráfico de ggplot involucra varias capas (o sentencias), se sugiere aprender a utilizar el paquete haciendo énfasis en cada una de las capas y los cambios que genera en el output.
+
+Es más lento que crear todo el código de golpe, pero es mucho más claro, tanto para el usuario que recién aprende la librería, como para la explicación a un público no conocedor del software. Inclusive se han creado paquetes específicamente vinculados con este enfoque, como el `Flipbookr` de Evangeline Reynolds. [Aquí](https://evangelinereynolds.netlify.app/post/slow-ggplot/) puedes revisar un breve post en el que comenta sobre el **slow ggplot**.
+
+Se sugiero revisar este link donde el autor ha diseñado un aplicativo para ver justamente cómo se construye un ggplot de forma incremental. Al lado izquierdo veras un conjunto de decisiones que puede tomar el investigador, usando la data `gapminder`, y a la derecha los cambios que se genera en el código y, por supuesto, en el output final. 
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_url("https://huygens.science.uva.nl/ggPlotteR/")
+```
+
+También puedes ir directamente al aplicativo presionando este [link.](https://huygens.science.uva.nl/ggPlotteR/)
+
+
+## Código
+
+En esta presentación te muestro un resumen sobre este capítulo, presentando el código y los outputs respectivos. 
+
+Cabe recalcar que el código presentado sigue el enfoque de **slow ggplot**.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_url("https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#1")
+```
 
 
 
-## 
+
+
+
