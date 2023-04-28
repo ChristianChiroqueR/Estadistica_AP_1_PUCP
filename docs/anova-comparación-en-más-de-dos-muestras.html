@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#definición-3"><i class="fa fa-check"></i><b>7.2.1</b> Definición</a></li>
+<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pregunta-de-investigación-2"><i class="fa fa-check"></i><b>7.2.1</b> Pregunta de investigación</a></li>
 <li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
 <li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
 <li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
@@ -347,23 +347,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="anova-de-un-factor" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> ANOVA de un factor<a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="figures/ANOVA.jpg" /></p>
-<div id="definición-3" class="section level3 hasAnchor" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Definición<a href="anova-comparación-en-más-de-dos-muestras.html#definición-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El análisis de varianza (ANOVA) de un factor en R es una técnica estadística utilizada para comparar la media de una variable numérica entre más de dos grupos. Se realiza un ANOVA de un factor cuando se tiene un solo factor categórico (con tres o más niveles) que se utiliza para agrupar los datos, y se quiere determinar si existe una diferencia estadísticamente significativa entre las medias de los grupos.</p>
 <p>El ANOVA es una herramienta útil para analizar datos experimentales en los que se desea comparar las medias de más de dos grupos. En lugar de <strong>realizar múltiples pruebas t de dos muestras</strong>, el ANOVA nos permite realizar una sola prueba para determinar si hay una diferencia significativa entre los grupos.</p>
 <p>Los pasos para aplicación del ANOVA son los mismos que los seguidos para el T de Student, visto la clase anterior.</p>
+<div id="pregunta-de-investigación-2" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Pregunta de investigación<a href="anova-comparación-en-más-de-dos-muestras.html#pregunta-de-investigación-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 <div id="paso-0-análisis-exploratorio-de-datos-eda-2" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="abrir-la-data" class="section level4 hasAnchor" number="7.2.2.1">
-<h4><span class="header-section-number">7.2.2.1</span> Abrir la data<a href="anova-comparación-en-más-de-dos-muestras.html#abrir-la-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-</div>
-<div id="configuración-de-variables" class="section level4 hasAnchor" number="7.2.2.2">
-<h4><span class="header-section-number">7.2.2.2</span> Configuración de variables<a href="anova-comparación-en-más-de-dos-muestras.html#configuración-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-</div>
-<div id="exploración-de-datos-muestrales" class="section level4 hasAnchor" number="7.2.2.3">
-<h4><span class="header-section-number">7.2.2.3</span> Exploración de datos muestrales<a href="anova-comparación-en-más-de-dos-muestras.html#exploración-de-datos-muestrales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-</div>
+<p><strong>ABRIR LA DATA</strong></p>
+<p><strong>CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR</strong></p>
+<p><strong>EXPLORACIÓN DE DATOS MUESTRALES</strong></p>
 </div>
 <div id="paso-1-establecer-hipótesis-2" class="section level3 hasAnchor" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Paso 1: Establecer hipótesis<a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -387,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td>Hipótesis alterna</td>
-<td>Al menos una de las medias de las muestras es diferente de las demás.</td>
+<td><strong>Al menos una de las medias</strong> de las grupos es diferente de las demás.</td>
 </tr>
 </tbody>
 </table>
@@ -414,8 +408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="paso-5-tomar-una-decisión-3" class="section level3 hasAnchor" number="7.2.7">
 <h3><span class="header-section-number">7.2.7</span> Paso 5: Tomar una decisión<a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="figures/rechazar_norechazar.jpg" />
-Tenemos los siguientes escenarios</p>
+<p>Tenemos los siguientes escenarios</p>
 <table>
 <thead>
 <tr class="header">

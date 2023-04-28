@@ -113,11 +113,8 @@ recordemos-2
 flujograma-1
 qué-sigue
 anova-de-un-factor
-definición-3
+pregunta-de-investigación-2
 paso-0-análisis-exploratorio-de-datos-eda-2
-abrir-la-data
-configuración-de-variables
-exploración-de-datos-muestrales
 paso-1-establecer-hipótesis-2
 paso-2-verificar-supuestos-3
 paso-3-establecer-nivel-de-significancia-3

@@ -17,8 +17,6 @@ Anteriormente habíamos establecido algunos pasos básicos para entender el proc
 
 ![](figures/ANOVA.jpg)
 
-### Definición
-
 El análisis de varianza (ANOVA) de un factor en R es una técnica estadística utilizada para comparar la media de una variable numérica entre más de dos grupos. Se realiza un ANOVA de un factor cuando se tiene un solo factor categórico (con tres o más niveles) que se utiliza para agrupar los datos, y se quiere determinar si existe una diferencia estadísticamente significativa entre las medias de los grupos.
 
 El ANOVA es una herramienta útil para analizar datos experimentales en los que se desea comparar las medias de más de dos grupos. En lugar de **realizar múltiples pruebas t de dos muestras**, el ANOVA nos permite realizar una sola prueba para determinar si hay una diferencia significativa entre los grupos.
@@ -26,16 +24,22 @@ El ANOVA es una herramienta útil para analizar datos experimentales en los que 
 Los pasos para aplicación del ANOVA son los mismos que los seguidos para el T de Student, visto la clase anterior. 
 
 
+### Pregunta de investigación
+
+
 ### Paso 0: Análisis exploratorio de datos (EDA)
 
-#### Abrir la data
-
-
-#### Configuración de variables
+**ABRIR LA DATA**
 
 
 
-#### Exploración de datos muestrales
+**CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR** 
+
+
+
+
+**EXPLORACIÓN DE DATOS MUESTRALES** 
+
 
 
 
@@ -48,7 +52,7 @@ Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar 
 Hipótesis  | Descripción 
 ------------- | ------------- 
 Hipótesis nula  | Las medias poblacionales **en todos los grupos** son iguales 
-Hipótesis alterna  | Al menos una de las medias de las muestras es diferente de las demás.
+Hipótesis alterna  | **Al menos una de las medias** de las grupos es diferente de las demás. 
  
 Estas son las hipótesis que vamos a validar con nuestra prueba. 
 
@@ -90,7 +94,6 @@ $$\alpha = 0.05$$
 
 ### Paso 5: Tomar una decisión
 
-![](figures/rechazar_norechazar.jpg)
 Tenemos los siguientes escenarios
 
 Resultado  | Decisión

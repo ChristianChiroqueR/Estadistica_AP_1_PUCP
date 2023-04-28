@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#definición-3"><i class="fa fa-check"></i><b>7.2.1</b> Definición</a></li>
+<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pregunta-de-investigación-2"><i class="fa fa-check"></i><b>7.2.1</b> Pregunta de investigación</a></li>
 <li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
 <li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
 <li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
@@ -427,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-3"><a href="estadística-inferencial-introducción.html#cb89-3" aria-hidden="true" tabindex="-1"></a>variable_aleatoria <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> media, <span class="at">sd =</span> desviacion_estandar)</span>
 <span id="cb89-4"><a href="estadística-inferencial-introducción.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(variable_aleatoria)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   34.37   87.43  100.92  100.28  113.64  170.42</code></pre>
+##   39.14   86.08  100.80   99.91  114.26  150.38</code></pre>
 <ul>
 <li>Visualicemos si tiene la curva normal.</li>
 </ul>
@@ -449,7 +449,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb92-4"><a href="estadística-inferencial-introducción.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb92-5"><a href="estadística-inferencial-introducción.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>##     n     p
-## 1 698 0.698</code></pre>
+## 1 683 0.683</code></pre>
 <ul>
 <li>Y de 60 a 140?</li>
 </ul>
@@ -459,7 +459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb94-4"><a href="estadística-inferencial-introducción.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb94-5"><a href="estadística-inferencial-introducción.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>##     n     p
-## 1 961 0.961</code></pre>
+## 1 962 0.962</code></pre>
 </div>
 <div id="elementos-básicos-de-la-inferencia" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Elementos básicos de la inferencia<a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
