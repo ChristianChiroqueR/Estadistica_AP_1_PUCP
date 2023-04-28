@@ -462,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb181-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb181-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_density()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-128-1.png" width="672" />
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-102-1.png" width="672" />
 De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
 <p>Otra forma de compararlo, es a través de un boxplot:</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
@@ -472,7 +472,7 @@ De forma predeterminada, vemos que la varianza, es decir cómo varian los datos 
 <span id="cb183-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb183-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_boxplot()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-129-1.png" width="672" />
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-103-1.png" width="672" />
 Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
 <p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
 </div>
@@ -629,22 +629,22 @@ Tenemos los siguientes escenarios</p>
 <span id="cb193-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb193-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Mucho&quot;</span>, <span class="st">&quot;Algo&quot;</span>, <span class="st">&quot;Poco&quot;</span>, <span class="st">&quot;Nada&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
 <span id="cb193-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>p04)</span></code></pre></div>
 <pre><code>##  Factor w/ 4 levels &quot;Mucho&quot;,&quot;Algo&quot;,..: 3 1 NA 1 3 1 1 1 1 2 ...</code></pre>
-<p>En los grupos seguimos teniendo la variable ámbito (urbano/rural)</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb195-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb195-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<p>En los grupos seguimos teniendo la variable ámbito (urbano/rural).</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># enades$area2&lt;-factor(enades$area2, # Nombre de la variable a convertir</span></span>
+<span id="cb195-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                      levels=1:2, # Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb195-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                      labels=c(&quot;Urbano&quot;, &quot;Rural&quot;)) #Colocamos sus etiquetas</span></span>
 <span id="cb195-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
-<pre><code>##  Factor w/ 2 levels &quot;Urbano&quot;,&quot;Rural&quot;: NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<pre><code>##  Factor w/ 2 levels &quot;Urbano&quot;,&quot;Rural&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <p><strong>EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES</strong></p>
 <p>Primero, veamos la proporción de encuestados que contestó cada categoría de la pregunta p04. Para eso, creamos una tabla simple:</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb197-1" aria-hidden="true" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(enades<span class="sc">$</span>p04,enades<span class="sc">$</span>area2) <span class="co">#Se sugiere colocar el grupo como segunda variable.</span></span>
 <span id="cb197-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb197-2" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="co">#Mostramos la tabla creada</span></span></code></pre></div>
 <pre><code>##        
 ##         Urbano Rural
-##   Mucho      0     0
-##   Algo       0     0
-##   Poco       0     0
-##   Nada       0     0</code></pre>
+##   Mucho    754   114
+##   Algo     221    44
+##   Poco     204    71
+##   Nada      68    17</code></pre>
 <p>Luego, sobre la tabla creada, solicitamos algunos cambios.</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span>    <span class="co"># Esta es la tabla simple que creaste arriba</span></span>
 <span id="cb199-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="co"># Que nos muestre la tabla en proporciones. El &quot;2&quot; es para pedir que sea por columnas. </span></span>
@@ -671,10 +671,10 @@ Rural
 Mucho
 </td>
 <td style="text-align:right;">
-NaN
+0.6047
 </td>
 <td style="text-align:right;">
-NaN
+0.4634
 </td>
 </tr>
 <tr>
@@ -682,10 +682,10 @@ NaN
 Algo
 </td>
 <td style="text-align:right;">
-NaN
+0.1772
 </td>
 <td style="text-align:right;">
-NaN
+0.1789
 </td>
 </tr>
 <tr>
@@ -693,10 +693,10 @@ NaN
 Poco
 </td>
 <td style="text-align:right;">
-NaN
+0.1636
 </td>
 <td style="text-align:right;">
-NaN
+0.2886
 </td>
 </tr>
 <tr>
@@ -704,10 +704,10 @@ NaN
 Nada
 </td>
 <td style="text-align:right;">
-NaN
+0.0545
 </td>
 <td style="text-align:right;">
-NaN
+0.0691
 </td>
 </tr>
 <tr>
@@ -715,10 +715,10 @@ NaN
 Sum
 </td>
 <td style="text-align:right;">
-NaN
+1.0000
 </td>
 <td style="text-align:right;">
-NaN
+1.0000
 </td>
 </tr>
 </tbody>
@@ -781,10 +781,10 @@ NaN
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb200-1" aria-hidden="true" tabindex="-1"></a>tabla_simple</span></code></pre></div>
 <pre><code>##        
 ##         Urbano Rural
-##   Mucho      0     0
-##   Algo       0     0
-##   Poco       0     0
-##   Nada       0     0</code></pre>
+##   Mucho    754   114
+##   Algo     221    44
+##   Poco     204    71
+##   Nada      68    17</code></pre>
 <p>Ok, en el ámbito Urbano hay 754 y en el ámbito 114.</p>
 <ul>
 <li>¿Cuántos <strong>CASOS</strong> hay en cada grupo (urbano y rural)?</li>
@@ -792,7 +792,7 @@ NaN
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
 <pre><code>## 
 ## Urbano  Rural 
-##      0      0</code></pre>
+##   1273    257</code></pre>
 <p>Ok, tenemos 1273 para el área urbana y 257 para el área rural.</p>
 <p>Ahora sí, calculemos el <code>prop.test</code>:</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">754</span>,<span class="dv">144</span>), <span class="co">#Número de personas que contestaron Mucho en el ámbito Urbano y Rural</span></span>

@@ -320,12 +320,12 @@ enades$p04<-factor(enades$p04, # Nombre de la variable a convertir
 str(enades$p04)
 ```
 
-En los grupos seguimos teniendo la variable ámbito (urbano/rural)  
+En los grupos seguimos teniendo la variable ámbito (urbano/rural).   
 
 ```{r}
-enades$area2<-factor(enades$area2, # Nombre de la variable a convertir
-                     levels=1:2, # Definimos los niveles (esta variable sólo tenía 2 niveles)
-                     labels=c("Urbano", "Rural")) #Colocamos sus etiquetas
+# enades$area2<-factor(enades$area2, # Nombre de la variable a convertir
+#                      levels=1:2, # Definimos los niveles (esta variable sólo tenía 2 niveles)
+#                      labels=c("Urbano", "Rural")) #Colocamos sus etiquetas
 str(enades$area2)
 ```
 
