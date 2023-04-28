@@ -1,4 +1,4 @@
-# Estadística Inferencial II
+# IC de una proporción e introducción a pruebas de hipótesis
 
 ## Recordemos
 

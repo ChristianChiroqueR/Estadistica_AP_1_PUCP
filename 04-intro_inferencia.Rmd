@@ -2,7 +2,7 @@
 
 ## Antecedentes relevantes
 
-### La desviación estándar
+**La desviación estándar**
 
 -   La desviación estándar es una parte integral de la estadística inferencial y entender su funcionamiento nos ayudará a utilizarla más adelante.
 
@@ -24,7 +24,7 @@ $$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
 
 -   Algunas reglas: 1) mientras más lejana esté una observación de su media, mayor será su puntuación de desvación y su puntuación Z. 2) El signo de la puntuación Z indica si la observación está por debajo o por encima de la media.
 
-### La distribución (curva) normal y las SD
+**La distribución (curva) normal y las SD**
 
 -   Anteriormente te comenté que la curva normal (forma de campana) ejercía un rol fundamental en el contexto de la estadística inferencial. Esto es gracias a una propiedades muy interesantes.
 
@@ -38,7 +38,7 @@ $$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
 
 ## Elementos básicos de probabilidad
 
-### Conceptos
+**Conceptos**
 
 -   Probabilidad: Análisis y comprensión de las ocurrencias (de eventos) por el azar. Más específicamente, es un detalle de con qué frecuencia es probable que ocurra un evento de interés particular entre un gran número de ensayos.
 
@@ -48,7 +48,7 @@ $$P(\text{éxito}) = \frac{\text{# de éxitos}}{\text{# de ensayos}}$$
 
 -   Existen diversas reglas básica de la teoría de la probabilidad. Te recomiendo leer las páginas 172 - 176 de Ritchey (2006).
 
-### Curva normal y probabilidades
+**Curva normal y probabilidades**
 
 -   En probabilidades hay un principio que utiliza el concepto de la curva normal que hemos explicado anteriormente. Dada cierta variable que se distribuye normalmente, podemos calcular puntuaciones estándarizadas (puntuaciones Z) y usarlas de tal forma que calculas el **número de puntuaciones que cae entre dos puntos en la distribución**.
 

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sesión 6 Comparación en dos muestras (t.test y prop.test) | Estadística para el Análisis Político I</title>
+  <meta name="description" content="Sesión 6 Comparación en dos muestras (t.test y prop.test) | Estadística para el Análisis Político I" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sesión 6 Comparación en dos muestras (t.test y prop.test) | Estadística para el Análisis Político I" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sesión 6 Comparación en dos muestras (t.test y prop.test) | Estadística para el Análisis Político I" />
+  
+  
+  
+
+<meta name="author" content="Docente: Christian Chiroque Ruiz" />
+
+
+<meta name="date" content="2023-04-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"/>
+<link rel="next" href="anova-comparación-en-más-de-dos-muestras.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística AP I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.3.2</b> Un vector especial: los factores</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.3.3</b> Data frames</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación"><i class="fa fa-check"></i><b>2.1</b> Preparación</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.1.1</b> Entorno de trabajo</a></li>
+<li class="chapter" data-level="2.1.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.1.2</b> Paquetes a utilizar</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Base de datos</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación"><i class="fa fa-check"></i><b>2.2.1</b> Importación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>2.2.2</b> Verificar el tipo de variable</a></li>
+<li class="chapter" data-level="2.2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.2.3</b> Creación de subset</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.3</b> Estadísticos de tendencia central</a></li>
+<li class="chapter" data-level="2.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.4</b> Estadísticos de posición</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles"><i class="fa fa-check"></i><b>2.4.1</b> Percentiles</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.5</b> Estadísticos de dispersión</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango"><i class="fa fa-check"></i><b>2.5.1</b> El Rango</a></li>
+<li class="chapter" data-level="2.5.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza"><i class="fa fa-check"></i><b>2.5.2</b> La Varianza</a></li>
+<li class="chapter" data-level="2.5.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.5.3</b> La Desviación Estándar</a></li>
+<li class="chapter" data-level="2.5.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.5.4</b> El Rango intercuartílico</a></li>
+<li class="chapter" data-level="2.5.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.5.5</b> Curvas de distribución de frecuencias</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#ggplot2-una-herramienta-para-la-visualización"><i class="fa fa-check"></i><b>3.1</b> GGPLOT2: Una herramienta para la visualización</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#descripción"><i class="fa fa-check"></i><b>3.1.1</b> Descripción</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#las-siete-capas"><i class="fa fa-check"></i><b>3.1.2</b> Las siete capas</a></li>
+<li class="chapter" data-level="3.1.3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#slow-ggplot"><i class="fa fa-check"></i><b>3.1.3</b> Slow ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#código"><i class="fa fa-check"></i><b>3.2</b> Código</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-relevantes"><i class="fa fa-check"></i><b>4.1</b> Antecedentes relevantes</a></li>
+<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-probabilidad"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de probabilidad</a></li>
+<li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r"><i class="fa fa-check"></i><b>4.3</b> Ejercicio con R</a></li>
+<li class="chapter" data-level="4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia"><i class="fa fa-check"></i><b>4.4</b> Elementos básicos de la inferencia</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#definiciones-preliminares"><i class="fa fa-check"></i><b>4.4.1</b> Definiciones preliminares</a></li>
+<li class="chapter" data-level="4.4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>4.4.2</b> Estimación puntual</a></li>
+<li class="chapter" data-level="4.4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-de-muestreo"><i class="fa fa-check"></i><b>4.4.3</b> Error de muestreo</a></li>
+<li class="chapter" data-level="4.4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribuciones-de-muestreo."><i class="fa fa-check"></i><b>4.4.4</b> Distribuciones de muestreo.</a></li>
+<li class="chapter" data-level="4.4.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>4.4.5</b> Error estándar</a></li>
+<li class="chapter" data-level="4.4.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.4.6</b> Teorema del límite central</a></li>
+<li class="chapter" data-level="4.4.7" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.4.7</b> Ley de los grandes números</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.5</b> Intervalo de confianza de una media</a></li>
+<li class="chapter" data-level="4.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r-enades-2022"><i class="fa fa-check"></i><b>4.6</b> Ejercicio con R: ENADES 2022</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.6.1</b> Abrir base de datos</a></li>
+<li class="chapter" data-level="4.6.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.6.2</b> Identificar una variable numérica</a></li>
+<li class="chapter" data-level="4.6.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral"><i class="fa fa-check"></i><b>4.6.3</b> Cálculo del estimador puntual: media muestral</a></li>
+<li class="chapter" data-level="4.6.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>4.6.4</b> Cálculo del intervalo de confianza al 95%</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> IC de una proporción e introducción a pruebas de hipótesis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
+<li class="chapter" data-level="5.1.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
+<li class="chapter" data-level="5.1.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
+<li class="chapter" data-level="5.1.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
+<li class="chapter" data-level="5.2.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
+<li class="chapter" data-level="5.2.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="5.3.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html"><i class="fa fa-check"></i><b>6</b> Comparación en dos muestras (t.test y prop.test)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#recordemos-1"><i class="fa fa-check"></i><b>6.1</b> Recordemos</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Prueba de hipótesis</a></li>
+<li class="chapter" data-level="6.1.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#flujograma"><i class="fa fa-check"></i><b>6.1.2</b> Flujograma</a></li>
+<li class="chapter" data-level="6.1.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.3</b> Tipos de prueba de hipótesis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-medias-t.test"><i class="fa fa-check"></i><b>6.2</b> Diferencia de medias (t.test)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación"><i class="fa fa-check"></i><b>6.2.1</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="6.2.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="6.2.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.2.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="6.2.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.2.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="6.2.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="6.2.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="6.2.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.2.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="6.2.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.2.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="6.2.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-2"><i class="fa fa-check"></i><b>6.2.9</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="6.2.10" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#a-tener-en-cuenta"><i class="fa fa-check"></i><b>6.2.10</b> A tener en cuenta</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-proporciones-prop.test"><i class="fa fa-check"></i><b>6.3</b> Diferencia de proporciones (prop.test)</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación-1"><i class="fa fa-check"></i><b>6.3.1</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="6.3.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>6.3.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="6.3.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>6.3.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="6.3.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>6.3.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="6.3.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>6.3.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="6.3.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>6.3.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="6.3.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>6.3.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="6.3.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>6.3.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="6.3.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-3"><i class="fa fa-check"></i><b>6.3.9</b> Ahora hazlo tú!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html"><i class="fa fa-check"></i><b>7</b> ANOVA: Comparación en más de dos muestras</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#recordemos-2"><i class="fa fa-check"></i><b>7.1</b> Recordemos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#flujograma-1"><i class="fa fa-check"></i><b>7.1.1</b> Flujograma</a></li>
+<li class="chapter" data-level="7.1.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#qué-sigue"><i class="fa fa-check"></i><b>7.1.2</b> Qué sigue?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#definición-3"><i class="fa fa-check"></i><b>7.2.1</b> Definición</a></li>
+<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-3"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="7.2.9" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización"><i class="fa fa-check"></i><b>7.2.9</b> Extra: Visualización</a></li>
+<li class="chapter" data-level="7.2.10" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.2.10</b> Ahora hazlo tú!</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística para el Análisis Político I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comparación-en-dos-muestras-t.test-y-prop.test" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Sesión 6</span> Comparación en dos muestras (t.test y prop.test)<a href="comparación-en-dos-muestras-t.test-y-prop.html#comparación-en-dos-muestras-t.test-y-prop.test" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="recordemos-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Recordemos<a href="comparación-en-dos-muestras-t.test-y-prop.html#recordemos-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="prueba-de-hipótesis" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Prueba de hipótesis<a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Habíamos dicho que una prueba de hipótesis estadística es una herramienta utilizada para evaluar si una <strong>afirmación sobre una población</strong> es <strong>probablemente verdadera o falsa</strong>, basándose en los <strong>datos de una muestra</strong> de esa población.</p>
+<p>Puedes pensar en una prueba de hipótesis como un juicio, en el cual el acusado es la hipótesis nula (afirmación a evaluar) y la hipótesis alternativa es la acusación.</p>
+</div>
+<div id="flujograma" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Flujograma<a href="comparación-en-dos-muestras-t.test-y-prop.html#flujograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>También habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis.</p>
+<p><img src="figures/prueba_pasos.png" /></p>
+</div>
+<div id="tipos-de-prueba-de-hipótesis" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Tipos de prueba de hipótesis<a href="comparación-en-dos-muestras-t.test-y-prop.html#tipos-de-prueba-de-hipótesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora bien, existen múltiples pruebas de hipótesis dependiendo de:</p>
+<ul>
+<li><p><strong>Características de la data</strong>: Con fines de este curso, vamos a abordar un conjunto de pruebas de hipótesis que están construidas para tratar con datos que siguen una distribución normal. Este tipo de pruebas de hipótesis se le conoce como <strong>métodos paramétricos</strong>. En otras palabras, vamos a asumir que las variables que estamos eligiendo provienen de una distribución normal.</p></li>
+<li><p><strong>Objetivo del investigador</strong>: Una prueba de hipótesis nos puede servir para evaluar muchas afirmaciones sobre la población.</p></li>
+</ul>
+<p>En este curso vamos a abordar algunas de las preguntas de investigación más conocidas:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>La media de esta variable numérica es distinta en dos grupos a nivel de la población?</p></li>
+<li><p>La media de esta variable numérica es ditinta en tres a más grupos a nivel de la población?</p></li>
+<li><p>Dos variables categóricas están asociadas en la población?</p></li>
+<li><p>Dos variables numéricas están asociadas en la población?</p></li>
+<li><p>Es posible modelar la relación entre una variable numérica (dependiente) y un conjunto de variables (independientes)?</p></li>
+</ol>
+<p><img src="figures/pruebas_curso.jpg" /></p>
+</div>
+</div>
+<div id="diferencia-de-medias-t.test" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Diferencia de medias (t.test)<a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-medias-t.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La prueba T para comparar una media en dos grupos es una técnica estadística que se utiliza para determinar si la diferencia entre las medias de dos grupos es estadísticamente significativa o simplemente el resultado del azar.</p>
+<p>La prueba T se basa en la <strong>distribución T de Student</strong>, que es una distribución de probabilidad que se utiliza cuando el tamaño de la muestra es pequeño o la varianza poblacional es desconocida.</p>
+<blockquote>
+<p>Será bastante común que en la descripción de una prueba de hipótesis se haga referencia a una distribución teórica que ayudará a establecer las probabilidades. Aquí está el core estadístico que sustenta la inferencia!</p>
+</blockquote>
+<div id="pregunta-de-investigación" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Pregunta de investigación<a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para iniciar, debemos tener claro nuestra pregunta que deseamos responder.</p>
+<p>¿El monto mínimo <strong>promedio</strong> necesario para que un hogar pueda subsistir (p08) será diferente entre el área urbana y rural (area2) a nivel poblacional?</p>
+</div>
+<div id="paso-0-análisis-exploratorio-de-datos-eda" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>No está en el flujograma, pero siempre debes seguir algunos pasos previos.</p>
+<p>Desde lo más general a lo más específico, nosotros debemos:</p>
+<p>Abrir la base de datos. Vamos a seguir usando ENADES. Puedes ver el cuestionario <a href="https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf">aqui</a>:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb172-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
+<span id="cb172-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb172-3" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>)</span></code></pre></div>
+<p><strong>CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR</strong></p>
+<p>En este caso deseo comparar la variable monto mínimo mensual que requiere su hogar para vivir (p08)…</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb173-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>p08<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p08)</span>
+<span id="cb173-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>p08)</span></code></pre></div>
+<pre><code>##  num [1:1530] 20000 16000 15000 15000 10000 10000 10000 10000 10000 10000 ...</code></pre>
+<p>…En los grupos establecidos por la variable ámbito (urbano/rural)</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb175-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb175-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb175-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb175-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb175-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb175-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;Urbano&quot;,&quot;Rural&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p><strong>EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES</strong></p>
+<p>Si bien nos interesa calcular la media poblacional, primero tenemos que tener en cuenta cuál es la media en nuestra muestra.</p>
+<p>Ahora hacemos un primer sondeo de cuál es la media muestral…</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb177-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb177-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   `mean(p08, na.rm = T)`
+##                    &lt;dbl&gt;
+## 1                  2334.</code></pre>
+<p>…y cuál es la media muestral en cada uno de los grupos seleccionados que deseamos comparar.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb179-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb179-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
+<span id="cb179-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb179-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   area2  `mean(p08, na.rm = T)`
+##   &lt;fct&gt;                   &lt;dbl&gt;
+## 1 Urbano                  2490.
+## 2 Rural                   1497.</code></pre>
+<p>Esto nos ayuda a corroborar que tenemos toda la información necesitaria lista para llevar a cabo una prueba de hipótesis.</p>
+</div>
+<div id="paso-1-establecer-hipótesis" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Paso 1: Establecer hipótesis<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Debemos plantear las hipótesis nula y alternativa.</p>
+<p>Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar algunas de estas. En el caso de la Prueba T, las hipótesis son las siguientes:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hipótesis</th>
+<th>Descripción</th>
+<th>Notación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hipótesis nula</td>
+<td>Las medias poblacionales son iguales</td>
+<td><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Hipótesis alterna</td>
+<td>Las medias poblacionales son diferentes</td>
+<td>$H_1: _1 _2 $</td>
+</tr>
+</tbody>
+</table>
+<p>Estas son las hipótesis que vamos a validar con nuestra prueba.</p>
+</div>
+<div id="paso-2-verificar-supuestos-1" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Paso 2: Verificar supuestos<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>INDEPENDENCIA</strong></p>
+<p>Las muestras deben ser independientes. El muestreo debe ser aleatorio. Vamos a asumir ello porque normalmente no tenemos control sobre el proceso de muestreo.</p>
+<p><strong>DISTRITUCIÓN NORMAL</strong></p>
+<p>Para los fines de este curso, asumimos que la variable numérica proviene de una distribución normal en la población.</p>
+<p><strong>HOMOGENEIDAD DE VARIANZAS</strong></p>
+<p>Identificamos si las varianzas son iguales en los dos grupos analizados. En el caso de que sean diferentes, vamos a necesitar hacer un **ajuste* a la fórmular de cálculo.</p>
+<p><img src="figures/comparacion_varianzas.jpg" /></p>
+<p>Veamos antes una visualización de los datos:</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb181-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb181-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
+<span id="cb181-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb181-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb181-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_density()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-128-1.png" width="672" />
+De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
+<p>Otra forma de compararlo, es a través de un boxplot:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb183-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb183-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
+<span id="cb183-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb183-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb183-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-129-1.png" width="672" />
+Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
+<p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
+</div>
+<div id="paso-3-establecer-nivel-de-significancia-1" class="section level3 hasAnchor" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Paso 3: Establecer nivel de significancia<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.</p>
+<p><span class="math display">\[\alpha = 0.05\]</span></p>
+</div>
+<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor" class="section level3 hasAnchor" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora utilizemos la función <code>t.test()</code> para realizar el cálculo del Estadístico T y el cálculo del p-valor.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(p08 <span class="sc">~</span> area2, <span class="co">#Colocamos la variable numérica y la variable grupo. Ese símbolo ~ (en Windows) es ALT + 126</span></span>
+<span id="cb185-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb185-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="co"># Siempre que comparemos un estadístico en dos grupos usaremos &quot;two.sided&quot;.</span></span>
+<span id="cb185-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb185-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> enades, <span class="co"># Precisamos la data</span></span>
+<span id="cb185-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb185-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span>F) <span class="co"># Precisamos si las varianzas son iguales. En este caso colocamos F, porque identificamos diferencia </span></span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  p08 by area2
+## t = 10.992, df = 466.14, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means between group Urbano and group Rural is not equal to 0
+## 95 percent confidence interval:
+##   815.0508 1169.9052
+## sample estimates:
+## mean in group Urbano  mean in group Rural 
+##             2489.569             1497.091</code></pre>
+<p>El <strong>estadístico de prueba</strong> en este caso es el Estadítico T, el cual es 10.992.</p>
+<p>Ahora bien, lo que hace la prueba es comparar este valor observable del Estadístico T con un valor teórico, de acuerdo a la distribución T. Dicha comparación lo que arroja es una probabilidad de obtener ese valor observado, en caso la hipótesis nula (medias iguales) es verdadera</p>
+<p>En este caso, nuestro p-value es p-value &lt; 2.2e-16. El cual es un número muy pequeño.</p>
+<blockquote>
+<p>RECUERDA: El número 2.2e-16 es una forma abreviada de escribir un número muy pequeño en notación científica. En este caso, equivale a 0.00000000000000022 o 2.2 multiplicado por 10 elevado a la potencia -16. Es común utilizar esta notación en estadística y otras áreas de la ciencia para representar números muy grandes o muy pequeños de manera más concisa.</p>
+</blockquote>
+</div>
+<div id="paso-5-tomar-una-decisión-1" class="section level3 hasAnchor" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Paso 5: Tomar una decisión<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/rechazar_norechazar.jpg" />
+Tenemos los siguientes escenarios</p>
+<table>
+<thead>
+<tr class="header">
+<th>Resultado</th>
+<th>Decisión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p-value &lt;=\alpha\)</span></td>
+<td>Rechazamos la hipótesis nula.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p-value &gt;\alpha\)</span></td>
+<td>No rechazamos la hipótesis nula.</td>
+</tr>
+</tbody>
+</table>
+<p>En nuestro caso nuestro habíamos escogido un <span class="math inline">\(\alpha = 0.05\)</span> por lo que al obtener un p-valor de 2.2e-16 (0.00000000000000022) rechazamos la hipótesis nula de que nuestras medias poblacionales son iguales.</p>
+<p>En otras palabras, un p-valor de 0.00000000000000022 significa que hay una probabilidad muy baja de obtener los resultados <strong>observados en la muestra</strong> si la verdadera diferencia entre las medias poblacionales es cero (hipótesis nula). Es decir, si la hipótesis nula fuera verdadera y no hay diferencia real entre las medias poblacionales, la probabilidad de observar una diferencia tan grande o mayor entre las medias muestrales es muy baja, de solo 0.000002.</p>
+</div>
+<div id="paso-6-interpretación-1" class="section level3 hasAnchor" number="6.2.8">
+<h3><span class="header-section-number">6.2.8</span> Paso 6: Interpretación<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora bien, al finalizar este proceso debemos interpretar nuestros resultados.</p>
+<p>En este punto tienes que recordar que estamos trabajando con probabilidades, no existen <strong>certezas absolutas</strong>, por lo tanto, nuestra interpretación final debe considerar ello. Deberíamos concluir:</p>
+<p><strong>Luego de realizar una prueba T, a un 95% de confianza, obtuvimos un p-valor de 2.2e-16, por lo que rechazamos la hipótesis nula de que el monto mínimo mensual que requiere su hogar para vivir es igual en el área urbana y en el área rural. Por ello, concluimos que existen diferencias estadísticamente significativas en ambos grupos poblacionales.</strong></p>
+</div>
+<div id="ahora-hazlo-tú-2" class="section level3 hasAnchor" number="6.2.9">
+<h3><span class="header-section-number">6.2.9</span> Ahora hazlo tú!<a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Considera la variable p19 (ideología).</p>
+<p>Deseamos saber si existe diferencia en el promedio de esta variable en el sector rural y urbano.</p>
+<ul>
+<li>Realice una comparación de medias en ambos grupos utilizando la prueba de hipótesis más pertinente. Muestre sus resultados e interprete.</li>
+</ul>
+</div>
+<div id="a-tener-en-cuenta" class="section level3 hasAnchor" number="6.2.10">
+<h3><span class="header-section-number">6.2.10</span> A tener en cuenta<a href="comparación-en-dos-muestras-t.test-y-prop.html#a-tener-en-cuenta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="prueba-de-hipótesis-para-igualdad-de-varianzas" class="section level4 hasAnchor" number="6.2.10.1">
+<h4><span class="header-section-number">6.2.10.1</span> Prueba de hipótesis para igualdad de varianzas<a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis-para-igualdad-de-varianzas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como te sugerí líneas arriba, siempre es bueno realizar una exploración visual con un boxplot para encontrar indicios sobre la existencia de homogeneidad de varianzas en dos o más grupos.</p>
+<p>Sin perjuicio de ello, para poder verificar este supuesto de homogenedidad de varianzas de forma más rigurosa podemos aplicar una <strong>Prueba de Levene de Homogeneidad de Varianzas</strong>.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb187-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="fu">LeveneTest</span>(enades<span class="sc">$</span>p08, enades<span class="sc">$</span>area2)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##         Df F value    Pr(&gt;F)    
+## group    1  14.258 0.0001661 ***
+##       1401                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Recordamos nuestras hipótesis a validar:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hipótesis</th>
+<th>Descripción</th>
+<th>Notación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hipótesis nula</td>
+<td>Las varianzas poblacionales son homogéneas</td>
+<td><span class="math inline">\(H_0: v_1 = v_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Hipótesis alterna</td>
+<td>Las varianzas poblacionales son diferentes</td>
+<td>$H_1: v_1 v_2 $</td>
+</tr>
+</tbody>
+</table>
+<p>Luego de realizar una prueba de Levene, a un 95% de confianza, obtuvimos un p-valor de 0.0001660599, por lo que rechazamos la hipótesis nula de que la varianza del monto mínimo mensual que requiere su hogar para vivir es igual/homogénea en el área urbana y en el área rural. Por ello, concluimos que existen diferencias estadísticamente significativas en las varianzas de ambos grupos poblacionales.</p>
+</div>
+<div id="valores-faltantes-en-las-encuestas" class="section level4 hasAnchor" number="6.2.10.2">
+<h4><span class="header-section-number">6.2.10.2</span> Valores faltantes en las encuestas<a href="comparación-en-dos-muestras-t.test-y-prop.html#valores-faltantes-en-las-encuestas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="figures/ENADES_ideologia.png" /></p>
+<p>En las encuestas, los valores perdidos son aquellos que faltan en las respuestas proporcionadas por los encuestados. Esto puede suceder porque el encuestado decidió no responder a la pregunta, porque no entendió la pregunta o porque la pregunta simplemente no se aplicaba a él o ella.</p>
+<p>Para manejar los valores perdidos, a menudo se utiliza la técnica de imputación, que implica reemplazar los valores faltantes por algún valor estimado. En algunos casos, se puede asignar un valor específico, como 99 o 999, para indicar que el encuestado no sabe o no responde a la pregunta. Este enfoque se utiliza comúnmente en encuestas de opinión pública y otras encuestas que involucran preguntas sensibles.</p>
+<p>Sin embargo, es importante tener en cuenta que asignar un valor específico a los valores perdidos puede afectar los resultados de la encuesta y la validez de los análisis estadísticos posteriores. Por lo tanto, es importante evaluar cuidadosamente las estrategias de manejo de valores perdidos y elegir la opción más adecuada para el conjunto de datos y el análisis específicos.</p>
+</div>
+</div>
+</div>
+<div id="diferencia-de-proporciones-prop.test" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Diferencia de proporciones (prop.test)<a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-proporciones-prop.test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Así como existe una prueba de hipótesis para comparar medias, también existe una para comparar proporciones.</p>
+<p>La prueba de diferencia de proporciones (prop.test) en R es una prueba estadística que se utiliza para comparar dos proporciones en una muestra o en dos muestras independientes. Para ello, se utiliza la distribución teórica <strong>chi cuadrado</strong>.</p>
+<p>La hipótesis nula es que no hay diferencia entre las proporciones, mientras que la hipótesis alternativa es que hay una diferencia significativa entre las proporciones.</p>
+<p>Un ejemplo de su aplicación en ciencias sociales podría ser en una encuesta en la que se desea comparar la proporción de hombres y mujeres que apoyan una determinada candidatura política. Se tomarían dos muestras independientes, una de hombres y otra de mujeres, y se compararían las proporciones de apoyo a la candidatura en cada grupo mediante la prueba de diferencia de proporciones. Si se encontrara una diferencia significativa, se podría concluir que hay una diferencia en las proporciones de apoyo entre hombres y mujeres.</p>
+<p>Veámoslo con un ejemplo.</p>
+<div id="pregunta-de-investigación-1" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Pregunta de investigación<a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Al igual que en prueba T, debemos tener claro nuestra pregunta que deseamos responder:</p>
+<p>¿La proporción de personas que opinan que existe <strong>Mucha</strong> desigualdad económica en el país será diferente entre el área urbana y rural (area2) a nivel poblacional?</p>
+</div>
+<div id="paso-0-análisis-exploratorio-de-datos-eda-1" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos a seguir usando ENADES.</p>
+<p><strong>CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR</strong></p>
+<p><img src="figures/ENADES_p04.png" /></p>
+<p>Vamos a hacer una primera exploración de la variable:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p04)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   1.000   1.000   1.000   1.717   2.000   4.000      37</code></pre>
+<p>Vemos que sì tenemos valores perdidos. En este caso 37.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p04) <span class="co"># Cuando solicitas la tabla no te muestra los NA!</span></span></code></pre></div>
+<pre><code>## 
+##   1   2   3   4 
+## 868 265 275  85</code></pre>
+<p>No obstante, no tenemos problemas de casos que hayan contestado NS/NR (codificados con 99). Procedemos a convertirlo en factor:</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb193-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>p04<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>p04, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb193-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb193-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb193-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb193-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Mucho&quot;</span>, <span class="st">&quot;Algo&quot;</span>, <span class="st">&quot;Poco&quot;</span>, <span class="st">&quot;Nada&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb193-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>p04)</span></code></pre></div>
+<pre><code>##  Factor w/ 4 levels &quot;Mucho&quot;,&quot;Algo&quot;,..: 3 1 NA 1 3 1 1 1 1 2 ...</code></pre>
+<p>En los grupos seguimos teniendo la variable ámbito (urbano/rural)</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb195-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb195-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb195-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb195-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
+<pre><code>##  Factor w/ 2 levels &quot;Urbano&quot;,&quot;Rural&quot;: NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<p><strong>EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES</strong></p>
+<p>Primero, veamos la proporción de encuestados que contestó cada categoría de la pregunta p04. Para eso, creamos una tabla simple:</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb197-1" aria-hidden="true" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(enades<span class="sc">$</span>p04,enades<span class="sc">$</span>area2) <span class="co">#Se sugiere colocar el grupo como segunda variable.</span></span>
+<span id="cb197-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb197-2" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="co">#Mostramos la tabla creada</span></span></code></pre></div>
+<pre><code>##        
+##         Urbano Rural
+##   Mucho      0     0
+##   Algo       0     0
+##   Poco       0     0
+##   Nada       0     0</code></pre>
+<p>Luego, sobre la tabla creada, solicitamos algunos cambios.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span>    <span class="co"># Esta es la tabla simple que creaste arriba</span></span>
+<span id="cb199-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="co"># Que nos muestre la tabla en proporciones. El &quot;2&quot; es para pedir que sea por columnas. </span></span>
+<span id="cb199-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">4</span>) <span class="sc">|&gt;</span>      <span class="co"># Que redondee los valores a 4 dígitos</span></span>
+<span id="cb199-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addmargins</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="co"># Que la FILA de totales. Si deseamos la columna de totales entonces sería 2.</span></span>
+<span id="cb199-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span>         <span class="co"># Estos dos últimos son sólo para que se muestre en HTML (mejor formato).</span></span>
+<span id="cb199-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb199-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Urbano
+</th>
+<th style="text-align:right;">
+Rural
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Mucho
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Algo
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Poco
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nada
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sum
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+<td style="text-align:right;">
+NaN
+</td>
+</tr>
+</tbody>
+</table>
+<p>Damos cuenta que en el sector urbano el 60.47% sostuvo que existe Mucha desigualdad económica, mientras que en el sector rural sólo el 46.34%.</p>
+<blockquote>
+<p>EFECTIVAMENTE OBSERVAMOS UNA DIFERENCIA DE PROPORCIONES A NIVEL MUESTRAL. Ahora probemos nuestra hipótesis a nivel poblacional</p>
+</blockquote>
+</div>
+<div id="paso-1-establecer-hipótesis-1" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Paso 1: Establecer hipótesis<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Debemos plantear las hipótesis nula y alternativa.</p>
+<p>En el caso del Prop.Test, las hipótesis son las siguientes:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hipótesis</th>
+<th>Descripción</th>
+<th>Notación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hipótesis nula</td>
+<td>Las proporciones poblacionales son iguales</td>
+<td><span class="math inline">\(H_0: p_1 = p_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Hipótesis alterna</td>
+<td>Las proporciones poblacionales son diferentes</td>
+<td><span class="math inline">\(H_1: p_1 \neq p_2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Estas son las hipótesis que vamos a validar con nuestra prueba.</p>
+</div>
+<div id="paso-2-verificar-supuestos-2" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Paso 2: Verificar supuestos<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>INDEPENDENCIA</strong></p>
+<p>Las muestras deben ser independientes. El muestreo debe ser aleatorio. Vamos a asumir ello porque normalmente no tenemos control sobre el proceso de muestreo.</p>
+<p><strong>En este caso no corroboramos varianza homogénea debido a que nuestra variable de interés es categórica.</strong></p>
+</div>
+<div id="paso-3-establecer-nivel-de-significancia-2" class="section level3 hasAnchor" number="6.3.5">
+<h3><span class="header-section-number">6.3.5</span> Paso 3: Establecer nivel de significancia<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.</p>
+<p><span class="math display">\[\alpha = 0.05\]</span></p>
+</div>
+<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-1" class="section level3 hasAnchor" number="6.3.6">
+<h3><span class="header-section-number">6.3.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora utilizemos la función <code>prop.test()</code> para realizar el cálculo del Estadístico Chi-Cuadrado y el cálculo del p-valor.</p>
+<p>Para ello, necesitamos dos datos.</p>
+<ul>
+<li>¿Cuántos <strong>CASOS</strong> han contestado <strong>Mucho</strong> en la pregunta p04 en cada grupo (urbano y rural)?</li>
+</ul>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb200-1" aria-hidden="true" tabindex="-1"></a>tabla_simple</span></code></pre></div>
+<pre><code>##        
+##         Urbano Rural
+##   Mucho      0     0
+##   Algo       0     0
+##   Poco       0     0
+##   Nada       0     0</code></pre>
+<p>Ok, en el ámbito Urbano hay 754 y en el ámbito 114.</p>
+<ul>
+<li>¿Cuántos <strong>CASOS</strong> hay en cada grupo (urbano y rural)?</li>
+</ul>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
+<pre><code>## 
+## Urbano  Rural 
+##      0      0</code></pre>
+<p>Ok, tenemos 1273 para el área urbana y 257 para el área rural.</p>
+<p>Ahora sí, calculemos el <code>prop.test</code>:</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">754</span>,<span class="dv">144</span>), <span class="co">#Número de personas que contestaron Mucho en el ámbito Urbano y Rural</span></span>
+<span id="cb204-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>)) <span class="co">#Número de personas que hay en el el ámbito Urbano y Rural en mi muestra.</span></span></code></pre></div>
+<pre><code>## 
+##  2-sample test for equality of proportions with continuity
+##  correction
+## 
+## data:  c(754, 144) out of c(1273, 257)
+## X-squared = 0.77548, df = 1, p-value = 0.3785
+## alternative hypothesis: two.sided
+## 95 percent confidence interval:
+##  -0.03676449  0.10074522
+## sample estimates:
+##    prop 1    prop 2 
+## 0.5923016 0.5603113</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEN CUIDADO CON EL ORDEN!</span></span></code></pre></div>
+</div>
+<div id="paso-5-tomar-una-decisión-2" class="section level3 hasAnchor" number="6.3.7">
+<h3><span class="header-section-number">6.3.7</span> Paso 5: Tomar una decisión<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Tenemos los siguientes escenarios</p>
+<table>
+<thead>
+<tr class="header">
+<th>Resultado</th>
+<th>Decisión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p-value &lt;=\alpha\)</span></td>
+<td>Rechazamos la hipótesis nula.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p-value &gt;\alpha\)</span></td>
+<td>No rechazamos la hipótesis nula.</td>
+</tr>
+</tbody>
+</table>
+<p>En nuestro caso nuestro habíamos escogido un <span class="math inline">\(\alpha = 0.05\)</span> por lo que al obtener un p-valor de 0.3785 no podemos rechazar la hipótesis nula de que nuestras proporciones poblacionales son iguales.</p>
+</div>
+<div id="paso-6-interpretación-2" class="section level3 hasAnchor" number="6.3.8">
+<h3><span class="header-section-number">6.3.8</span> Paso 6: Interpretación<a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Concluimos que:</p>
+<p><strong>Luego de realizar una prueba de diferencia de proporciones, a un 95% de confianza, obtuvimos un p-valor de 0.3785, por lo que no podemos rechazar la hipótesis nula de que las proporciones de población que opinan que existe Mucha desigualdad económica son iguales en el área urbana y en el área rural. Por ello, concluimos que no existen diferencias estadísticamente significativas en ambos grupos.</strong></p>
+</div>
+<div id="ahora-hazlo-tú-3" class="section level3 hasAnchor" number="6.3.9">
+<h3><span class="header-section-number">6.3.9</span> Ahora hazlo tú!<a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Considera las siguientes variables:</p>
+<ul>
+<li><p><strong>ideologia3</strong>: Las categorías de esta variable son 1:Izquierda, 2:Centro y 3:Derecha.</p></li>
+<li><p><strong>zona3</strong>: Las categoría de esta variable son 1:Lima Metropolitana y 2: Perú sin Lima</p></li>
+</ul>
+<p>Deseamos responder a la pregunta:</p>
+<p><strong>¿Existe una diferencia en la proporción de personas que se identifican con una ideología de derecha según su lugar de procedencia (Lima Metropolitana o resto del país)?</strong></p>
+<p>Realice la prueba de hipótesis más pertinente. Muestre sus resultados e interprete.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anova-comparación-en-más-de-dos-muestras.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/06-pruebaT.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/06-pruebaT.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

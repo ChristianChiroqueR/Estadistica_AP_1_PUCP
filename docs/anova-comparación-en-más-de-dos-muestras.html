@@ -23,14 +23,14 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-26" />
+<meta name="date" content="2023-04-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"/>
+<link rel="prev" href="comparación-en-dos-muestras-t.test-y-prop.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -203,16 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-relevantes"><i class="fa fa-check"></i><b>4.1</b> Antecedentes relevantes</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-desviación-estándar-1"><i class="fa fa-check"></i><b>4.1.1</b> La desviación estándar</a></li>
-<li class="chapter" data-level="4.1.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-distribución-curva-normal-y-las-sd"><i class="fa fa-check"></i><b>4.1.2</b> La distribución (curva) normal y las SD</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-probabilidad"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de probabilidad</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#conceptos"><i class="fa fa-check"></i><b>4.2.1</b> Conceptos</a></li>
-<li class="chapter" data-level="4.2.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#curva-normal-y-probabilidades"><i class="fa fa-check"></i><b>4.2.2</b> Curva normal y probabilidades</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-relevantes"><i class="fa fa-check"></i><b>4.1</b> Antecedentes relevantes</a></li>
+<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-probabilidad"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de probabilidad</a></li>
 <li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r"><i class="fa fa-check"></i><b>4.3</b> Ejercicio con R</a></li>
 <li class="chapter" data-level="4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia"><i class="fa fa-check"></i><b>4.4</b> Elementos básicos de la inferencia</a>
 <ul>
@@ -233,61 +225,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>4.6.4</b> Cálculo del intervalo de confianza al 95%</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html"><i class="fa fa-check"></i><b>5</b> Estadística Inferencial II</a>
+<li class="chapter" data-level="5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> IC de una proporción e introducción a pruebas de hipótesis</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
+<li class="chapter" data-level="5.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
-<li class="chapter" data-level="5.1.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="5.1.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
-<li class="chapter" data-level="5.1.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
-<li class="chapter" data-level="5.1.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="5.1.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
+<li class="chapter" data-level="5.1.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
+<li class="chapter" data-level="5.1.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
+<li class="chapter" data-level="5.1.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
+<li class="chapter" data-level="5.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
-<li class="chapter" data-level="5.2.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
-<li class="chapter" data-level="5.2.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
-<li class="chapter" data-level="5.2.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
-<li class="chapter" data-level="5.2.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
+<li class="chapter" data-level="5.2.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
+<li class="chapter" data-level="5.2.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
+<li class="chapter" data-level="5.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
-<li class="chapter" data-level="5.3.2" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
-<li class="chapter" data-level="5.3.3" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="5.3.4" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="5.3.5" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
-<li class="chapter" data-level="5.3.6" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="5.3.7" data-path="estadística-inferencial-ii.html"><a href="estadística-inferencial-ii.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="5.3.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><i class="fa fa-check"></i><b>6</b> Estadística Inferencial III: Comparación en dos muestras independientes</a>
+<li class="chapter" data-level="6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html"><i class="fa fa-check"></i><b>6</b> Comparación en dos muestras (t.test y prop.test)</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#recordemos-1"><i class="fa fa-check"></i><b>6.1</b> Recordemos</a>
+<li class="chapter" data-level="6.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#recordemos-1"><i class="fa fa-check"></i><b>6.1</b> Recordemos</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Prueba de hipótesis</a></li>
-<li class="chapter" data-level="6.1.2" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#flujograma"><i class="fa fa-check"></i><b>6.1.2</b> Flujograma</a></li>
-<li class="chapter" data-level="6.1.3" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.3</b> Tipos de prueba de hipótesis</a></li>
+<li class="chapter" data-level="6.1.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Prueba de hipótesis</a></li>
+<li class="chapter" data-level="6.1.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#flujograma"><i class="fa fa-check"></i><b>6.1.2</b> Flujograma</a></li>
+<li class="chapter" data-level="6.1.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.3</b> Tipos de prueba de hipótesis</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#prueba-t-para-diferencia-de-medias"><i class="fa fa-check"></i><b>6.2</b> Prueba T para diferencia de medias</a>
+<li class="chapter" data-level="6.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-medias-t.test"><i class="fa fa-check"></i><b>6.2</b> Diferencia de medias (t.test)</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#definición-3"><i class="fa fa-check"></i><b>6.2.1</b> Definición</a></li>
-<li class="chapter" data-level="6.2.2" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.2.3" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.2.4" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.2.5" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.2.6" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.2.7" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.2.8" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.2.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.2.9" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#ahora-hazlo-tú-2"><i class="fa fa-check"></i><b>6.2.9</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="6.2.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación"><i class="fa fa-check"></i><b>6.2.1</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="6.2.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="6.2.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.2.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="6.2.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.2.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="6.2.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="6.2.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="6.2.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.2.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="6.2.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.2.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="6.2.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-2"><i class="fa fa-check"></i><b>6.2.9</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="6.2.10" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#a-tener-en-cuenta"><i class="fa fa-check"></i><b>6.2.10</b> A tener en cuenta</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#a-tener-en-cuenta"><i class="fa fa-check"></i><b>6.3</b> A tener en cuenta:</a>
+<li class="chapter" data-level="6.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-proporciones-prop.test"><i class="fa fa-check"></i><b>6.3</b> Diferencia de proporciones (prop.test)</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#prueba-de-hipótesis-para-igualdad-de-varianzas"><i class="fa fa-check"></i><b>6.3.1</b> Prueba de hipótesis para igualdad de varianzas</a></li>
-<li class="chapter" data-level="6.3.2" data-path="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html"><a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html#valores-faltantes-en-las-encuestas"><i class="fa fa-check"></i><b>6.3.2</b> Valores faltantes en las encuestas</a></li>
+<li class="chapter" data-level="6.3.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación-1"><i class="fa fa-check"></i><b>6.3.1</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="6.3.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>6.3.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="6.3.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>6.3.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="6.3.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>6.3.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="6.3.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>6.3.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="6.3.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>6.3.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="6.3.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>6.3.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="6.3.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>6.3.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="6.3.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-3"><i class="fa fa-check"></i><b>6.3.9</b> Ahora hazlo tú!</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html"><i class="fa fa-check"></i><b>7</b> ANOVA: Comparación en más de dos muestras</a>
@@ -299,16 +299,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#definición-4"><i class="fa fa-check"></i><b>7.2.1</b> Definición</a></li>
-<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#definición-3"><i class="fa fa-check"></i><b>7.2.1</b> Definición</a></li>
+<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-3"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
 <li class="chapter" data-level="7.2.9" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización"><i class="fa fa-check"></i><b>7.2.9</b> Extra: Visualización</a></li>
-<li class="chapter" data-level="7.2.10" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-3"><i class="fa fa-check"></i><b>7.2.10</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="7.2.10" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.2.10</b> Ahora hazlo tú!</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -347,14 +347,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="anova-de-un-factor" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> ANOVA de un factor<a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="figures/ANOVA.jpg" /></p>
-<div id="definición-4" class="section level3 hasAnchor" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Definición<a href="anova-comparación-en-más-de-dos-muestras.html#definición-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="definición-3" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Definición<a href="anova-comparación-en-más-de-dos-muestras.html#definición-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El análisis de varianza (ANOVA) de un factor en R es una técnica estadística utilizada para comparar la media de una variable numérica entre más de dos grupos. Se realiza un ANOVA de un factor cuando se tiene un solo factor categórico (con tres o más niveles) que se utiliza para agrupar los datos, y se quiere determinar si existe una diferencia estadísticamente significativa entre las medias de los grupos.</p>
 <p>El ANOVA es una herramienta útil para analizar datos experimentales en los que se desea comparar las medias de más de dos grupos. En lugar de <strong>realizar múltiples pruebas t de dos muestras</strong>, el ANOVA nos permite realizar una sola prueba para determinar si hay una diferencia significativa entre los grupos.</p>
 <p>Los pasos para aplicación del ANOVA son los mismos que los seguidos para el T de Student, visto la clase anterior.</p>
 </div>
-<div id="paso-0-análisis-exploratorio-de-datos-eda-1" class="section level3 hasAnchor" number="7.2.2">
-<h3><span class="header-section-number">7.2.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-0-análisis-exploratorio-de-datos-eda-2" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="abrir-la-data" class="section level4 hasAnchor" number="7.2.2.1">
 <h4><span class="header-section-number">7.2.2.1</span> Abrir la data<a href="anova-comparación-en-más-de-dos-muestras.html#abrir-la-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
@@ -365,8 +365,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">7.2.2.3</span> Exploración de datos muestrales<a href="anova-comparación-en-más-de-dos-muestras.html#exploración-de-datos-muestrales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 </div>
 </div>
-<div id="paso-1-establecer-hipótesis-1" class="section level3 hasAnchor" number="7.2.3">
-<h3><span class="header-section-number">7.2.3</span> Paso 1: Establecer hipótesis<a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-1-establecer-hipótesis-2" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Paso 1: Establecer hipótesis<a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Debemos plantear las hipótesis nula y alternativa.</p>
 <p>Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar algunas de estas. En el caso de la Prueba T, las hipótesis son las siguientes:</p>
 <table>
@@ -393,8 +393,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Estas son las hipótesis que vamos a validar con nuestra prueba.</p>
 </div>
-<div id="paso-2-verificar-supuestos-2" class="section level3 hasAnchor" number="7.2.4">
-<h3><span class="header-section-number">7.2.4</span> Paso 2: Verificar supuestos<a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-2-verificar-supuestos-3" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Paso 2: Verificar supuestos<a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>INDEPENDENCIA</strong></p>
 <p>Las muestras deben ser independientes. El muestreo debe ser aleatorio. Vamos a asumir ello porque normalmente no tenemos control sobre el proceso de muestreo.</p>
 <p><strong>DISTRITUCIÓN NORMAL</strong></p>
@@ -404,16 +404,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Vamos a hacer una exploración visual utilizando boxplot para verificar indicios de homogeneidad de varianzas.</p>
 <p>Luego, para validar, realizamos el test de Levene, el cual ya hemos aprendido que es una prueba de hipótesis en la que la H0 es: “Existe homogenidad de varianzas”.</p>
 </div>
-<div id="paso-3-establecer-nivel-de-significancia-2" class="section level3 hasAnchor" number="7.2.5">
-<h3><span class="header-section-number">7.2.5</span> Paso 3: Establecer nivel de significancia<a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-3-establecer-nivel-de-significancia-3" class="section level3 hasAnchor" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> Paso 3: Establecer nivel de significancia<a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.</p>
 <p><span class="math display">\[\alpha = 0.05\]</span></p>
 </div>
-<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-1" class="section level3 hasAnchor" number="7.2.6">
-<h3><span class="header-section-number">7.2.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-2" class="section level3 hasAnchor" number="7.2.6">
+<h3><span class="header-section-number">7.2.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="paso-5-tomar-una-decisión-2" class="section level3 hasAnchor" number="7.2.7">
-<h3><span class="header-section-number">7.2.7</span> Paso 5: Tomar una decisión<a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-5-tomar-una-decisión-3" class="section level3 hasAnchor" number="7.2.7">
+<h3><span class="header-section-number">7.2.7</span> Paso 5: Tomar una decisión<a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="figures/rechazar_norechazar.jpg" />
 Tenemos los siguientes escenarios</p>
 <table>
@@ -435,16 +435,16 @@ Tenemos los siguientes escenarios</p>
 </tbody>
 </table>
 </div>
-<div id="paso-6-interpretación-2" class="section level3 hasAnchor" number="7.2.8">
-<h3><span class="header-section-number">7.2.8</span> Paso 6: Interpretación<a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-6-interpretación-3" class="section level3 hasAnchor" number="7.2.8">
+<h3><span class="header-section-number">7.2.8</span> Paso 6: Interpretación<a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>.</p>
 </div>
 <div id="extra-visualización" class="section level3 hasAnchor" number="7.2.9">
 <h3><span class="header-section-number">7.2.9</span> Extra: Visualización<a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>.</p>
 </div>
-<div id="ahora-hazlo-tú-3" class="section level3 hasAnchor" number="7.2.10">
-<h3><span class="header-section-number">7.2.10</span> Ahora hazlo tú!<a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ahora-hazlo-tú-4" class="section level3 hasAnchor" number="7.2.10">
+<h3><span class="header-section-number">7.2.10</span> Ahora hazlo tú!<a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>.</p>
 
 </div>
@@ -455,7 +455,7 @@ Tenemos los siguientes escenarios</p>
           </div>
         </div>
       </div>
-<a href="estadística-inferencial-iii-comparación-en-dos-muestras-independientes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comparación-en-dos-muestras-t.test-y-prop.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
