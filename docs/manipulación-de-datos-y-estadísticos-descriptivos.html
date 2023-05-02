@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-28" />
+<meta name="date" content="2023-05-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,9 +307,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
 <li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
 <li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="7.2.9" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización"><i class="fa fa-check"></i><b>7.2.9</b> Extra: Visualización</a></li>
-<li class="chapter" data-level="7.2.10" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.2.10</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="7.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#identificar-ellos-grupos-diferentes"><i class="fa fa-check"></i><b>7.3</b> Identificar el/los grupos diferentes</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pruebas-post-hoc-test-de-tukey"><i class="fa fa-check"></i><b>7.3.1</b> Pruebas post hoc: Test de Tukey</a></li>
+<li class="chapter" data-level="7.3.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#visualización"><i class="fa fa-check"></i><b>7.3.2</b> Visualización</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.4</b> Ahora hazlo tú!</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -367,22 +371,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Puedes ver las primeras diez filas con:</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTA…¹ PROVI…² DISTR…³ ORGAN…⁴ VOTOS…⁵ VOTOS…⁶ VOTOS…⁷ VOTOS…⁸
-##    &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 010101 AMAZONAS  CHACHA… CHACHA… FUERZA…       6   11148    1034     340
-##  2 010101 AMAZONAS  CHACHA… CHACHA… PARTID…      24   11148    1034     340
-##  3 010101 AMAZONAS  CHACHA… CHACHA… DESPER…      35   11148    1034     340
-##  4 010101 AMAZONAS  CHACHA… CHACHA… GANA P…    2971   11148    1034     340
-##  5 010101 AMAZONAS  CHACHA… CHACHA… FONAVI…       7   11148    1034     340
-##  6 010101 AMAZONAS  CHACHA… CHACHA… JUSTIC…       4   11148    1034     340
-##  7 010101 AMAZONAS  CHACHA… CHACHA… FUERZA…    2651   11148    1034     340
-##  8 010101 AMAZONAS  CHACHA… CHACHA… PARTID…       2   11148    1034     340
-##  9 010101 AMAZONAS  CHACHA… CHACHA… ALIANZ…    1479   11148    1034     340
-## 10 010101 AMAZONAS  CHACHA… CHACHA… ALIANZ…     773   11148    1034     340
-## # … with 2 more variables: NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;,
-## #   and abbreviated variable names ¹​DEPARTAMENTO, ²​PROVINCIA, ³​DISTRITO,
-## #   ⁴​ORGANIZACIÓN_POLITICA, ⁵​VOTOS_VALIDOS_OP, ⁶​VOTOS_VALIDOS,
-## #   ⁷​VOTOS_BLANCO, ⁸​VOTOS_NULOS</code></pre>
+##    UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACI…¹ VOTOS…² VOTOS…³ VOTOS…⁴ VOTOS…⁵ NUMER…⁶ VOTOS…⁷
+##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACI…       6   11148    1034     340   15748   12522
+##  2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POL…      24   11148    1034     340   15748   12522
+##  3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR N…      35   11148    1034     340   15748   12522
+##  4 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS GANA PERU       2971   11148    1034     340   15748   12522
+##  5 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FONAVISTAS …       7   11148    1034     340   15748   12522
+##  6 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS JUSTICIA, T…       4   11148    1034     340   15748   12522
+##  7 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA 2011     2651   11148    1034     340   15748   12522
+##  8 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO DES…       2   11148    1034     340   15748   12522
+##  9 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA POR…    1479   11148    1034     340   15748   12522
+## 10 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA SOL…     773   11148    1034     340   15748   12522
+## # … with abbreviated variable names ¹​ORGANIZACIÓN_POLITICA, ²​VOTOS_VALIDOS_OP, ³​VOTOS_VALIDOS,
+## #   ⁴​VOTOS_BLANCO, ⁵​VOTOS_NULOS, ⁶​NUMERO_ELECTORES, ⁷​VOTOS_EMITIDOS</code></pre>
 <p>También puedes hacerle click en Environment o colocar:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
 </div>
@@ -390,12 +392,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.2.2</span> Verificar el tipo de variable<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos las variables, podemos utilizar la función <code>names(nombre_de_data)</code></p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elecciones)</span></code></pre></div>
-<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;         
-##  [3] &quot;PROVINCIA&quot;             &quot;DISTRITO&quot;             
-##  [5] &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;     
-##  [7] &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;         
-##  [9] &quot;VOTOS_NULOS&quot;           &quot;NUMERO_ELECTORES&quot;     
-## [11] &quot;VOTOS_EMITIDOS&quot;</code></pre>
+<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;          &quot;PROVINCIA&quot;             &quot;DISTRITO&quot;             
+##  [5] &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;      &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;         
+##  [9] &quot;VOTOS_NULOS&quot;           &quot;NUMERO_ELECTORES&quot;      &quot;VOTOS_EMITIDOS&quot;</code></pre>
 <p>Puedes editar los nombres si deseas. En este caso vamos a cambiar el nombre de la variable <strong>ORGANIZACIÓN_POLITICA</strong> por <strong>ORG_POL</strong>.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb69-1" aria-hidden="true" tabindex="-1"></a>elecciones<span class="ot">&lt;-</span> elecciones <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ORG_POL=</span>ORGANIZACIÓN_POLITICA)</span></code></pre></div>
 <blockquote>
@@ -550,10 +549,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
 </ol>
 <p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
 <p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
 
 </div>

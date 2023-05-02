@@ -115,11 +115,15 @@ qué-sigue
 anova-de-un-factor
 pregunta-de-investigación-2
 paso-0-análisis-exploratorio-de-datos-eda-2
+nuestra-numérica-índice-aditivo
+nuestros-grupos
 paso-1-establecer-hipótesis-2
 paso-2-verificar-supuestos-3
 paso-3-establecer-nivel-de-significancia-3
 paso-4-calcular-estadístico-de-prueba-y-p-valor-2
 paso-5-tomar-una-decisión-3
 paso-6-interpretación-3
-extra-visualización
+identificar-ellos-grupos-diferentes
+pruebas-post-hoc-test-de-tukey
+visualización
 ahora-hazlo-tú-4

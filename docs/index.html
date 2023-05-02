@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-04-28" />
+<meta name="date" content="2023-05-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,9 +307,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
 <li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
 <li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="7.2.9" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#extra-visualización"><i class="fa fa-check"></i><b>7.2.9</b> Extra: Visualización</a></li>
-<li class="chapter" data-level="7.2.10" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.2.10</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="7.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#identificar-ellos-grupos-diferentes"><i class="fa fa-check"></i><b>7.3</b> Identificar el/los grupos diferentes</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pruebas-post-hoc-test-de-tukey"><i class="fa fa-check"></i><b>7.3.1</b> Pruebas post hoc: Test de Tukey</a></li>
+<li class="chapter" data-level="7.3.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#visualización"><i class="fa fa-check"></i><b>7.3.2</b> Visualización</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.4</b> Ahora hazlo tú!</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -333,7 +337,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Estadística para el Análisis Político I</h1>
 <p class="author"><em>Docente: Christian Chiroque Ruiz</em></p>
-<p class="date"><em>2023-04-28</em></p>
+<p class="date"><em>2023-05-01</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Sesión 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -572,32 +576,26 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
 <span id="cb58-2"><a href="index.html#cb58-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb58-3"><a href="index.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA
-## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL
-## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE
-## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL
-##   VOTOS_VALIDOS_OP VOTOS_VALIDOS VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES
-## 1                6         11148         1034         340            15748
-## 2               24         11148         1034         340            15748
-## 3               35         11148         1034         340            15748
-##   VOTOS_EMITIDOS
-## 1          12522
-## 2          12522
-## 3          12522</code></pre>
+<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS
+## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL                6         11148
+## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE               24         11148
+## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL               35         11148
+##   VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES VOTOS_EMITIDOS
+## 1         1034         340            15748          12522
+## 2         1034         340            15748          12522
+## 3         1034         340            15748          12522</code></pre>
 <p>O también podemos utilizar el paquete <code>readxl()</code> que pertenece al universo de <strong>Tidyverse</strong>. Lo bueno de esta función es que cuando visualizas la data se realiza de forma más ordenada.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb60-2"><a href="index.html#cb60-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb60-3"><a href="index.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
-##   UBIGEO DEPARTAM…¹ PROVI…² DISTR…³ ORGAN…⁴ VOTOS…⁵ VOTOS…⁶ VOTOS…⁷ VOTOS…⁸
-##   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1 010101 AMAZONAS   CHACHA… CHACHA… FUERZA…       6   11148    1034     340
-## 2 010101 AMAZONAS   CHACHA… CHACHA… PARTID…      24   11148    1034     340
-## 3 010101 AMAZONAS   CHACHA… CHACHA… DESPER…      35   11148    1034     340
-## # … with 2 more variables: NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;,
-## #   and abbreviated variable names ¹​DEPARTAMENTO, ²​PROVINCIA, ³​DISTRITO,
-## #   ⁴​ORGANIZACIÓN_POLITICA, ⁵​VOTOS_VALIDOS_OP, ⁶​VOTOS_VALIDOS,
-## #   ⁷​VOTOS_BLANCO, ⁸​VOTOS_NULOS</code></pre>
+##   UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACIÓ…¹ VOTOS…² VOTOS…³ VOTOS…⁴ VOTOS…⁵ NUMER…⁶ VOTOS…⁷
+##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACIO…       6   11148    1034     340   15748   12522
+## 2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POLI…      24   11148    1034     340   15748   12522
+## 3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR NA…      35   11148    1034     340   15748   12522
+## # … with abbreviated variable names ¹​ORGANIZACIÓN_POLITICA, ²​VOTOS_VALIDOS_OP, ³​VOTOS_VALIDOS,
+## #   ⁴​VOTOS_BLANCO, ⁵​VOTOS_NULOS, ⁶​NUMERO_ELECTORES, ⁷​VOTOS_EMITIDOS</code></pre>
 <p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
 </div>
 <div id="manipulación-de-datos-con-tidyverse" class="section level2 hasAnchor" number="1.6">
