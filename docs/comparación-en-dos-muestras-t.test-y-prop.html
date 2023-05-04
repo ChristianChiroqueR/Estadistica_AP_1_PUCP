@@ -795,11 +795,16 @@ Sum
 <ul>
 <li>¿Cuántos <strong>CASOS</strong> hay en cada grupo (urbano y rural)?</li>
 </ul>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
-<pre><code>## 
-## Urbano  Rural 
-##   1273    257</code></pre>
-<p>Ok, tenemos 1273 para el área urbana y 257 para el área rural.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb202-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb202-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb202-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addmargins</span>()</span></code></pre></div>
+<pre><code>##        
+##         Urbano Rural  Sum
+##   Mucho    754   114  868
+##   Algo     221    44  265
+##   Poco     204    71  275
+##   Nada      68    17   85
+##   Sum     1247   246 1493</code></pre>
+<p>Ok, tenemos 1247 para el área urbana y 246 para el área rural.</p>
 <p>Ahora sí, calculemos el <code>prop.test</code>:</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">754</span>,<span class="dv">114</span>), <span class="co">#Número de personas que contestaron Mucho en el ámbito Urbano y Rural</span></span>
 <span id="cb204-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">n=</span><span class="fu">c</span>(<span class="dv">754</span><span class="sc">+</span><span class="dv">221</span><span class="sc">+</span><span class="dv">204</span><span class="sc">+</span><span class="dv">68</span>, <span class="dv">144</span><span class="sc">+</span><span class="dv">44</span><span class="sc">+</span><span class="dv">71</span><span class="sc">+</span><span class="dv">17</span>)) <span class="co">#Número de personas que hay en el el ámbito Urbano y Rural en mi muestra.</span></span></code></pre></div>

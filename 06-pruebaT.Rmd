@@ -402,16 +402,18 @@ Ok, en el ámbito Urbano hay 754 y en el ámbito 114.
 - ¿Cuántos **CASOS** hay en cada grupo (urbano y rural)?
 
 ```{r}
-table(enades$area2)
+tabla_simple |> 
+  addmargins()
 ```
 
-Ok, tenemos 1273 para el área urbana y 257 para el área rural. 
+Ok, tenemos 1247 para el área urbana y 246 para el área rural. 
 
 Ahora sí, calculemos el `prop.test`:
 
 ```{r}
 prop.test(x=c(754,114), #Número de personas que contestaron Mucho en el ámbito Urbano y Rural
           n=c(754+221+204+68, 144+44+71+17)) #Número de personas que hay en el el ámbito Urbano y Rural en mi muestra.
+
 
 #TEN CUIDADO CON EL ORDEN!
 ```
