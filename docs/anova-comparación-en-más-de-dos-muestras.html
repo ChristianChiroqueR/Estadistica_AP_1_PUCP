@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-05-01" />
+<meta name="date" content="2023-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -596,10 +596,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Fit: aov(formula = enades$indice_aditivo ~ enades$ambito)
 ## 
 ## $`enades$ambito`
-##                                       diff        lwr         upr     p adj
-## Perú urbano-Lima Metropolitana -0.25275128 -0.4561655 -0.04933707 0.0100916
-## Perú rural-Lima Metropolitana  -0.19066752 -0.4671122  0.08577713 0.2382426
-## Perú rural-Perú urbano          0.06208376 -0.2030873  0.32725478 0.8468574</code></pre>
+##                                       diff        lwr         upr
+## Perú urbano-Lima Metropolitana -0.25275128 -0.4561655 -0.04933707
+## Perú rural-Lima Metropolitana  -0.19066752 -0.4671122  0.08577713
+## Perú rural-Perú urbano          0.06208376 -0.2030873  0.32725478
+##                                    p adj
+## Perú urbano-Lima Metropolitana 0.0100916
+## Perú rural-Lima Metropolitana  0.2382426
+## Perú rural-Perú urbano         0.8468574</code></pre>
 <p>Para leer este resultado debemos preguntarnos dos cosas:</p>
 <ul>
 <li>¿En qué parejas existe una diferencia significativa?</li>
@@ -616,10 +620,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Exploramos el objeto que creamos arriba.</p>
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb247-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>(comparacion[<span class="dv">1</span>])</span>
 <span id="cb247-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb247-2" aria-hidden="true" tabindex="-1"></a>diferencias_parejas</span></code></pre></div>
-<pre><code>##                                enades.ambito.diff enades.ambito.lwr enades.ambito.upr enades.ambito.p.adj
-## Perú urbano-Lima Metropolitana        -0.25275128        -0.4561655       -0.04933707          0.01009162
-## Perú rural-Lima Metropolitana         -0.19066752        -0.4671122        0.08577713          0.23824258
-## Perú rural-Perú urbano                 0.06208376        -0.2030873        0.32725478          0.84685736</code></pre>
+<pre><code>##                                enades.ambito.diff enades.ambito.lwr
+## Perú urbano-Lima Metropolitana        -0.25275128        -0.4561655
+## Perú rural-Lima Metropolitana         -0.19066752        -0.4671122
+## Perú rural-Perú urbano                 0.06208376        -0.2030873
+##                                enades.ambito.upr enades.ambito.p.adj
+## Perú urbano-Lima Metropolitana       -0.04933707          0.01009162
+## Perú rural-Lima Metropolitana         0.08577713          0.23824258
+## Perú rural-Perú urbano                0.32725478          0.84685736</code></pre>
 <p>Hemos generado un dataframe con los valores de las diferencias estimadas en cada pareja y los límites inferiores y superiores de cada diferencia estimada.</p>
 <p>Ahora creamos una columna adicional en dicho data frame que tenga el detalle de la pareja.</p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb249-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas<span class="sc">$</span>parejas <span class="ot">=</span> <span class="fu">rownames</span>(diferencias_parejas)</span></code></pre></div>
@@ -634,7 +642,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb250-8"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb250-9"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
 <span id="cb250-10"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-183-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>Con este gráfico debemos corroborar los resultados que arroja la prueba de comparaciones múltiples de Tukey.</p>
 </div>
 </div>

@@ -410,8 +410,8 @@ Ok, tenemos 1273 para el área urbana y 257 para el área rural.
 Ahora sí, calculemos el `prop.test`:
 
 ```{r}
-prop.test(x=c(754,144), #Número de personas que contestaron Mucho en el ámbito Urbano y Rural
-          n=c(1273, 257)) #Número de personas que hay en el el ámbito Urbano y Rural en mi muestra.
+prop.test(x=c(754,114), #Número de personas que contestaron Mucho en el ámbito Urbano y Rural
+          n=c(754+221+204+68, 144+44+71+17)) #Número de personas que hay en el el ámbito Urbano y Rural en mi muestra.
 
 #TEN CUIDADO CON EL ORDEN!
 ```
