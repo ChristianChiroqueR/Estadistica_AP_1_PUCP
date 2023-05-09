@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-05-03" />
+<meta name="date" content="2023-05-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -315,6 +315,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.4</b> Ahora hazlo tú!</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>8</b> EJERCICIO DE REPASO</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#base-de-datos-lapop"><i class="fa fa-check"></i><b>8.1</b> Base de datos: LAPOP</a></li>
+<li class="chapter" data-level="8.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#problema"><i class="fa fa-check"></i><b>8.2</b> Problema</a></li>
+<li class="chapter" data-level="8.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-1-índice-de-respaldo-al-sistema-político"><i class="fa fa-check"></i><b>8.3</b> Ejercicio 1: Índice de respaldo al sistema político</a></li>
+<li class="chapter" data-level="8.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-2-exploración"><i class="fa fa-check"></i><b>8.4</b> Ejercicio 2: Exploración</a></li>
+<li class="chapter" data-level="8.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-3-ic-de-una-media"><i class="fa fa-check"></i><b>8.5</b> Ejercicio 3: IC de una media</a></li>
+<li class="chapter" data-level="8.6" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-4-comparación-en-dos-grupos"><i class="fa fa-check"></i><b>8.6</b> Ejercicio 4: Comparación en dos grupos</a></li>
+<li class="chapter" data-level="8.7" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-5-comparación-en-más-de-dos-grupos"><i class="fa fa-check"></i><b>8.7</b> Ejercicio 5: Comparación en más de dos grupos</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -371,22 +381,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Puedes ver las primeras diez filas con:</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTAMENTO PROVIN…¹ DISTR…² ORGAN…³ VOTOS…⁴ VOTOS…⁵ VOTOS…⁶
-##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 010101 AMAZONAS     CHACHAP… CHACHA… FUERZA…       6   11148    1034
-##  2 010101 AMAZONAS     CHACHAP… CHACHA… PARTID…      24   11148    1034
-##  3 010101 AMAZONAS     CHACHAP… CHACHA… DESPER…      35   11148    1034
-##  4 010101 AMAZONAS     CHACHAP… CHACHA… GANA P…    2971   11148    1034
-##  5 010101 AMAZONAS     CHACHAP… CHACHA… FONAVI…       7   11148    1034
-##  6 010101 AMAZONAS     CHACHAP… CHACHA… JUSTIC…       4   11148    1034
-##  7 010101 AMAZONAS     CHACHAP… CHACHA… FUERZA…    2651   11148    1034
-##  8 010101 AMAZONAS     CHACHAP… CHACHA… PARTID…       2   11148    1034
-##  9 010101 AMAZONAS     CHACHAP… CHACHA… ALIANZ…    1479   11148    1034
-## 10 010101 AMAZONAS     CHACHAP… CHACHA… ALIANZ…     773   11148    1034
-## # … with 3 more variables: VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
-## #   VOTOS_EMITIDOS &lt;dbl&gt;, and abbreviated variable names ¹​PROVINCIA,
-## #   ²​DISTRITO, ³​ORGANIZACIÓN_POLITICA, ⁴​VOTOS_VALIDOS_OP,
-## #   ⁵​VOTOS_VALIDOS, ⁶​VOTOS_BLANCO</code></pre>
+##    UBIGEO DEPARTAM…¹ PROVI…² DISTR…³ ORGAN…⁴ VOTOS…⁵
+##    &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;
+##  1 010101 AMAZONAS   CHACHA… CHACHA… FUERZA…       6
+##  2 010101 AMAZONAS   CHACHA… CHACHA… PARTID…      24
+##  3 010101 AMAZONAS   CHACHA… CHACHA… DESPER…      35
+##  4 010101 AMAZONAS   CHACHA… CHACHA… GANA P…    2971
+##  5 010101 AMAZONAS   CHACHA… CHACHA… FONAVI…       7
+##  6 010101 AMAZONAS   CHACHA… CHACHA… JUSTIC…       4
+##  7 010101 AMAZONAS   CHACHA… CHACHA… FUERZA…    2651
+##  8 010101 AMAZONAS   CHACHA… CHACHA… PARTID…       2
+##  9 010101 AMAZONAS   CHACHA… CHACHA… ALIANZ…    1479
+## 10 010101 AMAZONAS   CHACHA… CHACHA… ALIANZ…     773
+## # … with 5 more variables: VOTOS_VALIDOS &lt;dbl&gt;,
+## #   VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;,
+## #   NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;,
+## #   and abbreviated variable names ¹​DEPARTAMENTO,
+## #   ²​PROVINCIA, ³​DISTRITO, ⁴​ORGANIZACIÓN_POLITICA,
+## #   ⁵​VOTOS_VALIDOS_OP</code></pre>
 <p>También puedes hacerle click en Environment o colocar:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
 </div>
@@ -470,13 +482,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
 <span id="cb79-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(porc.voto, <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.25</span>,<span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 1
-##   `quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`
-##                                                               &lt;dbl&gt;
-## 1                                                              11.4
-## 2                                                              21.6
-## 3                                                              35.1
-## 4                                                              56.0
-## 5                                                              70.7</code></pre>
+##   quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9)…¹
+##                                                &lt;dbl&gt;
+## 1                                               11.4
+## 2                                               21.6
+## 3                                               35.1
+## 4                                               56.0
+## 5                                               70.7
+## # … with abbreviated variable name
+## #   ¹​`quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`</code></pre>
 <hr />
 </div>
 </div>
@@ -554,10 +568,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
 </ol>
 <p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
 <p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 <p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
 
 </div>

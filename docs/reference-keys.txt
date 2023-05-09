@@ -127,3 +127,11 @@ identificar-ellos-grupos-diferentes
 pruebas-post-hoc-test-de-tukey
 visualización
 ahora-hazlo-tú-4
+ejercicio-de-repaso
+base-de-datos-lapop
+problema
+ejercicio-1-índice-de-respaldo-al-sistema-político
+ejercicio-2-exploración
+ejercicio-3-ic-de-una-media
+ejercicio-4-comparación-en-dos-grupos
+ejercicio-5-comparación-en-más-de-dos-grupos
