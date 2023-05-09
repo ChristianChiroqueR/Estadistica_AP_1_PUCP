@@ -8,12 +8,14 @@ El Proyecto de Opinión Pública de América Latina (LAPOP) es un proyecto de in
 
 La encuesta mide los valores y comportamientos democráticos en el continente americano usando muestras probabilísticas nacionales de la población adulta en edad de votar.
 
+Puede visualizar el cuestionario de la encuesta 2018 [aqui](http://datasets.americasbarometer.org/database/files/ABPer18-v12.0.7.1-Spa-190214_W.pdf)
+
+Puedes descargar la data [aqui](http://datasets.americasbarometer.org/database/files/Peru%20LAPOP%20AmericasBarometer%202019%20v1.0_W.dta)
+
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(haven)
 library(tidyverse)
-lapop<-read_dta("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2021.dta")
-sublapop<-lapop %>% 
-  filter(core_a_core_b=="Core A")
+lapop<-read_dta("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta")
 ```
 
 ## Problema
@@ -31,20 +33,19 @@ a) Construya un índice sobre **Respaldo al sistema político** con las siguient
 ![](figures/lapop_sistemapolitico.png)
 
 
-b) Configure adecuadamente la variable UR1NEW a fin de que existan dos grupos (cree una copia que se llame "ambito"):
+b) Configure adecuadamente la variable TAMANO a fin de que existan dos grupos (cree una copia que se llame "PROCEDENCIA"):
 
 ![](figures/lapop_zona.png)
 
-- 1: Zona urbana (Una ciudad/En la periferia o alrededores de una ciudad/asentamientos humanos)
+- 1: Zona urbana (Capital Nacional/Ciudad Grande/Ciudad mediana/ Ciudad pequeña)
 
 
-- 2: Zona rural (En un pueblo/poblado cercano a una zona/un área rural / En un área/una zona rural)
-
+- 2: Zona rural (Área rural)
 
 
 ## Ejercicio 2: Exploración
 
-Muestre la media del índice creado a nivel de la muestra. Asimismo, calcule la media por grupo según ámbito. 
+Muestre la media del índice creado a nivel de la muestra. Asimismo, calcule la media por grupo según procedencia. 
 
 Presente un gráfico que permita comparar la distribución de la variable en ambos grupos. Interprete. 
 
@@ -52,13 +53,13 @@ Presente un gráfico que permita comparar la distribución de la variable en amb
 
 ## Ejercicio 3: IC de una media
 
-Cálcule el IC al 95% de confianza del Índice a nivel poblacional. Asimismo, presente un gráfico donde compare los intervalos de confianza según cada grupo según ámbito. 
+Cálcule el IC al 95% de confianza del Índice a nivel poblacional. Asimismo, presente un gráfico donde compare los intervalos de confianza según cada grupo según procedencia. 
 
 
 
 ## Ejercicio 4: Comparación en dos grupos
 
-Compare de forma más rigurosa la media del índice en ambos grupos poblacionales según ámbito. Verifique el supuesto de homogeneidad de varianzas.  
+Compare de forma más rigurosa la media del índice en ambos grupos poblacionales según procedencia. Verifique el supuesto de homogeneidad de varianzas.  
 
 Tenga en cuenta los pasos de la prueba de hipótesis. 
 
@@ -66,6 +67,12 @@ Tenga en cuenta los pasos de la prueba de hipótesis.
 
 ## Ejercicio 5: Comparación en más de dos grupos
 
-Compare la media del índice en los cuatro grupos originales de la variable UR1NEW. Asuma homogeneidad de varianzas.  
+Compare la media del índice en los CINCO grupos originales de la variable TAMANO. Asuma homogeneidad de varianzas.  
 
-Responda: existen diferencia entre los grupos? en qué parejas se ha evidenciado diferencia estadísticamente significativa?
+Responda: 
+
+- Existen diferencia entre los grupos?
+
+- En qué parejas se ha evidenciado diferencia estadísticamente significativa?
+
+- Realice un gráfico comparativo de los resultados obtenidos.

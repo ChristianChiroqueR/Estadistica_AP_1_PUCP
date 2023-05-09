@@ -351,11 +351,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El Proyecto de Opinión Pública de América Latina (LAPOP) es un proyecto de investigación multinacional especializando en el desarrollo, implementación y análisis de encuestas de opinión pública.</p>
 <p><img src="figures/lapop.jpg" /></p>
 <p>La encuesta mide los valores y comportamientos democráticos en el continente americano usando muestras probabilísticas nacionales de la población adulta en edad de votar.</p>
+<p>Puede visualizar el cuestionario de la encuesta 2018 <a href="http://datasets.americasbarometer.org/database/files/ABPer18-v12.0.7.1-Spa-190214_W.pdf">aqui</a></p>
+<p>Puedes descargar la data <a href="http://datasets.americasbarometer.org/database/files/Peru%20LAPOP%20AmericasBarometer%202019%20v1.0_W.dta">aqui</a></p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="ejercicio-de-repaso.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
 <span id="cb251-2"><a href="ejercicio-de-repaso.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb251-3"><a href="ejercicio-de-repaso.html#cb251-3" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2021.dta&quot;</span>)</span>
-<span id="cb251-4"><a href="ejercicio-de-repaso.html#cb251-4" aria-hidden="true" tabindex="-1"></a>sublapop<span class="ot">&lt;-</span>lapop <span class="sc">%&gt;%</span> </span>
-<span id="cb251-5"><a href="ejercicio-de-repaso.html#cb251-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(core_a_core_b<span class="sc">==</span><span class="st">&quot;Core A&quot;</span>)</span></code></pre></div>
+<span id="cb251-3"><a href="ejercicio-de-repaso.html#cb251-3" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta&quot;</span>)</span></code></pre></div>
 </div>
 <div id="problema" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Problema<a href="ejercicio-de-repaso.html#problema" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -369,32 +369,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><img src="figures/lapop_sistemapolitico.png" /></p>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Configure adecuadamente la variable UR1NEW a fin de que existan dos grupos (cree una copia que se llame “ambito”):</li>
+<li>Configure adecuadamente la variable TAMANO a fin de que existan dos grupos (cree una copia que se llame “PROCEDENCIA”):</li>
 </ol>
 <p><img src="figures/lapop_zona.png" /></p>
 <ul>
-<li><p>1: Zona urbana (Una ciudad/En la periferia o alrededores de una ciudad/asentamientos humanos)</p></li>
-<li><p>2: Zona rural (En un pueblo/poblado cercano a una zona/un área rural / En un área/una zona rural)</p></li>
+<li><p>1: Zona urbana (Capital Nacional/Ciudad Grande/Ciudad mediana/ Ciudad pequeña)</p></li>
+<li><p>2: Zona rural (Área rural)</p></li>
 </ul>
 </div>
 <div id="ejercicio-2-exploración" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Ejercicio 2: Exploración<a href="ejercicio-de-repaso.html#ejercicio-2-exploración" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Muestre la media del índice creado a nivel de la muestra. Asimismo, calcule la media por grupo según ámbito.</p>
+<p>Muestre la media del índice creado a nivel de la muestra. Asimismo, calcule la media por grupo según procedencia.</p>
 <p>Presente un gráfico que permita comparar la distribución de la variable en ambos grupos. Interprete.</p>
 </div>
 <div id="ejercicio-3-ic-de-una-media" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Ejercicio 3: IC de una media<a href="ejercicio-de-repaso.html#ejercicio-3-ic-de-una-media" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Cálcule el IC al 95% de confianza del Índice a nivel poblacional. Asimismo, presente un gráfico donde compare los intervalos de confianza según cada grupo según ámbito.</p>
+<p>Cálcule el IC al 95% de confianza del Índice a nivel poblacional. Asimismo, presente un gráfico donde compare los intervalos de confianza según cada grupo según procedencia.</p>
 </div>
 <div id="ejercicio-4-comparación-en-dos-grupos" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> Ejercicio 4: Comparación en dos grupos<a href="ejercicio-de-repaso.html#ejercicio-4-comparación-en-dos-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Compare de forma más rigurosa la media del índice en ambos grupos poblacionales según ámbito. Verifique el supuesto de homogeneidad de varianzas.</p>
+<p>Compare de forma más rigurosa la media del índice en ambos grupos poblacionales según procedencia. Verifique el supuesto de homogeneidad de varianzas.</p>
 <p>Tenga en cuenta los pasos de la prueba de hipótesis.</p>
 </div>
 <div id="ejercicio-5-comparación-en-más-de-dos-grupos" class="section level2 hasAnchor" number="8.7">
 <h2><span class="header-section-number">8.7</span> Ejercicio 5: Comparación en más de dos grupos<a href="ejercicio-de-repaso.html#ejercicio-5-comparación-en-más-de-dos-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Compare la media del índice en los cuatro grupos originales de la variable UR1NEW. Asuma homogeneidad de varianzas.</p>
-<p>Responda: existen diferencia entre los grupos? en qué parejas se ha evidenciado diferencia estadísticamente significativa?</p>
+<p>Compare la media del índice en los CINCO grupos originales de la variable TAMANO. Asuma homogeneidad de varianzas.</p>
+<p>Responda:</p>
+<ul>
+<li><p>Existen diferencia entre los grupos?</p></li>
+<li><p>En qué parejas se ha evidenciado diferencia estadísticamente significativa?</p></li>
+<li><p>Realice un gráfico comparativo de los resultados obtenidos.</p></li>
+</ul>
 
 </div>
 </div>
