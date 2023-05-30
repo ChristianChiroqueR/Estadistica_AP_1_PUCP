@@ -158,7 +158,7 @@ objetivo-de-la-sesión
 recordando-plano-cartesiano-y-diagrama-de-dispersión
 varianza
 covarianza
-correlación
+coeficiente-de-correlación-de-pearson
 definición-3
 interpretación
 validación-con-prueba-de-hipótesis
@@ -168,3 +168,8 @@ paso-3-establecer-nivel-de-significancia-5
 paso-4-calcular-estadístico-de-prueba-y-p-valor-4
 paso-5-tomar-una-decisión-5
 paso-6-interpretación-5
+toma-nota
+correlación-no-implica-causalidad
+cuidado-scatterplot-como-primer-paso-siempre
+valores-extremos
+tamaño-de-la-muestra

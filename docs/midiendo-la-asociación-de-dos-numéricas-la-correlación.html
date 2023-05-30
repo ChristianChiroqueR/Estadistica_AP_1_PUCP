@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#recordando-plano-cartesiano-y-diagrama-de-dispersión"><i class="fa fa-check"></i><b>10.2</b> Recordando: Plano cartesiano y diagrama de dispersión</a></li>
 <li class="chapter" data-level="10.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza"><i class="fa fa-check"></i><b>10.3</b> Varianza</a></li>
 <li class="chapter" data-level="10.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#covarianza"><i class="fa fa-check"></i><b>10.4</b> Covarianza</a></li>
-<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación"><i class="fa fa-check"></i><b>10.5</b> Correlación</a>
+<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson"><i class="fa fa-check"></i><b>10.5</b> Coeficiente de Correlación de Pearson</a>
 <ul>
 <li class="chapter" data-level="10.5.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3"><i class="fa fa-check"></i><b>10.5.1</b> Definición</a></li>
 <li class="chapter" data-level="10.5.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación"><i class="fa fa-check"></i><b>10.5.2</b> Interpretación</a></li>
@@ -368,6 +368,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-4"><i class="fa fa-check"></i><b>10.6.4</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
 <li class="chapter" data-level="10.6.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-5-tomar-una-decisión-5"><i class="fa fa-check"></i><b>10.6.5</b> Paso 5: Tomar una decisión</a></li>
 <li class="chapter" data-level="10.6.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5"><i class="fa fa-check"></i><b>10.6.6</b> Paso 6: Interpretación</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota"><i class="fa fa-check"></i><b>10.7</b> Toma nota</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad"><i class="fa fa-check"></i><b>10.7.1</b> Correlación no implica causalidad</a></li>
+<li class="chapter" data-level="10.7.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre"><i class="fa fa-check"></i><b>10.7.2</b> Cuidado: Scatterplot como primer paso SIEMPRE</a></li>
+<li class="chapter" data-level="10.7.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos"><i class="fa fa-check"></i><b>10.7.3</b> Valores extremos</a></li>
+<li class="chapter" data-level="10.7.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>10.7.4</b> Tamaño de la muestra</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -411,12 +418,18 @@ El plano cartesiano proporciona un marco de referencia visual que facilita la re
 <span id="cb287-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb287-3" aria-hidden="true" tabindex="-1"></a>corruption<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">84</span>,<span class="dv">67</span>,<span class="dv">56</span>,<span class="dv">36</span>,<span class="dv">17</span>)</span>
 <span id="cb287-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb287-4" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(pais, democracy,corruption)</span>
 <span id="cb287-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb287-5" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
-<pre><code>##      pais democracy corruption
-## 1 Noruega       9.8         84
-## 2   Chile       8.2         67
-## 3  Italia       7.7         56
-## 4    Peru       5.9         36
-## 5   Yemen       2.0         17</code></pre>
+<pre><code>##      pais democracy
+## 1 Noruega       9.8
+## 2   Chile       8.2
+## 3  Italia       7.7
+## 4    Peru       5.9
+## 5   Yemen       2.0
+##   corruption
+## 1         84
+## 2         67
+## 3         56
+## 4         36
+## 5         17</code></pre>
 <p>Ahora lo visualizamos en un diagrama de dispersión, donde cada caso está representado por un punto en el plano:</p>
 <div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb289-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
@@ -428,7 +441,7 @@ El plano cartesiano proporciona un marco de referencia visual que facilita la re
 <span id="cb289-8"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb289-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Índice de democracia&quot;</span>, </span>
 <span id="cb289-9"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb289-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;Índice de percepción de la Corrupción&quot;</span>)<span class="sc">+</span> </span>
 <span id="cb289-10"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb289-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
 </div>
 <div id="varianza" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Varianza<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -457,7 +470,7 @@ El plano cartesiano proporciona un marco de referencia visual que facilita la re
 <p>Forma de interpretarla:</p>
 <ul>
 <li><p>Una covarianza de cero indica que no hay una relación lineal entre las variables.</p></li>
-<li><p>Mientras más alejada de 0 esté la covarianza (mientras el número sea más grande) indica que las variables tienen una fuerte <strong>relación lineal</strong> y tienden a cambiar juntas en la misma dirección.</p></li>
+<li><p>Mientras más alejada de 0 esté la covarianza (mientras el número en valor absoluto sea más grande) indica que las variables tienen una fuerte <strong>relación lineal</strong> y tienden a cambiar juntas en la misma dirección.</p></li>
 </ul>
 <blockquote>
 <p>Relación lineal: Esto significa que los valores de una variable aumentan o disminuyen en correspondencia con los valores de la otra variable.</p>
@@ -468,27 +481,38 @@ El plano cartesiano proporciona un marco de referencia visual que facilita la re
 <p><strong>Recordemos ambos conceptos con unos ejemplos sencillos</strong></p>
 <p><img src="figures/LMinexcel.jpg" /></p>
 </div>
-<div id="correlación" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Correlación<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="coeficiente-de-correlación-de-pearson" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Coeficiente de Correlación de Pearson<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="definición-3" class="section level3 hasAnchor" number="10.5.1">
 <h3><span class="header-section-number">10.5.1</span> Definición<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La correlación es una medida estadística que describe la relación o asociación entre dos variables. Indica la fuerza y la dirección de la relación lineal entre las variables y se mide a través de un coeficiente denominado coeficiente de correlación de Pearson.</p>
-<p>La razón por la que explicamos arriba el tema de la <strong>covarianza</strong> es que podríamos decir que la correlación es la covarianza de dos variables normalizada en una escala de -1 a 1.</p>
+<p><img src="figures/pearson.jpg" /></p>
+<p>El coeficiente de Pearson se llama así en honor a Karl Pearson, un estadístico británico que desarrolló este coeficiente de correlación en el siglo XIX. Karl Pearson fue una figura prominente en el campo de la estadística y realizó numerosas contribuciones a la teoría y aplicación de métodos estadísticos.</p>
+<p>La razón por la que explicamos antes el tema de la <strong>covarianza</strong> es que podríamos decir que la correlación es la covarianza de dos variables normalizada en una escala de -1 a 1.</p>
 <p>Para ello, se utiliza la siguiente fórmula:</p>
 <p><span class="math display">\[
 r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}}
 \]</span></p>
+<blockquote>
+<p>Ojo con el numerador!</p>
+</blockquote>
 <p><strong>Veamos el excel y calculemos</strong></p>
 </div>
 <div id="interpretación" class="section level3 hasAnchor" number="10.5.2">
 <h3><span class="header-section-number">10.5.2</span> Interpretación<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="figures/correlaciones.png" /></p>
+<p>El coeficiente puede tomar los valores en el rango de -1 a 1. Con este podemos identificar dos caracterìsticas de la relación:</p>
+<ul>
+<li><p><strong>FUERZA</strong>: Mientras el valor del coeficiente se aleje más del 0 (sea más grande como valor absoluto) ello indicará una mayor correlación entre las dos variables numéricas.</p></li>
+<li><p><strong>DIRECCIÓN</strong>: Cuando el coeficiente tiene signo positivo, ello indicará que la relación tiene sentido directo, es decir, mientras una variable aumenta, la otra aumenta. Si el signo es negativo, mientras una variable aumenta la otra disminuye.</p></li>
+</ul>
+<p>EJEMPLOS:</p>
 <ul>
 <li><p>Cuando el coeficiente de correlación es 1, existe una correlación positiva perfecta, lo que significa que a medida que una variable aumenta, la otra variable también lo hace de manera proporcional.</p></li>
-<li><p>Por el contrario, cuando el coeficiente de correlación es -1, hay una correlación negativa perfecta, lo que implica que a medida que una variable aumenta, la otra variable disminuye de manera proporcional.</p></li>
+<li><p>Cuando el coeficiente de correlación es -1, hay una correlación negativa perfecta, lo que implica que a medida que una variable aumenta, la otra variable disminuye de manera proporcional.</p></li>
 <li><p>Si el coeficiente de correlación es cercano a 0, indica una correlación débil o inexistente entre las variables, lo que significa que no hay una relación lineal clara entre ellas.</p></li>
 </ul>
-<p>Ahora bien, normalmente no es común obtener -1, 1 o 0, sino diversos valores. Para ello, nos puede servir la escala de Cohen.</p>
+<p>Ahora bien, normalmente no es común obtener -1, 1 o 0, sino diversos valores. Para ello, nos puede servir la escala de Cohen, la cual proporciona una escala para identificar un valor numérico con una magnitud de la correlaciòn. No obstante, esta es referencial, será común encontrar otras escalas dependiendo del campo de estudio.</p>
 <p><img src="figures/cohen.jpg" /></p>
 <p>Es decir, para nuestro caso, aplicaríamos lo siguiente:</p>
 <p><img src="figures/correlacion_cohen.jpg" /></p>
@@ -536,10 +560,12 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <p>Para calcular la prueba de hipótesis utilizamos la función <code>cor.test</code>:</p>
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(data<span class="sc">$</span>democracy, data<span class="sc">$</span>corruption)</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s product-moment correlation
+##  Pearson&#39;s product-moment
+##  correlation
 ## 
 ## data:  data$democracy and data$corruption
-## t = 6.8234, df = 3, p-value = 0.00644
+## t = 6.8234, df = 3,
+## p-value = 0.00644
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
 ##  0.6005652 0.9980492
@@ -574,6 +600,78 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <h3><span class="header-section-number">10.6.6</span> Paso 6: Interpretación<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora bien, al finalizar este proceso debemos interpretar nuestros resultados:</p>
 <p><strong>Luego de realizar una prueba de correlación, a un 95% de confianza, obtuvimos un p-valor de 0.00644, por lo que rechazamos la hipótesis nula de que existe correlaicón entre el nivel de percepción de la corrupción y el índice de democracia. Por ello, concluimos que sí una correlación estadísticamente significativa en las variables indicadas.</strong></p>
+</div>
+</div>
+<div id="toma-nota" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> Toma nota<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="correlación-no-implica-causalidad" class="section level3 hasAnchor" number="10.7.1">
+<h3><span class="header-section-number">10.7.1</span> Correlación no implica causalidad<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/correlation_vs_causation2.jpg" /></p>
+<p>El principio de “correlación no implica causalidad” es un concepto fundamental en estadística y metodología de investigación que establece que el hecho de que dos variables estén correlacionadas entre sí no significa necesariamente que exista una relación causal directa entre ellas. En otras palabras, solo porque dos variables muestren una asociación estadística, no se puede concluir automáticamente que una variable cause los cambios en la otra.</p>
+<p>Un ejemplo comúnmente citado para ilustrar este principio es la relación entre el consumo de helado y el número de casos de ahogamiento en piscinas. Estos dos fenómenos pueden estar correlacionados, es decir, puede haber una asociación estadística entre ellos. Durante los meses de verano, tanto el consumo de helado como el uso de piscinas aumentan. Por lo tanto, si se analizan los datos, es posible encontrar una correlación positiva entre la cantidad de helado consumido y el número de casos de ahogamiento en piscinas.</p>
+<p>Sin embargo, sería incorrecto concluir que el consumo de helado causa los casos de ahogamiento en piscinas. En realidad, ambos fenómenos están influenciados por un factor común, que es la temporada de verano. El aumento en el consumo de helado y el uso de piscinas se debe a las altas temperaturas y el clima cálido propios del verano, y no a una relación causal directa entre ambas variables.</p>
+<p>Este ejemplo ilustra cómo dos variables pueden estar correlacionadas sin que exista una relación causal entre ellas. Para establecer una relación causal, es necesario realizar estudios más rigurosos que consideren otros factores y utilicen diseños de investigación adecuados, como experimentos controlados o análisis de series temporales.</p>
+<p>Te invito a que visites esta página web con un conjunto de correlaciones espurias interesantes:</p>
+<p><a href="https://www.tylervigen.com/spurious-correlations" class="uri">https://www.tylervigen.com/spurious-correlations</a></p>
+<blockquote>
+<p>Las correlaciones espurias pueden surgir cuando dos variables están relacionadas indirectamente a través de un tercer factor común, lo que crea la ilusión de una asociación directa entre ellas. Estas asociaciones pueden ser engañosas si no se consideran cuidadosamente los factores confusores o variables de control en el análisis.</p>
+</blockquote>
+</div>
+<div id="cuidado-scatterplot-como-primer-paso-siempre" class="section level3 hasAnchor" number="10.7.2">
+<h3><span class="header-section-number">10.7.2</span> Cuidado: Scatterplot como primer paso SIEMPRE<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos a crear la siguiente data:</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sólo con fines de ejemplo.</span></span>
+<span id="cb296-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb296-2" aria-hidden="true" tabindex="-1"></a>peq <span class="ot">=</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">5</span></span>
+<span id="cb296-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb296-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.99</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
+<span id="cb296-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb296-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">peq</span>(x) <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">200</span>)</span>
+<span id="cb296-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb296-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
+<span id="cb296-6"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb296-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##       x        y
+## 1 -0.99 6.813827
+## 2 -0.98 6.296556
+## 3 -0.97 6.153954
+## 4 -0.96 6.571628
+## 5 -0.95 6.133384</code></pre>
+<p>Ahora, vamos a generar nuestro cor.test entre las dos variables. Qué concluimos?</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>x,df<span class="sc">$</span>y)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment
+##  correlation
+## 
+## data:  df$x and df$y
+## t = 7.9087, df = 198,
+## p-value = 1.792e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.3768363 0.5886844
+## sample estimates:
+##       cor 
+## 0.4899608</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb300-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb300-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df |&gt; </span></span>
+<span id="cb300-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot()+</span></span>
+<span id="cb300-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x=x, y=y)+</span></span>
+<span id="cb300-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point() </span></span></code></pre></div>
+<p>Mientras que una prueba de correlación lineal, como el coeficiente de correlación de Pearson, mide la relación lineal entre variables, puede haber relaciones no lineales entre las variables. Un diagrama de dispersión permite observar patrones más complejos y no lineales, como relaciones parabólicas, curvas en forma de S u otras formas.</p>
+<p><strong>Si aplicamos un cor.test sin analizar previamente las variables podríamos llegar a conclusiones equivocadas</strong></p>
+<p>El coeficiente de correlación de Pearson es una medida estadística que evalúa la relación lineal entre dos variables. Sin embargo, puede haber situaciones en las que exista una relación no lineal entre las variables, pero el coeficiente de Pearson aún pueda ser significativo y mostrar una correlación fuerte.</p>
+<p>Un escenario es el ejemplo mostrado en el que existe una relación monótona. Una relación monótona es aquella en la que las variables aumentan o disminuyen juntas, pero no necesariamente de manera lineal. En estos casos, el coeficiente de Pearson aún puede mostrar una correlación fuerte porque refleja la tendencia general de las variables, a pesar de que la relación subyacente no sea lineal.</p>
+</div>
+<div id="valores-extremos" class="section level3 hasAnchor" number="10.7.3">
+<h3><span class="header-section-number">10.7.3</span> Valores extremos<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="figures/OUTLIER_CORRELATION.png" /></p>
+<p>La presencia de valores extremos en los datos puede afectar el resultado del cor.test y, en algunos casos, cambiar la interpretación de la correlación.</p>
+<p>El coeficiente de correlación de Pearson, que se calcula mediante cor.test en R, es sensible a los valores extremos debido a su influencia en la covarianza entre las variables. Los valores extremos pueden distorsionar la relación entre las variables y afectar la magnitud y significancia del coeficiente de correlación.</p>
+<p>Cuando se presentan valores extremos, existen algunas consideraciones a tener en cuenta:</p>
+<ul>
+<li><p>Influencia en la magnitud de la correlación: Un valor extremo atípico puede tener un impacto desproporcionado en la correlación, especialmente si está alejado de la tendencia general de los datos. Dependiendo de la dirección y magnitud del valor atípico, puede aumentar o disminuir la correlación observada. Por lo tanto, es importante tener en cuenta que una correlación fuerte obtenida a partir de un cor.test puede ser influenciada por valores extremos.</p></li>
+<li><p>Influencia en la significancia estadística: Los valores extremos pueden aumentar la varianza y la covarianza en los datos, lo que a su vez puede afectar la significancia estadística del coeficiente de correlación. En presencia de valores atípicos, el p-valor asociado al cor.test puede cambiar y volverse más o menos significativo, dependiendo del efecto de los valores extremos en la correlación.</p></li>
+</ul>
+<p>Por lo tanto, es importante identificar y evaluar la influencia de los valores extremos en el análisis de correlación y considerarlos al interpretar los resultados. Si los valores extremos son atípicos y no representativos de la población o el fenómeno en estudio, se pueden considerar métodos alternativos de análisis, como el uso de técnicas robustas o el análisis de subgrupos sin los valores extremos.</p>
+</div>
+<div id="tamaño-de-la-muestra" class="section level3 hasAnchor" number="10.7.4">
+<h3><span class="header-section-number">10.7.4</span> Tamaño de la muestra<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El tamaño de la muestra puede afectar la interpretación de la correlación. Las correlaciones pueden ser más confiables y representativas cuando se basan en muestras grandes en lugar de muestras pequeñas. Es importante considerar la confiabilidad estadística de la correlación al interpretar los resultados.</p>
 
 </div>
 </div>

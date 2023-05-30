@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#recordando-plano-cartesiano-y-diagrama-de-dispersión"><i class="fa fa-check"></i><b>10.2</b> Recordando: Plano cartesiano y diagrama de dispersión</a></li>
 <li class="chapter" data-level="10.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza"><i class="fa fa-check"></i><b>10.3</b> Varianza</a></li>
 <li class="chapter" data-level="10.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#covarianza"><i class="fa fa-check"></i><b>10.4</b> Covarianza</a></li>
-<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación"><i class="fa fa-check"></i><b>10.5</b> Correlación</a>
+<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson"><i class="fa fa-check"></i><b>10.5</b> Coeficiente de Correlación de Pearson</a>
 <ul>
 <li class="chapter" data-level="10.5.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3"><i class="fa fa-check"></i><b>10.5.1</b> Definición</a></li>
 <li class="chapter" data-level="10.5.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación"><i class="fa fa-check"></i><b>10.5.2</b> Interpretación</a></li>
@@ -368,6 +368,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-4"><i class="fa fa-check"></i><b>10.6.4</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
 <li class="chapter" data-level="10.6.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-5-tomar-una-decisión-5"><i class="fa fa-check"></i><b>10.6.5</b> Paso 5: Tomar una decisión</a></li>
 <li class="chapter" data-level="10.6.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5"><i class="fa fa-check"></i><b>10.6.6</b> Paso 6: Interpretación</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota"><i class="fa fa-check"></i><b>10.7</b> Toma nota</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad"><i class="fa fa-check"></i><b>10.7.1</b> Correlación no implica causalidad</a></li>
+<li class="chapter" data-level="10.7.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre"><i class="fa fa-check"></i><b>10.7.2</b> Cuidado: Scatterplot como primer paso SIEMPRE</a></li>
+<li class="chapter" data-level="10.7.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos"><i class="fa fa-check"></i><b>10.7.3</b> Valores extremos</a></li>
+<li class="chapter" data-level="10.7.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>10.7.4</b> Tamaño de la muestra</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -466,10 +473,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb179-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
 <span id="cb179-3"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb179-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
-##   area2  `mean(p08, na.rm = T)`
-##   &lt;fct&gt;                   &lt;dbl&gt;
-## 1 Urbano                  2490.
-## 2 Rural                   1497.</code></pre>
+##   area2  mean(p08, na.rm = T…¹
+##   &lt;fct&gt;                  &lt;dbl&gt;
+## 1 Urbano                 2490.
+## 2 Rural                  1497.
+## # … with abbreviated variable
+## #   name
+## #   ¹​`mean(p08, na.rm = T)`</code></pre>
 <p>Esto nos ayuda a corroborar que tenemos toda la información necesitaria lista para llevar a cabo una prueba de hipótesis.</p>
 </div>
 <div id="paso-1-establecer-hipótesis" class="section level3 hasAnchor" number="6.2.3">
@@ -520,9 +530,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb181-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb181-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb181-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 127 rows containing non-finite values
+<pre><code>## Warning: Removed 127 rows containing
+## non-finite values
 ## (`stat_density()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-124-1.png" width="672" />
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-121-1.png" width="672" />
 De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)</p>
 <p>Otra forma de compararlo, es a través de un boxplot:</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
@@ -531,9 +542,10 @@ De forma predeterminada, vemos que la varianza, es decir cómo varian los datos 
 <span id="cb183-4"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb183-5"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb183-6"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 127 rows containing non-finite values
+<pre><code>## Warning: Removed 127 rows containing
+## non-finite values
 ## (`stat_boxplot()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-125-1.png" width="672" />
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-122-1.png" width="672" />
 Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
 <p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>.</p>
 </div>
@@ -553,13 +565,16 @@ Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano
 ##  Welch Two Sample t-test
 ## 
 ## data:  p08 by area2
-## t = 10.992, df = 466.14, p-value &lt; 2.2e-16
+## t = 10.992, df = 466.14,
+## p-value &lt; 2.2e-16
 ## alternative hypothesis: true difference in means between group Urbano and group Rural is not equal to 0
 ## 95 percent confidence interval:
 ##   815.0508 1169.9052
 ## sample estimates:
-## mean in group Urbano  mean in group Rural 
-##             2489.569             1497.091</code></pre>
+## mean in group Urbano 
+##             2489.569 
+##  mean in group Rural 
+##             1497.091</code></pre>
 <p>El <strong>estadístico de prueba</strong> en este caso es el Estadítico T, el cual es 10.992.</p>
 <p>Ahora bien, lo que hace la prueba es comparar este valor observable del Estadístico T con un valor teórico, de acuerdo a la distribución T. Dicha comparación lo que arroja es una probabilidad de obtener ese valor observado, en caso la hipótesis nula (medias iguales) es verdadera</p>
 <p>En este caso, nuestro p-value es p-value &lt; 2.2e-16. El cual es un número muy pequeño.</p>
@@ -615,12 +630,16 @@ Tenemos los siguientes escenarios</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
 <span id="cb187-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="fu">LeveneTest</span>(enades<span class="sc">$</span>p08, enades<span class="sc">$</span>area2)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
-##         Df F value    Pr(&gt;F)    
-## group    1  14.258 0.0001661 ***
-##       1401                      
+##         Df F value    Pr(&gt;F)
+## group    1  14.258 0.0001661
+##       1401                  
+##          
+## group ***
+##          
 ## ---
 ## Signif. codes:  
-## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+##   0 &#39;***&#39; 0.001 &#39;**&#39; 0.01
+##   &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Recordamos nuestras hipótesis a validar:</p>
 <table>
 <colgroup>
@@ -678,8 +697,10 @@ Tenemos los siguientes escenarios</p>
 <p><img src="figures/ENADES_p04.png" /></p>
 <p>Vamos a hacer una primera exploración de la variable:</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p04)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   1.000   1.000   1.000   1.717   2.000   4.000 
+<pre><code>##    Min. 1st Qu.  Median 
+##   1.000   1.000   1.000 
+##    Mean 3rd Qu.    Max. 
+##   1.717   2.000   4.000 
 ##    NA&#39;s 
 ##      37</code></pre>
 <p>Vemos que sì tenemos valores perdidos. En este caso 37.</p>
@@ -867,12 +888,13 @@ Sum
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">754</span>,<span class="dv">114</span>), <span class="co">#Número de personas que contestaron Mucho en el ámbito Urbano y Rural</span></span>
 <span id="cb204-2"><a href="comparación-en-dos-muestras-t.test-y-prop.html#cb204-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">n=</span><span class="fu">c</span>(<span class="dv">754</span><span class="sc">+</span><span class="dv">221</span><span class="sc">+</span><span class="dv">204</span><span class="sc">+</span><span class="dv">68</span>, <span class="dv">144</span><span class="sc">+</span><span class="dv">44</span><span class="sc">+</span><span class="dv">71</span><span class="sc">+</span><span class="dv">17</span>)) <span class="co">#Número de personas que hay en el el ámbito Urbano y Rural en mi muestra.</span></span></code></pre></div>
 <pre><code>## 
-##  2-sample test for equality of proportions
-##  with continuity correction
+##  2-sample test for equality
+##  of proportions with
+##  continuity correction
 ## 
 ## data:  c(754, 114) out of c(754 + 221 + 204 + 68, 144 + 44 + 71 + 17)
-## X-squared = 33.071, df = 1, p-value =
-## 8.884e-09
+## X-squared = 33.071, df =
+## 1, p-value = 8.884e-09
 ## alternative hypothesis: two.sided
 ## 95 percent confidence interval:
 ##  0.1252801 0.2579353

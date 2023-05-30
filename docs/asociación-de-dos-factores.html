@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#recordando-plano-cartesiano-y-diagrama-de-dispersión"><i class="fa fa-check"></i><b>10.2</b> Recordando: Plano cartesiano y diagrama de dispersión</a></li>
 <li class="chapter" data-level="10.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza"><i class="fa fa-check"></i><b>10.3</b> Varianza</a></li>
 <li class="chapter" data-level="10.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#covarianza"><i class="fa fa-check"></i><b>10.4</b> Covarianza</a></li>
-<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación"><i class="fa fa-check"></i><b>10.5</b> Correlación</a>
+<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson"><i class="fa fa-check"></i><b>10.5</b> Coeficiente de Correlación de Pearson</a>
 <ul>
 <li class="chapter" data-level="10.5.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3"><i class="fa fa-check"></i><b>10.5.1</b> Definición</a></li>
 <li class="chapter" data-level="10.5.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación"><i class="fa fa-check"></i><b>10.5.2</b> Interpretación</a></li>
@@ -368,6 +368,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-4"><i class="fa fa-check"></i><b>10.6.4</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
 <li class="chapter" data-level="10.6.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-5-tomar-una-decisión-5"><i class="fa fa-check"></i><b>10.6.5</b> Paso 5: Tomar una decisión</a></li>
 <li class="chapter" data-level="10.6.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5"><i class="fa fa-check"></i><b>10.6.6</b> Paso 6: Interpretación</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota"><i class="fa fa-check"></i><b>10.7</b> Toma nota</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad"><i class="fa fa-check"></i><b>10.7.1</b> Correlación no implica causalidad</a></li>
+<li class="chapter" data-level="10.7.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre"><i class="fa fa-check"></i><b>10.7.2</b> Cuidado: Scatterplot como primer paso SIEMPRE</a></li>
+<li class="chapter" data-level="10.7.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos"><i class="fa fa-check"></i><b>10.7.3</b> Valores extremos</a></li>
+<li class="chapter" data-level="10.7.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>10.7.4</b> Tamaño de la muestra</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -476,10 +483,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="asociación-de-dos-factores.html#cb264-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
 <span id="cb264-2"><a href="asociación-de-dos-factores.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>()</span></code></pre></div>
 <pre><code>##               
-##                Urbano Rural  Sum
-##   Sí participó    157    60  217
-##   No participó   1008   295 1303
-##   Sum            1165   355 1520</code></pre>
+##                Urbano Rural
+##   Sí participó    157    60
+##   No participó   1008   295
+##   Sum            1165   355
+##               
+##                 Sum
+##   Sí participó  217
+##   No participó 1303
+##   Sum          1520</code></pre>
 <p>O uno de estos:</p>
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="asociación-de-dos-factores.html#cb266-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
 <span id="cb266-2"><a href="asociación-de-dos-factores.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="dv">1</span>) </span></code></pre></div>
@@ -504,16 +516,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="asociación-de-dos-factores.html#cb268-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
 <span id="cb268-2"><a href="asociación-de-dos-factores.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##               
-##                   Urbano     Rural
-##   Sí participó 0.7235023 0.2764977
-##   No participó 0.7735994 0.2264006</code></pre>
+##                   Urbano
+##   Sí participó 0.7235023
+##   No participó 0.7735994
+##               
+##                    Rural
+##   Sí participó 0.2764977
+##   No participó 0.2264006</code></pre>
 <p>Por otro lado, si se selecciona margin = 2, se calcularán las proporciones por columnas, lo que implica que las proporciones se calcularán dentro de cada columna de la tabla. En este caso, las proporciones se interpretan como la frecuencia de una categoría en relación con el total de observaciones en esa columna.</p>
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="asociación-de-dos-factores.html#cb270-1" aria-hidden="true" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
 <span id="cb270-2"><a href="asociación-de-dos-factores.html#cb270-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##               
-##                   Urbano     Rural
-##   Sí participó 0.1347639 0.1690141
-##   No participó 0.8652361 0.8309859</code></pre>
+##                   Urbano
+##   Sí participó 0.1347639
+##   No participó 0.8652361
+##               
+##                    Rural
+##   Sí participó 0.1690141
+##   No participó 0.8309859</code></pre>
 <p>La elección adecuada del argumento margin depende del objetivo del análisis y las preguntas de investigación que se deseen responder. Es importante tener claridad sobre qué aspecto de la asociación entre las variables categóricas se quiere resaltar y qué interpretación es más relevante en el contexto del análisis.</p>
 </div>
 <div id="variable-independiente-y-dependiente" class="section level3 hasAnchor" number="9.4.3">
@@ -525,10 +545,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb272-2"><a href="asociación-de-dos-factores.html#cb272-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb272-3"><a href="asociación-de-dos-factores.html#cb272-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addmargins</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##               
-##                   Urbano     Rural
-##   Sí participó 0.1347639 0.1690141
-##   No participó 0.8652361 0.8309859
-##   Sum          1.0000000 1.0000000</code></pre>
+##                   Urbano
+##   Sí participó 0.1347639
+##   No participó 0.8652361
+##   Sum          1.0000000
+##               
+##                    Rural
+##   Sí participó 0.1690141
+##   No participó 0.8309859
+##   Sum          1.0000000</code></pre>
 <p>CONSIDERACIONES PARA LA LECTURA:</p>
 <ol style="list-style-type: decimal">
 <li><p>Leer fila por fila y de derecha a izquierda, y se interpretan los porcentajes.</p></li>
@@ -556,7 +581,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb275-5"><a href="asociación-de-dos-factores.html#cb275-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq), </span>
 <span id="cb275-6"><a href="asociación-de-dos-factores.html#cb275-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
 <span id="cb275-7"><a href="asociación-de-dos-factores.html#cb275-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Proporción&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 <p>Sin embargo, es mejor visualizar a través de barras apiladas.</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="asociación-de-dos-factores.html#cb276-1" aria-hidden="true" tabindex="-1"></a>barras_apiladas<span class="ot">&lt;-</span>df <span class="sc">|&gt;</span> </span>
 <span id="cb276-2"><a href="asociación-de-dos-factores.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -566,7 +591,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb276-6"><a href="asociación-de-dos-factores.html#cb276-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(), <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
 <span id="cb276-7"><a href="asociación-de-dos-factores.html#cb276-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Porcentaje&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span>
 <span id="cb276-8"><a href="asociación-de-dos-factores.html#cb276-8" aria-hidden="true" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
 <p>Las ventajas son las siguientes:</p>
 <ul>
 <li><p>Las barras apiladas son un tipo de gráfico en el cual se representan las proporciones de distintas categorías en forma de barras que se apilan una encima de la otra. En lugar de mostrar los valores absolutos, se muestran los valores relativos en forma de porcentajes.</p></li>
@@ -643,7 +668,7 @@ No participó
 </table>
 <p>Así como el gráfico:</p>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="asociación-de-dos-factores.html#cb278-1" aria-hidden="true" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
 <p>De forma preliminar vemos grandes diferencias? Podríamos coincidir que no es mucho. Por ello, hace falta un análisis más riguroso con un método inferencial.</p>
 </div>
 <div id="paso-1-establecer-hipótesis-3" class="section level3 hasAnchor" number="9.6.2">
@@ -692,24 +717,34 @@ No participó
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="asociación-de-dos-factores.html#cb281-1" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(lapop<span class="sc">$</span>prot3, lapop<span class="sc">$</span>ambito)</span>
 <span id="cb281-2"><a href="asociación-de-dos-factores.html#cb281-2" aria-hidden="true" tabindex="-1"></a>prueba</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test with Yates&#39;
-##  continuity correction
+##  Pearson&#39;s Chi-squared test
+##  with Yates&#39; continuity
+##  correction
 ## 
 ## data:  lapop$prot3 and lapop$ambito
-## X-squared = 2.3357, df = 1, p-value = 0.1264</code></pre>
+## X-squared = 2.3357, df =
+## 1, p-value = 0.1264</code></pre>
 <p>En este caso calculamos que el estadístico de prueba. Recuerda que como vimos en el Anova, lo que hacemos es comparar un indicador (estadístico de prueba) calculado con la variabilidad de nuestra muestra con un valor teórico.</p>
 <p>Cuáles son los valores teóricos (frecuencias esperadas) con lo que se compara los valores observados?</p>
 <div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="asociación-de-dos-factores.html#cb283-1" aria-hidden="true" tabindex="-1"></a>prueba<span class="sc">$</span>expected</span></code></pre></div>
 <pre><code>##               lapop$ambito
-## lapop$prot3      Urbano     Rural
-##   Sí participó 166.3191  50.68092
-##   No participó 998.6809 304.31908</code></pre>
+## lapop$prot3      Urbano
+##   Sí participó 166.3191
+##   No participó 998.6809
+##               lapop$ambito
+## lapop$prot3        Rural
+##   Sí participó  50.68092
+##   No participó 304.31908</code></pre>
 <p>Y cómo sabemos que estos valores son los que se esperaría si no existe asociación? Porque si calculamos los porcentajes por columna nos indica que no hay diferencia en la distribución según la variable de grupo:</p>
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="asociación-de-dos-factores.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(prueba<span class="sc">$</span>expected,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##               lapop$ambito
-## lapop$prot3       Urbano     Rural
-##   Sí participó 0.1427632 0.1427632
-##   No participó 0.8572368 0.8572368</code></pre>
+## lapop$prot3       Urbano
+##   Sí participó 0.1427632
+##   No participó 0.8572368
+##               lapop$ambito
+## lapop$prot3        Rural
+##   Sí participó 0.1427632
+##   No participó 0.8572368</code></pre>
 <p>Fruto de esa comparación se calcula el χ² el cual es 2.3357. Ahora bien el pvalor obtenido es 0.1264.</p>
 </div>
 <div id="paso-5-tomar-una-decisión-4" class="section level3 hasAnchor" number="9.6.6">
