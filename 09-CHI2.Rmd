@@ -270,10 +270,12 @@ De forma preliminar vemos grandes diferencias? Podríamos coincidir que no es mu
 
 Debemos plantear las hipótesis nula y alternativa. 
 
-
 Hipótesis  | Descripción 
 ------------- | ------------- 
-Hipótesis nula  | No existe asociación  | Sí existe asociación. 
+Hipótesis nula  | No existe asociación 
+Hipótesis alterna  | Sí existe asociación.  
+ 
+ 
  
 
 Estas son las hipótesis que vamos a validar con nuestra prueba. 
@@ -343,7 +345,7 @@ Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no
 
 Ahora bien, al finalizar este proceso debemos interpretar nuestros resultados: 
 
-**Luego de realizar una prueba chi cuadrado, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que no podemos rechazar la hipótesis nula de que existe asociación entre la asistencia a manifestaciones y la procedencia de la persona. Por ello, concluimos que no existen diferencias estadísticamente significativas en los grupos poblacionales indicados.**
+**Luego de realizar una prueba chi cuadrado, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que no podemos rechazar la hipótesis nula de que existe asociación entre la asistencia a manifestaciones y la procedencia de la persona. Por ello, concluimos que no existen asociación estadísticamente significativas en los grupos poblacionales indicados.**
 
 
 ## Ahora hazlo tú!
