@@ -168,6 +168,7 @@ paso-3-establecer-nivel-de-significancia-5
 paso-4-calcular-estadístico-de-prueba-y-p-valor-4
 paso-5-tomar-una-decisión-5
 paso-6-interpretación-5
+matriz-de-correlación
 toma-nota
 correlación-no-implica-causalidad
 cuidado-scatterplot-como-primer-paso-siempre

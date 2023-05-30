@@ -206,6 +206,54 @@ Ahora bien, al finalizar este proceso debemos interpretar nuestros resultados:
 **Luego de realizar una prueba de correlación, a un 95% de confianza, obtuvimos un p-valor de 0.00644, por lo que rechazamos la hipótesis nula de que existe correlaicón entre el nivel de percepción de la corrupción y el índice de democracia. Por ello, concluimos que sí una correlación estadísticamente significativa en las variables indicadas.**
 
 
+## Matriz de correlación
+
+![](figures/matriz_correlaicon.png)
+
+Una matriz de correlación es una tabla cuadrada que muestra las correlaciones entre múltiples variables. En esta matriz, cada celda representa la correlación entre dos variables, y la diagonal principal de la matriz generalmente se compone de correlaciones perfectas (1.0 o -1.0) ya que muestra la correlación de una variable consigo misma.
+
+La matriz de correlación es una herramienta útil en el análisis de datos multivariable, ya que proporciona una visión general de las relaciones de asociación entre todas las variables en estudio. Permite identificar patrones y tendencias de correlación entre variables y proporciona información sobre la fuerza y la dirección de las relaciones lineales entre ellas.
+
+![](figures/granmatriz.jpg)
+
+La matriz de correlación es una herramienta importante para explorar la estructura de las relaciones entre variables y puede utilizarse para tomar decisiones informadas en el análisis de datos, como seleccionar variables para modelos de regresión, identificar variables colineales o evaluar la asociación entre conjuntos de variables.
+
+Probemos con el siguiente ejemplo:
+
+```{r message=FALSE, warning=FALSE}
+library(gapminder)
+data3<-gapminder
+```
+
+Primero, debemos contar con una subdata en la cual se encuentren **solo** las numéricas que deseamos correlacionar. Debemos quitar el resto de variables de tipo factor que no entren en el análisis. Ojo, esto sólo es para el cálculo de la matriz y la visualización de la misma. 
+
+```{r}
+data3<-data3 |> 
+        select(4:6)
+head(data3,5)
+```
+
+Calculamos la matriz de correlación. 
+
+```{r}
+matrix_cor<-cor(data3)
+matrix_cor |> 
+  round(2)
+```
+
+Podemos visualizarlo de forma conjunta:
+
+```{r}
+library(corrplot)
+corrplot(matrix_cor, method="color", type="upper") #Prueba cambiando el método. F1
+```
+
+Ten en cuenta que la forma de solicitar el gráfico con el paquete `corrplot` puede variar. Puedes personalizar la matriz de la forma en que más se te acomode. Para mayor detalle, visita la página:
+
+https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html
+
+
+
 ## Toma nota
 
 ### Correlación no implica causalidad
