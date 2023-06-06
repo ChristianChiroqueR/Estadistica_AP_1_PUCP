@@ -452,9 +452,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="paso-0-análisis-exploratorio-de-datos-eda-2" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Paso 0: Análisis exploratorio de datos (EDA)<a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>ABRIR LA DATA</strong></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb207-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
-<span id="cb207-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb207-3" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb208-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
+<span id="cb208-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb208-3" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;</span>)</span></code></pre></div>
 <p><strong>CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR</strong></p>
 <div id="nuestra-numérica-índice-aditivo" class="section level4 hasAnchor" number="7.2.2.1">
 <h4><span class="header-section-number">7.2.2.1</span> Nuestra numérica: Índice aditivo<a href="anova-comparación-en-más-de-dos-muestras.html#nuestra-numérica-índice-aditivo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -463,75 +463,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="figures/ENADES_p11.png" /></p>
 <p>Tenemos que tener en cuenta que las variables de insumo son ordinales y tienen las siguientes categorías: 1. Muy desigual, 2. Poco desigual y 3. Nada Desigual.</p>
 <p>Veamos los descriptivos para cada variable:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   1.000   1.000   1.000   1.443   2.000   3.000      35</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>)</span></code></pre></div>
 <pre><code>## 
 ##   1   2   3 
 ## 912 503  80</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   1.000   1.000   1.000   1.316   2.000   3.000      33</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3 
 ## 1080  361   56</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   1.000   1.000   1.000   1.442   2.000   3.000      45</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>)</span></code></pre></div>
 <pre><code>## 
 ##   1   2   3 
 ## 885 544  56</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   1.000   1.000   1.000   1.178   1.000   3.000      38</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>)</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3 
 ## 1274  170   48</code></pre>
 <p>Ok, hemos corroborado que no tenemos el problema de los NS/NR (999, 888, etc.)</p>
 <p>Vamos a recodificar cada variable para que el orden sea intuitivo</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span>enades <span class="sc">|&gt;</span> </span>
-<span id="cb224-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p11.1n=</span><span class="fu">case_when</span>(p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb224-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-3" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb224-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-4" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb224-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-5" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
-<span id="cb224-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.2n=</span><span class="fu">case_when</span>(p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb224-7"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-7" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb224-8"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-8" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb224-9"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-9" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
-<span id="cb224-10"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.3n=</span><span class="fu">case_when</span>(p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb224-11"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-11" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb224-12"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-12" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb224-13"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-13" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
-<span id="cb224-14"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.4n=</span><span class="fu">case_when</span>(p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb224-15"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-15" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb224-16"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-16" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb224-17"><a href="anova-comparación-en-más-de-dos-muestras.html#cb224-17" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span>enades <span class="sc">|&gt;</span> </span>
+<span id="cb225-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p11.1n=</span><span class="fu">case_when</span>(p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb225-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-3" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb225-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-4" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb225-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-5" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
+<span id="cb225-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.2n=</span><span class="fu">case_when</span>(p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb225-7"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-7" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb225-8"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-8" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb225-9"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-9" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
+<span id="cb225-10"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.3n=</span><span class="fu">case_when</span>(p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb225-11"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-11" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb225-12"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-12" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb225-13"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-13" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
+<span id="cb225-14"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.4n=</span><span class="fu">case_when</span>(p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb225-15"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-15" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb225-16"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-16" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb225-17"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-17" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code></pre></div>
 <p>Corroboramos:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>n)</span></code></pre></div>
 <pre><code>## 
 ##   1   2   3 
 ##  80 503 912</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>n)</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3 
 ##   56  361 1080</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>n)</span></code></pre></div>
 <pre><code>## 
 ##   1   2   3 
 ##  56 544 885</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>n)</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3 
 ##   48  170 1274</code></pre>
 <p>Ahora sí podremos realizar el índice aditivo.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb233-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span>enades <span class="sc">|&gt;</span> </span>
-<span id="cb233-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_aditivo=</span>p11<span class="fl">.1</span>n<span class="sc">+</span>p11<span class="fl">.2</span>n<span class="sc">+</span>p11<span class="fl">.3</span>n<span class="sc">+</span>p11<span class="fl">.4</span>n)</span></code></pre></div>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb234-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb234-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb234-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_aditivo)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb234-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span>enades <span class="sc">|&gt;</span> </span>
+<span id="cb234-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb234-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_aditivo=</span>p11<span class="fl">.1</span>n<span class="sc">+</span>p11<span class="fl">.2</span>n<span class="sc">+</span>p11<span class="fl">.3</span>n<span class="sc">+</span>p11<span class="fl">.4</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb235-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb235-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb235-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_aditivo)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    indice_aditivo     n
 ##             &lt;dbl&gt; &lt;int&gt;
@@ -547,11 +547,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10             NA    84</code></pre>
 <p>Como nuestras variables de insumo tenían como valores posibles 1-3, nuestro índice tendrá una escala posible de 4 (si la persona contestó a todo con 1) a 12 (si la persona contestó a todo con 3).</p>
 <p>Sobre este índice ya creado, podemos cambiarle la escala para que no sea de 4-12 sino de 0-8.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb236-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span></span>
-<span id="cb236-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  enades <span class="sc">|&gt;</span> </span>
-<span id="cb236-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb236-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_aditivo=</span>indice_aditivo<span class="dv">-4</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb237-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb237-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb237-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_aditivo)</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb237-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span></span>
+<span id="cb237-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb237-2" aria-hidden="true" tabindex="-1"></a>  enades <span class="sc">|&gt;</span> </span>
+<span id="cb237-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_aditivo=</span>indice_aditivo<span class="dv">-4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb238-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb238-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb238-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_aditivo)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    indice_aditivo     n
 ##             &lt;dbl&gt; &lt;int&gt;
@@ -568,17 +568,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="nuestros-grupos" class="section level4 hasAnchor" number="7.2.2.2">
 <h4><span class="header-section-number">7.2.2.2</span> Nuestros grupos<a href="anova-comparación-en-más-de-dos-muestras.html#nuestros-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb239-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>ambito<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>ambito, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb239-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb239-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb239-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb239-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Lima Metropolitana&quot;</span>, <span class="st">&quot;Perú urbano&quot;</span>, <span class="st">&quot;Perú rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb239-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb239-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>ambito)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb240-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>ambito<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>ambito, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb240-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb240-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb240-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb240-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Lima Metropolitana&quot;</span>, <span class="st">&quot;Perú urbano&quot;</span>, <span class="st">&quot;Perú rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb240-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb240-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>ambito)</span></code></pre></div>
 <pre><code>## 
 ## Lima Metropolitana        Perú urbano         Perú rural 
 ##                536                737                257</code></pre>
 <p><strong>EXPLORACIÓN DE DATOS MUESTRALES</strong></p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb241-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb241-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb241-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ambito) <span class="sc">|&gt;</span> </span>
-<span id="cb241-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(indice_aditivo, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb242-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb242-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb242-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ambito) <span class="sc">|&gt;</span> </span>
+<span id="cb242-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb242-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(indice_aditivo, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   ambito             Media
 ##   &lt;fct&gt;              &lt;dbl&gt;
@@ -632,8 +632,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-2" class="section level3 hasAnchor" number="7.2.6">
 <h3><span class="header-section-number">7.2.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular el ANOVA de un factor utilizamos la función <code>aov()</code>:</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb243-1" aria-hidden="true" tabindex="-1"></a>anova1 <span class="ot">=</span> <span class="fu">aov</span>(enades<span class="sc">$</span>indice_aditivo<span class="sc">~</span>enades<span class="sc">$</span>ambito)</span>
-<span id="cb243-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb243-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova1)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb244-1" aria-hidden="true" tabindex="-1"></a>anova1 <span class="ot">=</span> <span class="fu">aov</span>(enades<span class="sc">$</span>indice_aditivo<span class="sc">~</span>enades<span class="sc">$</span>ambito)</span>
+<span id="cb244-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova1)</span></code></pre></div>
 <pre><code>##                 Df Sum Sq Mean Sq F value Pr(&gt;F)  
 ## enades$ambito    2     19   9.679    4.34 0.0132 *
 ## Residuals     1443   3218   2.230                 
@@ -680,22 +680,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Las pruebas de comparaciones múltiples son pruebas estadísticas que se utilizan para comparar múltiples grupos y determinar si hay diferencias significativas entre las medias de los grupos. En lugar de realizar varias pruebas t o ANOVA independientes para comparar cada par de grupos, las pruebas de comparaciones múltiples realizan todas las comparaciones de manera simultánea.</p>
 <p>La prueba Tukey, también conocida como prueba de rango múltiple de Tukey, es una prueba de comparaciones múltiples que se utiliza para determinar cuáles de los pares de grupos tienen medias significativamente diferentes. Esta prueba se basa en el rango de las medias de los grupos y en la estimación del error estándar de la media. La prueba de Tukey compara la diferencia entre las medias de cada par de grupos con una cantidad crítica que se basa en la variabilidad de los datos. Si la diferencia entre las medias de dos grupos es mayor que esta cantidad crítica, se considera que las medias son significativamente diferentes.</p>
 <p>Una vez que hemos creado nuestro objeto ANOVA (en nuestro caso llamado <strong>anova1</strong>), podemos solicitar la prueba Tukey sobre dicho objeto.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb245-1" aria-hidden="true" tabindex="-1"></a>comparacion <span class="ot">=</span> <span class="fu">TukeyHSD</span>(anova1)</span>
-<span id="cb245-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb245-2" aria-hidden="true" tabindex="-1"></a>comparacion</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb246-1" aria-hidden="true" tabindex="-1"></a>comparacion <span class="ot">=</span> <span class="fu">TukeyHSD</span>(anova1)</span>
+<span id="cb246-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb246-2" aria-hidden="true" tabindex="-1"></a>comparacion</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
 ## Fit: aov(formula = enades$indice_aditivo ~ enades$ambito)
 ## 
 ## $`enades$ambito`
-##                                       diff        lwr         upr
-## Perú urbano-Lima Metropolitana -0.25275128 -0.4561655 -0.04933707
-## Perú rural-Lima Metropolitana  -0.19066752 -0.4671122  0.08577713
-## Perú rural-Perú urbano          0.06208376 -0.2030873  0.32725478
-##                                    p adj
-## Perú urbano-Lima Metropolitana 0.0100916
-## Perú rural-Lima Metropolitana  0.2382426
-## Perú rural-Perú urbano         0.8468574</code></pre>
+##                                       diff        lwr         upr     p adj
+## Perú urbano-Lima Metropolitana -0.25275128 -0.4561655 -0.04933707 0.0100916
+## Perú rural-Lima Metropolitana  -0.19066752 -0.4671122  0.08577713 0.2382426
+## Perú rural-Perú urbano          0.06208376 -0.2030873  0.32725478 0.8468574</code></pre>
 <p>Para leer este resultado debemos preguntarnos dos cosas:</p>
 <ul>
 <li>¿En qué parejas existe una diferencia significativa?</li>
@@ -710,39 +706,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualización" class="section level3 hasAnchor" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> Visualización<a href="anova-comparación-en-más-de-dos-muestras.html#visualización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Exploramos el objeto que creamos arriba.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb247-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>(comparacion[<span class="dv">1</span>])</span>
-<span id="cb247-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb247-2" aria-hidden="true" tabindex="-1"></a>diferencias_parejas</span></code></pre></div>
-<pre><code>##                                enades.ambito.diff
-## Perú urbano-Lima Metropolitana        -0.25275128
-## Perú rural-Lima Metropolitana         -0.19066752
-## Perú rural-Perú urbano                 0.06208376
-##                                enades.ambito.lwr
-## Perú urbano-Lima Metropolitana        -0.4561655
-## Perú rural-Lima Metropolitana         -0.4671122
-## Perú rural-Perú urbano                -0.2030873
-##                                enades.ambito.upr
-## Perú urbano-Lima Metropolitana       -0.04933707
-## Perú rural-Lima Metropolitana         0.08577713
-## Perú rural-Perú urbano                0.32725478
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb248-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>(comparacion[<span class="dv">1</span>])</span>
+<span id="cb248-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb248-2" aria-hidden="true" tabindex="-1"></a>diferencias_parejas</span></code></pre></div>
+<pre><code>##                                enades.ambito.diff enades.ambito.lwr enades.ambito.upr
+## Perú urbano-Lima Metropolitana        -0.25275128        -0.4561655       -0.04933707
+## Perú rural-Lima Metropolitana         -0.19066752        -0.4671122        0.08577713
+## Perú rural-Perú urbano                 0.06208376        -0.2030873        0.32725478
 ##                                enades.ambito.p.adj
 ## Perú urbano-Lima Metropolitana          0.01009162
 ## Perú rural-Lima Metropolitana           0.23824258
 ## Perú rural-Perú urbano                  0.84685736</code></pre>
 <p>Hemos generado un dataframe con los valores de las diferencias estimadas en cada pareja y los límites inferiores y superiores de cada diferencia estimada.</p>
 <p>Ahora creamos una columna adicional en dicho data frame que tenga el detalle de la pareja.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb249-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas<span class="sc">$</span>parejas <span class="ot">=</span> <span class="fu">rownames</span>(diferencias_parejas)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas<span class="sc">$</span>parejas <span class="ot">=</span> <span class="fu">rownames</span>(diferencias_parejas)</span></code></pre></div>
 <p>Ahora solicitamos un gráfico de barras de error utilizando la librería <code>ggplot2</code>.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas <span class="sc">|&gt;</span> </span>
-<span id="cb250-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb250-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>parejas, <span class="at">y=</span>enades.ambito.diff)<span class="sc">+</span></span>
-<span id="cb250-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>enades.ambito.lwr, <span class="at">ymax=</span>enades.ambito.upr), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb250-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(enades.ambito.diff, <span class="dv">1</span>))), <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb250-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Comparaciones&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Diferencia encontrada&quot;</span>)<span class="sc">+</span></span>
-<span id="cb250-7"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb250-8"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb250-9"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
-<span id="cb250-10"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas <span class="sc">|&gt;</span> </span>
+<span id="cb251-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb251-3"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>parejas, <span class="at">y=</span>enades.ambito.diff)<span class="sc">+</span></span>
+<span id="cb251-4"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>enades.ambito.lwr, <span class="at">ymax=</span>enades.ambito.upr), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb251-5"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(enades.ambito.diff, <span class="dv">1</span>))), <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb251-6"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Comparaciones&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Diferencia encontrada&quot;</span>)<span class="sc">+</span></span>
+<span id="cb251-7"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb251-8"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb251-9"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
+<span id="cb251-10"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
 <p>Con este gráfico debemos corroborar los resultados que arroja la prueba de comparaciones múltiples de Tukey.</p>
 </div>
 </div>

@@ -342,14 +342,25 @@ Matrícula = 98.8995 + -1.1130 * Pobreza
 $$
 La ecuación de regresión permite predecir los valores de la variable dependiente para nuevos valores de la variable independiente. Puedes usar la ecuación para estimar cómo cambiará la variable dependiente en función de los cambios en la variable independiente. Esto es especialmente útil en problemas de pronóstico o en la estimación de resultados futuros
 
+Podemos generar un gráfico interesante utilizando la extensión de ggplot2 `ggpmisc`.
 
 ```{r}
-#library(ggpmisc)
+library(ggpmisc)
 matricula |> 
   ggplot()+
-  aes(x=pobreza, y=matricula)+
-  geom_point(aes(color = "red")) + 
-  geom_smooth(method = "lm",se = FALSE)
+  aes(x=pobreza, y=matricula) +
+  stat_poly_line(se = FALSE) +
+  stat_poly_eq(use_label(c("eq", "R2")),label.x = "right") +
+  stat_fit_deviations(colour = "red")+
+  geom_point()
 ```
+
+https://cran.r-project.org/web/packages/ggpmisc/readme/README.html
+
+
+
+
+
+
 
 
