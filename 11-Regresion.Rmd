@@ -1,0 +1,114 @@
+# Midiendo la asociación de dos numéricas: La Correlación
+
+## Objetivo de la sesión
+
+Introducir a los estudiantes en el concepto y la aplicación de la regresión lineal, que es una técnica estadística utilizada para modelar y analizar la relación entre una variable dependiente y una variable independiente.
+
+Se abordarán los siguientes temas:
+
+- Concepto de regresión lineal
+
+- Modelado
+
+- Interpretación de los resultados
+
+
+## Pregunta de investigación
+
+Qué factores explican la variabilidad en el porcentaje anual de matrícula escolar a nivel secundaria por país?
+
+Contamos con las siguientes variables:
+
+- Porcentaje de inscripción escolar neta por país
+
+- PBI per cápita por país
+
+- Porcentaje de la población que se encuentra por debajo de la línea de pobreza por país
+
+- Porcentaje de población urbana por país
+
+- Porcentaje de población femenina por país
+
+- Porcentaje de inversión del Estado en Educación por país
+
+- Proporción de estudiantes con relación al número de maestros por país
+
+- Porcentaje de jóvenes entre 15-19 años que son consumidores de alcohol por país
+
+- Tasa de natalidad adolescente (por 1000 mujeres de 15 a 19 años) pos país
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(haven)
+library(tidyverse)
+library(rio)
+matricula<-import("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/matricula.xlsx")
+colnames(matricula)<-c("pais","matricula","pbiPC","pobreza","urbano","gastoeducacion","ratio_prof","alcohol","natalidad_ado")
+```
+
+
+## Recordando
+
+### Coeficiente de Correlación de Pearson
+
+Habíamos visto que la correlación es una medida estadística que describe la relación o asociación entre dos variables. Indica la fuerza y la dirección de la relación lineal entre las variables y se mide a través de un coeficiente denominado coeficiente de correlación de Pearson.
+
+![](figures/correlaciones.png)
+
+
+El coeficiente puede tomar los valores en el rango de -1 a 1. Con este podemos identificar dos caracterìsticas de la relación:
+
+- **FUERZA**: Mientras el valor del coeficiente se aleje más del 0 (sea más grande como valor absoluto) ello indicará una mayor correlación entre las dos variables numéricas.
+
+- **DIRECCIÓN**: Cuando el coeficiente tiene signo positivo, ello indicará que la relación tiene sentido directo, es decir, mientras una variable aumenta, la otra aumenta. Si el signo es negativo, mientras una variable aumenta la otra disminuye. 
+
+
+Es decir, para nuestro caso, aplicaríamos lo siguiente:
+
+![](figures/correlacion_cohen.jpg)
+
+
+### Ahora hazlo tú
+
+En base a la data presentada vamos a considerar que deseamos explicar el fenómeno de la "Porcentaje de inscripción escolar neta por país". 
+
+```{r}
+head(matricula,5)
+```
+
+Para ello vamos a:
+
+- Calcular las correlaciones individuales entre "matricula" y el resto de variables, utilizando cor.test(). Rápidamente mencionen si encontraron correlaciones significativas.
+
+- Calcule la matriz de correlaciones y genere un gráfico. Qué podría afirmar a nivel general de la data presentada?
+
+
+
+## Regresión Lineal Simple
+
+La regresión lineal simple es una técnica estadística que busca modelar la relación entre dos variables: una variable dependiente y una variable independiente. La idea principal es encontrar una **línea recta que mejor se ajuste a los datos observados**, de manera que se pueda predecir o estimar el valor de la variable dependiente en función del valor de la variable independiente.
+
+En la regresión lineal simple, se asume que la relación entre las variables puede ser aproximada por una línea recta en el espacio bidimensional. 
+
+El modelo se define mediante la ecuación de la línea recta:
+
+Y = β₀ + β₁X + ε
+
+Donde:
+
+Y es la variable dependiente que se quiere predecir o estimar.
+X es la variable independiente que se utiliza para predecir Y.
+β₀ es la intersección de la línea (ordenada al origen).
+β₁ es la pendiente de la línea (coeficiente de regresión).
+ε es el término de error, que representa la variación no explicada por el modelo.
+
+
+El objetivo de la regresión lineal simple es estimar los coeficientes β₀ y β₁ a partir de los datos observados, de manera que la línea ajustada se aproxime lo mejor posible a los valores reales de la variable dependiente. Esta estimación se realiza utilizando el método de mínimos cuadrados, que busca minimizar la suma de los errores al cuadrado entre los valores observados y los valores predichos por el modelo.
+
+Una vez que se ha ajustado el modelo de regresión lineal simple, se pueden realizar inferencias y hacer predicciones sobre los valores de la variable dependiente para diferentes valores de la variable independiente. Además, se pueden evaluar la calidad del ajuste mediante medidas como el coeficiente de determinación (R-cuadrado) y realizar pruebas de hipótesis sobre los coeficientes de regresión para determinar si la relación entre las variables es significativa.
+
+
+Regresión Lineal Simple  | 
+------------- | 
+Técnica que permite modelar y analizar la relación lineal entre dos variables, proporcionando una forma de estimar y predecir valores de la variable dependiente en función de la variable independiente.  | 
+

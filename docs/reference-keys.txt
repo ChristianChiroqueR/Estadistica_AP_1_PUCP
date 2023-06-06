@@ -174,3 +174,10 @@ correlación-no-implica-causalidad
 cuidado-scatterplot-como-primer-paso-siempre
 valores-extremos
 tamaño-de-la-muestra
+midiendo-la-asociación-de-dos-numéricas-la-correlación-1
+objetivo-de-la-sesión-1
+pregunta-de-investigación-3
+recordando
+coeficiente-de-correlación-de-pearson-1
+ahora-hazlo-tú-6
+regresión-lineal-simple
