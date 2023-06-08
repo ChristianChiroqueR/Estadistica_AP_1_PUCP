@@ -307,7 +307,7 @@ $$\alpha = 0.05$$
 Para calcular la prueba de hipótesis utilizamos la función `chisq.test`:
 
 ```{r}
-prueba <- chisq.test(lapop$prot3, lapop$ambito)
+prueba <- chisq.test(tabla_simple) # Colocamos la tabla con las frecuencias simples
 prueba
 ```
 En este caso calculamos que el estadístico de prueba. Recuerda que como vimos en el Anova, lo que hacemos es comparar un indicador (estadístico de prueba) calculado con la variabilidad de nuestra muestra con un valor teórico.

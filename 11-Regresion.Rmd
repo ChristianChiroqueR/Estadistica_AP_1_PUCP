@@ -80,7 +80,40 @@ Para ello vamos a:
 
 - Calcular las correlaciones individuales entre "matricula" y el resto de variables, utilizando cor.test(). Rápidamente mencionen si encontraron correlaciones significativas.
 
+
+```{r}
+# cor.test(matricula$matricula, matricula$pbiPC)
+# cor.test(matricula$matricula, matricula$pobreza)
+# cor.test(matricula$matricula, matricula$gastoeducacion)
+# cor.test(matricula$matricula, matricula$ratio_prof)
+# cor.test(matricula$matricula, matricula$alcohol)
+# cor.test(matricula$matricula, matricula$natalidad_ado)
+```
+
+
 - Calcule la matriz de correlaciones y genere un gráfico. Qué podría afirmar a nivel general de la data presentada?
+
+Realizamos la matríz de correlaciones:
+
+```{r}
+matricula2<-matricula %>% 
+  select(2:9) # Creamos subdata
+
+matriz<- cor(matricula2) #Calculamos la matriz
+
+matriz %>% 
+  round(2) # La solicitamos con un redondeo a 2 decimales
+```
+
+Como puede ser un poco tedioso, podemos calcular un gráfico.
+
+```{r}
+library(corrplot)
+corrplot(matriz, method="number",insig = "blank")
+
+```
+
+
 
 
 

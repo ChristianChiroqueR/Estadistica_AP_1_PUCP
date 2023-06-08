@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-06-06" />
+<meta name="date" content="2023-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -453,11 +453,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Porcentaje de jóvenes entre 15-19 años que son consumidores de alcohol por país</p></li>
 <li><p>Tasa de natalidad adolescente (por 1000 mujeres de 15 a 19 años) pos país</p></li>
 </ul>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb310-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb310-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb310-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb310-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb310-4" aria-hidden="true" tabindex="-1"></a>matricula<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/matricula.xlsx&quot;</span>)</span>
-<span id="cb310-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb310-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matricula)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;pais&quot;</span>,<span class="st">&quot;matricula&quot;</span>,<span class="st">&quot;pbiPC&quot;</span>,<span class="st">&quot;pobreza&quot;</span>,<span class="st">&quot;urbano&quot;</span>,<span class="st">&quot;gastoeducacion&quot;</span>,<span class="st">&quot;ratio_prof&quot;</span>,<span class="st">&quot;alcohol&quot;</span>,<span class="st">&quot;natalidad_ado&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb308-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb308-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb308-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb308-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb308-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb308-4" aria-hidden="true" tabindex="-1"></a>matricula<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/matricula.xlsx&quot;</span>)</span>
+<span id="cb308-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb308-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(matricula)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;pais&quot;</span>,<span class="st">&quot;matricula&quot;</span>,<span class="st">&quot;pbiPC&quot;</span>,<span class="st">&quot;pobreza&quot;</span>,<span class="st">&quot;urbano&quot;</span>,<span class="st">&quot;gastoeducacion&quot;</span>,<span class="st">&quot;ratio_prof&quot;</span>,<span class="st">&quot;alcohol&quot;</span>,<span class="st">&quot;natalidad_ado&quot;</span>)</span></code></pre></div>
 </div>
 <div id="recordando" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> Recordando<a href="regresión-lineal-simple-explicar-y-predecir.html#recordando" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -476,7 +476,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ahora-hazlo-tú-6" class="section level3 hasAnchor" number="11.3.2">
 <h3><span class="header-section-number">11.3.2</span> ¡Ahora hazlo tú!<a href="regresión-lineal-simple-explicar-y-predecir.html#ahora-hazlo-tú-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En base a la data presentada vamos a considerar que deseamos explicar el fenómeno de la “Porcentaje de inscripción escolar neta por país”.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(matricula,<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(matricula,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##          pais matricula    pbiPC pobreza urbano gastoeducacion ratio_prof alcohol natalidad_ado
 ## 1 Afghanistan     50.14   551.87    54.5   26.0           4.06   33.50124     0.3          62.0
 ## 2     Albania     86.61  5223.81    14.3   62.1           2.47   11.19927    37.7          15.9
@@ -485,9 +485,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     Armenia     87.74  4212.13    32.0   63.3           2.71    8.01689    16.3          21.2</code></pre>
 <p>Para ello vamos a:</p>
 <ul>
-<li><p>Calcular las correlaciones individuales entre “matricula” y el resto de variables, utilizando cor.test(). Rápidamente mencionen si encontraron correlaciones significativas.</p></li>
-<li><p>Calcule la matriz de correlaciones y genere un gráfico. Qué podría afirmar a nivel general de la data presentada?</p></li>
+<li>Calcular las correlaciones individuales entre “matricula” y el resto de variables, utilizando cor.test(). Rápidamente mencionen si encontraron correlaciones significativas.</li>
 </ul>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(matricula$matricula, matricula$pbiPC)</span></span>
+<span id="cb311-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(matricula$matricula, matricula$pobreza)</span></span>
+<span id="cb311-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(matricula$matricula, matricula$gastoeducacion)</span></span>
+<span id="cb311-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(matricula$matricula, matricula$ratio_prof)</span></span>
+<span id="cb311-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(matricula$matricula, matricula$alcohol)</span></span>
+<span id="cb311-6"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb311-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cor.test(matricula$matricula, matricula$natalidad_ado)</span></span></code></pre></div>
+<ul>
+<li>Calcule la matriz de correlaciones y genere un gráfico. Qué podría afirmar a nivel general de la data presentada?</li>
+</ul>
+<p>Realizamos la matríz de correlaciones:</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-1" aria-hidden="true" tabindex="-1"></a>matricula2<span class="ot">&lt;-</span>matricula <span class="sc">%&gt;%</span> </span>
+<span id="cb312-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>) <span class="co"># Creamos subdata</span></span>
+<span id="cb312-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb312-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-4" aria-hidden="true" tabindex="-1"></a>matriz<span class="ot">&lt;-</span> <span class="fu">cor</span>(matricula2) <span class="co">#Calculamos la matriz</span></span>
+<span id="cb312-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb312-6"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-6" aria-hidden="true" tabindex="-1"></a>matriz <span class="sc">%&gt;%</span> </span>
+<span id="cb312-7"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb312-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>) <span class="co"># La solicitamos con un redondeo a 2 decimales</span></span></code></pre></div>
+<pre><code>##                matricula pbiPC pobreza urbano gastoeducacion ratio_prof alcohol natalidad_ado
+## matricula           1.00  0.54   -0.73   0.60           0.29      -0.67    0.66         -0.84
+## pbiPC               0.54  1.00   -0.45   0.56           0.36      -0.41    0.77         -0.53
+## pobreza            -0.73 -0.45    1.00  -0.53          -0.18       0.49   -0.49          0.70
+## urbano              0.60  0.56   -0.53   1.00           0.29      -0.55    0.62         -0.49
+## gastoeducacion      0.29  0.36   -0.18   0.29           1.00      -0.16    0.32         -0.26
+## ratio_prof         -0.67 -0.41    0.49  -0.55          -0.16       1.00   -0.53          0.58
+## alcohol             0.66  0.77   -0.49   0.62           0.32      -0.53    1.00         -0.53
+## natalidad_ado      -0.84 -0.53    0.70  -0.49          -0.26       0.58   -0.53          1.00</code></pre>
+<p>Como puede ser un poco tedioso, podemos calcular un gráfico.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb314-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb314-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(matriz, <span class="at">method=</span><span class="st">&quot;number&quot;</span>,<span class="at">insig =</span> <span class="st">&quot;blank&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
 </div>
 </div>
 <div id="introducción-a-la-regresión-lineal-simple" class="section level2 hasAnchor" number="11.4">
@@ -641,12 +670,12 @@ Y = 1 + 2X
 <div id="paso-1-explorar-previamente-la-relación-de-las-variables" class="section level3 hasAnchor" number="11.5.2">
 <h3><span class="header-section-number">11.5.2</span> Paso 1: Explorar previamente la relación de las variables<a href="regresión-lineal-simple-explicar-y-predecir.html#paso-1-explorar-previamente-la-relación-de-las-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos nuevamente lo encontrado en la exploración realizada hace unos momentos. En este caso centrémonos en la relación entre Matrícula Escolar y Nivel de Pobreza.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb313-1" aria-hidden="true" tabindex="-1"></a>matricula <span class="sc">|&gt;</span> </span>
-<span id="cb313-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb313-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb313-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb313-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>pobreza, <span class="at">y=</span>matricula)<span class="sc">+</span></span>
-<span id="cb313-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb313-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(matricula<span class="sc">$</span>matricula, matricula<span class="sc">$</span>pobreza)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb315-1" aria-hidden="true" tabindex="-1"></a>matricula <span class="sc">|&gt;</span> </span>
+<span id="cb315-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb315-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>pobreza, <span class="at">y=</span>matricula)<span class="sc">+</span></span>
+<span id="cb315-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb315-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(matricula<span class="sc">$</span>matricula, matricula<span class="sc">$</span>pobreza)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -663,7 +692,7 @@ Y = 1 + 2X
 <div id="paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova" class="section level3 hasAnchor" number="11.5.3">
 <h3><span class="header-section-number">11.5.3</span> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA<a href="regresión-lineal-simple-explicar-y-predecir.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para generar el modelo podemos utilizar la función <code>lm()</code>. Te sugiero que revises la documentación del R para que sepas qué argumentos utiliza esta función.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb316-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(matricula<span class="sc">~</span>pobreza, <span class="at">data=</span>matricula)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb318-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(matricula<span class="sc">~</span>pobreza, <span class="at">data=</span>matricula)</span></code></pre></div>
 <p>Ahora probamos su validez con la técnica ANOVA. El análisis de varianza (ANOVA) se utiliza en la regresión lineal para evaluar la significancia estadística del modelo en su conjunto y determinar si hay una relación significativa entre las variables independientes y la variable dependiente.</p>
 <p>En el contexto de la regresión lineal, el ANOVA compara la variabilidad explicada por el modelo (la suma de cuadrados de la regresión) con la variabilidad no explicada (la suma de cuadrados del error). Si la variabilidad explicada es significativamente mayor que la variabilidad no explicada, esto indica que el modelo es estadísticamente significativo y que las variables independientes tienen un impacto significativo en la variable dependiente.</p>
 <p>El ANOVA proporciona información sobre la calidad general del modelo, indicando si el modelo en su conjunto es útil para predecir o explicar la variable dependiente.</p>
@@ -685,7 +714,7 @@ Y = 1 + 2X
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelo1)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(modelo1)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: matricula
@@ -700,7 +729,7 @@ Y = 1 + 2X
 <div id="paso-3-nivel-explicativo-del-modelo" class="section level3 hasAnchor" number="11.5.4">
 <h3><span class="header-section-number">11.5.4</span> Paso 3: Nivel explicativo del modelo<a href="regresión-lineal-simple-explicar-y-predecir.html#paso-3-nivel-explicativo-del-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Habíamos dicho que el R2 indica la proporción de la varianza de la variable dependiente (Y) que puede explicarse por la variable independiente (X) en el modelo de regresión.</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1)</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = matricula ~ pobreza, data = matricula)
@@ -758,15 +787,21 @@ Matrícula = 98.8995 + -1.1130 * Pobreza
 \]</span>
 La ecuación de regresión permite predecir los valores de la variable dependiente para nuevos valores de la variable independiente. Puedes usar la ecuación para estimar cómo cambiará la variable dependiente en función de los cambios en la variable independiente. Esto es especialmente útil en problemas de pronóstico o en la estimación de resultados futuros</p>
 <p>Podemos generar un gráfico interesante utilizando la extensión de ggplot2 <code>ggpmisc</code>.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc)</span>
-<span id="cb321-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-2" aria-hidden="true" tabindex="-1"></a>matricula <span class="sc">|&gt;</span> </span>
-<span id="cb321-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb321-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>pobreza, <span class="at">y=</span>matricula) <span class="sc">+</span></span>
-<span id="cb321-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_line</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb321-6"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">use_label</span>(<span class="fu">c</span>(<span class="st">&quot;eq&quot;</span>, <span class="st">&quot;R2&quot;</span>)),<span class="at">label.x =</span> <span class="st">&quot;right&quot;</span>) <span class="sc">+</span></span>
-<span id="cb321-7"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb321-8"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb321-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-184-1.png" width="672" /></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc)</span></code></pre></div>
+<pre><code>## Loading required package: ggpp</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpp&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     annotate</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-1" aria-hidden="true" tabindex="-1"></a>matricula <span class="sc">|&gt;</span> </span>
+<span id="cb327-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb327-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>pobreza, <span class="at">y=</span>matricula) <span class="sc">+</span></span>
+<span id="cb327-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_line</span>(<span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb327-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">use_label</span>(<span class="fu">c</span>(<span class="st">&quot;eq&quot;</span>, <span class="st">&quot;R2&quot;</span>)),<span class="at">label.x =</span> <span class="st">&quot;right&quot;</span>) <span class="sc">+</span></span>
+<span id="cb327-6"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb327-7"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb327-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-195-1.png" width="672" /></p>
 <p><a href="https://cran.r-project.org/web/packages/ggpmisc/readme/README.html" class="uri">https://cran.r-project.org/web/packages/ggpmisc/readme/README.html</a></p>
 
 </div>

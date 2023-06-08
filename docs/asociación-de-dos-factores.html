@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-06-06" />
+<meta name="date" content="2023-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -593,7 +593,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb276-5"><a href="asociación-de-dos-factores.html#cb276-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq), </span>
 <span id="cb276-6"><a href="asociación-de-dos-factores.html#cb276-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
 <span id="cb276-7"><a href="asociación-de-dos-factores.html#cb276-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Proporción&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 <p>Sin embargo, es mejor visualizar a través de barras apiladas.</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="asociación-de-dos-factores.html#cb277-1" aria-hidden="true" tabindex="-1"></a>barras_apiladas<span class="ot">&lt;-</span>df <span class="sc">|&gt;</span> </span>
 <span id="cb277-2"><a href="asociación-de-dos-factores.html#cb277-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -603,7 +603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb277-6"><a href="asociación-de-dos-factores.html#cb277-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(), <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
 <span id="cb277-7"><a href="asociación-de-dos-factores.html#cb277-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Porcentaje&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span>
 <span id="cb277-8"><a href="asociación-de-dos-factores.html#cb277-8" aria-hidden="true" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
 <p>Las ventajas son las siguientes:</p>
 <ul>
 <li><p>Las barras apiladas son un tipo de gráfico en el cual se representan las proporciones de distintas categorías en forma de barras que se apilan una encima de la otra. En lugar de mostrar los valores absolutos, se muestran los valores relativos en forma de porcentajes.</p></li>
@@ -680,7 +680,7 @@ No participó
 </table>
 <p>Así como el gráfico:</p>
 <div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="asociación-de-dos-factores.html#cb279-1" aria-hidden="true" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
 <p>De forma preliminar vemos grandes diferencias? Podríamos coincidir que no es mucho. Por ello, hace falta un análisis más riguroso con un método inferencial.</p>
 </div>
 <div id="paso-1-establecer-hipótesis-3" class="section level3 hasAnchor" number="9.6.2">
@@ -726,24 +726,24 @@ No participó
 <div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-3" class="section level3 hasAnchor" number="9.6.5">
 <h3><span class="header-section-number">9.6.5</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular la prueba de hipótesis utilizamos la función <code>chisq.test</code>:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="asociación-de-dos-factores.html#cb282-1" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(lapop<span class="sc">$</span>prot3, lapop<span class="sc">$</span>ambito)</span>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="asociación-de-dos-factores.html#cb282-1" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span>
 <span id="cb282-2"><a href="asociación-de-dos-factores.html#cb282-2" aria-hidden="true" tabindex="-1"></a>prueba</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
-## data:  lapop$prot3 and lapop$ambito
+## data:  tabla_simple
 ## X-squared = 2.3357, df = 1, p-value = 0.1264</code></pre>
 <p>En este caso calculamos que el estadístico de prueba. Recuerda que como vimos en el Anova, lo que hacemos es comparar un indicador (estadístico de prueba) calculado con la variabilidad de nuestra muestra con un valor teórico.</p>
 <p>Cuáles son los valores teóricos (frecuencias esperadas) con lo que se compara los valores observados?</p>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="asociación-de-dos-factores.html#cb284-1" aria-hidden="true" tabindex="-1"></a>prueba<span class="sc">$</span>expected</span></code></pre></div>
-<pre><code>##               lapop$ambito
-## lapop$prot3      Urbano     Rural
+<pre><code>##               
+##                  Urbano     Rural
 ##   Sí participó 166.3191  50.68092
 ##   No participó 998.6809 304.31908</code></pre>
 <p>Y cómo sabemos que estos valores son los que se esperaría si no existe asociación? Porque si calculamos los porcentajes por columna nos indica que no hay diferencia en la distribución según la variable de grupo:</p>
 <div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="asociación-de-dos-factores.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(prueba<span class="sc">$</span>expected,<span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##               lapop$ambito
-## lapop$prot3       Urbano     Rural
+<pre><code>##               
+##                   Urbano     Rural
 ##   Sí participó 0.1427632 0.1427632
 ##   No participó 0.8572368 0.8572368</code></pre>
 <p>Fruto de esa comparación se calcula el χ² el cual es 2.3357. Ahora bien el pvalor obtenido es 0.1264.</p>
