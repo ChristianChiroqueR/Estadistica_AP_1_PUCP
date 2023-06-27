@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-06-13" />
+<meta name="date" content="2023-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -440,6 +440,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.6.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2"><i class="fa fa-check"></i><b>12.6.2</b> Ejercicio 2</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>13</b> Regresión lineal múltiple: elementos adicionales</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-3"><i class="fa fa-check"></i><b>13.1</b> Objetivo de la sesión</a></li>
+<li class="chapter" data-level="13.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>13.2</b> Identificar la variable que aporta más al modelo</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>13.2.1</b> El problema de la unidad de medida</a></li>
+<li class="chapter" data-level="13.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>13.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
+<li class="chapter" data-level="13.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>13.2.3</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>13.3</b> Sobre variables categóricas en la RLM</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>13.3.1</b> Variables dummy (1-0): Definición</a></li>
+<li class="chapter" data-level="13.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>13.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
+<li class="chapter" data-level="13.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-3"><i class="fa fa-check"></i><b>13.3.3</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -741,14 +757,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Exploramos el objeto que creamos arriba.</p>
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb248-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>(comparacion[<span class="dv">1</span>])</span>
 <span id="cb248-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb248-2" aria-hidden="true" tabindex="-1"></a>diferencias_parejas</span></code></pre></div>
-<pre><code>##                                enades.ambito.diff enades.ambito.lwr enades.ambito.upr
-## Perú urbano-Lima Metropolitana        -0.25275128        -0.4561655       -0.04933707
-## Perú rural-Lima Metropolitana         -0.19066752        -0.4671122        0.08577713
-## Perú rural-Perú urbano                 0.06208376        -0.2030873        0.32725478
-##                                enades.ambito.p.adj
-## Perú urbano-Lima Metropolitana          0.01009162
-## Perú rural-Lima Metropolitana           0.23824258
-## Perú rural-Perú urbano                  0.84685736</code></pre>
+<pre><code>##                                enades.ambito.diff enades.ambito.lwr
+## Perú urbano-Lima Metropolitana        -0.25275128        -0.4561655
+## Perú rural-Lima Metropolitana         -0.19066752        -0.4671122
+## Perú rural-Perú urbano                 0.06208376        -0.2030873
+##                                enades.ambito.upr enades.ambito.p.adj
+## Perú urbano-Lima Metropolitana       -0.04933707          0.01009162
+## Perú rural-Lima Metropolitana         0.08577713          0.23824258
+## Perú rural-Perú urbano                0.32725478          0.84685736</code></pre>
 <p>Hemos generado un dataframe con los valores de las diferencias estimadas en cada pareja y los límites inferiores y superiores de cada diferencia estimada.</p>
 <p>Ahora creamos una columna adicional en dicho data frame que tenga el detalle de la pareja.</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb250-1" aria-hidden="true" tabindex="-1"></a>diferencias_parejas<span class="sc">$</span>parejas <span class="ot">=</span> <span class="fu">rownames</span>(diferencias_parejas)</span></code></pre></div>
@@ -763,7 +779,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb251-8"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb251-9"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
 <span id="cb251-10"><a href="anova-comparación-en-más-de-dos-muestras.html#cb251-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
 <p>Con este gráfico debemos corroborar los resultados que arroja la prueba de comparaciones múltiples de Tukey.</p>
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-06-13" />
+<meta name="date" content="2023-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -440,6 +440,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.6.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2"><i class="fa fa-check"></i><b>12.6.2</b> Ejercicio 2</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>13</b> Regresión lineal múltiple: elementos adicionales</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-3"><i class="fa fa-check"></i><b>13.1</b> Objetivo de la sesión</a></li>
+<li class="chapter" data-level="13.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>13.2</b> Identificar la variable que aporta más al modelo</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>13.2.1</b> El problema de la unidad de medida</a></li>
+<li class="chapter" data-level="13.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>13.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
+<li class="chapter" data-level="13.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>13.2.3</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>13.3</b> Sobre variables categóricas en la RLM</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>13.3.1</b> Variables dummy (1-0): Definición</a></li>
+<li class="chapter" data-level="13.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>13.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
+<li class="chapter" data-level="13.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-3"><i class="fa fa-check"></i><b>13.3.3</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -498,7 +514,7 @@ El plano cartesiano proporciona un marco de referencia visual que facilita la re
 <span id="cb290-8"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb290-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Índice de democracia&quot;</span>, </span>
 <span id="cb290-9"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb290-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;Índice de percepción de la Corrupción&quot;</span>)<span class="sc">+</span> </span>
 <span id="cb290-10"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb290-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-205-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 </div>
 <div id="varianza" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Varianza<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -688,9 +704,10 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 ## pop          0.06  1.00     -0.03
 ## gdpPercap    0.58 -0.03      1.00</code></pre>
 <p>Podemos visualizarlo de forma conjunta:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb302-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(matrix_cor, <span class="at">method=</span><span class="st">&quot;color&quot;</span>, <span class="at">type=</span><span class="st">&quot;upper&quot;</span>) <span class="co">#Prueba cambiando el método. F1</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
+<pre><code>## corrplot 0.92 loaded</code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(matrix_cor, <span class="at">method=</span><span class="st">&quot;color&quot;</span>, <span class="at">type=</span><span class="st">&quot;upper&quot;</span>) <span class="co">#Prueba cambiando el método. F1</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
 <p>Ten en cuenta que la forma de solicitar el gráfico con el paquete <code>corrplot</code> puede variar. Puedes personalizar la matriz de la forma en que más se te acomode. Para mayor detalle, visita la página:</p>
 <p><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html" class="uri">https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html</a></p>
 </div>
@@ -712,36 +729,36 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <div id="cuidado-scatterplot-como-primer-paso-siempre" class="section level3 hasAnchor" number="10.8.2">
 <h3><span class="header-section-number">10.8.2</span> Cuidado: Scatterplot como primer paso SIEMPRE<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vamos a crear la siguiente data:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sólo con fines de ejemplo.</span></span>
-<span id="cb303-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb303-2" aria-hidden="true" tabindex="-1"></a>peq <span class="ot">=</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">5</span></span>
-<span id="cb303-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb303-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.99</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
-<span id="cb303-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb303-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">peq</span>(x) <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">200</span>)</span>
-<span id="cb303-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb303-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
-<span id="cb303-6"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb303-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sólo con fines de ejemplo.</span></span>
+<span id="cb305-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-2" aria-hidden="true" tabindex="-1"></a>peq <span class="ot">=</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">5</span></span>
+<span id="cb305-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.99</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">01</span>)</span>
+<span id="cb305-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">peq</span>(x) <span class="sc">+</span> <span class="fu">runif</span>(<span class="dv">200</span>)</span>
+<span id="cb305-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
+<span id="cb305-6"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##       x        y
-## 1 -0.99 6.579053
-## 2 -0.98 6.977156
-## 3 -0.97 6.333689
-## 4 -0.96 6.404501
-## 5 -0.95 6.078984</code></pre>
+## 1 -0.99 6.060748
+## 2 -0.98 6.754063
+## 3 -0.97 6.186470
+## 4 -0.96 6.166571
+## 5 -0.95 6.140310</code></pre>
 <p>Ahora, vamos a generar nuestro cor.test entre las dos variables. Qué concluimos?</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>x,df<span class="sc">$</span>y)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>x,df<span class="sc">$</span>y)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  df$x and df$y
-## t = 6.9506, df = 198, p-value = 5.144e-11
+## t = 7.5325, df = 198, p-value = 1.731e-12
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  0.3240431 0.5479460
+##  0.3565529 0.5731589
 ## sample estimates:
 ##       cor 
-## 0.4428734</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb307-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb307-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df |&gt; </span></span>
-<span id="cb307-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb307-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot()+</span></span>
-<span id="cb307-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb307-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x=x, y=y)+</span></span>
-<span id="cb307-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb307-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point() </span></span></code></pre></div>
+## 0.4719474</code></pre>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb309-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb309-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df |&gt; </span></span>
+<span id="cb309-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb309-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot()+</span></span>
+<span id="cb309-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb309-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   aes(x=x, y=y)+</span></span>
+<span id="cb309-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb309-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point() </span></span></code></pre></div>
 <p>Mientras que una prueba de correlación lineal, como el coeficiente de correlación de Pearson, mide la relación lineal entre variables, puede haber relaciones no lineales entre las variables. Un diagrama de dispersión permite observar patrones más complejos y no lineales, como relaciones parabólicas, curvas en forma de S u otras formas.</p>
 <p><strong>Si aplicamos un cor.test sin analizar previamente las variables podríamos llegar a conclusiones equivocadas</strong></p>
 <p>El coeficiente de correlación de Pearson es una medida estadística que evalúa la relación lineal entre dos variables. Sin embargo, puede haber situaciones en las que exista una relación no lineal entre las variables, pero el coeficiente de Pearson aún pueda ser significativo y mostrar una correlación fuerte.</p>

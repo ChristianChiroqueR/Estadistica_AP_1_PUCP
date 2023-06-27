@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I</title>
-  <meta name="description" content="Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I" />
+  <title>Sesión 13 Regresión lineal múltiple: elementos adicionales | Estadística para el Análisis Político I</title>
+  <meta name="description" content="Sesión 13 Regresión lineal múltiple: elementos adicionales | Estadística para el Análisis Político I" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I" />
+  <meta property="og:title" content="Sesión 13 Regresión lineal múltiple: elementos adicionales | Estadística para el Análisis Político I" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sesión 2 Manipulación de datos y estadísticos descriptivos | Estadística para el Análisis Político I" />
+  <meta name="twitter:title" content="Sesión 13 Regresión lineal múltiple: elementos adicionales | Estadística para el Análisis Político I" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="visualización-de-datos-con-ggplot2.html"/>
+<link rel="prev" href="regresión-lineal-múltiple-más-de-una-independiente.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -475,234 +475,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="manipulación-de-datos-y-estadísticos-descriptivos" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Sesión 2</span> Manipulación de datos y estadísticos descriptivos<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#manipulación-de-datos-y-estadísticos-descriptivos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="preparación" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Preparación<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="entorno-de-trabajo" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Entorno de trabajo<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="regresión-lineal-múltiple-elementos-adicionales" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Sesión 13</span> Regresión lineal múltiple: elementos adicionales<a href="regresión-lineal-múltiple-elementos-adicionales.html#regresión-lineal-múltiple-elementos-adicionales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="objetivo-de-la-sesión-3" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Objetivo de la sesión<a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El objetivo de esta clase es ampliar nuestro conocimiento sobre la regresión lineal múltiple al introducir dos componentes clave dentro del modelamiento:</p>
 <ul>
-<li><p>Crea la carpeta donde guardarás toda la información creada.</p></li>
-<li><p>Te recomiendo que para cada clase crees un Proyecto de R. Eso te permitirá mantener un orden.</p></li>
-<li><p>Una vez creado, puedes crear un R Markdown como este para empezar a trabajar.</p></li>
+<li><p>Identificar cuál es la variable que aporta más al modelo explicativo.</p></li>
+<li><p>Introducir variables variables categóricas como variables independientes en nuestros modelos.</p></li>
 </ul>
 </div>
-<div id="paquetes-a-utilizar" class="section level3 hasAnchor" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Paquetes a utilizar<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="identificar-la-variable-que-aporta-más-al-modelo" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Identificar la variable que aporta más al modelo<a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los coeficientes en un modelo de regresión lineal representan las relaciones y las contribuciones relativas entre la variable dependiente (Y) y las variables independientes (X). Estos coeficientes cuantifican el cambio promedio en la variable dependiente por cada unidad de cambio en la variable independiente correspondiente, manteniendo constantes todas las demás variables.</p>
+<p>En una regresión lineal simple, donde se tiene una única variable independiente, el coeficiente de regresión (también conocido como pendiente) indica la variación promedio en la variable dependiente por cada unidad de cambio en la variable independiente. Por ejemplo, si el coeficiente es 0.5, significa que, en promedio, la variable dependiente aumentará en 0.5 unidades por cada unidad de cambio en la variable independiente.</p>
+<p>En una regresión lineal múltiple, donde se tienen múltiples variables independientes, los coeficientes de regresión se interpretan de manera similar. Cada coeficiente representa el cambio promedio en la variable dependiente por cada unidad de cambio en la variable independiente correspondiente, manteniendo constantes todas las demás variables. Se puede considerar que los coeficientes reflejan la contribución individual de cada variable independiente en la variabilidad de la variable dependiente.</p>
+<p>Es importante tener en cuenta que los coeficientes no indican necesariamente una relación causal entre las variables, sino que reflejan una asociación estadística. Además, los coeficientes están influenciados por la escala de las variables, por lo que no se pueden comparar directamente si están en diferentes escalas de medición.</p>
+<div id="el-problema-de-la-unidad-de-medida" class="section level3 hasAnchor" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> El problema de la unidad de medida<a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Las escalas de medición diferentes pueden llevar a conclusiones erróneas al explicar el efecto de las variables independientes (X) sobre la variable dependiente (Y) en una regresión por varias razones. Aquí se presenta un ejemplo ilustrativo:</p>
+<p>Supongamos que se está realizando un estudio para investigar el impacto del nivel de ingresos (medido en dólares) y la edad (medida en años) en el gasto mensual en alimentos (medido en dólares) de los hogares. Se ajusta un modelo de regresión lineal múltiple y se obtienen los siguientes coeficientes estimados:</p>
+<p>Coeficiente de ingresos: 0.02
+Coeficiente de edad: 10</p>
+<p>Si se interpreta únicamente basándose en los coeficientes, se podría concluir que la edad tiene un efecto mucho más fuerte en el gasto mensual en alimentos que los ingresos. Sin embargo, esta conclusión sería errónea debido a las escalas de medición diferentes.</p>
+<p>El coeficiente de ingresos de 0.02 indica que, en promedio, por cada aumento de 1 unidad en los ingresos (en dólares), el gasto mensual en alimentos aumenta en 0.02 unidades (en dólares). Por otro lado, el coeficiente de edad de 10 indica que, en promedio, por cada aumento de 1 año en la edad, el gasto mensual en alimentos aumenta en 10 unidades (en dólares).</p>
+<p>La razón por la cual la conclusión sería errónea es que los ingresos y la edad no están en la misma escala de medición. Un aumento de 1 unidad en los ingresos (por ejemplo, de 1000 dólares a 1001 dólares) es mucho más pequeño en magnitud que un aumento de 1 año en la edad. Por lo tanto, comparar directamente los coeficientes sin considerar las escalas de medición puede llevar a una interpretación incorrecta.</p>
+<p>Para evitar este tipo de errores, es importante estandarizar o normalizar las variables para que estén en una escala comparable antes de realizar comparaciones directas. Además, es fundamental tener en cuenta el contexto y la interpretación sustantiva de las variables para comprender el efecto relativo de cada variable independiente sobre la variable dependiente en un modelo de regresión.</p>
+</div>
+<div id="solución-uso-de-coeficientes-estandarizados" class="section level3 hasAnchor" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> Solución: Uso de coeficientes estandarizados<a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El paquete “lm.beta” en R es una herramienta útil para analizar la importancia relativa de las variables independientes en un modelo de regresión lineal. Proporciona una medida llamada “beta estandarizada” que permite comparar directamente los efectos relativos de las variables independientes en la variable dependiente, independientemente de sus escalas de medición.</p>
+<p>Estos valores de beta estandarizados representan la cantidad de desviación estándar en la variable dependiente asociada con un incremento de una desviación estándar en la variable independiente, manteniendo constantes las demás variables. Esto permite identificar las variables que tienen el mayor impacto relativo en el modelo, lo cual es especialmente útil cuando se trabaja con variables de diferentes escalas.</p>
+<p>Probemos:</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb346-2"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb346-3"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb346-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/trabajadores.sav&quot;</span>)</span></code></pre></div>
+<p>Hacemos un modelo de regresión múltiple:</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb347-1" aria-hidden="true" tabindex="-1"></a>modelo1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(salario_actual<span class="sc">~</span>salario_inicial <span class="sc">+</span> antiguedad, <span class="at">data=</span>data)</span></code></pre></div>
+<p>Si vemos los coeficientes no estandarizados vemos lo siguientes:</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb348-1" aria-hidden="true" tabindex="-1"></a>modelo1<span class="sc">$</span>coefficients</span></code></pre></div>
+<pre><code>##     (Intercept) salario_inicial      antiguedad 
+##     -12120.8133          1.9138        172.2974</code></pre>
+<p>Sin embargo, esto nos puede llevar al error pues las variables están en escalas distintas:</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>salario_inicial)</span></code></pre></div>
+<pre><code>## [1]  9000 79980</code></pre>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>antiguedad)</span></code></pre></div>
+<pre><code>## [1] 63 98</code></pre>
+<p>Para ello, utilizamos los coeficientes estandarizados:</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lm.beta)</span>
+<span id="cb354-2"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb354-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm.beta</span>(modelo1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = salario_actual ~ salario_inicial + antiguedad, data = data)
+## 
+## Standardized Coefficients::
+##     (Intercept) salario_inicial      antiguedad 
+##              NA       0.8821228       0.1015173</code></pre>
+<p>Vemos que la variable salario inicial aporta mucho más que la variable antiguedad si ambas variables están estandarizadas.</p>
+</div>
+<div id="ejercicio" class="section level3 hasAnchor" number="13.2.3">
+<h3><span class="header-section-number">13.2.3</span> Ejercicio<a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Con la data utilizada la clase pasada:</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb356-2"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb356-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb356-3"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb356-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/desigualdad.xlsx&quot;</span>)</span></code></pre></div>
+<p>Cree un modelo para explicar la DesigualdadGenero que utilice las siguientes variables como predictoras: VozPolitica, LibertadMov, CuentaF.</p>
+<p>Cuál variable aporta más al modelo explicativo de la variable dependiente?</p>
+</div>
+</div>
+<div id="sobre-variables-categóricas-en-la-rlm" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Sobre variables categóricas en la RLM<a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las variables categóricas, también conocidas como variables cualitativas o nominales, son aquellas que representan características no numéricas, como género, estado civil, nivel de educación, ubicación geográfica, entre otros. Estas variables son de gran importancia en el análisis de datos en ciencias sociales, ya que nos permiten examinar el impacto de factores que no pueden expresarse en términos de magnitudes o cantidades.</p>
+<p>A diferencia de las variables numéricas que hemos utilizado anteriormente, las variables categóricas requieren un enfoque distinto en el análisis estadístico. No podemos simplemente ingresarlas como están en nuestro modelo de regresión lineal múltiple, ya que los algoritmos de regresión se basan en operaciones matemáticas que no pueden aplicarse directamente a variables no numéricas.</p>
+<p>Para eso, es necesario entender qué es una variable dummy.</p>
+<div id="variables-dummy-1-0-definición" class="section level3 hasAnchor" number="13.3.1">
+<h3><span class="header-section-number">13.3.1</span> Variables dummy (1-0): Definición<a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una variable dummy, también conocida como variable ficticia, es una variable binaria que se utiliza para representar una característica cualitativa o categórica en un análisis estadístico. En lugar de tomar valores continuos, una variable dummy toma solo dos valores posibles, generalmente codificados como 0 o 1. Estos valores indican la presencia o ausencia de una determinada categoría o condición.</p>
+<p>En el contexto de la regresión lineal, las variables dummy se utilizan para incorporar características categóricas en el modelo. Se crea una variable dummy para cada categoría o condición distinta de la variable categórica que se está analizando. Se asigna el valor 1 a la variable dummy correspondiente a la categoría de interés y se asigna el valor 0 a las demás variables dummy y a la categoría de referencia.</p>
+<p>Ejemplos:</p>
+<p>Variable dummy de género:</p>
+<p>En un estudio sociológico sobre la participación política, se puede utilizar una variable dummy para representar el género de los individuos. Se podría asignar el valor de 1 para la categoría “Mujer” y el valor de 0 para la categoría “Hombre”. De esta manera, la variable dummy de género permite analizar cómo el género influye en la participación política, al incluirlo como una variable independiente en un modelo de regresión lineal.</p>
+<p>Variable dummy de nivel educativo:</p>
+<p>En un análisis económico sobre los salarios, se puede utilizar una variable dummy para representar el nivel educativo de los trabajadores. Por ejemplo, se podría crear una variable dummy para la categoría “Título universitario” y asignarle el valor de 1 si un individuo tiene un título universitario, y el valor de 0 si no tiene dicho título. Esto permitiría examinar cómo el nivel educativo afecta los salarios, al incluir la variable dummy de nivel educativo como una variable independiente en el modelo de regresión lineal.</p>
+<p>En ambos ejemplos, las variables dummy permiten capturar características categóricas relevantes y representarlas de manera numérica en los modelos de regresión lineal. Esto facilita la interpretación del impacto de estas características en la variable dependiente y proporciona una forma efectiva de analizar cómo los factores cualitativos influyen en los fenómenos estudiados.</p>
+</div>
+<div id="variables-dummy-1-0-utilidad-en-la-rlm" class="section level3 hasAnchor" number="13.3.2">
+<h3><span class="header-section-number">13.3.2</span> Variables dummy (1-0): Utilidad en la RLM<a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Ahora bien, DE PREFERENCIA, siempre que inicies un R Markdown o Script en el R Studio tienes que abrir los paquetes que vas a utilizar. En este caso vamos a utilizar el paquete Tidyverse (que ya incluye muchos otros paquetes ya explicados). Puedes abrirlo con el siguiente comando:</li>
+<li><p>Representación de variables categóricas: Las variables dummy proporcionan una forma de representar variables categóricas en modelos de regresión. Mientras que las variables categóricas no pueden ser introducidas directamente en el modelo debido a la naturaleza no numérica, las variables dummy asignan valores numéricos (por ejemplo, 0 y 1) para indicar la presencia o ausencia de una categoría particular. Esto permite que las características cualitativas se incluyan en el análisis y se examinen sus efectos en la variable dependiente.</p></li>
+<li><p>Comparación relativa de categorías: Al crear variables dummy, se establece una categoría de referencia, generalmente la más común o la que se considera la base de comparación. Las variables dummy para las otras categorías se comparan con la categoría de referencia. Los coeficientes estimados asociados con las variables dummy reflejan las diferencias en el efecto de cada categoría en comparación con la categoría de referencia. Esto permite interpretar y cuantificar el impacto relativo de cada categoría sobre la variable dependiente. Así, las variables dummy permiten realizar comparaciones entre grupos categóricos y analizar cómo influyen en el fenómeno de estudio.</p></li>
+<li><p>Control de confusión y variables omitidas: Al incluir variables dummy en el modelo de regresión, se evita el problema de omitir variables relevantes y se controla la influencia de las características categóricas en el efecto de otras variables independientes. Si no se utilizan variables dummy y se omiten las variables categóricas, se corre el riesgo de obtener coeficientes sesgados y resultados incorrectos. Al incluir variables dummy en el modelo, se captura el efecto específico de cada categoría y se evitan suposiciones erróneas sobre las relaciones entre las variables.</p></li>
+<li><p>Análisis de interacciones y modificadores de efecto: Las variables dummy también pueden ser utilizadas en el análisis de interacciones y efectos modificadores en los modelos de regresión. Al combinar una variable dummy con otra variable independiente, se puede examinar cómo el efecto de una variable varía según las diferentes categorías de la variable dummy. Esto permite comprender cómo ciertos factores pueden influir de manera diferente en grupos categóricos específicos, lo cual es fundamental para el análisis diferencial en ciencias sociales.</p></li>
 </ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb62-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<ul>
-<li>Recuerda que la función library(nombre_del_paquete) sirve para abrir los paquetes YA INSTALADOS. Si te sale un mensaje que dice que “no existe el paquete” debes instalarlo con la función install.packages(línea previa).</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="base-de-datos" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Base de datos<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="importación" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Importación<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para la parte I, II y III de esta clase utilizaremos la base de datos de los resultados de las elecciones presidenciales del 2011.</p>
-<p>Vamos a realizar un breve reporte sobre los porcentajes obtenidos por la organización política “Gana Perú”.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb63-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb63-2" aria-hidden="true" tabindex="-1"></a>elecciones <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span></code></pre></div>
-<p>Luego de abrir una base de datos, siempre te recomiendo darle un primer vistazo.</p>
-<p>Puedes ver las primeras diez filas con:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones, <span class="dv">10</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTAMENTO PROVINCIA DISTRITO ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP
-##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;                            &lt;dbl&gt;
-##  1 010101 AMAZONAS     CHACHAPO… CHACHAP… FUERZA NACIONAL                      6
-##  2 010101 AMAZONAS     CHACHAPO… CHACHAP… PARTIDO POLITICO ADE…               24
-##  3 010101 AMAZONAS     CHACHAPO… CHACHAP… DESPERTAR NACIONAL                  35
-##  4 010101 AMAZONAS     CHACHAPO… CHACHAP… GANA PERU                         2971
-##  5 010101 AMAZONAS     CHACHAPO… CHACHAP… FONAVISTAS DEL PERU                  7
-##  6 010101 AMAZONAS     CHACHAPO… CHACHAP… JUSTICIA, TECNOLOGIA…                4
-##  7 010101 AMAZONAS     CHACHAPO… CHACHAP… FUERZA 2011                       2651
-##  8 010101 AMAZONAS     CHACHAPO… CHACHAP… PARTIDO DESCENTRALIS…                2
-##  9 010101 AMAZONAS     CHACHAPO… CHACHAP… ALIANZA POR EL GRAN …             1479
-## 10 010101 AMAZONAS     CHACHAPO… CHACHAP… ALIANZA SOLIDARIDAD …              773
-## # ℹ 5 more variables: VOTOS_VALIDOS &lt;dbl&gt;, VOTOS_BLANCO &lt;dbl&gt;,
-## #   VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
-<p>También puedes hacerle click en Environment o colocar:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
-</div>
-<div id="verificar-el-tipo-de-variable" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Verificar el tipo de variable<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Veamos las variables, podemos utilizar la función <code>names(nombre_de_data)</code></p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elecciones)</span></code></pre></div>
-<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;          &quot;PROVINCIA&quot;            
-##  [4] &quot;DISTRITO&quot;              &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;     
-##  [7] &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;          &quot;VOTOS_NULOS&quot;          
-## [10] &quot;NUMERO_ELECTORES&quot;      &quot;VOTOS_EMITIDOS&quot;</code></pre>
-<p>Puedes editar los nombres si deseas. En este caso vamos a cambiar el nombre de la variable <strong>ORGANIZACIÓN_POLITICA</strong> por <strong>ORG_POL</strong>.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb69-1" aria-hidden="true" tabindex="-1"></a>elecciones<span class="ot">&lt;-</span> elecciones <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ORG_POL=</span>ORGANIZACIÓN_POLITICA)</span></code></pre></div>
 <blockquote>
-<p><strong>Observación: Ten en cuenta que aquí estamos sobre escribiendo.</strong></p>
-</blockquote>
-<p>Veamos si el formato es adecuado.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elecciones)</span></code></pre></div>
-<pre><code>## tibble [23,958 × 11] (S3: tbl_df/tbl/data.frame)
-##  $ UBIGEO          : chr [1:23958] &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; ...
-##  $ DEPARTAMENTO    : chr [1:23958] &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; ...
-##  $ PROVINCIA       : chr [1:23958] &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; ...
-##  $ DISTRITO        : chr [1:23958] &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; ...
-##  $ ORG_POL         : chr [1:23958] &quot;FUERZA NACIONAL&quot; &quot;PARTIDO POLITICO ADELANTE&quot; &quot;DESPERTAR NACIONAL&quot; &quot;GANA PERU&quot; ...
-##  $ VOTOS_VALIDOS_OP: num [1:23958] 6 24 35 2971 7 ...
-##  $ VOTOS_VALIDOS   : num [1:23958] 11148 11148 11148 11148 11148 ...
-##  $ VOTOS_BLANCO    : num [1:23958] 1034 1034 1034 1034 1034 ...
-##  $ VOTOS_NULOS     : num [1:23958] 340 340 340 340 340 340 340 340 340 340 ...
-##  $ NUMERO_ELECTORES: num [1:23958] 15748 15748 15748 15748 15748 ...
-##  $ VOTOS_EMITIDOS  : num [1:23958] 12522 12522 12522 12522 12522 ...</code></pre>
-<p>Ok, los caracteres están como <code>chr</code> y las variables numéricas como <code>num.</code></p>
-</div>
-<div id="creación-de-subset" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Creación de subset<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Aquí nos debemos preguntar: a lo largo de nuestro trabajo, vamos a utilizar toda la data o sólo una parte?</p>
-<p>En este caso puntual, sólo vamos a utilizar aquellos resultados de la organización política Gana Perú. Por ello, vamos a hacer un filtro con ese criterio y vamos a **crear un subset o una data ya filtrada”.</p>
-<p>A esta data la llamaremos <strong>elecciones_GN</strong>.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb72-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="ot">&lt;-</span> elecciones<span class="sc">%&gt;%</span> <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) </span></code></pre></div>
-<hr />
-</div>
-</div>
-<div id="estadísticos-de-tendencia-central" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Estadísticos de tendencia central<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como nuestro objetivo es explorar el porcentaje de votos válidos obtenidos por Gana Perú, vamos a crear esa variable en base a dos variable observables: el número de votos obtenidos y el número total de votos válidos.</p>
-<p>Utilizamos la función <code>mutate()</code>.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb73-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="ot">&lt;-</span>elecciones_GN <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">porc.voto=</span>VOTOS_VALIDOS_OP<span class="sc">/</span>VOTOS_VALIDOS<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
-<p>Ahora podemos calculas los tres estadísticos de tendencia central con la función <code>summarise()</code>.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN<span class="sc">%&gt;%</span> </span>
-<span id="cb74-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb74-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb74-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mediana=</span><span class="fu">median</span>(porc.voto, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 2
-##   Media Mediana
-##   &lt;dbl&gt;   &lt;dbl&gt;
-## 1  38.9    35.1</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recuerda que colocamos na.rm = TRUE para que haga el cálculo omitiendo</span></span>
-<span id="cb76-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># aquellas celdas vacías (valores perdidos)</span></span></code></pre></div>
-<hr />
-</div>
-<div id="estadísticos-de-posición" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Estadísticos de posición<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="percentiles" class="section level3 hasAnchor" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Percentiles<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Los estadísticos de posición son medidas que indican la posición relativa de un valor dentro de un conjunto de datos ordenados de menor a mayor.</p></li>
-<li><p>Los estadísticos de posición más utilizados son los percentiles (y sus derivados que son los cuartiles y deciles).</p></li>
-<li><p>Los estadísticos de posición son útiles para resumir los datos y obtener información sobre la distribución de los mismos.</p></li>
-<li><p>Se utilizan para describir la dispersión de los datos alrededor de la mediana, así como identificar valores atípicos o extremos en el conjunto de datos.</p></li>
-</ul>
-<p>Para calcular un determinado percentil podemos solicitarlo utilizando la función <code>summarise()</code> junto con <code>quantile()</code>. Vamos a solicitar los cuartiles (el percentil 25, 50 y 75) de la variable porc.voto:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb77-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">P25=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.25</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb77-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">P50=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.50</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb77-4"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb77-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">P75=</span><span class="fu">quantile</span>(porc.voto, <span class="fl">0.75</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 3
-##     P25   P50   P75
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1  21.6  35.1  56.0</code></pre>
-<p>Si son muchos percentiles también puedes usar la función concatenar <code>c()</code>, como en el siguiente ejemplo:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb79-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">quantile</span>(porc.voto, <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.25</span>,<span class="fl">0.50</span>, <span class="fl">0.75</span>, <span class="fl">0.90</span>), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
-## dplyr 1.1.0.
-## ℹ Please use `reframe()` instead.
-## ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
-##   always returns an ungrouped data frame and adjust accordingly.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
-<pre><code>## # A tibble: 5 × 1
-##   `quantile(porc.voto, c(0.1, 0.25, 0.5, 0.75, 0.9), na.rm = TRUE)`
-##                                                               &lt;dbl&gt;
-## 1                                                              11.4
-## 2                                                              21.6
-## 3                                                              35.1
-## 4                                                              56.0
-## 5                                                              70.7</code></pre>
-<hr />
-</div>
-</div>
-<div id="estadísticos-de-dispersión" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Estadísticos de dispersión<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las medidas de dispersión son una serie de estadísticos que nos permiten conocer la variabilidad o amplitud de los datos en un conjunto de observaciones. Estas medidas nos indican cuánto se alejan los valores de la media, la mediana o cualquier otro estadístico de tendencia central, lo que es de gran utilidad para entender la homogeneidad o heterogeneidad de la distribución de los datos.</p>
-<p>Las medidas de dispersión más comunes son el rango, la varianza, la desviación estándar, el rango intercuartílico y el coeficiente de variación.</p>
-<div id="el-rango" class="section level3 hasAnchor" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> El Rango<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El rango es una medida de dispersión que se utiliza para determinar la amplitud total de un conjunto de datos. Es la diferencia entre el valor máximo y el valor mínimo en un conjunto de datos. Es una medida muy sencilla de calcular y proporciona una idea general de la variabilidad de los datos. Sin embargo, no toma en cuenta la distribución de los datos en el conjunto, lo que puede hacer que la medida sea menos informativa en ciertos casos.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb82-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb82-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ORG_POL<span class="sc">==</span><span class="st">&quot;GANA PERU&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb82-3"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Rango=</span><span class="fu">max</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">-</span><span class="fu">min</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   Rango
-##   &lt;dbl&gt;
-## 1  98.1</code></pre>
-<p>En este caso vemos que los valores de la variable <strong>porc.voto</strong> tiene un rango de 98.1 unidades (porcentuales) .</p>
-</div>
-<div id="la-varianza" class="section level3 hasAnchor" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> La Varianza<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La varianza es una medida de dispersión que indica qué tan dispersos están los datos con respecto a su media.</p>
-<p><span class="math display">\[\sigma^2 = \frac{\sum_{i=1}^n (x_i - \mu)^2}{n}\]</span></p>
-<p>Matemáticamente, la varianza se define como la media aritmética de los cuadrados de las diferencias entre cada valor de la variable y la media.</p>
-<p>Lo calculamos utilizando la función <code>var()</code>:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb84-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb84-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Varianza=</span><span class="fu">var</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   Varianza
-##      &lt;dbl&gt;
-## 1     472.</code></pre>
-<p>En este ejemplo, el porcentaje de los Votos obtenidos por Gana Perú tiene una dispersión de 472 entre los distritos del Perú.</p>
-<blockquote>
-<p>Recuerda que la varianza puede servir a la hora de comparar dos variable que están medidas en las mismas unidades (como si comparáramos este porcentaje vs el obtenido por Fuerza 2011). Si deseamos analizar una única variable es más fácil ver la <strong>Desviación Estándar</strong>.</p>
+<p>Las variables dummy desempeñan un papel fundamental en los modelos de regresión al permitir la inclusión de variables categóricas en un marco analítico basado en regresión lineal. Proporcionan una representación numérica de características cualitativas, permiten la comparación relativa de categorías, controlan variables omitidas y facilitan el análisis de interacciones y efectos modificadores. Su uso adecuado y su interpretación correcta son esenciales para comprender cómo las características categóricas influyen en los fenómenos estudiados en las ciencias sociales</p>
 </blockquote>
 </div>
-<div id="la-desviación-estándar" class="section level3 hasAnchor" number="2.5.3">
-<h3><span class="header-section-number">2.5.3</span> La Desviación Estándar<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Es la medida de dispersión más común y se calcula como la raíz cuadrada de la varianza. Nos indica cuánto se desvían los valores de la distribución con respecto a la media.</p>
-<p><span class="math display">\[\sqrt{\text{Var}(X)}\]</span></p>
-<p>La desviación estándar se expresa en las mismas unidades que los datos originales, lo que la hace fácilmente interpretable.</p>
-<p>Una desviación estándar pequeña indica que los datos están muy concentrados alrededor de la media, mientras que una desviación estándar grande indica que los datos están más dispersos y que existe una mayor variabilidad en los mismos.</p>
-<p>Lo calculamos usando la función <code>sd()</code>:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb86-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb86-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Desv_est=</span><span class="fu">sd</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##   Desv_est
-##      &lt;dbl&gt;
-## 1     21.7</code></pre>
-<p>La forma de interpretación es que <strong>los valores observados están en promedio a una distancia de 21 unidades de la media</strong>.</p>
-</div>
-<div id="el-rango-intercuartílico" class="section level3 hasAnchor" number="2.5.4">
-<h3><span class="header-section-number">2.5.4</span> El Rango intercuartílico<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El rango intercuartil (IQR por sus siglas en inglés) es una medida de dispersión utilizada en estadística que se define como la diferencia entre el tercer y primer cuartil de un conjunto de datos. En otras palabras, el IQR mide la distancia entre el 25% y el 75% de los datos ordenados de menor a mayor.</p>
-<p>El IQR es una medida de dispersión robusta que no se ve afectada por valores atípicos o extremos en los datos, a diferencia del rango o la desviación estándar. Es útil para resumir la variabilidad de los datos en un intervalo de valores que contiene la mayor parte de los datos y que no está influenciado por los valores extremos. El IQR se puede utilizar para identificar valores atípicos o para comparar la variabilidad entre diferentes conjuntos de datos.</p>
-<p>Lo calculamos utilizando la función <code>IQR()</code>:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb88-1" aria-hidden="true" tabindex="-1"></a>elecciones_GN <span class="sc">%&gt;%</span> </span>
-<span id="cb88-2"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">IQR=</span><span class="fu">IQR</span>(porc.voto, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 1
-##     IQR
-##   &lt;dbl&gt;
-## 1  34.4</code></pre>
-<p>En este caso vemos que el IQR de la variable porc.voto es de 34.4.</p>
-<p>Es decir, la distancia entre el primer cuartil y el tercer cuartil es de 34 unidades en la escala de la variable (porcentaje).</p>
-<hr />
-</div>
-<div id="curvas-de-distribución-de-frecuencias" class="section level3 hasAnchor" number="2.5.5">
-<h3><span class="header-section-number">2.5.5</span> Curvas de distribución de frecuencias<a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Las curvas de distribución son representaciones gráficas de la distribución de una variable aleatoria. Estas curvas se utilizan para mostrar cómo se distribuyen los valores de una variable en un conjunto de datos.</p>
-<p>El principal objetivo examinar las posiciones relativas de la media, la mediana y la moda, para estimar la FORMA DE UNA DISTRIBUCIÓN DE FRECUENCIAS.</p>
-<p><img src="https://www.biologyforlife.com/uploads/2/2/3/9/22392738/c101b0da6ea1a0dab31f80d9963b0368_orig.png" /></p>
-<p>Tenemos dos grandes opciones:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Distribución normal</strong>: Curva de distribución de frecuencias donde la media, la mediana y la moda de una variable son iguales entre sí y la distribución de la puntuaciones tiene forma de campana.</p></li>
-<li><p><strong>Distribución sesgada</strong>: Curva de distribución de frecuencias en la cual la media, la mediana y la moda de una variable son desiguales y algunos de los sujetos tienen puntuaciones sumamente altas o bajas.</p></li>
-</ol>
-<p>Ahora veamos nuestro ejemplo, a qué curva de distribución se asemejará?</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
-<p>Vemos que nuestra variable de Porcentaje de votos valídos obtenido por Gana Perú a nivel distrital, posee una distribución con un sesgo positivo.</p>
-<p>Veamos si es cierto la teoría. Grafiquemos la media (38.90), mediana (35.13) y moda (27.00) en dicha curva de distribución.</p>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
-<p>Corroboramos lo explicitado por la teoría en cuento a la relación entre el sesgo y el posicionamiento de los estadísticos de tendencia central.</p>
+<div id="ejercicio-3" class="section level3 hasAnchor" number="13.3.3">
+<h3><span class="header-section-number">13.3.3</span> Ejercicio<a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb357-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/trabajadores.sav&quot;</span>)</span>
+<span id="cb357-2"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data)</span></code></pre></div>
+<pre><code>##  [1] &quot;id&quot;              &quot;sexo&quot;            &quot;fechnac&quot;         &quot;educ&quot;           
+##  [5] &quot;catlab&quot;          &quot;salario_actual&quot;  &quot;salario_inicial&quot; &quot;antiguedad&quot;     
+##  [9] &quot;experiencia&quot;     &quot;minoría&quot;         &quot;directivo&quot;</code></pre>
+<p>Ahora realizaremos unos modelos que tengan como variable explicativa la categoría laboral.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data<span class="sc">$</span>catlab)</span></code></pre></div>
+<pre><code>##  num [1:474] 3 1 1 1 1 1 1 1 1 1 ...
+##  - attr(*, &quot;label&quot;)= chr &quot;Categoría laboral&quot;
+##  - attr(*, &quot;format.spss&quot;)= chr &quot;F1.0&quot;
+##  - attr(*, &quot;labels&quot;)= Named num [1:4] 0 1 2 3
+##   ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;0 (Ausente)&quot; &quot;Administrativo&quot; &quot;Seguridad&quot; &quot;Directivo&quot;</code></pre>
 
 </div>
 </div>
@@ -712,8 +594,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualización-de-datos-con-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regresión-lineal-múltiple-más-de-una-independiente.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -744,7 +626,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/02-descriptivos.Rmd",
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/13-Regresion_categoricas.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -752,7 +634,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/02-descriptivos.Rmd",
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/13-Regresion_categoricas.Rmd",
 "text": null
 },
 "download": null,

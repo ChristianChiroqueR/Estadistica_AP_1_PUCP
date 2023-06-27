@@ -213,3 +213,13 @@ comparando-modelos-tabla
 ahora-hazlo-tú-7
 ejercicio-1
 ejercicio-2
+regresión-lineal-múltiple-elementos-adicionales
+objetivo-de-la-sesión-3
+identificar-la-variable-que-aporta-más-al-modelo
+el-problema-de-la-unidad-de-medida
+solución-uso-de-coeficientes-estandarizados
+ejercicio
+sobre-variables-categóricas-en-la-rlm
+variables-dummy-1-0-definición
+variables-dummy-1-0-utilidad-en-la-rlm
+ejercicio-3
