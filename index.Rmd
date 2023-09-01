@@ -7,7 +7,7 @@ site: bookdown::bookdown_site
 
 # Introducción 
 
-## Los pilares de la Estadística
+## Los pilares de la Estadística PRUEBA
 
 ### Definición
 

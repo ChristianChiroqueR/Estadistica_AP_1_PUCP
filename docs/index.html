@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Estadística para el Análisis Político I</title>
   <meta name="description" content="Estadística para el Análisis Político I" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Estadística para el Análisis Político I" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-06-27" />
+<meta name="date" content="2023-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,13 +54,13 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -128,6 +128,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -147,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística-prueba"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística PRUEBA</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
 <li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
@@ -478,12 +482,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Estadística para el Análisis Político I</h1>
 <p class="author"><em>Docente: Christian Chiroque Ruiz</em></p>
-<p class="date"><em>2023-06-27</em></p>
+<p class="date"><em>2023-08-31</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Sesión 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="los-pilares-de-la-estadística" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Los pilares de la Estadística<a href="index.html#los-pilares-de-la-estadística" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="los-pilares-de-la-estadística-prueba" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Los pilares de la Estadística PRUEBA<a href="index.html#los-pilares-de-la-estadística-prueba" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="definición" class="section level3 hasAnchor" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Definición<a href="index.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La estadística es una rama de las matemáticas que se enfoca en el análisis, interpretación y presentación de datos. Los estadísticos se centran en la teoría estadística y en el desarrollo de métodos para analizar datos. Los estadísticos también pueden diseñar estudios experimentales para recopilar datos de una manera rigurosa y controlada.</p>
@@ -530,30 +534,30 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div id="los-objetos-elementos-básicos-en-el-r" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Los objetos: elementos básicos en el R<a href="index.html#los-objetos-elementos-básicos-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos a examinar la clase de algunos de los elementos más básicos en R: los números, los caracteres y los elementos lógicos.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para escribir valores character siempre entre comillas</span></span>
-<span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;rojo&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" tabindex="-1"></a><span class="co"># Para escribir valores character siempre entre comillas</span></span>
+<span id="cb3-2"><a href="index.html#cb3-2" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;rojo&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para escribir valores booleanos siempre usar mayúscula.</span></span>
-<span id="cb5-2"><a href="index.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1" tabindex="-1"></a><span class="co"># Para escribir valores booleanos siempre usar mayúscula.</span></span>
+<span id="cb5-2"><a href="index.html#cb5-2" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <p>En R, los datos pueden ser coercionados, es decir, forzados, para transformarlos de un tipo a otro.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;5&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">5.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">5.1</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;5&quot;</code></pre>
 <p>Podemos asignarles etiquetas (nombres) a esos elementos.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">5.5</span></span>
-<span id="cb13-2"><a href="index.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">5.5</span></span>
+<span id="cb13-2"><a href="index.html#cb13-2" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="index.html#cb15-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;perro&quot;</span></span>
-<span id="cb15-2"><a href="index.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="index.html#cb15-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;perro&quot;</span></span>
+<span id="cb15-2"><a href="index.html#cb15-2" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb17-2"><a href="index.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb17-2"><a href="index.html#cb17-2" tabindex="-1"></a><span class="fu">class</span>(z)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <p>Considerar que también se puede usar el signo “=”. Sin embargo, tiene algunas diferencias en cuanto a su uso en el programa.</p>
 <p>Por ejemplo, uno puede escribir esta sentencia X &lt;-5+5 y
@@ -571,51 +575,51 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <li><p>NO TIENE DIMENSIÓN (dim)</p></li>
 </ul>
 <p>Ejemplo: Vamos a crear tres vectores: uno numérico, uno de caracter y uno lógico. Podemos utilizar la función <code>length()</code> para medir el largo de estos (cuántos elementos contiene).</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="index.html#cb19-1" aria-hidden="true" tabindex="-1"></a>vector_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb19-2"><a href="index.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vector_numerico)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="index.html#cb19-1" tabindex="-1"></a>vector_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb19-2"><a href="index.html#cb19-2" tabindex="-1"></a><span class="fu">length</span>(vector_numerico)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="index.html#cb21-1" aria-hidden="true" tabindex="-1"></a>vector_caracter <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;arbol&quot;</span>, <span class="st">&quot;casa&quot;</span>, <span class="st">&quot;persona&quot;</span>)</span>
-<span id="cb21-2"><a href="index.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vector_caracter)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="index.html#cb21-1" tabindex="-1"></a>vector_caracter <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;arbol&quot;</span>, <span class="st">&quot;casa&quot;</span>, <span class="st">&quot;persona&quot;</span>)</span>
+<span id="cb21-2"><a href="index.html#cb21-2" tabindex="-1"></a><span class="fu">length</span>(vector_caracter)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="index.html#cb23-1" aria-hidden="true" tabindex="-1"></a>vector_logico<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb23-2"><a href="index.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vector_logico)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="index.html#cb23-1" tabindex="-1"></a>vector_logico<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb23-2"><a href="index.html#cb23-2" tabindex="-1"></a><span class="fu">length</span>(vector_logico)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>También podemos utilizar la función <code>class()</code> para corroborar que cada vector tiene la misma clase de los elementos que contiene.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="index.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_numerico)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="index.html#cb25-1" tabindex="-1"></a><span class="fu">class</span>(vector_numerico)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="index.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_caracter)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="index.html#cb27-1" tabindex="-1"></a><span class="fu">class</span>(vector_caracter)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="index.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_logico)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="index.html#cb29-1" tabindex="-1"></a><span class="fu">class</span>(vector_logico)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <p>Tener en cuenta que los vectores también pueden tener valores perdidos (NA).</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="index.html#cb31-1" aria-hidden="true" tabindex="-1"></a>vector_con_NA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">5</span>)  </span>
-<span id="cb31-2"><a href="index.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vector_con_NA)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="index.html#cb31-1" tabindex="-1"></a>vector_con_NA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="cn">NA</span>,<span class="dv">5</span>)  </span>
+<span id="cb31-2"><a href="index.html#cb31-2" tabindex="-1"></a><span class="fu">length</span>(vector_con_NA)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="index.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_con_NA)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="index.html#cb33-1" tabindex="-1"></a><span class="fu">class</span>(vector_con_NA)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
 <div id="un-vector-especial-los-factores" class="section level3 hasAnchor" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Un vector especial: los factores<a href="index.html#un-vector-especial-los-factores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Un factor es un tipo de datos específico en R. Puede ser descrito como un dato numérico representado por una etiqueta.</p>
 <p>Supongamos que tenemos un conjunto de datos que representan el género de personas encuestadas por teléfono, pero estos se encuentran capturados con los números 1 y 2.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="index.html#cb35-1" aria-hidden="true" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="index.html#cb35-1" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <p>El número 1 corresponde a Mujer y el 2 a Hombre. A diferencia del carácter, el factor tiene NIVELES (levels).</p>
 <p>Podemos crear un vector de tipo factor con la función <code>factor()</code>.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="index.html#cb36-1" aria-hidden="true" tabindex="-1"></a>genero_en_factor<span class="ot">=</span><span class="fu">factor</span>(genero, </span>
-<span id="cb36-2"><a href="index.html#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
-<span id="cb36-3"><a href="index.html#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Mujer&quot;</span>, <span class="st">&quot;Hombre&quot;</span>))</span>
-<span id="cb36-4"><a href="index.html#cb36-4" aria-hidden="true" tabindex="-1"></a>genero_en_factor</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="index.html#cb36-1" tabindex="-1"></a>genero_en_factor<span class="ot">=</span><span class="fu">factor</span>(genero, </span>
+<span id="cb36-2"><a href="index.html#cb36-2" tabindex="-1"></a>       <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb36-3"><a href="index.html#cb36-3" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Mujer&quot;</span>, <span class="st">&quot;Hombre&quot;</span>))</span>
+<span id="cb36-4"><a href="index.html#cb36-4" tabindex="-1"></a>genero_en_factor</span></code></pre></div>
 <pre><code>## [1] Mujer  Mujer  Mujer  Hombre Hombre Mujer  Hombre
 ## Levels: Mujer Hombre</code></pre>
 <p>En la práctica, muchas veces vamos a ver las variables de tipo factor en nuestro análisis. Por ello, debes ser muy cuidadoso en la preparación previa que debes realizar a la base de datos antes de aplicar las funciones.</p>
 <p>Asimismo, un factor puede estar ordenado o no ordenado. Esto nos sirve, por ejemplo, para crear variables de tipo ordinal. Podemos indicarlo ello, con el argumento <code>ordered=</code>.</p>
 <p>Veamos:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="index.html#cb38-1" aria-hidden="true" tabindex="-1"></a>confianza<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb38-2"><a href="index.html#cb38-2" aria-hidden="true" tabindex="-1"></a>confianza_en_factor<span class="ot">=</span><span class="fu">factor</span>(confianza, </span>
-<span id="cb38-3"><a href="index.html#cb38-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
-<span id="cb38-4"><a href="index.html#cb38-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Bajo&quot;</span>, <span class="st">&quot;Medio&quot;</span>, <span class="st">&quot;Alto&quot;</span>), </span>
-<span id="cb38-5"><a href="index.html#cb38-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb38-6"><a href="index.html#cb38-6" aria-hidden="true" tabindex="-1"></a>confianza_en_factor</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="index.html#cb38-1" tabindex="-1"></a>confianza<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb38-2"><a href="index.html#cb38-2" tabindex="-1"></a>confianza_en_factor<span class="ot">=</span><span class="fu">factor</span>(confianza, </span>
+<span id="cb38-3"><a href="index.html#cb38-3" tabindex="-1"></a>       <span class="at">levels=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb38-4"><a href="index.html#cb38-4" tabindex="-1"></a>       <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Bajo&quot;</span>, <span class="st">&quot;Medio&quot;</span>, <span class="st">&quot;Alto&quot;</span>), </span>
+<span id="cb38-5"><a href="index.html#cb38-5" tabindex="-1"></a>       <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-6"><a href="index.html#cb38-6" tabindex="-1"></a>confianza_en_factor</span></code></pre></div>
 <pre><code>## [1] Bajo  Bajo  Alto  Medio
 ## Levels: Bajo &lt; Medio &lt; Alto</code></pre>
 <p>Vemos que nos indica los niveles, pero en este caso están ordenados de menor a mayor.</p>
@@ -626,18 +630,18 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <p>Estructura más usada para ciencia de datos.</p>
 <p>Mientras que en una matriz todas las celdas deben contener datos del mismo tipo, los renglones de un data frame admiten datos de distintos tipos, pero sus columnas conservan la restricción de contener datos de un sólo tipo.</p>
 <p>En términos generales, los renglones en un data frame representan casos, individuos u observaciones, mientras que las columnas representan atributos, rasgos o variables.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="index.html#cb40-1" aria-hidden="true" tabindex="-1"></a>mi_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb40-2"><a href="index.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;variable1&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
-<span id="cb40-3"><a href="index.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;variable2&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>),</span>
-<span id="cb40-4"><a href="index.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;variable3&quot;</span> <span class="ot">=</span> <span class="fu">as.character</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)),</span>
-<span id="cb40-5"><a href="index.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;variable4&quot;</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>))</span>
-<span id="cb40-6"><a href="index.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="co">#Para crear un DT los vectores de insumo deben ser del mismo largo</span></span>
-<span id="cb40-7"><a href="index.html#cb40-7" aria-hidden="true" tabindex="-1"></a>mi_df</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="index.html#cb40-1" tabindex="-1"></a>mi_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb40-2"><a href="index.html#cb40-2" tabindex="-1"></a>  <span class="st">&quot;variable1&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb40-3"><a href="index.html#cb40-3" tabindex="-1"></a>  <span class="st">&quot;variable2&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">3.4</span>, <span class="fl">4.5</span>),</span>
+<span id="cb40-4"><a href="index.html#cb40-4" tabindex="-1"></a>  <span class="st">&quot;variable3&quot;</span> <span class="ot">=</span> <span class="fu">as.character</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)),</span>
+<span id="cb40-5"><a href="index.html#cb40-5" tabindex="-1"></a>  <span class="st">&quot;variable4&quot;</span> <span class="ot">=</span> <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>))</span>
+<span id="cb40-6"><a href="index.html#cb40-6" tabindex="-1"></a>  ) <span class="co">#Para crear un DT los vectores de insumo deben ser del mismo largo</span></span>
+<span id="cb40-7"><a href="index.html#cb40-7" tabindex="-1"></a>mi_df</span></code></pre></div>
 <pre><code>##   variable1 variable2 variable3 variable4
 ## 1         1       1.2         a         1
 ## 2         2       3.4         b         2
 ## 3         3       4.5         c         3</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="index.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mi_df)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="index.html#cb42-1" tabindex="-1"></a><span class="fu">str</span>(mi_df)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    3 obs. of  4 variables:
 ##  $ variable1: int  1 2 3
 ##  $ variable2: num  1.2 3.4 4.5
@@ -650,17 +654,17 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <ul>
 <li>Dimensión: un número de filas y un número de columnas.</li>
 </ul>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="index.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mi_df) <span class="co">#FILAS Y COLUMNAS</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="index.html#cb44-1" tabindex="-1"></a><span class="fu">dim</span>(mi_df) <span class="co">#FILAS Y COLUMNAS</span></span></code></pre></div>
 <pre><code>## [1] 3 4</code></pre>
 <ul>
 <li>Largo: número de casos</li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="index.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(mi_df)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="index.html#cb46-1" tabindex="-1"></a><span class="fu">length</span>(mi_df)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <ul>
 <li>Nombre de columnas: Podemos consultar el nombre de las columnas (variables) con la función <code>names()</code>.</li>
 </ul>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mi_df) </span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" tabindex="-1"></a><span class="fu">names</span>(mi_df) </span></code></pre></div>
 <pre><code>## [1] &quot;variable1&quot; &quot;variable2&quot; &quot;variable3&quot; &quot;variable4&quot;</code></pre>
 </div>
 <div id="índices" class="section level3 hasAnchor" number="1.3.5">
@@ -674,21 +678,21 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <ul>
 <li>Seleccionar la columna 2:</li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="index.html#cb50-1" aria-hidden="true" tabindex="-1"></a>mi_df [,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="index.html#cb50-1" tabindex="-1"></a>mi_df [,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 1.2 3.4 4.5</code></pre>
 <p>Para seleccionar una columna, también podemos usar el símbolo de <code>$</code>. Es bastante usado en varias funciones.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="index.html#cb52-1" aria-hidden="true" tabindex="-1"></a>mi_df<span class="sc">$</span>variable2</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="index.html#cb52-1" tabindex="-1"></a>mi_df<span class="sc">$</span>variable2</span></code></pre></div>
 <pre><code>## [1] 1.2 3.4 4.5</code></pre>
 <ul>
 <li>Seleccionar el caso (fila) 2:</li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="index.html#cb54-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="index.html#cb54-1" tabindex="-1"></a>mi_df [<span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##   variable1 variable2 variable3 variable4
 ## 2         2       3.4         b         2</code></pre>
 <ul>
 <li>Seleccionar el elemento que se encuentra en la fila 2 y la columna 2:</li>
 </ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="index.html#cb56-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="index.html#cb56-1" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 3.4</code></pre>
 </div>
 </div>
@@ -714,33 +718,28 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <h2><span class="header-section-number">1.5</span> Abrir una base de datos<a href="index.html#abrir-una-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En la práctica tenemos el reto de manipular bases de datos que se encuentran en distintos tipos de archivo. Algunas veces se encuentran en formato .xlsx (Excel regular), pero otras veces las encontramos en formato .csv (separado con comas o puntos y comas), .sav (archivos desde el SPSS), entre otros.</p>
 <p>Para ello, tenemos dos opciones. La más sencilla es utilizar el paquete <code>rio</code> y utilizamos la función <code>import()</code>. Este paquete es una navaja suiza porque te permite abrir distintos formatos con la misma función.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb58-2"><a href="index.html#cb58-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
-<span id="cb58-3"><a href="index.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA
-## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL
-## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE
-## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL
-##   VOTOS_VALIDOS_OP VOTOS_VALIDOS VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES
-## 1                6         11148         1034         340            15748
-## 2               24         11148         1034         340            15748
-## 3               35         11148         1034         340            15748
-##   VOTOS_EMITIDOS
-## 1          12522
-## 2          12522
-## 3          12522</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb58-2"><a href="index.html#cb58-2" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
+<span id="cb58-3"><a href="index.html#cb58-3" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS VOTOS_BLANCO
+## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL                6         11148         1034
+## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE               24         11148         1034
+## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL               35         11148         1034
+##   VOTOS_NULOS NUMERO_ELECTORES VOTOS_EMITIDOS
+## 1         340            15748          12522
+## 2         340            15748          12522
+## 3         340            15748          12522</code></pre>
 <p>O también podemos utilizar el paquete <code>readxl()</code> que pertenece al universo de <strong>Tidyverse</strong>. Lo bueno de esta función es que cuando visualizas la data se realiza de forma más ordenada.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb60-2"><a href="index.html#cb60-2" aria-hidden="true" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
-<span id="cb60-3"><a href="index.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb60-2"><a href="index.html#cb60-2" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
+<span id="cb60-3"><a href="index.html#cb60-3" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
-##   UBIGEO DEPARTAMENTO PROVINCIA  DISTRITO ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP
-##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;                            &lt;dbl&gt;
-## 1 010101 AMAZONAS     CHACHAPOY… CHACHAP… FUERZA NACIONAL                      6
-## 2 010101 AMAZONAS     CHACHAPOY… CHACHAP… PARTIDO POLITICO ADE…               24
-## 3 010101 AMAZONAS     CHACHAPOY… CHACHAP… DESPERTAR NACIONAL                  35
-## # ℹ 5 more variables: VOTOS_VALIDOS &lt;dbl&gt;, VOTOS_BLANCO &lt;dbl&gt;,
-## #   VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
+##   UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO   ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS VOTOS_BLANCO VOTOS_NULOS
+##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;                            &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+## 1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOY… FUERZA NACIONAL                      6         11148         1034         340
+## 2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOY… PARTIDO POLITICO ADE…               24         11148         1034         340
+## 3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOY… DESPERTAR NACIONAL                  35         11148         1034         340
+## # ℹ 2 more variables: NUMERO_ELECTORES &lt;dbl&gt;, VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
 <p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
 </div>
 <div id="manipulación-de-datos-con-tidyverse" class="section level2 hasAnchor" number="1.6">

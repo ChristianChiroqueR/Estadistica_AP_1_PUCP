@@ -1,5 +1,5 @@
 introducción
-los-pilares-de-la-estadística
+los-pilares-de-la-estadística-prueba
 definición
 unidad-de-análisis
 tipos-de-variable
