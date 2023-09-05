@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-08-31" />
+<meta name="date" content="2023-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="visualización-de-datos-con-ggplot2.html"/>
-<link rel="next" href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,13 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -236,230 +229,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>4.6.4</b> Cálculo del intervalo de confianza al 95%</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> IC de una proporción e introducción a pruebas de hipótesis</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
-<li class="chapter" data-level="5.1.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="5.1.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
-<li class="chapter" data-level="5.1.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
-<li class="chapter" data-level="5.1.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
-<li class="chapter" data-level="5.2.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
-<li class="chapter" data-level="5.2.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
-<li class="chapter" data-level="5.2.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
-<li class="chapter" data-level="5.2.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
-<li class="chapter" data-level="5.3.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
-<li class="chapter" data-level="5.3.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="5.3.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="5.3.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
-<li class="chapter" data-level="5.3.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="5.3.7" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html"><i class="fa fa-check"></i><b>6</b> Comparación en dos muestras (t.test y prop.test)</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#recordemos-1"><i class="fa fa-check"></i><b>6.1</b> Recordemos</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Prueba de hipótesis</a></li>
-<li class="chapter" data-level="6.1.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#flujograma"><i class="fa fa-check"></i><b>6.1.2</b> Flujograma</a></li>
-<li class="chapter" data-level="6.1.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.3</b> Tipos de prueba de hipótesis</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-medias-t.test"><i class="fa fa-check"></i><b>6.2</b> Diferencia de medias (t.test)</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación"><i class="fa fa-check"></i><b>6.2.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="6.2.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.2.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.2.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.2.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.2.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.2.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.2.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.2.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.2.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-2"><i class="fa fa-check"></i><b>6.2.9</b> Ahora hazlo tú!</a></li>
-<li class="chapter" data-level="6.2.10" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#a-tener-en-cuenta"><i class="fa fa-check"></i><b>6.2.10</b> A tener en cuenta</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-proporciones-prop.test"><i class="fa fa-check"></i><b>6.3</b> Diferencia de proporciones (prop.test)</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación-1"><i class="fa fa-check"></i><b>6.3.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="6.3.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>6.3.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.3.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>6.3.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.3.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>6.3.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.3.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>6.3.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.3.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>6.3.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.3.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>6.3.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.3.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>6.3.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.3.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-3"><i class="fa fa-check"></i><b>6.3.9</b> Ahora hazlo tú!</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html"><i class="fa fa-check"></i><b>7</b> ANOVA: Comparación en más de dos muestras</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#recordemos-2"><i class="fa fa-check"></i><b>7.1</b> Recordemos</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#flujograma-1"><i class="fa fa-check"></i><b>7.1.1</b> Flujograma</a></li>
-<li class="chapter" data-level="7.1.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#qué-sigue"><i class="fa fa-check"></i><b>7.1.2</b> Qué sigue?</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pregunta-de-investigación-2"><i class="fa fa-check"></i><b>7.2.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-3"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#identificar-ellos-grupos-diferentes"><i class="fa fa-check"></i><b>7.3</b> Identificar el/los grupos diferentes</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pruebas-post-hoc-test-de-tukey"><i class="fa fa-check"></i><b>7.3.1</b> Pruebas post hoc: Test de Tukey</a></li>
-<li class="chapter" data-level="7.3.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#visualización"><i class="fa fa-check"></i><b>7.3.2</b> Visualización</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.4</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>8</b> EJERCICIO DE REPASO</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#base-de-datos-lapop"><i class="fa fa-check"></i><b>8.1</b> Base de datos: LAPOP</a></li>
-<li class="chapter" data-level="8.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#problema"><i class="fa fa-check"></i><b>8.2</b> Problema</a></li>
-<li class="chapter" data-level="8.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-1-índice-de-respaldo-al-sistema-político"><i class="fa fa-check"></i><b>8.3</b> Ejercicio 1: Índice de respaldo al sistema político</a></li>
-<li class="chapter" data-level="8.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-2-exploración"><i class="fa fa-check"></i><b>8.4</b> Ejercicio 2: Exploración</a></li>
-<li class="chapter" data-level="8.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-3-ic-de-una-media"><i class="fa fa-check"></i><b>8.5</b> Ejercicio 3: IC de una media</a></li>
-<li class="chapter" data-level="8.6" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-4-comparación-en-dos-grupos"><i class="fa fa-check"></i><b>8.6</b> Ejercicio 4: Comparación en dos grupos</a></li>
-<li class="chapter" data-level="8.7" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-5-comparación-en-más-de-dos-grupos"><i class="fa fa-check"></i><b>8.7</b> Ejercicio 5: Comparación en más de dos grupos</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html"><i class="fa fa-check"></i><b>9</b> Asociación de dos factores</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#base-de-datos-lapop-1"><i class="fa fa-check"></i><b>9.1</b> Base de datos: LAPOP</a></li>
-<li class="chapter" data-level="9.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#pregunta-de-investigaciòn"><i class="fa fa-check"></i><b>9.2</b> Pregunta de investigaciòn</a></li>
-<li class="chapter" data-level="9.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#identificando-las-dos-variables-categóricas"><i class="fa fa-check"></i><b>9.3</b> Identificando las dos variables categóricas</a></li>
-<li class="chapter" data-level="9.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tablas-de-contingencia"><i class="fa fa-check"></i><b>9.4</b> Tablas de contingencia</a>
-<ul>
-<li class="chapter" data-level="9.4.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-frecuencias"><i class="fa fa-check"></i><b>9.4.1</b> TC de frecuencias</a></li>
-<li class="chapter" data-level="9.4.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-proporciones"><i class="fa fa-check"></i><b>9.4.2</b> TC de proporciones</a></li>
-<li class="chapter" data-level="9.4.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#variable-independiente-y-dependiente"><i class="fa fa-check"></i><b>9.4.3</b> Variable independiente y dependiente?</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#gráficando-barras-y-barras-apiladas"><i class="fa fa-check"></i><b>9.5</b> Gráficando: Barras y barras apiladas</a></li>
-<li class="chapter" data-level="9.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#prueba-χ²"><i class="fa fa-check"></i><b>9.6</b> Prueba χ²</a>
-<ul>
-<li class="chapter" data-level="9.6.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-0-análisis-exploratorio"><i class="fa fa-check"></i><b>9.6.1</b> Paso 0: Análisis exploratorio</a></li>
-<li class="chapter" data-level="9.6.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-1-establecer-hipótesis-3"><i class="fa fa-check"></i><b>9.6.2</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="9.6.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-2-verificar-supuestos-4"><i class="fa fa-check"></i><b>9.6.3</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="9.6.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-3-establecer-nivel-de-significancia-4"><i class="fa fa-check"></i><b>9.6.4</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="9.6.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-3"><i class="fa fa-check"></i><b>9.6.5</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="9.6.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-5-tomar-una-decisión-4"><i class="fa fa-check"></i><b>9.6.6</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="9.6.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-6-interpretación-4"><i class="fa fa-check"></i><b>9.6.7</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="9.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#ahora-hazlo-tú-5"><i class="fa fa-check"></i><b>9.7</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><i class="fa fa-check"></i><b>10</b> Midiendo la asociación de dos numéricas: La Correlación</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#objetivo-de-la-sesión"><i class="fa fa-check"></i><b>10.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="10.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#recordando-plano-cartesiano-y-diagrama-de-dispersión"><i class="fa fa-check"></i><b>10.2</b> Recordando: Plano cartesiano y diagrama de dispersión</a></li>
-<li class="chapter" data-level="10.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza"><i class="fa fa-check"></i><b>10.3</b> Varianza</a></li>
-<li class="chapter" data-level="10.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#covarianza"><i class="fa fa-check"></i><b>10.4</b> Covarianza</a></li>
-<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson"><i class="fa fa-check"></i><b>10.5</b> Coeficiente de Correlación de Pearson</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3"><i class="fa fa-check"></i><b>10.5.1</b> Definición</a></li>
-<li class="chapter" data-level="10.5.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación"><i class="fa fa-check"></i><b>10.5.2</b> Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#validación-con-prueba-de-hipótesis"><i class="fa fa-check"></i><b>10.6</b> Validación con prueba de hipótesis</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-1-establecer-hipótesis-4"><i class="fa fa-check"></i><b>10.6.1</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="10.6.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-2-verificar-supuestos-5"><i class="fa fa-check"></i><b>10.6.2</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="10.6.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-3-establecer-nivel-de-significancia-5"><i class="fa fa-check"></i><b>10.6.3</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="10.6.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-4"><i class="fa fa-check"></i><b>10.6.4</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="10.6.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-5-tomar-una-decisión-5"><i class="fa fa-check"></i><b>10.6.5</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="10.6.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5"><i class="fa fa-check"></i><b>10.6.6</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#matriz-de-correlación"><i class="fa fa-check"></i><b>10.7</b> Matriz de correlación</a></li>
-<li class="chapter" data-level="10.8" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota"><i class="fa fa-check"></i><b>10.8</b> Toma nota</a>
-<ul>
-<li class="chapter" data-level="10.8.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad"><i class="fa fa-check"></i><b>10.8.1</b> Correlación no implica causalidad</a></li>
-<li class="chapter" data-level="10.8.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre"><i class="fa fa-check"></i><b>10.8.2</b> Cuidado: Scatterplot como primer paso SIEMPRE</a></li>
-<li class="chapter" data-level="10.8.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos"><i class="fa fa-check"></i><b>10.8.3</b> Valores extremos</a></li>
-<li class="chapter" data-level="10.8.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>10.8.4</b> Tamaño de la muestra</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html"><i class="fa fa-check"></i><b>11</b> Regresión lineal simple: explicar y predecir</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#objetivo-de-la-sesión-1"><i class="fa fa-check"></i><b>11.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="11.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#pregunta-de-investigación-3"><i class="fa fa-check"></i><b>11.2</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="11.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#recordando"><i class="fa fa-check"></i><b>11.3</b> Recordando</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#coeficiente-de-correlación-de-pearson-1"><i class="fa fa-check"></i><b>11.3.1</b> Coeficiente de Correlación de Pearson</a></li>
-<li class="chapter" data-level="11.3.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#ahora-hazlo-tú-6"><i class="fa fa-check"></i><b>11.3.2</b> ¡Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#introducción-a-la-regresión-lineal-simple"><i class="fa fa-check"></i><b>11.4</b> Introducción a la Regresión Lineal Simple</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#variable-dependiente-y-variable-independiente"><i class="fa fa-check"></i><b>11.4.1</b> Variable dependiente y variable independiente</a></li>
-<li class="chapter" data-level="11.4.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#flashback-ecuación-de-la-recta"><i class="fa fa-check"></i><b>11.4.2</b> Flashback: Ecuación de la recta</a></li>
-<li class="chapter" data-level="11.4.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-mejor-recta-para-la-nube-de-puntos"><i class="fa fa-check"></i><b>11.4.3</b> La mejor recta para la nube de puntos</a></li>
-<li class="chapter" data-level="11.4.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-regresión-lineal"><i class="fa fa-check"></i><b>11.4.4</b> La Regresión Lineal</a></li>
-<li class="chapter" data-level="11.4.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#calidad-de-ajuste-r2"><i class="fa fa-check"></i><b>11.4.5</b> Calidad de ajuste: R2</a></li>
-<li class="chapter" data-level="11.4.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#significancia-estadística-de-los-coeficientes"><i class="fa fa-check"></i><b>11.4.6</b> Significancia estadística de los coeficientes</a></li>
-<li class="chapter" data-level="11.4.7" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-rls-como-herramienta-predictiva"><i class="fa fa-check"></i><b>11.4.7</b> La RLS como herramienta predictiva</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#matrícula-escolar-un-modelo-utilizando-rls"><i class="fa fa-check"></i><b>11.5</b> Matrícula escolar: un modelo utilizando RLS</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-0-identificar-claramente-la-variable-dependiente-y-la-variable-independiente"><i class="fa fa-check"></i><b>11.5.1</b> Paso 0: Identificar claramente la variable dependiente y la variable independiente</a></li>
-<li class="chapter" data-level="11.5.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-1-explorar-previamente-la-relación-de-las-variables"><i class="fa fa-check"></i><b>11.5.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
-<li class="chapter" data-level="11.5.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova"><i class="fa fa-check"></i><b>11.5.3</b> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA</a></li>
-<li class="chapter" data-level="11.5.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-3-nivel-explicativo-del-modelo"><i class="fa fa-check"></i><b>11.5.4</b> Paso 3: Nivel explicativo del modelo</a></li>
-<li class="chapter" data-level="11.5.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-4-la-variable-x-aporta-al-modelo"><i class="fa fa-check"></i><b>11.5.5</b> Paso 4: La variable x aporta al modelo</a></li>
-<li class="chapter" data-level="11.5.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-5-construimos-la-ecuación-del-modelo-creado"><i class="fa fa-check"></i><b>11.5.6</b> Paso 5: Construimos la ecuación del modelo creado</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html"><i class="fa fa-check"></i><b>12</b> Regresión lineal múltiple: más de una independiente</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#objetivo-de-la-sesión-2"><i class="fa fa-check"></i><b>12.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="12.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>12.2</b> Regresión Lineal Múltiple</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ecuación"><i class="fa fa-check"></i><b>12.2.1</b> Ecuación</a></li>
-<li class="chapter" data-level="12.2.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#mayor-complejidad-para-visualizar-la-relación"><i class="fa fa-check"></i><b>12.2.2</b> Mayor complejidad para visualizar la relación</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#pregunta-de-investigación-4"><i class="fa fa-check"></i><b>12.3</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="12.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#explicando-y-prediciendo-la-desigualdad-un-modelo-utilizando-rlm"><i class="fa fa-check"></i><b>12.4</b> Explicando y prediciendo la desigualdad: un modelo utilizando RLM</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-0-identificar-claramente-la-variable-dependiente-y-las-variables-independientes"><i class="fa fa-check"></i><b>12.4.1</b> Paso 0: Identificar claramente la variable dependiente y laS variables independientes</a></li>
-<li class="chapter" data-level="12.4.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-1-explorar-previamente-la-relación-de-las-variables-1"><i class="fa fa-check"></i><b>12.4.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
-<li class="chapter" data-level="12.4.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova-1"><i class="fa fa-check"></i><b>12.4.3</b> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA</a></li>
-<li class="chapter" data-level="12.4.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-3-nivel-explicativo-del-modelo-1"><i class="fa fa-check"></i><b>12.4.4</b> Paso 3: Nivel explicativo del modelo</a></li>
-<li class="chapter" data-level="12.4.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-4-la-variable-x-aporta-al-modelo-1"><i class="fa fa-check"></i><b>12.4.5</b> Paso 4: La variable x aporta al modelo</a></li>
-<li class="chapter" data-level="12.4.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-5-construimos-la-ecuación-del-modelo-creado-1"><i class="fa fa-check"></i><b>12.4.6</b> Paso 5: Construimos la ecuación del modelo creado</a></li>
-<li class="chapter" data-level="12.4.7" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-6-predecir"><i class="fa fa-check"></i><b>12.4.7</b> Paso 6: Predecir</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#comparando-modelos-tabla"><i class="fa fa-check"></i><b>12.5</b> Comparando modelos: Tabla</a></li>
-<li class="chapter" data-level="12.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ahora-hazlo-tú-7"><i class="fa fa-check"></i><b>12.6</b> Ahora hazlo tú!</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-1"><i class="fa fa-check"></i><b>12.6.1</b> Ejercicio 1</a></li>
-<li class="chapter" data-level="12.6.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2"><i class="fa fa-check"></i><b>12.6.2</b> Ejercicio 2</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>13</b> Regresión lineal múltiple: elementos adicionales</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-3"><i class="fa fa-check"></i><b>13.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="13.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>13.2</b> Identificar la variable que aporta más al modelo</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>13.2.1</b> El problema de la unidad de medida</a></li>
-<li class="chapter" data-level="13.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>13.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
-<li class="chapter" data-level="13.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>13.2.3</b> Ejercicio</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>13.3</b> Sobre variables categóricas en la RLM</a>
-<ul>
-<li class="chapter" data-level="13.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>13.3.1</b> Variables dummy (1-0): Definición</a></li>
-<li class="chapter" data-level="13.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>13.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
-<li class="chapter" data-level="13.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-3"><i class="fa fa-check"></i><b>13.3.3</b> Ejercicio</a></li>
-</ul></li>
-</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -571,44 +340,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Usted tiene la siguiente variable con distribución normal, de media 100 y desviación estándar 20.</li>
 </ul>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="estadística-inferencial-introducción.html#cb90-1" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb90-2"><a href="estadística-inferencial-introducción.html#cb90-2" tabindex="-1"></a>desviacion_estandar <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb90-3"><a href="estadística-inferencial-introducción.html#cb90-3" tabindex="-1"></a>variable_aleatoria <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> media, <span class="at">sd =</span> desviacion_estandar)</span>
-<span id="cb90-4"><a href="estadística-inferencial-introducción.html#cb90-4" tabindex="-1"></a><span class="fu">summary</span>(variable_aleatoria)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   33.34   86.46   99.57  100.21  113.54  160.82</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="estadística-inferencial-introducción.html#cb92-1" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb92-2"><a href="estadística-inferencial-introducción.html#cb92-2" tabindex="-1"></a>desviacion_estandar <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb92-3"><a href="estadística-inferencial-introducción.html#cb92-3" tabindex="-1"></a>variable_aleatoria <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> media, <span class="at">sd =</span> desviacion_estandar)</span>
+<span id="cb92-4"><a href="estadística-inferencial-introducción.html#cb92-4" tabindex="-1"></a><span class="fu">summary</span>(variable_aleatoria)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 
+##   42.67   85.85   99.98   99.76 
+## 3rd Qu.    Max. 
+##  114.46  169.82</code></pre>
 <ul>
 <li>Visualicemos si tiene la curva normal.</li>
 </ul>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="estadística-inferencial-introducción.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb92-2"><a href="estadística-inferencial-introducción.html#cb92-2" tabindex="-1"></a>variable_aleatoria <span class="sc">|&gt;</span> </span>
-<span id="cb92-3"><a href="estadística-inferencial-introducción.html#cb92-3" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb92-4"><a href="estadística-inferencial-introducción.html#cb92-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb92-5"><a href="estadística-inferencial-introducción.html#cb92-5" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>variable_aleatoria) <span class="sc">+</span> </span>
-<span id="cb92-6"><a href="estadística-inferencial-introducción.html#cb92-6" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="estadística-inferencial-introducción.html#cb94-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb94-2"><a href="estadística-inferencial-introducción.html#cb94-2" tabindex="-1"></a>variable_aleatoria <span class="sc">|&gt;</span> </span>
+<span id="cb94-3"><a href="estadística-inferencial-introducción.html#cb94-3" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb94-4"><a href="estadística-inferencial-introducción.html#cb94-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb94-5"><a href="estadística-inferencial-introducción.html#cb94-5" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>variable_aleatoria) <span class="sc">+</span> </span>
+<span id="cb94-6"><a href="estadística-inferencial-introducción.html#cb94-6" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <ul>
 <li>Comprobemos la teoría. Pintemos las líneas de -1 SD, -2 SD, -3SD, la media, +1 SD, +2 SD y +3SD. Recuerda que la desviación estándar es 20.</li>
 </ul>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>Cuánto porcentaje de casos se encuentran entre 80 (-1SD) y 120 (+1SD)?</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="estadística-inferencial-introducción.html#cb93-1" tabindex="-1"></a>variable_aleatoria <span class="sc">|&gt;</span> </span>
-<span id="cb93-2"><a href="estadística-inferencial-introducción.html#cb93-2" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb93-3"><a href="estadística-inferencial-introducción.html#cb93-3" tabindex="-1"></a>  <span class="fu">filter</span>(variable_aleatoria<span class="sc">&gt;=</span><span class="dv">80</span>, variable_aleatoria<span class="sc">&lt;=</span><span class="dv">120</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb93-4"><a href="estadística-inferencial-introducción.html#cb93-4" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb93-5"><a href="estadística-inferencial-introducción.html#cb93-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
-<pre><code>##     n     p
-## 1 666 0.666</code></pre>
-<ul>
-<li>Y de 60 a 140?</li>
-</ul>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="estadística-inferencial-introducción.html#cb95-1" tabindex="-1"></a>variable_aleatoria <span class="sc">|&gt;</span> </span>
 <span id="cb95-2"><a href="estadística-inferencial-introducción.html#cb95-2" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb95-3"><a href="estadística-inferencial-introducción.html#cb95-3" tabindex="-1"></a>  <span class="fu">filter</span>(variable_aleatoria<span class="sc">&gt;=</span><span class="dv">60</span>, variable_aleatoria<span class="sc">&lt;=</span><span class="dv">140</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb95-3"><a href="estadística-inferencial-introducción.html#cb95-3" tabindex="-1"></a>  <span class="fu">filter</span>(variable_aleatoria<span class="sc">&gt;=</span><span class="dv">80</span>, variable_aleatoria<span class="sc">&lt;=</span><span class="dv">120</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb95-4"><a href="estadística-inferencial-introducción.html#cb95-4" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb95-5"><a href="estadística-inferencial-introducción.html#cb95-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>##     n     p
-## 1 958 0.958</code></pre>
+## 1 667 0.667</code></pre>
+<ul>
+<li>Y de 60 a 140?</li>
+</ul>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="estadística-inferencial-introducción.html#cb97-1" tabindex="-1"></a>variable_aleatoria <span class="sc">|&gt;</span> </span>
+<span id="cb97-2"><a href="estadística-inferencial-introducción.html#cb97-2" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb97-3"><a href="estadística-inferencial-introducción.html#cb97-3" tabindex="-1"></a>  <span class="fu">filter</span>(variable_aleatoria<span class="sc">&gt;=</span><span class="dv">60</span>, variable_aleatoria<span class="sc">&lt;=</span><span class="dv">140</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb97-4"><a href="estadística-inferencial-introducción.html#cb97-4" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb97-5"><a href="estadística-inferencial-introducción.html#cb97-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>##     n     p
+## 1 956 0.956</code></pre>
 </div>
 <div id="elementos-básicos-de-la-inferencia" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Elementos básicos de la inferencia<a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -652,40 +423,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="estimación-puntual" class="section level3 hasAnchor" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Estimación puntual<a href="estadística-inferencial-introducción.html#estimación-puntual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Imaginemos que tenemos una población de 45 individuos. A cada uno se le ha preguntado acerca de cuántas veces han asistido a una manifestación, marcha o evento público en los últimos 3 años. La data es la siguiente:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="estadística-inferencial-introducción.html#cb97-1" tabindex="-1"></a>poblacion<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
-<span id="cb97-2"><a href="estadística-inferencial-introducción.html#cb97-2" tabindex="-1"></a><span class="fu">length</span>(poblacion)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="estadística-inferencial-introducción.html#cb99-1" tabindex="-1"></a>poblacion<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb99-2"><a href="estadística-inferencial-introducción.html#cb99-2" tabindex="-1"></a><span class="fu">length</span>(poblacion)</span></code></pre></div>
 <pre><code>## [1] 45</code></pre>
 <ul>
 <li>Veámoslo gráficamente.</li>
 </ul>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="estadística-inferencial-introducción.html#cb99-1" tabindex="-1"></a>poblacion<span class="ot">=</span><span class="fu">as.data.frame</span>(poblacion)</span>
-<span id="cb99-2"><a href="estadística-inferencial-introducción.html#cb99-2" tabindex="-1"></a>poblacion <span class="sc">|&gt;</span> </span>
-<span id="cb99-3"><a href="estadística-inferencial-introducción.html#cb99-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb99-4"><a href="estadística-inferencial-introducción.html#cb99-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>poblacion) <span class="sc">|&gt;</span> </span>
-<span id="cb99-5"><a href="estadística-inferencial-introducción.html#cb99-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="estadística-inferencial-introducción.html#cb101-1" tabindex="-1"></a>poblacion<span class="ot">=</span><span class="fu">as.data.frame</span>(poblacion)</span>
+<span id="cb101-2"><a href="estadística-inferencial-introducción.html#cb101-2" tabindex="-1"></a>poblacion <span class="sc">|&gt;</span> </span>
+<span id="cb101-3"><a href="estadística-inferencial-introducción.html#cb101-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb101-4"><a href="estadística-inferencial-introducción.html#cb101-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>poblacion) <span class="sc">|&gt;</span> </span>
+<span id="cb101-5"><a href="estadística-inferencial-introducción.html#cb101-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <ul>
 <li>Como dato previo sabemos que en esta población la media es de 2.71. Ojo, normalmente nosotros no sabemos cuál es el parámetro poblacional, sólo lo planteamos así con fines didácticos.</li>
 </ul>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="estadística-inferencial-introducción.html#cb100-1" tabindex="-1"></a><span class="fu">mean</span>(poblacion<span class="sc">$</span>poblacion)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="estadística-inferencial-introducción.html#cb102-1" tabindex="-1"></a><span class="fu">mean</span>(poblacion<span class="sc">$</span>poblacion)</span></code></pre></div>
 <pre><code>## [1] 2.711111</code></pre>
 <ul>
 <li>Ahora vamos a hacer un estudio inferencial a partir de una muestra de 5 personas (n) para calcular la media poblacional (parámetro). Primero hay que preguntarnos, cuántas muestras posibles existen para 50 distintos elementos? No son pocas.</li>
 </ul>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="estadística-inferencial-introducción.html#cb102-1" tabindex="-1"></a>n_muestras <span class="ot">=</span> <span class="fu">choose</span>(<span class="dv">50</span>, <span class="dv">5</span>)</span>
-<span id="cb102-2"><a href="estadística-inferencial-introducción.html#cb102-2" tabindex="-1"></a>n_muestras</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="estadística-inferencial-introducción.html#cb104-1" tabindex="-1"></a>n_muestras <span class="ot">=</span> <span class="fu">choose</span>(<span class="dv">50</span>, <span class="dv">5</span>)</span>
+<span id="cb104-2"><a href="estadística-inferencial-introducción.html#cb104-2" tabindex="-1"></a>n_muestras</span></code></pre></div>
 <pre><code>## [1] 2118760</code></pre>
 <ul>
 <li>Ok, elijamos una muestra aleatoria. Utilicemos la tabla de números aleatorios (el antepasado del famoso set.seed() de R). Si no es legible, puedes entrar en este <a href="https://www.studocu.com/latam/document/universidad-de-el-salvador/estadistica-i/tabla-de-numeros-aleatorios/12886081">link</a></li>
 </ul>
 <p><img src="figures/tabla_aleatorios.png" /> - Elijamos una muestra de 5 casos según la tabla de números aleatorios, es decir, los casos: 10, 22, 24, 42 y 37.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="estadística-inferencial-introducción.html#cb104-1" tabindex="-1"></a>muestra1<span class="ot">=</span> poblacion[<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">42</span>, <span class="dv">37</span>),]</span>
-<span id="cb104-2"><a href="estadística-inferencial-introducción.html#cb104-2" tabindex="-1"></a>muestra1</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="estadística-inferencial-introducción.html#cb106-1" tabindex="-1"></a>muestra1<span class="ot">=</span> poblacion[<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">42</span>, <span class="dv">37</span>),]</span>
+<span id="cb106-2"><a href="estadística-inferencial-introducción.html#cb106-2" tabindex="-1"></a>muestra1</span></code></pre></div>
 <pre><code>## [1] 2 2 3 5 4</code></pre>
 <ul>
 <li>Calculemos la media muestral (estadístico):</li>
 </ul>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="estadística-inferencial-introducción.html#cb106-1" tabindex="-1"></a><span class="fu">mean</span>(muestra1)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="estadística-inferencial-introducción.html#cb108-1" tabindex="-1"></a><span class="fu">mean</span>(muestra1)</span></code></pre></div>
 <pre><code>## [1] 3.2</code></pre>
 <ul>
 <li>Según la muestra que hemos calculado, hemos obtenido una media de 3.2. Si nosotros nos quedamos sólo con ese valor entonces estamos eligiendo una estimación puntual.</li>
@@ -697,10 +468,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="error-de-muestreo" class="section level3 hasAnchor" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> Error de muestreo<a href="estadística-inferencial-introducción.html#error-de-muestreo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Si nosotros hacemos este ejercicio una y otra vez, es decir seleccionamos varias muestras, probablemente obtengamos resultados diferentes. Cada media muestral es ligeramente mayor o menor que la anterior.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="estadística-inferencial-introducción.html#cb108-1" tabindex="-1"></a>muestra2<span class="ot">=</span> poblacion[<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">23</span>, <span class="dv">41</span>, <span class="dv">21</span>, <span class="dv">45</span>),]</span>
-<span id="cb108-2"><a href="estadística-inferencial-introducción.html#cb108-2" tabindex="-1"></a>muestra2</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estadística-inferencial-introducción.html#cb110-1" tabindex="-1"></a>muestra2<span class="ot">=</span> poblacion[<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">23</span>, <span class="dv">41</span>, <span class="dv">21</span>, <span class="dv">45</span>),]</span>
+<span id="cb110-2"><a href="estadística-inferencial-introducción.html#cb110-2" tabindex="-1"></a>muestra2</span></code></pre></div>
 <pre><code>## [1] 1 2 5 2 5</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estadística-inferencial-introducción.html#cb110-1" tabindex="-1"></a><span class="fu">mean</span>(muestra2)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="estadística-inferencial-introducción.html#cb112-1" tabindex="-1"></a><span class="fu">mean</span>(muestra2)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <ul>
 <li><p>Esto quiere decir que los estadísticos muestrales no son los valores exactos de parámetros poblacionales. Son muchas las posibilidades de que obtengas medias muestrales ligeramente diferentes.</p></li>
@@ -713,17 +484,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Ahora bien, ya sabemos que podemos solicitar varias muestras. Qué distribución tendrían todas las medias que calculemos en un determinado número de muestras?</p></li>
 <li><p>Calculemos 100 000 muestras para el vector de nuestra población y calculemos la media de cada uno en una tabla. Para ello, le pedimos ayuda al R.</p></li>
 </ul>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="estadística-inferencial-introducción.html#cb112-1" tabindex="-1"></a>poblacion<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
-<span id="cb112-2"><a href="estadística-inferencial-introducción.html#cb112-2" tabindex="-1"></a>muestras <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100000</span>, <span class="fu">sample</span>(poblacion, <span class="at">size=</span><span class="dv">5</span>))</span>
-<span id="cb112-3"><a href="estadística-inferencial-introducción.html#cb112-3" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">apply</span>(muestras, <span class="dv">2</span>, mean)</span>
-<span id="cb112-4"><a href="estadística-inferencial-introducción.html#cb112-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">media=</span>medias)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="estadística-inferencial-introducción.html#cb114-1" tabindex="-1"></a>poblacion<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb114-2"><a href="estadística-inferencial-introducción.html#cb114-2" tabindex="-1"></a>muestras <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100000</span>, <span class="fu">sample</span>(poblacion, <span class="at">size=</span><span class="dv">5</span>))</span>
+<span id="cb114-3"><a href="estadística-inferencial-introducción.html#cb114-3" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">apply</span>(muestras, <span class="dv">2</span>, mean)</span>
+<span id="cb114-4"><a href="estadística-inferencial-introducción.html#cb114-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">media=</span>medias)</span></code></pre></div>
 <ul>
 <li>Ahora grafiquemos las medias calculadas.</li>
 </ul>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="estadística-inferencial-introducción.html#cb113-1" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb113-2"><a href="estadística-inferencial-introducción.html#cb113-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb113-3"><a href="estadística-inferencial-introducción.html#cb113-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>medias) <span class="sc">+</span> </span>
-<span id="cb113-4"><a href="estadística-inferencial-introducción.html#cb113-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="estadística-inferencial-introducción.html#cb115-1" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb115-2"><a href="estadística-inferencial-introducción.html#cb115-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb115-3"><a href="estadística-inferencial-introducción.html#cb115-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>medias) <span class="sc">+</span> </span>
+<span id="cb115-4"><a href="estadística-inferencial-introducción.html#cb115-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <ul>
 <li>Descubrimos que cuando obtenemos muchas muestras y calculamos sus estadísticos (medias), estan en conjunto adquieren una <strong>distribución normal</strong>. Esto ocurre, a pesar de que la distribución de las puntuaciones originales <strong>no tenía distribución normal</strong>.</li>
@@ -800,9 +571,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>También puedes ver el informe <a href="https://iep.org.pe/wp-content/uploads/2022/07/I-Encuesta-nacional-de-percepcion-de-desigualdades-ENADES-2022-v2.pdf">aquí</a></p>
 <div id="abrir-base-de-datos" class="section level3 hasAnchor" number="4.6.1">
 <h3><span class="header-section-number">4.6.1</span> Abrir base de datos<a href="estadística-inferencial-introducción.html#abrir-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="estadística-inferencial-introducción.html#cb114-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb114-2"><a href="estadística-inferencial-introducción.html#cb114-2" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
-<span id="cb114-3"><a href="estadística-inferencial-introducción.html#cb114-3" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="estadística-inferencial-introducción.html#cb116-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb116-2"><a href="estadística-inferencial-introducción.html#cb116-2" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
+<span id="cb116-3"><a href="estadística-inferencial-introducción.html#cb116-3" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
 </div>
 <div id="identificar-una-variable-numérica" class="section level3 hasAnchor" number="4.6.2">
 <h3><span class="header-section-number">4.6.2</span> Identificar una variable numérica<a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -811,52 +582,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>En una escala del 1 al 10, en la que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable”. ¿Hasta qué punto es aceptable la desigualdad en el Perú? Dígame un número de 1 a 10, recuerde que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable (RESPUESTA ESPONTÁNEA)</li>
 </ul>
 <p>La convertimos en numérica.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="estadística-inferencial-introducción.html#cb115-1" tabindex="-1"></a>enades<span class="sc">$</span>p17<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="estadística-inferencial-introducción.html#cb117-1" tabindex="-1"></a>enades<span class="sc">$</span>p17<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
 <p>Solicitamos los estadísticos descriptivos para darle una primera mirada.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="estadística-inferencial-introducción.html#cb116-1" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##   1.000   1.000   5.000   4.571   7.000  10.000      23</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estadística-inferencial-introducción.html#cb118-1" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 
+##   1.000   1.000   5.000   4.571 
+## 3rd Qu.    Max.    NA&#39;s 
+##   7.000  10.000      23</code></pre>
 <p>Podemos graficarlo</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estadística-inferencial-introducción.html#cb118-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb118-2"><a href="estadística-inferencial-introducción.html#cb118-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb118-3"><a href="estadística-inferencial-introducción.html#cb118-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>p17)<span class="sc">+</span></span>
-<span id="cb118-4"><a href="estadística-inferencial-introducción.html#cb118-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="estadística-inferencial-introducción.html#cb120-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb120-2"><a href="estadística-inferencial-introducción.html#cb120-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb120-3"><a href="estadística-inferencial-introducción.html#cb120-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>p17)<span class="sc">+</span></span>
+<span id="cb120-4"><a href="estadística-inferencial-introducción.html#cb120-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 </div>
 <div id="cálculo-del-estimador-puntual-media-muestral" class="section level3 hasAnchor" number="4.6.3">
 <h3><span class="header-section-number">4.6.3</span> Cálculo del estimador puntual: media muestral<a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="estadística-inferencial-introducción.html#cb119-1" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="estadística-inferencial-introducción.html#cb121-1" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 4.571334</code></pre>
 </div>
 <div id="cálculo-del-intervalo-de-confianza-al-95" class="section level3 hasAnchor" number="4.6.4">
 <h3><span class="header-section-number">4.6.4</span> Cálculo del intervalo de confianza al 95%<a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Establecemos nuestra información de insumo.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="estadística-inferencial-introducción.html#cb121-1" tabindex="-1"></a>media<span class="ot">&lt;-</span><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb121-2"><a href="estadística-inferencial-introducción.html#cb121-2" tabindex="-1"></a>SE<span class="ot">&lt;-</span> <span class="fu">sd</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb121-3"><a href="estadística-inferencial-introducción.html#cb121-3" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fl">1.96</span></span>
-<span id="cb121-4"><a href="estadística-inferencial-introducción.html#cb121-4" tabindex="-1"></a>n <span class="ot">&lt;-</span><span class="fu">length</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="estadística-inferencial-introducción.html#cb123-1" tabindex="-1"></a>media<span class="ot">&lt;-</span><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb123-2"><a href="estadística-inferencial-introducción.html#cb123-2" tabindex="-1"></a>SE<span class="ot">&lt;-</span> <span class="fu">sd</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb123-3"><a href="estadística-inferencial-introducción.html#cb123-3" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fl">1.96</span></span>
+<span id="cb123-4"><a href="estadística-inferencial-introducción.html#cb123-4" tabindex="-1"></a>n <span class="ot">&lt;-</span><span class="fu">length</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
 <p>Ahora calculamos el error estándar:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="estadística-inferencial-introducción.html#cb122-1" tabindex="-1"></a>errorst <span class="ot">&lt;-</span> SE<span class="sc">/</span><span class="fu">sqrt</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="estadística-inferencial-introducción.html#cb124-1" tabindex="-1"></a>errorst <span class="ot">&lt;-</span> SE<span class="sc">/</span><span class="fu">sqrt</span>(n)</span></code></pre></div>
 <p>Una vez calculado el error estándar podemos calcular los límite superior e inferior.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="estadística-inferencial-introducción.html#cb123-1" tabindex="-1"></a><span class="do">### Calculamos el límite inferior</span></span>
-<span id="cb123-2"><a href="estadística-inferencial-introducción.html#cb123-2" tabindex="-1"></a></span>
-<span id="cb123-3"><a href="estadística-inferencial-introducción.html#cb123-3" tabindex="-1"></a>lim_inf<span class="ot">&lt;-</span> media <span class="sc">-</span> (z<span class="sc">*</span>errorst)</span>
-<span id="cb123-4"><a href="estadística-inferencial-introducción.html#cb123-4" tabindex="-1"></a></span>
-<span id="cb123-5"><a href="estadística-inferencial-introducción.html#cb123-5" tabindex="-1"></a><span class="do">### Calculamos el límite superior</span></span>
-<span id="cb123-6"><a href="estadística-inferencial-introducción.html#cb123-6" tabindex="-1"></a></span>
-<span id="cb123-7"><a href="estadística-inferencial-introducción.html#cb123-7" tabindex="-1"></a>lim_sup<span class="ot">&lt;-</span> media <span class="sc">+</span> (z<span class="sc">*</span>errorst)</span>
-<span id="cb123-8"><a href="estadística-inferencial-introducción.html#cb123-8" tabindex="-1"></a></span>
-<span id="cb123-9"><a href="estadística-inferencial-introducción.html#cb123-9" tabindex="-1"></a><span class="do">### Creamos el listado de valores para visualizarlo en versión data frame</span></span>
-<span id="cb123-10"><a href="estadística-inferencial-introducción.html#cb123-10" tabindex="-1"></a></span>
-<span id="cb123-11"><a href="estadística-inferencial-introducción.html#cb123-11" tabindex="-1"></a>interval_m <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(n, media, SE, z, errorst, lim_inf,lim_sup)</span>
-<span id="cb123-12"><a href="estadística-inferencial-introducción.html#cb123-12" tabindex="-1"></a>interval_m</span></code></pre></div>
-<pre><code>##      n    media       SE    z    errorst  lim_inf  lim_sup
-## 1 1530 4.571334 3.133069 1.96 0.08009848 4.414341 4.728327</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="estadística-inferencial-introducción.html#cb125-1" tabindex="-1"></a><span class="do">### Calculamos el límite inferior</span></span>
+<span id="cb125-2"><a href="estadística-inferencial-introducción.html#cb125-2" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="estadística-inferencial-introducción.html#cb125-3" tabindex="-1"></a>lim_inf<span class="ot">&lt;-</span> media <span class="sc">-</span> (z<span class="sc">*</span>errorst)</span>
+<span id="cb125-4"><a href="estadística-inferencial-introducción.html#cb125-4" tabindex="-1"></a></span>
+<span id="cb125-5"><a href="estadística-inferencial-introducción.html#cb125-5" tabindex="-1"></a><span class="do">### Calculamos el límite superior</span></span>
+<span id="cb125-6"><a href="estadística-inferencial-introducción.html#cb125-6" tabindex="-1"></a></span>
+<span id="cb125-7"><a href="estadística-inferencial-introducción.html#cb125-7" tabindex="-1"></a>lim_sup<span class="ot">&lt;-</span> media <span class="sc">+</span> (z<span class="sc">*</span>errorst)</span>
+<span id="cb125-8"><a href="estadística-inferencial-introducción.html#cb125-8" tabindex="-1"></a></span>
+<span id="cb125-9"><a href="estadística-inferencial-introducción.html#cb125-9" tabindex="-1"></a><span class="do">### Creamos el listado de valores para visualizarlo en versión data frame</span></span>
+<span id="cb125-10"><a href="estadística-inferencial-introducción.html#cb125-10" tabindex="-1"></a></span>
+<span id="cb125-11"><a href="estadística-inferencial-introducción.html#cb125-11" tabindex="-1"></a>interval_m <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(n, media, SE, z, errorst, lim_inf,lim_sup)</span>
+<span id="cb125-12"><a href="estadística-inferencial-introducción.html#cb125-12" tabindex="-1"></a>interval_m</span></code></pre></div>
+<pre><code>##      n    media       SE    z
+## 1 1530 4.571334 3.133069 1.96
+##      errorst  lim_inf  lim_sup
+## 1 0.08009848 4.414341 4.728327</code></pre>
 <p>Para verlo mejor podemos utilizar el paquete <code>kableExtra</code>:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="estadística-inferencial-introducción.html#cb125-1" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb125-2"><a href="estadística-inferencial-introducción.html#cb125-2" tabindex="-1"></a>interval_m <span class="sc">|&gt;</span> </span>
-<span id="cb125-3"><a href="estadística-inferencial-introducción.html#cb125-3" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb125-4"><a href="estadística-inferencial-introducción.html#cb125-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="estadística-inferencial-introducción.html#cb127-1" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb127-2"><a href="estadística-inferencial-introducción.html#cb127-2" tabindex="-1"></a>interval_m <span class="sc">|&gt;</span> </span>
+<span id="cb127-3"><a href="estadística-inferencial-introducción.html#cb127-3" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb127-4"><a href="estadística-inferencial-introducción.html#cb127-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -918,8 +693,8 @@ lim_sup
           </div>
         </div>
       </div>
-<a href="visualización-de-datos-con-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="visualización-de-datos-con-ggplot2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
