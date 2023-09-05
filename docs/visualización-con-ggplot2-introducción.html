@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sesión 5 1. Visualización con ggplot2: Introducción | Estadística para el Análisis Político I</title>
+  <meta name="description" content="Sesión 5 1. Visualización con ggplot2: Introducción | Estadística para el Análisis Político I" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Sesión 5 1. Visualización con ggplot2: Introducción | Estadística para el Análisis Político I" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Sesión 5 1. Visualización con ggplot2: Introducción | Estadística para el Análisis Político I" />
+  
+  
+  
+
+<meta name="author" content="Docente: Christian Chiroque Ruiz" />
+
+
+<meta name="date" content="2023-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="abrimos-las-librerías-que-vamos-a-utilizar.html"/>
+<link rel="next" href="agregando-más-detalle-a-los-gráficos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística AP I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística-prueba"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística PRUEBA</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.3.2</b> Un vector especial: los factores</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.3.3</b> Data frames</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
+<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación"><i class="fa fa-check"></i><b>2.1</b> Preparación</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.1.1</b> Entorno de trabajo</a></li>
+<li class="chapter" data-level="2.1.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.1.2</b> Paquetes a utilizar</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Base de datos</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación"><i class="fa fa-check"></i><b>2.2.1</b> Importación</a></li>
+<li class="chapter" data-level="2.2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>2.2.2</b> Verificar el tipo de variable</a></li>
+<li class="chapter" data-level="2.2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.2.3</b> Creación de subset</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.3</b> Estadísticos de tendencia central</a></li>
+<li class="chapter" data-level="2.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.4</b> Estadísticos de posición</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles"><i class="fa fa-check"></i><b>2.4.1</b> Percentiles</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.5</b> Estadísticos de dispersión</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango"><i class="fa fa-check"></i><b>2.5.1</b> El Rango</a></li>
+<li class="chapter" data-level="2.5.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza"><i class="fa fa-check"></i><b>2.5.2</b> La Varianza</a></li>
+<li class="chapter" data-level="2.5.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.5.3</b> La Desviación Estándar</a></li>
+<li class="chapter" data-level="2.5.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.5.4</b> El Rango intercuartílico</a></li>
+<li class="chapter" data-level="2.5.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.5.5</b> Curvas de distribución de frecuencias</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a></li>
+<li class="chapter" data-level="4" data-path="abrimos-las-librerías-que-vamos-a-utilizar.html"><a href="abrimos-las-librerías-que-vamos-a-utilizar.html"><i class="fa fa-check"></i><b>4</b> 0. Abrimos las librerías que vamos a utilizar</a></li>
+<li class="chapter" data-level="5" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html"><i class="fa fa-check"></i><b>5</b> 1. Visualización con ggplot2: Introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#gramática-de-ggplot2"><i class="fa fa-check"></i><b>5.1</b> 1.1 Gramática de ggplot2</a></li>
+<li class="chapter" data-level="5.2" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#son-7-capas"><i class="fa fa-check"></i><b>5.2</b> 1.2 Son 7 capas</a></li>
+<li class="chapter" data-level="5.3" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#data-capa-1"><i class="fa fa-check"></i><b>5.3</b> 1.3 Data (Capa 1)</a></li>
+<li class="chapter" data-level="5.4" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#aesthetics-estéticas-capa-2"><i class="fa fa-check"></i><b>5.4</b> 1.4 Aesthetics / “Estéticas” (Capa 2)</a></li>
+<li class="chapter" data-level="5.5" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#objetos-geométricos-capa-3"><i class="fa fa-check"></i><b>5.5</b> 1.5 Objetos geométricos (Capa 3)</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#a.-histograma"><i class="fa fa-check"></i><b>5.5.1</b> A. Histograma</a></li>
+<li class="chapter" data-level="5.5.2" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#b.-gráfico-de-barras"><i class="fa fa-check"></i><b>5.5.2</b> B. Gráfico de barras</a></li>
+<li class="chapter" data-level="5.5.3" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#c.-gráfico-de-línea"><i class="fa fa-check"></i><b>5.5.3</b> C. Gráfico de línea</a></li>
+<li class="chapter" data-level="5.5.4" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#d.-gráfico-de-dispersión"><i class="fa fa-check"></i><b>5.5.4</b> D. Gráfico de dispersión</a></li>
+<li class="chapter" data-level="5.5.5" data-path="visualización-con-ggplot2-introducción.html"><a href="visualización-con-ggplot2-introducción.html#e.-boxplot"><i class="fa fa-check"></i><b>5.5.5</b> E. Boxplot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="agregando-más-detalle-a-los-gráficos.html"><a href="agregando-más-detalle-a-los-gráficos.html"><i class="fa fa-check"></i><b>6</b> 2. Agregando más detalle a los gráficos</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="agregando-más-detalle-a-los-gráficos.html"><a href="agregando-más-detalle-a-los-gráficos.html#facetas-capa-4"><i class="fa fa-check"></i><b>6.1</b> 2.1 Facetas (Capa 4)</a></li>
+<li class="chapter" data-level="6.2" data-path="agregando-más-detalle-a-los-gráficos.html"><a href="agregando-más-detalle-a-los-gráficos.html#tranformaciones-estadísticas-capa-5"><i class="fa fa-check"></i><b>6.2</b> 2.2 Tranformaciones Estadísticas (Capa 5)</a></li>
+<li class="chapter" data-level="6.3" data-path="agregando-más-detalle-a-los-gráficos.html"><a href="agregando-más-detalle-a-los-gráficos.html#coordinadas-capa-6"><i class="fa fa-check"></i><b>6.3</b> 2.3 Coordinadas (Capa 6)</a></li>
+<li class="chapter" data-level="6.4" data-path="agregando-más-detalle-a-los-gráficos.html"><a href="agregando-más-detalle-a-los-gráficos.html#themes-capa-7"><i class="fa fa-check"></i><b>6.4</b> 2.4 Themes (Capa 7)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="extensiones-de-ggplot2-hay-mucho-más.html"><a href="extensiones-de-ggplot2-hay-mucho-más.html"><i class="fa fa-check"></i><b>7</b> 3. Extensiones de ggplot2: Hay mucho más!</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="extensiones-de-ggplot2-hay-mucho-más.html"><a href="extensiones-de-ggplot2-hay-mucho-más.html#ordenando-etiquetas-con-ggrepel"><i class="fa fa-check"></i><b>7.1</b> 3.1 Ordenando etiquetas con ggrepel()</a></li>
+<li class="chapter" data-level="7.2" data-path="extensiones-de-ggplot2-hay-mucho-más.html"><a href="extensiones-de-ggplot2-hay-mucho-más.html#animando-mis-gráficos-con-gganimate"><i class="fa fa-check"></i><b>7.2</b> 3.2 Animando mis gráficos con gganimate()</a></li>
+<li class="chapter" data-level="7.3" data-path="extensiones-de-ggplot2-hay-mucho-más.html"><a href="extensiones-de-ggplot2-hay-mucho-más.html#notas-finales"><i class="fa fa-check"></i><b>7.3</b> 3.3 Notas finales</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tablas.html"><a href="tablas.html"><i class="fa fa-check"></i><b>8</b> 4. Tablas</a></li>
+<li class="chapter" data-level="9" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>9</b> Estadística Inferencial: Introducción</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#definiciones"><i class="fa fa-check"></i><b>9.1</b> Definiciones</a></li>
+<li class="chapter" data-level="9.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#conceptos-principales"><i class="fa fa-check"></i><b>9.2</b> Conceptos principales</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-desviación-estándar-1"><i class="fa fa-check"></i><b>9.2.1</b> La desviación estándar</a></li>
+<li class="chapter" data-level="9.2.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribución-normal"><i class="fa fa-check"></i><b>9.2.2</b> Distribución normal</a></li>
+<li class="chapter" data-level="9.2.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>9.2.3</b> Teorema del límite central</a></li>
+<li class="chapter" data-level="9.2.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>9.2.4</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="9.2.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>9.2.5</b> Error estándar</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#métodos-de-estimación"><i class="fa fa-check"></i><b>9.3</b> Métodos de estimación</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>9.3.1</b> Estimación puntual</a></li>
+<li class="chapter" data-level="9.3.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>9.3.2</b> Intervalo de confianza de una media</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r-enades-2022"><i class="fa fa-check"></i><b>9.4</b> Ejercicio con R: ENADES 2022</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>9.4.1</b> Abrir base de datos</a></li>
+<li class="chapter" data-level="9.4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>9.4.2</b> Identificar una variable numérica</a></li>
+<li class="chapter" data-level="9.4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral"><i class="fa fa-check"></i><b>9.4.3</b> Cálculo del estimador puntual: media muestral</a></li>
+<li class="chapter" data-level="9.4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>9.4.4</b> Cálculo del intervalo de confianza al 95%</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística para el Análisis Político I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualización-con-ggplot2-introducción" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Sesión 5</span> 1. Visualización con ggplot2: Introducción<a href="visualización-con-ggplot2-introducción.html#visualización-con-ggplot2-introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Es un sistema organizado de visualización de datos. Forma parte del conjunto de librerías llamado <em>tidyverse</em>.</p>
+<p>La primera versión del paquete fue liberada por Hadley Wickham el 10 de junio de 2007, desde entonces el paquete se ha enriquecido con diferentes elementos.</p>
+<p>Ggplot2 se ha convertido en el paquete de creación de visualizaciones más popular en el universo R por permitir de manera sencilla obtener gráficos de alta calidad. Incluso <a href="https://towardsdatascience.com/how-to-use-ggplot2-in-python-74ab8adec129">otros programas de Data Science carecen de una herramienta como ggplot2</a>.</p>
+<div id="gramática-de-ggplot2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> 1.1 Gramática de ggplot2<a href="visualización-con-ggplot2-introducción.html#gramática-de-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>La gramática del ggplot2 se basa en el libro The Grammar of Graphics</p></li>
+<li><p>A diferencia de los gráficos con el paquete base donde creamos un gráfico a base de pasos sucesivos, ggplot2 se basa en una gramática de gráficos, añadiendo elementos a un graphical device , donde distintos componentes independientes se pueden combinar de muchas maneras diferentes.</p></li>
+</ul>
+<p><img src="https://m.media-amazon.com/images/I/41T80eRz+aL._SY344_BO1,204,203,200_.jpg" /></p>
+</div>
+<div id="son-7-capas" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> 1.2 Son 7 capas<a href="visualización-con-ggplot2-introducción.html#son-7-capas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*l844RJyls1FraalChUtneQ.png" /></p>
+</div>
+<div id="data-capa-1" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> 1.3 Data (Capa 1)<a href="visualización-con-ggplot2-introducción.html#data-capa-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es la materia prima sobre la cual se van a posicionar el resto de capas y los datos que se desean representar.</p>
+<p>El ggplot2 sólo acepta un tipo de datos: data.frames/ tibbles. No permite <em>vectores</em>.</p>
+<p>Vamos a utilizar la data del paquete {gapminder}.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="visualización-con-ggplot2-introducción.html#cb3-1" tabindex="-1"></a><span class="co">#install.packages(&quot;gapminder&quot;)</span></span>
+<span id="cb3-2"><a href="visualización-con-ggplot2-introducción.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb3-3"><a href="visualización-con-ggplot2-introducción.html#cb3-3" tabindex="-1"></a>data<span class="ot">&lt;-</span>gapminder<span class="sc">::</span>gapminder</span>
+<span id="cb3-4"><a href="visualización-con-ggplot2-introducción.html#cb3-4" tabindex="-1"></a><span class="fu">head</span>(data, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 6
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8  8425333      779.
+## 2 Afghanistan Asia       1957    30.3  9240934      821.
+## 3 Afghanistan Asia       1962    32.0 10267083      853.</code></pre>
+<p>Colocamos la función ggplot() y nos damos cuenta que tenemos un lienzo. Es el primer paso!</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualización-con-ggplot2-introducción.html#cb5-1" tabindex="-1"></a>data <span class="sc">|&gt;</span>    <span class="co"># Data</span></span>
+<span id="cb5-2"><a href="visualización-con-ggplot2-introducción.html#cb5-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="co"># Iniciamos la función gpglot</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="aesthetics-estéticas-capa-2" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> 1.4 Aesthetics / “Estéticas” (Capa 2)<a href="visualización-con-ggplot2-introducción.html#aesthetics-estéticas-capa-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>aes()</code></pre>
+<ul>
+<li><p>Indican las variables que se van a graficar, tanto en el <strong>eje horizontal</strong> (x) como en el <strong>eje vertical</strong> (y).</p></li>
+<li><p>Ggplot2 no está pensado para gráficos tridimensionales, pero ciertamente podemos incluir una tercera variable, por ejemplo, indicando el <strong>color</strong> si deseamos identificar grupos, o indicando el tamaño (de los puntos en un scatterplot) para agregar una nueva variable cuantitativa.</p></li>
+</ul>
+<p>Siguiendo con el ejemplo del punto anterior, como ya hemos colocado ggplot() le SUMAMOS una capa adicional, en este caso, las Aesthetics.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="visualización-con-ggplot2-introducción.html#cb7-1" tabindex="-1"></a>data <span class="sc">|&gt;</span>            <span class="co"># Data</span></span>
+<span id="cb7-2"><a href="visualización-con-ggplot2-introducción.html#cb7-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>        <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb7-3"><a href="visualización-con-ggplot2-introducción.html#cb7-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> lifeExp) <span class="co"># Establecemos la variable &#39;lifeExp&#39; como el eje x</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Nos damos cuenta que en el gráfico ya aparece, en el eje X, la variable lifeExp. Sin embargo, aún no mostramos ninguna gráfica.</p>
+</div>
+<div id="objetos-geométricos-capa-3" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> 1.5 Objetos geométricos (Capa 3)<a href="visualización-con-ggplot2-introducción.html#objetos-geométricos-capa-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Funciones: geom_line(), geom_boxplot(), etc.</p></li>
+<li><p>Indica qué tipo de gráfico (geometría) se va a construir: gráfico de barras, columnas, puntos, histográmas, boxplots, líneas, densidad, entre otros.</p></li>
+<li><p>En el paquete {ggplot2} existen 30 geometrías disponibles. Puedes ver el detalle de estos en la <a href="https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf">documentación del paquete</a>.</p></li>
+<li><p>Cada geometría tiene su propia función y, como ya hemos visto, cada una puede tener distintos argumentos.
+Estas 3 capas son el mínimo necesario para hacer un gráfico:</p></li>
+</ul>
+<p>Data +
+Aesthetics +
+Geometries</p>
+<div id="a.-histograma" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> A. Histograma<a href="visualización-con-ggplot2-introducción.html#a.-histograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Tipo de gráfico utilizado en estadística para representar la distribución de frecuencia de un conjunto de datos numéricos continuos. En un histograma, el rango de valores se divide en un conjunto de intervalos mutuamente excluyentes y consecutivos (también llamados “bins” o “clases”), y se cuenta el número de observaciones que caen dentro de cada intervalo. Estos recuentos se representan como barras verticales que se elevan sobre los intervalos correspondientes, y su altura indica la frecuencia o densidad de observaciones en ese intervalo.</p>
+<p>El histograma es una herramienta útil para explorar la forma general de una distribución de datos, así como para identificar características como la asimetría, la moda y los valores atípicos</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="visualización-con-ggplot2-introducción.html#cb8-1" tabindex="-1"></a>data <span class="sc">|&gt;</span>              <span class="co"># Data</span></span>
+<span id="cb8-2"><a href="visualización-con-ggplot2-introducción.html#cb8-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>         <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb8-3"><a href="visualización-con-ggplot2-introducción.html#cb8-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> lifeExp) <span class="sc">+</span> <span class="co"># Establecemos la variable &#39;lifeExp&#39; como el eje x</span></span>
+<span id="cb8-4"><a href="visualización-con-ggplot2-introducción.html#cb8-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()   <span class="co"># Agregamos un histograma basado en &#39;lifeExp&#39;</span></span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualización-con-ggplot2-introducción.html#cb10-1" tabindex="-1"></a>data <span class="sc">|&gt;</span>                    <span class="co"># Data</span></span>
+<span id="cb10-2"><a href="visualización-con-ggplot2-introducción.html#cb10-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>               <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb10-3"><a href="visualización-con-ggplot2-introducción.html#cb10-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> lifeExp) <span class="sc">+</span>       <span class="co"># Establecemos la variable &#39;lifeExp&#39; como el eje x</span></span>
+<span id="cb10-4"><a href="visualización-con-ggplot2-introducción.html#cb10-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">15</span>)  <span class="co"># Agregamos un histograma basado en &#39;lifeExp&#39; con un bins=15</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="b.-gráfico-de-barras" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> B. Gráfico de barras<a href="visualización-con-ggplot2-introducción.html#b.-gráfico-de-barras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En un gráfico de barras vertical,las categorías se representan en el eje horizontal y la frecuencia o cantidad en el eje vertical.</p>
+<p>El gráfico de barras es una herramienta útil para comparar la frecuencia o cantidad de diferentes categorías o variables en un conjunto de datos.</p>
+<p><strong>EJEMPLO - SITUACIÓN 1:</strong></p>
+<p>Tienes una base de datos con las <strong>observaciones originales</strong>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualización-con-ggplot2-introducción.html#cb11-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="visualización-con-ggplot2-introducción.html#cb11-2" tabindex="-1"></a>  <span class="fu">select</span>(continent) <span class="sc">|&gt;</span> <span class="co"># Seleccionamos solo la columna &#39;continent&#39; del conjunto de datos &#39;data&#39;</span></span>
+<span id="cb11-3"><a href="visualización-con-ggplot2-introducción.html#cb11-3" tabindex="-1"></a>  <span class="fu">head</span>()               <span class="co"># Mostramos las primeras 6 entradas (por defecto) de la columna &#39;continent&#39;</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   continent
+##   &lt;fct&gt;    
+## 1 Asia     
+## 2 Asia     
+## 3 Asia     
+## 4 Asia     
+## 5 Asia     
+## 6 Asia</code></pre>
+<p>Utilizamos la función geom_bar(). El resultado es que la función ha CONTADO la frecuencia de cada categoría de continent.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="visualización-con-ggplot2-introducción.html#cb13-1" tabindex="-1"></a>data <span class="sc">|&gt;</span>                <span class="co"># Data</span></span>
+<span id="cb13-2"><a href="visualización-con-ggplot2-introducción.html#cb13-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           <span class="co"># Iniciamos la construcción del gráfico con ggplot </span></span>
+<span id="cb13-3"><a href="visualización-con-ggplot2-introducción.html#cb13-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continent) <span class="sc">+</span> <span class="co"># Establecemos la variable &#39;continent&#39; como el eje x</span></span>
+<span id="cb13-4"><a href="visualización-con-ggplot2-introducción.html#cb13-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()           <span class="co"># Creamos un gráfico de barras basado en el conteo de &#39;continent&#39;</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><strong>EJEMPLO - SITUACIÓN 2:</strong></p>
+<p>En algunas ocasiones ya contamos con el conteo realizado y sólo deseamos el gráfico. Para ello utilizamos el ARGUMENTO stat=“identity”.</p>
+<p>Un caso como el siguiente:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="visualización-con-ggplot2-introducción.html#cb14-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="visualización-con-ggplot2-introducción.html#cb14-2" tabindex="-1"></a>  <span class="fu">count</span>(continent) <span class="co"># Cuenta las observaciones para cada nivel único en la columna &#39;continent&#39;</span></span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   continent     n
+##   &lt;fct&gt;     &lt;int&gt;
+## 1 Africa      624
+## 2 Americas    300
+## 3 Asia        396
+## 4 Europe      360
+## 5 Oceania      24</code></pre>
+<p>Aplicamos:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="visualización-con-ggplot2-introducción.html#cb16-1" tabindex="-1"></a>data <span class="sc">|&gt;</span>                     <span class="co"># Data </span></span>
+<span id="cb16-2"><a href="visualización-con-ggplot2-introducción.html#cb16-2" tabindex="-1"></a>  <span class="fu">count</span>(continent) <span class="sc">|&gt;</span>       <span class="co"># Contamos las observaciones por &#39;continent&#39;</span></span>
+<span id="cb16-3"><a href="visualización-con-ggplot2-introducción.html#cb16-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>                 <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb16-4"><a href="visualización-con-ggplot2-introducción.html#cb16-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>n, <span class="at">x=</span>continent)<span class="sc">+</span>    <span class="co"># Establecemos &#39;continent&#39; como el eje x y el conteo &#39;n&#39; como el eje y</span></span>
+<span id="cb16-5"><a href="visualización-con-ggplot2-introducción.html#cb16-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="co"># Creamos un gráfico de barras usando las cuentas directamente</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><strong>EJEMPLO - MÁS DETALLE</strong></p>
+<p>Si deseamos agregar etiquetas de valores utilizamos geom_text()</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="visualización-con-ggplot2-introducción.html#cb17-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="visualización-con-ggplot2-introducción.html#cb17-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb17-3"><a href="visualización-con-ggplot2-introducción.html#cb17-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continent) <span class="sc">+</span>            <span class="co"># Definimos &#39;continent&#39; como el eje x </span></span>
+<span id="cb17-4"><a href="visualización-con-ggplot2-introducción.html#cb17-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span>                    <span class="co"># Creamos un gráfico de barras que cuenta las observaciones por &#39;continent&#39;</span></span>
+<span id="cb17-5"><a href="visualización-con-ggplot2-introducción.html#cb17-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat=</span><span class="st">&#39;count&#39;</span>,         <span class="co"># Añadimos etiquetas de texto basadas en el conteo de observaciones</span></span>
+<span id="cb17-6"><a href="visualización-con-ggplot2-introducción.html#cb17-6" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label=</span>..count..), <span class="co"># El texto de la etiqueta será el conteo</span></span>
+<span id="cb17-7"><a href="visualización-con-ggplot2-introducción.html#cb17-7" tabindex="-1"></a>            <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>)           <span class="co"># Ajustamos la posición vertical de las etiquetas para que aparezcan justo arriba de las barras</span></span></code></pre></div>
+<pre><code>## Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+## ℹ Please use `after_stat(count)` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Y el gráfico de barras apiladas?</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="visualización-con-ggplot2-introducción.html#cb19-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="visualización-con-ggplot2-introducción.html#cb19-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="visualización-con-ggplot2-introducción.html#cb19-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdp_cat=</span><span class="fu">case_when</span>(                 <span class="co"># Creamos una nueva variable denominada &quot;gdp_cat&quot; y...</span></span>
+<span id="cb19-4"><a href="visualización-con-ggplot2-introducción.html#cb19-4" tabindex="-1"></a>              gdpPercap<span class="sc">&lt;</span><span class="dv">4000</span><span class="sc">~</span> <span class="st">&quot;Bajo GDPpc&quot;</span>, <span class="co"># si &#39;gdpPercap&#39; es menor a 4000, clasificamos como &quot;Bajo GDPpc&quot; ...</span></span>
+<span id="cb19-5"><a href="visualización-con-ggplot2-introducción.html#cb19-5" tabindex="-1"></a>              <span class="cn">TRUE</span><span class="sc">~</span> <span class="st">&quot;Alto GDPpc&quot;</span>)) <span class="sc">|&gt;</span>       <span class="co"># en cualquier otro caso, clasificamos como &quot;Alto GDPpc&quot;. </span></span>
+<span id="cb19-6"><a href="visualización-con-ggplot2-introducción.html#cb19-6" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>) <span class="sc">|&gt;</span>                     <span class="co"># Seleccionamos aquellas mediciones del 2007</span></span>
+<span id="cb19-7"><a href="visualización-con-ggplot2-introducción.html#cb19-7" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb19-8"><a href="visualización-con-ggplot2-introducción.html#cb19-8" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>continent, <span class="at">fill=</span>gdp_cat) <span class="sc">+</span>          <span class="co"># Definimos &#39;continent&#39; como el eje x y usamos &#39;gdp_cat&#39; para el color de las barras</span></span>
+<span id="cb19-9"><a href="visualización-con-ggplot2-introducción.html#cb19-9" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span>                               <span class="co"># Creamos un gráfico de barras   </span></span>
+<span id="cb19-10"><a href="visualización-con-ggplot2-introducción.html#cb19-10" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat=</span><span class="st">&#39;count&#39;</span>,                   <span class="co"># Añadimos etiquetas de texto basadas en el conteo de observaciones</span></span>
+<span id="cb19-11"><a href="visualización-con-ggplot2-introducción.html#cb19-11" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label=</span>..count..,            <span class="co"># El texto de la etiqueta será el conteo </span></span>
+<span id="cb19-12"><a href="visualización-con-ggplot2-introducción.html#cb19-12" tabindex="-1"></a>                <span class="at">group=</span>gdp_cat),             <span class="co"># Agrupamos por la categoría de GDP para calcular el conteo</span></span>
+<span id="cb19-13"><a href="visualización-con-ggplot2-introducción.html#cb19-13" tabindex="-1"></a>            <span class="at">position=</span><span class="fu">position_stack</span>(<span class="at">vjust=</span><span class="fl">0.5</span>)) <span class="co"># Posicionamos las etiquetas en el centro de las barras </span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="c.-gráfico-de-línea" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> C. Gráfico de línea<a href="visualización-con-ggplot2-introducción.html#c.-gráfico-de-línea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="visualización-con-ggplot2-introducción.html#cb20-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="visualización-con-ggplot2-introducción.html#cb20-2" tabindex="-1"></a>  <span class="fu">filter</span>(country<span class="sc">==</span><span class="st">&quot;Peru&quot;</span>, year<span class="sc">&gt;</span><span class="dv">1960</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="visualización-con-ggplot2-introducción.html#cb20-3" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>                            <span class="co"># </span></span>
+<span id="cb20-4"><a href="visualización-con-ggplot2-introducción.html#cb20-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year) <span class="sc">+</span>                       <span class="co"># Definimos &#39;year&#39; como el eje x </span></span>
+<span id="cb20-5"><a href="visualización-con-ggplot2-introducción.html#cb20-5" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> gdpPercap) <span class="sc">+</span>                  <span class="co"># Definimos &#39;gdpPercap&#39; como el eje y</span></span>
+<span id="cb20-6"><a href="visualización-con-ggplot2-introducción.html#cb20-6" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span>                          <span class="co"># Añadimos una línea para visualizar la tendencia del PIB per cápita a lo largo de los años</span></span>
+<span id="cb20-7"><a href="visualización-con-ggplot2-introducción.html#cb20-7" tabindex="-1"></a>  <span class="fu">geom_point</span>()                          <span class="co"># Superponemos puntos en cada año para destacar los valores individuales</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Separando grupos por color</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="visualización-con-ggplot2-introducción.html#cb21-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="visualización-con-ggplot2-introducción.html#cb21-2" tabindex="-1"></a>  <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Oceania&quot;</span>) <span class="sc">|&gt;</span> <span class="co"># Filtramos el dataset para solo tener datos de países en Oceanía  </span></span>
+<span id="cb21-3"><a href="visualización-con-ggplot2-introducción.html#cb21-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>                       <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb21-4"><a href="visualización-con-ggplot2-introducción.html#cb21-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>year) <span class="sc">+</span>                   <span class="co"># Definimos &#39;year&#39; como el eje x</span></span>
+<span id="cb21-5"><a href="visualización-con-ggplot2-introducción.html#cb21-5" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>lifeExp) <span class="sc">+</span>                <span class="co"># Definimos &#39;lifeExp&#39; como el eje y</span></span>
+<span id="cb21-6"><a href="visualización-con-ggplot2-introducción.html#cb21-6" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">color=</span>country) <span class="sc">+</span>            <span class="co"># Establecemos el color de las líneas y puntos basado en el país</span></span>
+<span id="cb21-7"><a href="visualización-con-ggplot2-introducción.html#cb21-7" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span>                   <span class="co"># Añadimos una línea para visualizar la tendencia de la expectativa de vida a lo largo de los años</span></span>
+<span id="cb21-8"><a href="visualización-con-ggplot2-introducción.html#cb21-8" tabindex="-1"></a>  <span class="fu">geom_point</span>()                    <span class="co"># Superponemos puntos en cada año para destacar los valores individuales</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>También le podemos añadir las etiquetas de los valores utilizando geom_text()</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="visualización-con-ggplot2-introducción.html#cb22-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="visualización-con-ggplot2-introducción.html#cb22-2" tabindex="-1"></a>  <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Oceania&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="visualización-con-ggplot2-introducción.html#cb22-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb22-4"><a href="visualización-con-ggplot2-introducción.html#cb22-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>lifeExp, <span class="at">color=</span>country) <span class="sc">+</span> <span class="co"># En una práctica óptima, puedes combinar todos los aes() en uno solo, lo que simplifica y hace que el código sea más legible.</span></span>
+<span id="cb22-5"><a href="visualización-con-ggplot2-introducción.html#cb22-5" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb22-6"><a href="visualización-con-ggplot2-introducción.html#cb22-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-7"><a href="visualización-con-ggplot2-introducción.html#cb22-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">round</span>(lifeExp, <span class="dv">1</span>)), <span class="co"># Añade etiquetas de texto con el valor de &#39;lifeExp&#39; redondeado a un decimal</span></span>
+<span id="cb22-8"><a href="visualización-con-ggplot2-introducción.html#cb22-8" tabindex="-1"></a>            <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>,                   <span class="co"># Ajusta verticalmente las etiquetas para que aparezcan justo arriba de los puntos </span></span>
+<span id="cb22-9"><a href="visualización-con-ggplot2-introducción.html#cb22-9" tabindex="-1"></a>            <span class="at">hjust=</span><span class="fl">1.2</span>)                    <span class="co"># Ajusta horizontalmente las etiquetas para que se desplacen hacia la izquierda de los puntos</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="d.-gráfico-de-dispersión" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> D. Gráfico de dispersión<a href="visualización-con-ggplot2-introducción.html#d.-gráfico-de-dispersión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un gráfico de dispersión es una representación visual en la que se utilizan puntos para mostrar la relación entre dos variables cuantitativas. Cada punto en el gráfico representa una observación y su posición en el eje horizontal (eje X) y vertical (eje Y) indica los valores de las dos variables.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="visualización-con-ggplot2-introducción.html#cb23-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="visualización-con-ggplot2-introducción.html#cb23-2" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>, continent<span class="sc">==</span><span class="st">&quot;Americas&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="visualización-con-ggplot2-introducción.html#cb23-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>                        <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb23-4"><a href="visualización-con-ggplot2-introducción.html#cb23-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span> gdpPercap)<span class="sc">+</span>    <span class="co"># Establecemos &#39;lifeExp&#39; en el eje x y &#39;gdpPercap&#39; en el eje y</span></span>
+<span id="cb23-5"><a href="visualización-con-ggplot2-introducción.html#cb23-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()                     <span class="co"># Representamos cada país como un punto en el gráfico</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Con etiquetas:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="visualización-con-ggplot2-introducción.html#cb24-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="visualización-con-ggplot2-introducción.html#cb24-2" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>, continent<span class="sc">==</span><span class="st">&quot;Americas&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="visualización-con-ggplot2-introducción.html#cb24-3" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>                                     <span class="co"># Iniciamos la construcción del gráfico con ggplot</span></span>
+<span id="cb24-4"><a href="visualización-con-ggplot2-introducción.html#cb24-4" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span> gdpPercap, <span class="at">label=</span>country)<span class="sc">+</span>  <span class="co"># Establecemos &#39;lifeExp&#39; en el eje x, &#39;gdpPercap&#39; en el eje y, y &#39;country&#39; como etiqueta</span></span>
+<span id="cb24-5"><a href="visualización-con-ggplot2-introducción.html#cb24-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span>                                 <span class="co"># Representamos cada país como un punto en el gráfico   </span></span>
+<span id="cb24-6"><a href="visualización-con-ggplot2-introducción.html#cb24-6" tabindex="-1"></a>  <span class="fu">geom_text</span>()                                   <span class="co"># Añadimos etiquetas de texto con el nombre de cada país cerca de su respectivo punto </span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+<div id="e.-boxplot" class="section level3 hasAnchor" number="5.5.5">
+<h3><span class="header-section-number">5.5.5</span> E. Boxplot<a href="visualización-con-ggplot2-introducción.html#e.-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="https://api.www.labxchange.org/api/v1/xblocks/lb:LabXchange:d8863c77:html:1/storage/211626365402575-b88c4d0fdacd5abb4c3dc2de3bc004bb.png" /></p>
+<p>Es utilizado para representar la distribución de un conjunto de datos numéricos a través de sus cuartiles.</p>
+<p>El gráfico consiste en una caja que representa el rango intercuartil (IQR),es decir, la diferencia entre el tercer cuartil (Q3) y el primer cuartil(Q1).</p>
+<p>Dentro de la caja,se dibuja una línea que representa la mediana.</p>
+<p>Los bigotes,que se extienden desde la caja, indican el rango de los datos que se encuentran dentro de un cierto múltiplo del IQR, generalmente 1.5 veces el IQR.</p>
+<p>Los valores que están por encima o por debajo de los bigotes se representan como puntos o asteriscos, que se conocen como valores atípicos.</p>
+<p>El boxplot es útil para identificar valores atípicos y para comparar la distribución de varios conjuntos de datos en un solo gráfico. También permite visualizar la simetría o asimetría de la distribución y la presencia de sesgo.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="visualización-con-ggplot2-introducción.html#cb25-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="visualización-con-ggplot2-introducción.html#cb25-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb25-3"><a href="visualización-con-ggplot2-introducción.html#cb25-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> lifeExp) <span class="sc">+</span> <span class="co"># Establecemos &#39;lifeExp&#39; en el eje x</span></span>
+<span id="cb25-4"><a href="visualización-con-ggplot2-introducción.html#cb25-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()     <span class="co"># Solicitamos un boxplot</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Puedes colocar grupos en uno de los ejes para gráficos univariados”</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="visualización-con-ggplot2-introducción.html#cb26-1" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="visualización-con-ggplot2-introducción.html#cb26-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="visualización-con-ggplot2-introducción.html#cb26-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdp_cat=</span><span class="fu">case_when</span>(</span>
+<span id="cb26-4"><a href="visualización-con-ggplot2-introducción.html#cb26-4" tabindex="-1"></a>    gdpPercap<span class="sc">&lt;</span><span class="dv">4000</span><span class="sc">~</span> <span class="st">&quot;Bajo GDPpc&quot;</span>, </span>
+<span id="cb26-5"><a href="visualización-con-ggplot2-introducción.html#cb26-5" tabindex="-1"></a>    <span class="cn">TRUE</span><span class="sc">~</span> <span class="st">&quot;Alto GDPpc&quot;</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-6"><a href="visualización-con-ggplot2-introducción.html#cb26-6" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2007</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-7"><a href="visualización-con-ggplot2-introducción.html#cb26-7" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>   <span class="co"># Iniciamos construcción del gráfico con ggplot       </span></span>
+<span id="cb26-8"><a href="visualización-con-ggplot2-introducción.html#cb26-8" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>continent, <span class="at">y=</span>gdpPercap, <span class="at">color=</span>continent)<span class="sc">+</span>  <span class="co"># Establecemos &#39;continent&#39; como eje x, &#39;gdpPercap&#39; como eje y, y el color de las cajas basado en &#39;continent&#39; </span></span>
+<span id="cb26-9"><a href="visualización-con-ggplot2-introducción.html#cb26-9" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()  <span class="co"># Representamos un diagrama de cajas para &#39;gdpPercap&#39; agrupado por &#39;continent&#39;</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="abrimos-las-librerías-que-vamos-a-utilizar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="agregando-más-detalle-a-los-gráficos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/03-visualizacion.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/03-visualizacion.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

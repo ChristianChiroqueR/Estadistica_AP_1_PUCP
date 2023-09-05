@@ -1,8 +1,22 @@
 # Estadística Inferencial: Introducción
 
-## Antecedentes relevantes
+## Definiciones
 
-**La desviación estándar**
+-   La estadística inferencial utiliza la muestra de datos para hacer estimaciones y tomar decisiones acerca de las características de una población. Esto implica la utilización de técnicas y métodos para inferir información sobre la población a partir de la información recopilada en la muestra.
+
+-   Algunas definiciones básicas:
+
+| Definición  | Descripción                                                                                                                                                                                                                                                          |
+|------------------------------------|------------------------------------|
+| Población   | Se refiere al conjunto total de individuos, objetos, eventos, medidas o cualquier otra cosa que se quiera estudiar. En estadística inferencial, la población se utiliza como el objeto de estudio, y se busca inferir información sobre ella a partir de la muestra. |
+| Muestra     | Es un subconjunto de la población que se utiliza para hacer inferencias sobre la población en su conjunto. La selección de la muestra debe hacerse de tal forma que represente de manera adecuada las características de la población.                               |
+| Estadístico | Es una medida numérica que se utiliza para resumir o describir alguna característica de la muestra. Los estadísticos se calculan a partir de los datos de la muestra y se utilizan para hacer inferencias sobre los parámetros de la población.                      |
+| Parámetro   | Es una medida numérica que describe alguna característica de la población. En estadística inferencial, el objetivo es hacer inferencias sobre los parámetros de la población a partir de los datos de la muestra.                                                    |
+
+
+## Conceptos principales
+
+### La desviación estándar
 
 -   La desviación estándar es una parte integral de la estadística inferencial y entender su funcionamiento nos ayudará a utilizarla más adelante.
 
@@ -24,7 +38,8 @@ $$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
 
 -   Algunas reglas: 1) mientras más lejana esté una observación de su media, mayor será su puntuación de desvación y su puntuación Z. 2) El signo de la puntuación Z indica si la observación está por debajo o por encima de la media.
 
-**La distribución (curva) normal y las SD**
+
+### Distribución normal
 
 -   Anteriormente te comenté que la curva normal (forma de campana) ejercía un rol fundamental en el contexto de la estadística inferencial. Esto es gracias a una propiedades muy interesantes.
 
@@ -36,218 +51,7 @@ $$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
 
 -   Como se ve en la figura, son 4 los principios: 1) 50% de las puntuaciones caen encima de la media y 50% debajo; 2) Prácticamente todas las puntuaciones caen dentro de 3 SD a partir de la media en ambas direcciones (en realidad el 99.7%); 3) Cerca del 95% de las puntuaciones de una variable normalmente distribuida caen dentro de una distancia de +- 2 SD respecto de la media; y 4) Alrededor del 68% de las puntuaciones caen dentro de una distancia de +-1 SD respecto de la media.
 
-## Elementos básicos de probabilidad
 
-**Conceptos**
-
--   Probabilidad: Análisis y comprensión de las ocurrencias (de eventos) por el azar. Más específicamente, es un detalle de con qué frecuencia es probable que ocurra un evento de interés particular entre un gran número de ensayos.
-
--   La fórmula general para presentar una probabilidad es:
-
-$$P(\text{éxito}) = \frac{\text{# de éxitos}}{\text{# de ensayos}}$$
-
--   Existen diversas reglas básica de la teoría de la probabilidad. Te recomiendo leer las páginas 172 - 176 de Ritchey (2006).
-
-**Curva normal y probabilidades**
-
--   En probabilidades hay un principio que utiliza el concepto de la curva normal que hemos explicado anteriormente. Dada cierta variable que se distribuye normalmente, podemos calcular puntuaciones estándarizadas (puntuaciones Z) y usarlas de tal forma que calculas el **número de puntuaciones que cae entre dos puntos en la distribución**.
-
--   Veamos nuevamente la curva. Ahora, dependiendo las puntuaciones Z que elijamos vamos a hacer un cálculo de qué porcentaje de puntuaciones se encuentran **bajo la curva**. Dicho de en otras palabras, vamos a examinar el **área bajo la curva**.
-
--   En este sentido, el área bajo la curva representa probabilidades de ocurrencia. Veamos el siguiente ejemplo, donde tenemos el promedio de edad en una población de estudio (X=69) con desviación estándar 3 (SD=3).
-
-![](figures/curva_normal_desviaciones_probabilidades.png)
-
-Con este ejemplo, para el intervalo de 66 - 72 podemos afirmar lo siguiente:
-
--   La proporción de casos entre estos dos puntos es 68%.
-
--   El área bajo la curva entre estas dos puntuaciones es 68%.
-
--   La probabilidad de seleccionar al azar un caso entre estas dos puntuaciones es 68%.
-
-## Ejercicio con R
-
--   Usted tiene la siguiente variable con distribución normal, de media 100 y desviación estándar 20.
-
-```{r}
-media <- 100
-desviacion_estandar <- 20
-variable_aleatoria <- rnorm(n = 1000, mean = media, sd = desviacion_estandar)
-summary(variable_aleatoria)
-```
-
--   Visualicemos si tiene la curva normal.
-
-```{r}
-library(tidyverse)
-variable_aleatoria |> 
-  data.frame() |> 
-  ggplot() +
-  aes(x=variable_aleatoria) + 
-  geom_density()
-```
-
--   Comprobemos la teoría. Pintemos las líneas de -1 SD, -2 SD, -3SD, la media, +1 SD, +2 SD y +3SD. Recuerda que la desviación estándar es 20.
-
-```{r echo=FALSE}
-variable_aleatoria |> 
-  data.frame() |> 
-  ggplot() +
-  aes(x=variable_aleatoria) + 
-  geom_density() +
-  geom_vline(xintercept = c(40, 60, 80, 100, 120, 140, 160), linetype = "dashed", color = "red") 
-
-```
-
-Cuánto porcentaje de casos se encuentran entre 80 (-1SD) y 120 (+1SD)?
-
-```{r}
-variable_aleatoria |> 
-  data.frame() |> 
-  filter(variable_aleatoria>=80, variable_aleatoria<=120) |> 
-  count() |> 
-  mutate(p=n/1000)
-```
-
--   Y de 60 a 140?
-
-```{r}
-variable_aleatoria |> 
-  data.frame() |> 
-  filter(variable_aleatoria>=60, variable_aleatoria<=140) |> 
-  count() |> 
-  mutate(p=n/1000)
-```
-
-## Elementos básicos de la inferencia
-
-### Definiciones preliminares
-
--   La estadística inferencial utiliza la muestra de datos para hacer estimaciones y tomar decisiones acerca de las características de una población. Esto implica la utilización de técnicas y métodos para inferir información sobre la población a partir de la información recopilada en la muestra.
-
--   Algunas definiciones básicas:
-
-| Definición  | Descripción                                                                                                                                                                                                                                                          |
-|------------------------------------|------------------------------------|
-| Población   | Se refiere al conjunto total de individuos, objetos, eventos, medidas o cualquier otra cosa que se quiera estudiar. En estadística inferencial, la población se utiliza como el objeto de estudio, y se busca inferir información sobre ella a partir de la muestra. |
-| Muestra     | Es un subconjunto de la población que se utiliza para hacer inferencias sobre la población en su conjunto. La selección de la muestra debe hacerse de tal forma que represente de manera adecuada las características de la población.                               |
-| Estadístico | Es una medida numérica que se utiliza para resumir o describir alguna característica de la muestra. Los estadísticos se calculan a partir de los datos de la muestra y se utilizan para hacer inferencias sobre los parámetros de la población.                      |
-| Parámetro   | Es una medida numérica que describe alguna característica de la población. En estadística inferencial, el objetivo es hacer inferencias sobre los parámetros de la población a partir de los datos de la muestra.                                                    |
-
-### Estimación puntual
-
-Imaginemos que tenemos una población de 45 individuos. A cada uno se le ha preguntado acerca de cuántas veces han asistido a una manifestación, marcha o evento público en los últimos 3 años. La data es la siguiente:
-
-```{r}
-poblacion<- c(1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,4,4,4,4,4,4,4,4,5,5,5,5,5,5)
-length(poblacion)
-```
-
--   Veámoslo gráficamente.
-
-```{r}
-poblacion=as.data.frame(poblacion)
-poblacion |> 
-  ggplot()+
-  aes(x=poblacion) |> 
-  geom_bar()
-```
-
--   Como dato previo sabemos que en esta población la media es de 2.71. Ojo, normalmente nosotros no sabemos cuál es el parámetro poblacional, sólo lo planteamos así con fines didácticos.
-
-```{r}
-mean(poblacion$poblacion)
-```
-
--   Ahora vamos a hacer un estudio inferencial a partir de una muestra de 5 personas (n) para calcular la media poblacional (parámetro). Primero hay que preguntarnos, cuántas muestras posibles existen para 50 distintos elementos? No son pocas.
-
-```{r}
-n_muestras = choose(50, 5)
-n_muestras
-```
-
--   Ok, elijamos una muestra aleatoria. Utilicemos la tabla de números aleatorios (el antepasado del famoso set.seed() de R). Si no es legible, puedes entrar en este [link](https://www.studocu.com/latam/document/universidad-de-el-salvador/estadistica-i/tabla-de-numeros-aleatorios/12886081)
-
-![](figures/tabla_aleatorios.png) - Elijamos una muestra de 5 casos según la tabla de números aleatorios, es decir, los casos: 10, 22, 24, 42 y 37.
-
-```{r}
-muestra1= poblacion[c(10, 22, 24, 42, 37),]
-muestra1
-```
-
--   Calculemos la media muestral (estadístico):
-
-```{r}
-mean(muestra1)
-```
-
--   Según la muestra que hemos calculado, hemos obtenido una media de 3.2. Si nosotros nos quedamos sólo con ese valor entonces estamos eligiendo una estimación puntual.
-
-> ESTIMACIÓN PUNTUAL: Estadístico proporcionado sin **indicar un rango de error**.
-
-### Error de muestreo
-
-Si nosotros hacemos este ejercicio una y otra vez, es decir seleccionamos varias muestras, probablemente obtengamos resultados diferentes. Cada media muestral es ligeramente mayor o menor que la anterior.
-
-```{r}
-muestra2= poblacion[c(4, 23, 41, 21, 45),]
-muestra2
-```
-
-```{r}
-mean(muestra2)
-```
-
--   Esto quiere decir que los estadísticos muestrales no son los valores exactos de parámetros poblacionales. Son muchas las posibilidades de que obtengas medias muestrales ligeramente diferentes.
-
--   Aquí los teóricos descubrieron un principio: cuando uno realiza muestreos repetidos y calcula sus respectivos estadísticos, los valores **tendían a agruparse alrededor de un valor particular, el cual sería el verdadero parámetro poblacional**.
-
-### Distribuciones de muestreo.
-
--   Ahora bien, ya sabemos que podemos solicitar varias muestras. Qué distribución tendrían todas las medias que calculemos en un determinado número de muestras?
-
--   Calculemos 100 000 muestras para el vector de nuestra población y calculemos la media de cada uno en una tabla. Para ello, le pedimos ayuda al R.
-
-```{r}
-poblacion<- c(1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,4,4,4,4,4,4,4,4,5,5,5,5,5,5)
-muestras <- replicate(100000, sample(poblacion, size=5))
-medias <- apply(muestras, 2, mean)
-df <- data.frame(media=medias)
-```
-
--   Ahora grafiquemos las medias calculadas.
-
-```{r}
-df |> 
-  ggplot()+
-  aes(x=medias) + 
-  geom_histogram(bins = 10)
-```
-
--   Descubrimos que cuando obtenemos muchas muestras y calculamos sus estadísticos (medias), estan en conjunto adquieren una **distribución normal**. Esto ocurre, a pesar de que la distribución de las puntuaciones originales **no tenía distribución normal**.
-
-> **Una distribución muestral de medias tiene forma normal.**
-
-> **Puesto que una distribución muestral de medias adopta una forma normal se puede calcular la probabilidad de ocurrencia de cualquier resultado muestral**
-
-> **Una distribución muestral nos indica con qué frecuencia un estadístico muestral tiene la probabilidad de fallar respecto al valor real del parámetro poblacional**
-
-### Error estándar
-
--   Recuerdas que habíamos dicho que en la curva normal se podría evidenciar que la totalidad de las observaciones se encontraban entre -3 y +3 desviaciones estándar respecto de la media? En el caso de las distribuciones muestrales, esa desviación estándar es conocida como **error estándar**.
-
-- El error estándar mide la dispersión del error de muestreo que ocurre cuando se muestrea repetidamente una población (como lo hicimos líneas arriba).
-
-$$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
-
-Entonces los puntos más importantes del EE son:
-
-- El error estándar es una medida de cuánto se espera que varíen las medias de las muestras tomadas de una población determinada. A medida que el tamaño de la muestra aumenta, el error estándar tiende a disminuir.
-
-- El error estándar es importante en el cálculo de los intervalos de confianza. Cuanto menor sea el error estándar, menor será la variabilidad de las medias muestrales y más preciso será el intervalo de confianza.
-
-- El error estándar se calcula dividiendo la desviación estándar de la población entre la raíz cuadrada del tamaño de la muestra. En la mayoría de los casos, la desviación estándar de la población no se conoce y se utiliza **la desviación estándar de la muestra para estimar el error estándar**.
 
 ### Teorema del límite central
 
@@ -274,7 +78,39 @@ El Tablero de Galton ilustra cómo la distribución de frecuencias de los result
 > Mientras más grande sea la muestra, la media muestras se acerca a la media poblacional. 
 
 
-## Intervalo de confianza de una media
+### Error estándar
+
+-   Recuerdas que habíamos dicho que en la curva normal se podría evidenciar que la totalidad de las observaciones se encontraban entre -3 y +3 desviaciones estándar respecto de la media? En el caso de las distribuciones muestrales, esa desviación estándar es conocida como **error estándar**.
+
+- El error estándar mide la dispersión del error de muestreo que ocurre cuando se muestrea repetidamente una población (como lo hicimos líneas arriba).
+
+$$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
+
+Entonces los puntos más importantes del EE son:
+
+- El error estándar es una medida de cuánto se espera que varíen las medias de las muestras tomadas de una población determinada. A medida que el tamaño de la muestra aumenta, el error estándar tiende a disminuir.
+
+- El error estándar es importante en el cálculo de los intervalos de confianza. Cuanto menor sea el error estándar, menor será la variabilidad de las medias muestrales y más preciso será el intervalo de confianza.
+
+- El error estándar se calcula dividiendo la desviación estándar de la población entre la raíz cuadrada del tamaño de la muestra. En la mayoría de los casos, la desviación estándar de la población no se conoce y se utiliza **la desviación estándar de la muestra para estimar el error estándar**.
+
+
+
+## Métodos de estimación
+
+### Estimación puntual
+
+En estadística inferencial, la estimación puntual se refiere a la técnica de utilizar los datos de una muestra para calcular un único valor, conocido como punto estimado, que es la mejor suposición o predicción del valor de un parámetro desconocido de la población. 
+
+Por ejemplo, si queremos conocer el salario promedio de todos los trabajadores de una empresa, podríamos tomar una muestra aleatoria de trabajadores, calcular el salario promedio de esa muestra y usar ese valor como nuestra estimación puntual del salario promedio real de toda la empresa. 
+
+Esencialmente, este valor es nuestra "mejor suposición" basada en la información que hemos recolectado. Sin embargo, aunque la estimación puntual es directa y fácil de entender, no refleja la incertidumbre o variabilidad que podría haber en esa estimación. 
+
+Es por esta razón que, en muchas situaciones, se complementa con técnicas como la estimación por intervalo para obtener una visión más completa y matizada del parámetro que estamos tratando de estimar.
+
+
+
+### Intervalo de confianza de una media
 
 ![](figures/intervalos.png)
 
@@ -301,8 +137,9 @@ También puedes ver el informe [aquí](https://iep.org.pe/wp-content/uploads/202
 
 ### Abrir base de datos
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(haven)
+library(tidyverse)
 enades<-read_spss("data/ENADES_2022.sav") # Con esta función abrimos archivos de SPSS
 # enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav")
 ```
@@ -334,61 +171,72 @@ enades |>
   geom_bar()
 ```
 
+
 ### Cálculo del estimador puntual: media muestral
 
 ```{r}
 mean(enades$p17, na.rm = TRUE)
 ```
 
+
 ### Cálculo del intervalo de confianza al 95%
 
-Establecemos nuestra información de insumo. 
+Calculamos la media:
 
 ```{r}
 media<-mean(enades$p17, na.rm = TRUE)
+media
+```
+
+También la desviación estándar:
+
+```{r}
 SE<- sd(enades$p17, na.rm = TRUE)
+SE
+```
+
+El valor Z cuando realizamos un cálculo al 95% de confianza
+
+```{r}
 z<- 1.96
+```
+
+Y finalmente, el tamaño de la muestra
+
+```{r}
 n <-length(enades$p17)
+n
 ```
 
 Ahora calculamos el error estándar:
+
+$$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
 
 ```{r}
 errorst <- SE/sqrt(n)
 ```
 
-Una vez calculado el error estándar podemos calcular los límite superior e inferior. 
+
+Una vez calculado el error estándar podemos calcular los límite inferior:
 
 ```{r}
-### Calculamos el límite inferior
-
 lim_inf<- media - (z*errorst)
+lim_inf
+```
 
-### Calculamos el límite superior
+Y también el límite superior:
 
+```{r}
 lim_sup<- media + (z*errorst)
-
-### Creamos el listado de valores para visualizarlo en versión data frame
-
-interval_m <- data.frame(n, media, SE, z, errorst, lim_inf,lim_sup)
-interval_m
-
+lim_sup
 ```
 
-Para verlo mejor podemos utilizar el paquete `kableExtra`:
+Con ello podemos concluir que la media poblacional, a un 95% de confianza, se encontrará entre 4.414341 y 4.728327.
 
-```{r message=FALSE, warning=FALSE}
-library(kableExtra)
-interval_m |> 
-  kbl() |> 
-  kable_styling()
-```
+Esto lo podemos interpretar también de las siguientes forma:
 
+- Estoy 95% seguro de que la altura promedio real de todos los estudiantes en la universidad está entre 4.414341 y 4.728327.
 
-
-
-
-
-
+- Si realizara este estudio 100 veces, esperaría que la altura promedio real de los estudiantes estuviera dentro de este intervalo en 95 de esos estudios.
 
 
