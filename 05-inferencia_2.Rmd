@@ -1,60 +1,222 @@
-# IC de una proporción e introducción a pruebas de hipótesis
+# Introducción a la Estadística Inferencial I
 
-## Recordemos
+## Objetivo de la sesión
 
-Abramos los paquetes que vamos a necesitar:
+- Comprender qué es un índice aditivo y cómo se utiliza como medida resumen. 
+
+- Calcular el IC del índice para toda la población y entre grupos. 
+
+- Visualizar el IC del Índice entre grupos. 
+
+
+## Índice Aditivo
+
+![](https://pro.arcgis.com/es/pro-app/latest/tool-reference/spatial-statistics/GUID-4F8022C6-1AD0-4F94-B5F7-9288EA37DAD8-web.png)
+
+Un índice aditivo es una técnica utilizada en la investigación social y otras áreas para combinar múltiples indicadores o variables en una única medida compuesta. La idea central detrás de un índice aditivo es sumar las puntuaciones o valores de diferentes ítems para obtener un puntaje total que represente una característica o concepto más amplio que no se puede medir directamente con un solo ítem.
+
+Supongamos que realizas una encuesta y pides a los encuestados que evalúen su satisfacción con los servicios públicos de agua, luz y desagüe utilizando una escala Likert de 1 (muy insatisfecho) a 5 (muy satisfecho). Ahora, deseas combinar estas tres variables en un índice aditivo que mida la satisfacción general con los servicios públicos.
+
+**Paso 1: Obten los datos**
+Por ejemplo, un encuestado ha contestado:
+Agua: 4
+Luz: 5
+Desagüe: 3
+
+
+**Paso 2: Creación del índice aditivo**
+Para crear el índice, simplemente sumarías las puntuaciones de estas tres variables:
+
+Índice de Satisfacción = Agua + Luz + Desagüe
+Índice de Satisfacción = 4 + 5 + 3 = 12
+
+El puntaje total para este encuestado en el índice de satisfacción con los servicios públicos sería 12. Dado que estás utilizando una escala Likert de 1 a 5 y tres servicios, el puntaje máximo posible para el índice sería 15 (si estuvieran muy satisfechos con los tres servicios) y el mínimo sería 3 (si estuvieran muy insatisfechos con los tres servicios).
+
+
+**Paso 3: Estandarización**
+
+Reescalar es el proceso de ajustar el rango de una variable para que se ajuste a una nueva escala. En el contexto de nuestro índice de satisfacción con los servicios públicos, reescalar los datos a una escala de 0 a 10 puede tener varias ventajas. 
+
+- Primero, una escala de 0 a 10 es intuitivamente comprensible para la mayoría de las personas, ya que es similar a las escalas que a menudo se utilizan en educación para calificar el desempeño. 
+
+- Segundo, al tener un rango definido, facilita la interpretación y comparación de los resultados. Por ejemplo, un valor de 8 en esta escala sugiere una alta satisfacción, mientras que un valor cercano a 0 indica insatisfacción. 
+
+- Finalmente, reescalar a una escala estándar como 0 a 10 puede facilitar la comparación con otros índices o estudios que utilicen la misma escala, permitiendo una evaluación más uniforme y coherente.
+
+Para ello, podemos utilizar el paquete `scales` y específicamente la función `rescale()``
+
+
+**Paso 4: Describir**
+
+Una vez reescalado, el índice se convierte en un resumen efectivo de las variables originales, consolidando la información en una única medida. Esta representación condensada facilita su uso en análisis posteriores. Por ejemplo, podemos obtener intervalos de confianza para el índice, proporcionando un rango de valores en el que es probable que se encuentre la verdadera media poblacional. Además, el índice reescalado puede ser utilizado en diversos modelos estadísticos, análisis de tendencias o incluso comparaciones entre diferentes grupos o períodos de tiempo, ofreciendo una herramienta versátil para la investigación y toma de decisiones.
+
+
+## Intervalos de confianza para grupos
+
+- El intervalo de confianza de una media en grupos brinda un rango estimado para la verdadera media poblacional dentro de categorías específicas o subconjuntos de datos, siendo crucial en análisis sociopolíticos.
+
+- En lugar de un solo intervalo para toda una población, se calcula un intervalo para cada grupo de interés político o social.
+
+- Permite realizar comparaciones detalladas entre distintos grupos sociopolíticos o demográficos.
+
+- Su utilidad en ciencia política y ciencias sociales incluye: Evaluación de la aprobación de líderes políticos entre diferentes grupos demográficos (por ejemplo, por edad, género o nivel educativo), análisis de tendencias electorales en diferentes regiones o entre distintos grupos socioeconómicos, estudio de la percepción pública sobre políticas específicas, como reformas educativas o de salud, entre diferentes sectores de la población, comparación de niveles de confianza en instituciones gubernamentales entre urbanos y rurales o entre diferentes grupos étnicos, entre otros. 
+
+- Es esencial para entender las dinámicas y divisiones dentro de una sociedad, identificando posibles brechas o áreas de consenso.
+
+En resumen, es una herramienta vital para académicos, analistas y tomadores de decisiones en ciencia política, permitiendo un análisis más profundo y matizado de las actitudes y percepciones públicas.
+
+Para nuestros fines, nos alejaremos un poco de la fórmula que vimos la clase pasada y lo haremos todo mucho más rápido con la utilización de la función `ciMean()`.
+
+
+## Ejercicio 1:
+
+### Pregunta de investigación
+
+En base a la data ENADES, calcule un índice aditivo de **Percepción sobre la desigualdad en el acceso a servicios públicos**.
+
+Para ello, vamos a utilizar estas cuatro variables:
+
+![](figures/ENADES_p11.png)
+
+Brinde el intervalo de confianza de la media de percepción sobre la desigualdad en el acceso a servicios públicos en la población al 95%
+
+Asimismo, genere una comparación de los intervalos de confianza para los sectores de "Lima Metropolitana" y "Perú sin Lima" (según variable zona3)
+
+
+**ABRIMOS LA DATA**
 
 ```{r}
-library(pacman)
-p_load(haven, tidyverse, lsr, kableExtra)
-
-# Esto equivale a:
-# library(haven)
-# library(tidyverse)
-# library(lsr)
-# library(kableExtra)
-
-# Es útil cuando necesitamos abrir un gran número de librerías!
+library(haven)
+library(tidyverse)
+library(lsr)
+library(kableExtra)
+enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav")
 ```
 
 
-Continuemos con el ejercicio que vimos en la última clase utilizando la ENADES.
+### Creamos el índice aditivo
+
+**Paso 1: Obten los datos**
+
+Antes de sumar las variables individuales para crear un índice aditivo, es esencial verificar la estructura y la coherencia de las categorías en las escalas de las variables que se combinarán. Las categorías de cada escala deben alinearse de manera que el progreso a través de las categorías refleje una progresión lógica y uniforme en la variable subyacente.
+
+Por ejemplo, si estamos evaluando la satisfacción con ciertos servicios, las categorías de la escala deberían estructurarse de manera que un número más alto indique una mayor satisfacción, mientras que un número más bajo denota menos satisfacción. Esto asegura que el índice sea intuitivo: a medida que el valor del índice aumenta, también lo hace la intensidad o el grado de la característica que se está midiendo.
+
+Al garantizar que las categorías de la escala estén bien alineadas y sean intuitivas, nos aseguramos de que el índice aditivo resultante sea válido y refleje de manera precisa el constructo que intentamos medir. 
+
+En este caso vemos que las variables tienen las siguientes escalas: (1) Muy desigual, (2) Poco desigual y (3) Nada desigual. Ciertamente, sería más intuitivo si el 3 indicaría "mucha desigualdad" y el 1 "poca desigualdad"
 
 ```{r}
-enades<-read_spss("data/ENADES_2022.sav") # Con esta función abrimos archivos de SPSS
-
-# Si quiere abrirlo desde GitHub entonces corre la siguiente línea:
-# enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav")
+#Percepción de desigualdad en el acceso a la educación
+#summary(enades$p11.1)
+table(enades$p11.1)
+#Percepción de desigualdad en el acceso a la salud
+#summary(enades$p11.2)
+table(enades$p11.2)
+#Percepción de desigualdad en el acceso al trabajo
+#summary(enades$p11.3)
+table(enades$p11.3)
+#Percepción de desigualdad el acceso a la justicia
+#summary(enades$p11.4)
+table(enades$p11.4)
 ```
 
-Elijamos la variable P17: 
 
-- En una escala del 1 al 10, en la que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable”. ¿Hasta qué punto es aceptable la desigualdad en el Perú? Dígame un número de 1 a 10, recuerde que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable (RESPUESTA ESPONTÁNEA)
+En el mundo de la investigación y el análisis de datos, la exploración descriptiva inicial es una etapa crucial que no debe pasarse por alto. Esta exploración nos permite comprender la estructura, la distribución y las características generales de nuestros datos antes de realizar análisis más complejos. Una de las razones más importantes para llevar a cabo esta fase exploratoria es la detección de valores atípicos o inusuales, incluidos los valores codificados como "No sabe/No responde" (NS/NR), que a menudo se representan con códigos numéricos específicos como 999, 888, entre otros.
+
+Cuando no se detectan o se manejan adecuadamente, estos valores codificados como NS/NR pueden introducir errores significativos en nuestros análisis. Por ejemplo, si se incluyen en el cálculo de una media, estos valores altos (como 999) inflarán artificialmente la media, resultando en una representación imprecisa de la tendencia central de los datos. Además, estos valores pueden distorsionar otros cálculos y estadísticas descriptivas, como la mediana, la varianza, y el rango.
+
+En el contexto de ciencias sociales y ciencia política, donde las encuestas y los cuestionarios son herramientas comunes, los valores de NS/NR son habituales. Los encuestados pueden no querer, o no saber, cómo responder a ciertas preguntas. Es esencial identificar y manejar adecuadamente estos valores para garantizar que los resultados del análisis sean válidos y representativos de la población en estudio. Por lo tanto, una exploración descriptiva cuidadosa es el primer paso crucial para garantizar la integridad y precisión de cualquier análisis posterior.
+
+
+Como corroboramos que no hay problema de este tipo vamos a recodificar las variables para volverlas intuitivas. 
 
 ```{r}
-enades$p17<-as.numeric(enades$p17) #Lo convertimos a numérica
-summary(enades$p17) # Calculamos estadísticos de resumen de forma rápida.
+enades<-enades |> 
+  mutate(p11.1n=case_when(p11.1==1~3,
+                          p11.1==2~2,
+                          p11.1==3~1,
+                          TRUE~NA_real_),
+         p11.2n=case_when(p11.2==1~ 3,
+                          p11.2==2~2,
+                          p11.2==3~1,
+                          TRUE~NA_real_),
+         p11.3n=case_when(p11.3==1~ 3,
+                          p11.3==2~2,
+                          p11.3==3~1,
+                          TRUE~NA_real_),
+         p11.4n=case_when(p11.4==1~ 3,
+                          p11.4==2~2,
+                          p11.4==3~1,
+                          TRUE~NA_real_))
 ```
 
-### Pasos previos
 
-- Cuál es la variable?
-
-Nivel de aceptación de la desigualdad en el Perú.
-
-- Qué deseamos saber?
-
-Con nuestra muestra deseamos conocer el parámetro poblacional, es decir, la media de aceptación de la desigualdad en la población. 
+```{r}
+table(enades$p11.1n)
+table(enades$p11.2n)
+table(enades$p11.3n)
+table(enades$p11.4n)
+```
 
 
-### Estimación puntual
+
+**Paso 2: Creación del índice aditivo**
+
+Ahora sí podremos realizar el índice aditivo.
+
+
+```{r}
+enades<-enades |> 
+  mutate(indice_aditivo=p11.1n+p11.2n+p11.3n+p11.4n) #Creamos una nueva variable que es la suma de las originarias recodificadas. 
+```
+
+
+```{r}
+enades |> 
+  count(indice_aditivo)
+```
+
+Como nuestras variables de insumo tenían como valores posibles 1-3, nuestro índice tendrá una escala posible de 4 (si la persona contestó a todo con 1) a 12 (si la persona contestó a todo con 3).
+
+
+**Paso 3: Estandarización**
+
+
+Sobre este índice ya creado, podemos cambiarle la escala para que no sea de 4-12 sino de 0-8.
+
+```{r}
+library(scales)
+enades$indice_aditivo_reescalado<-rescale(enades$indice_aditivo, to=c(1,10))
+```
+
+```{r}
+enades |> 
+  count(indice_aditivo_reescalado)
+```
+
+
+```{r}
+enades %>% 
+  ggplot() +
+  aes(x=indice_aditivo_reescalado)+
+  geom_bar()+
+  geom_text(stat='count', aes(label=..count..), vjust=-0.5)
+```
+
+
+
+### Cálculo del intervalo de confianza al 95%
+
+
+***Estimación puntual***
 
 El estimador puntual es una estadística descriptiva que se utiliza para estimar el valor desconocido de un parámetro poblacional a partir de una muestra. El estimador puntual proporciona una única estimación del valor del parámetro y se calcula a partir de los datos de la muestra.
 
 En este caso, la mejor estimación de la media población es simplemente la media muestral. 
 
 ```{r}
-mean(enades$p17, na.rm=TRUE) #Calculamos la media, obviando valores perdidos. 
+mean(enades$indice_aditivo_reescalado, na.rm=TRUE) #Calculamos la media, obviando valores perdidos. 
 ```
 
 ### IC para una media
@@ -65,24 +227,16 @@ La clase pasada lo hicimos con la fórmula, paso por paso. Ahora, utilizaremos u
 
 ```{r}
 #library(lsr) #Recuerda que esta función está en el paquete lsr
-ciMean(enades$p17, na.rm = T) # Calculamos el intervalo de confianza de p17, obviando valores perdidos. 
+ciMean(enades$indice_aditivo_reescalado, na.rm = T) # Calculamos el intervalo de confianza de p17, obviando valores perdidos. 
 ```
 
 ### IC para una media según grupos
 
-Ahora bien, en la mayoría de casos lo que deseamos es comparar grupos poblacionales. Por ejemplo:
-
-- Quién gana en promedio más dinero, los hombres o las mujeres?
-
-- Quién apoya más, en promedio, a la democracia, los de la zona A o la zona B?
-
-- Entre otros. 
-
-Lo primero que necesitamos para comparar es justamente un grupo de comparación. Ya hablando en programación del R, necesitamos un **factor**. 
+Una vez que ya tenemos nuestra variable numérica, lo  que necesitamos para comparar es justamente un grupo de comparación. Ya hablando en programación del R, necesitamos un **factor**. 
 
 Recuerda que el factor era una variable que visualmente son números, pero teóricamente sabemos que cada número es un nivel. 
 
-Utilizaremos la variable zona3, la cual separa a los encuestados según su procedencia en: Lima Metropolitana y Perú sin Lima. 
+Utilizaremos la variable zona3, la cual separa a los encuestados según su procedencia en: "Lima Metropolitana" y "Perú sin Lima". 
 
 Veamos:
 
@@ -100,55 +254,82 @@ Corroboremos:
 str(enades$zona3) #Solicitamos la estructura de la variable zona3
 ```
 
-Solicitemos el intervalo de confianza de la variable p17 para cada grupo identificado:
+Solicitemos el intervalo de confianza de la variable creada para cada grupo identificado:
 
 ```{r}
-p17_segun_zona<-enades %>% 
+indice_segun_zona<-enades %>% 
   group_by(zona3) %>% #Agrupamos por zona
-  summarise(mean = mean(p17, na.rm = TRUE), #Utilizamos summarise y pedimos la media,
-            ci_lower = ciMean(p17, na.rm = T)[1], # También el PRIMER ELEMENTO de la función ciMean
-            ci_upper = ciMean(p17, na.rm = T)[2]) #Y el SEGUNDO ELEMENTO de la función ciMean
+  summarise(mean = mean(indice_aditivo_reescalado, na.rm = TRUE), #Utilizamos summarise y pedimos la media,
+            ci_lower = ciMean(indice_aditivo_reescalado, na.rm = T)[1], # También el PRIMER ELEMENTO de la función ciMean
+            ci_upper = ciMean(indice_aditivo_reescalado, na.rm = T)[2]) #Y el SEGUNDO ELEMENTO de la función ciMean
 ```
 
 ```{r}
-p17_segun_zona
+indice_segun_zona
 ```
 
+Según el cálculo, para Lima Metropolitana la media poblacional se encuentra entre 8.49 y 8.77, mientras que para Perú sin Lima se encuentra entre 8.25 y 8.47. 
 
-Según el cálculo, para Lima Metropolitana la media poblacional se encuentra entre 4.09 y 4.62, mientras que para Perú sin Lima se encuentra entre 4.48 y 4.88. 
 
-### Barras de error
+**INTERPRETACIÓN**
 
-En el contexto de intervalos de confianza, las barras de error se utilizan para representar el nivel de incertidumbre en una estimación puntual del parámetro poblacional. Un intervalo de confianza es un rango de valores plausible para el valor del parámetro poblacional, y se construye a partir de una muestra aleatoria y un nivel de confianza específico.
+Al comparar dos intervalos de confianza entre grupos, lo más importante a tener en cuenta son:
 
-Las barras de error en un gráfico de intervalos de confianza se construyen a partir de los límites superior e inferior del intervalo de confianza. Generalmente se dibujan líneas verticales que se extienden desde el valor estimado del parámetro (que puede ser una media, una proporción, una diferencia de medias, etc.) hasta los límites del intervalo de confianza.
+- Superposición de Intervalos: Si los intervalos de confianza de dos grupos no se superponen, esto sugiere una diferencia estadísticamente significativa entre las medias de los grupos en la población. 
 
-Por ejemplo, si se estima la media de una variable a partir de una muestra y se desea construir un intervalo de confianza al 95%, las barras de error se construirán a partir del límite inferior y superior del intervalo de confianza, que contendrán el verdadero valor de la media poblacional con una probabilidad del 95%.
+-Posición del Intervalo en la Escala: Aparte de la superposición, es esencial observar dónde se sitúan los intervalos en la escala. Si un grupo tiene un intervalo de confianza que se sitúa consistentemente más alto que el otro, puede indicar una tendencia o dirección en la diferencia entre los grupos.
 
-Las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. Si las barras de error son muy pequeñas, esto sugiere que la estimación es muy precisa y que hay una alta confianza en la validez del intervalo de confianza. Por otro lado, si las barras de error son grandes, esto sugiere que la estimación es menos precisa y que hay una mayor incertidumbre en el intervalo de confianza.
+- Nivel de Confianza Utilizado y amplitud el intervalo: Es importante recordar el nivel de confianza utilizado al construir los intervalos (por ejemplo, 95%). Un nivel de confianza más alto resultaría en intervalos más amplios, mientras que un nivel más bajo daría como resultado intervalos más estrechos.
+
+Aplicando a los resultados precisados:
+
+- Superposición: No hay. Un intervalo va de 8.49 a 8.77 (Lima Metropolitana) y el otro de 8.25 y 8.47 (Perú sin Lima). Esto sugiere una diferencia estadísticamente significativa entre estos sectores.
+
+- Posición del intervalo en la escala: Podemos decir que tenemos indicio de que en promedio la percepción de desigualdad en el acceso a servicios es más alta en Lima que en el resto del país. 
+
+- Nivel de confianza: Recordemos, cuando usamos ciMean() estamos utilizando un nivel de confianza del 95% por default. 
+
+
+Por ejemplo, cuánto sería los intervalos de confianza al 99%?
+
+```{r}
+enades %>% 
+  group_by(zona3) %>% 
+  summarise(mean = mean(indice_aditivo_reescalado, na.rm = TRUE),
+            ci_lower = ciMean(indice_aditivo_reescalado, na.rm = TRUE, conf = 0.99)[1], 
+            ci_upper = ciMean(indice_aditivo_reescalado, na.rm = TRUE, conf = 0.99)[2])
+
+```
+
+> Qué puedes observar?
+
+
+### Visualización
+
+Como dijimos, las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. 
 
 Podemos utilizar un comando básico como la función `plotmeans()`:
 
 ```{r message=FALSE, warning=FALSE}
 library(gplots)
-plotmeans(enades$p17~enades$zona3, p=0.95, 
-          xlab="Ámbito", ylab="Aceptación desigualdad", 
-          main="Gráfico de medias de Aceptación de la desigualdad en el Perú")
+plotmeans(enades$indice_aditivo_reescalado~enades$zona3, p=0.95, 
+          xlab="Ámbito", ylab="Índice de percepción de desigualdad en acceso a servicios", 
+          main="Gráfico de medias de Índice Aditivo")
 ```
 
 Sin embargo, te recomiendo utilizar `ggplot()`!
 
 ```{r}
-p17_segun_zona |> #Data
+indice_segun_zona |> #Data
   ggplot()+       #Iniciamos el ggplot. A partir de ahora son +! ya no |>!
   aes(y=mean, x=zona3)+  #Los grupos en el eje X y la media en el eje Y
   geom_errorbar(aes(ymin=ci_lower, ymax=ci_upper), width=0.2)+ #Graficamos la barra de error
   geom_text(aes(label=paste(round(mean, 2))), vjust=0, size=5)+ #Colocamos el texto del valor de la media
   xlab("Procedencia") + #Etiqueta del eje X
-  ylab("Nivel de aceptación de la desigualdad") # Etiqueta del eje y
+  ylab("Percepción de la desigualdad") # Etiqueta del eje y
 ```
 
-> Una guía: Se superponen los intervalos?  
+> RECUERDA: Se superponen los intervalos?  
 
 Si los intervalos de confianza se superponen significa que no hay una diferencia estadísticamente significativa entre las estimaciones correspondientes a cada intervalo. Es decir, la diferencia entre las estimaciones no es lo suficientemente grande como para ser considerada significativa desde un punto de vista estadístico.
 
@@ -157,9 +338,9 @@ Si los intervalos de confianza se superponen significa que no hay una diferencia
 **Es importante tener en cuenta que la superposición de los intervalos de confianza no es una prueba concluyente de que no hay una diferencia significativa entre las estimaciones. Se debe realizar una prueba de hipótesis para determinar si la diferencia es estadísticamente significativa o no. Sin embargo, la superposición de los intervalos de confianza puede ser una indicación inicial de que la diferencia no es significativa y que no se debe buscar más evidencia.**
 
 
-### Ahora hazlo tú!
+## Ejercicio 2
 
-Cree un .Rmd y realice lo siguiente:
+**PREGUNTA**
 
 Utilizando la variable monto mínimo mensual que requiere su hogar para vivir (P08).
 
@@ -174,6 +355,7 @@ Calcule:
 - Realice un gráfico de barras de error. Existe indicio de DIFERENCIA entre los dos grupos?
 
 > Tienes 15 minutos!
+
 
 
 ## Intervalo de una proporción
@@ -237,6 +419,7 @@ La muestra se divide entre estas tres opciones. Ahora elegimos **UNA CATEGORÍA*
 #Calculamos p
 enades |> 
   count(p11.1) |> 
+  drop_na(p11.1) |>
   mutate(p=n/sum(n))
 ```
 
@@ -244,13 +427,13 @@ Ahora sabemos que nuestro $\hat{p}$ = 0.59
 
 
 ```{r}
-p<-0.5961
+p<-0.61003344
 ```
 
 El número total de casos es:
 
 ```{r}
-n<- 1530
+n<- 912+503+80
 ```
 
 
@@ -299,13 +482,14 @@ Recordemos:
 ```{r}
 enades |> 
   count(p11.1) |> 
+  drop_na(p11.1) |> 
   mutate(p=n/sum(n))
 ```
 
 Colocamos la **frecuencia** de la categoría elegida y el tamaño total de la muestra. 
 
 ```{r}
-prop.test(912, 1530)$conf.int
+prop.test(912, 1495)$conf.int
 ```
 
 > Por qué colocamos frecuencia? Porque así está configurada esta función. 
@@ -327,13 +511,9 @@ Primero, nos tenemos que preguntar cuál es la frecuencia en cada grupo
 ```{r}
 enades |> 
   group_by(area2) |> 
+  drop_na(p11.1) |>
   count(p11.1) |> 
   mutate(p=n/sum(n))
-```
-
-```{r}
-enades |> 
-  count(area2)
 ```
 
 
@@ -344,23 +524,21 @@ Ahora calculamos la función teniendo en cuenta que:
 Lo ingresamos a la función:
 
 ```{r}
-prop.test(x=c(769), n=c(1273))$conf.int
+prop.test(x=c(769), n=c(769+409+67))$conf.int
 ```
 
 - En el segundo grupo hay 143 casos de éxito de un total de 257.
 
 ```{r}
-prop.test(x=c(143), n=c(257))$conf.int
+prop.test(x=c(143), n=c(143+94+13))$conf.int
 ```
-
-
 Lo podemos ordenar en un data.frame.
 
 ```{r}
 resultados_prop<-  data.frame(Grupo =c("Urbano", "Rural"), 
-                              P =c(0.60, 0.55), 
-                              Lim_inf=c(0.57, 0.49), 
-                              Lim_sup= c(0.63,0.61))
+                              P =c(0.61767068, 0.57200000	), 
+                              Lim_inf=c(0.5899485, 0.5080285), 
+                              Lim_sup= c(0.6446582,0.6337218))
 ```
 
 ```{r}
@@ -388,9 +566,9 @@ En este caso, se sigue la siguiente interpretación:
 Si el intervalo de confianza no contiene el valor cero, esto sugiere que las proporciones de los dos grupos son significativamente diferentes y que la hipótesis nula de que las proporciones son iguales debe ser rechazada. Por otro lado, si el intervalo de confianza contiene el valor cero, no podemos rechazar la hipótesis nula y no podemos concluir que las proporciones son significativamente diferentes.
 
 
-### Ahora hazlo tú!
+## Ejercicio 3:
 
-Cree un .Rmd y realice lo siguiente:
+**PREGUNTA**
 
 Utilizando la variable "ideología2" (1: Izquierda, 2:Centro, 3:Derecha):
 
@@ -407,121 +585,3 @@ Realice lo siguiente:
 
 
 
-## Prueba de hipótesis: Una introducción
-
-### Definición
-
-Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población. Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.
-
-Para aplicar una prueba debemos seguir pasos muy ordenados y entender qué estamos haciendo en cada uno de ellos.
-
-![](figures/prueba_pasos.png)
-
-> En términos referenciales, es como seguir un proceso de investigación policial! Vamos a utilizar esta analogía!
-
-![](figures/detective.jpg)
-
-
- 
-
-### Paso 1: Establer hipótesis
-
-> En este punto somos como detectives (como Benoit Blanc en Knives Out) y estas son nuestras hipótesis de investigación. Si vamos a investigar un crimen partimos con la H0 que la persona investigada es inocente. Nuestra hipótesis alterna es que es culpable!
-
-Las hipótesis son afirmaciones o suposiciones acerca de una población o de un conjunto de datos que se pretende analizar.
-
-En el contexto de las pruebas de hipótesis, se suelen plantear dos hipótesis: la hipótesis nula (H0) y la hipótesis alternativa (H1). La hipótesis nula establece que no hay diferencia significativa entre las muestras o poblaciones que se están comparando, mientras que la hipótesis alternativa indica que sí existe una diferencia significativa.
-
-
-| Hipótesis        | Descripción                         | 
-|----------------------------|---------------------------------|
-| Hipótesis nula (H0)        | Es una afirmación que se establece inicialmente y que se asume verdadera a menos que se disponga de suficiente evidencia para rechazarla. La hipótesis nula generalmente establece que **no hay diferencia significativa entre dos grupos** o variables que se están comparando, o que no hay efecto de un tratamiento o una intervención.                           | 
-| Hipótesis alternativa (H1)   | Es la afirmación opuesta a la hipótesis nula y establece que **sí hay una diferencia significativa entre los dos grupos** o variables que se están comparando, o que sí hay un efecto de un tratamiento o intervención. La hipótesis alternativa se utiliza para probar lo que se espera demostrar si se rechaza la hipótesis nula.                 | 
-
-Tener en cuenta que la forma cómo planteamos nuestras hipótesis va a repercutir en todo el flujograma. 
-
-### Paso 2: Verificar supuestos
-
-![](figures/detective_escena.jpg)
-
-> Antes de ver los hechos, debemos ver el contexto en el cual se encuentran. No es lo mismo que el crimen se realice en una casa o al aire libre. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!
-
-Recuerdas todos los principios de la curva normal, desviaciones estándar, errores estándar (en el caso de las distribuciones muestrales), etc? Eso también se aplica aquí. 
-
-Partimos de la idea de que si se extraen muchas muestras repetidas (como en la clase anterior), los estadísticos muestrales se centrarán alrededor de un valor con una distribución aproximadamente normal. 
-
-En este caso debemos corroborar ciertas características de la distribución de nuestra muestra. Algunas de estas:
-
-- Que las variables provengan de una distribución gaussiana o normal. 
-
-- Que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro. 
-
-
-### Paso 3: Establecer nivel de significancia
-
-> Cuando investigamos un crimen debemos cotejar el comportamiento del investigado frente a una actitud vista como normal o regular. Si encontramos que el investigado asistía a lugares muy fuera de su rutina puede ser un indicio!
-
-Como en el caso del intervalo de confianza, elegir el nivel de confianza con el que estamos trabajando es vital. 
-
-El nivel de significancia en una prueba de hipótesis es la probabilidad máxima de que un resultado observado sea producto del azar, es decir, que no haya una diferencia real entre las muestras o poblaciones que se están comparando. Es un valor establecido previamente por el investigador antes de realizar la prueba de hipótesis y representa el umbral a partir del cual se considera que los resultados son estadísticamente significativos (o en nuestro caso, a partir de qué punto catalogamos un hecho como sospechoso).
-
-Por ejemplo, si se realiza una prueba de hipótesis con un nivel de significancia del 5%, esto significa que hay una probabilidad máxima del 5% de que los resultados observados se deban al azar, y que hay una diferencia real entre las muestras o poblaciones que se están comparando. En otras palabras, si el valor p obtenido en la prueba de hipótesis es menor que el nivel de significancia establecido, se rechaza la hipótesis nula y se concluye que hay evidencia suficiente para aceptar la hipótesis alternativa.
-
-> Por ejemplo, si investigamos un robo y nos damos cuenta que el sospechoso, que había vivido toda su vida en Lima y nunca había viajado a ningún departamento, justamente había decidido mudarse a Europa a los pocos días de acontecido el robo.
-
-Es importante destacar que el nivel de significancia elegido puede tener un impacto en la interpretación de los resultados y que, en última instancia, es el investigador quien debe decidir el nivel adecuado en función del contexto de la investigación y del grado de incertidumbre que esté dispuesto a asumir.
-
-### Paso 4: Aplicar test estadístico y obtener p-value
-
-> Ahora debemos recopilar evidencia!
-
-![](figures/detective_rastro.jpg)
-
-Tenemos que identificar el comportamiento extraño, pero para eso debemos saber cuál es el comportamiento normal. 
-
-En estadística, el **comportamiento** normal nos lo entrega un test estadístico. Este nos brinda un **estadístico de prueba**, el cual va a ser la referencia con la cual vamos a medir la rareza de lo que encontramos en la práctica en nuestra data. 
-
-
-Antes de seguir te pido que recuerdes esto:
-
-![](figures/ejemplo_paso4.png)
-Ok, ahora sí. El test estadístico lo que te indica es cuál es el valor de umbral a la confianza elegida, pero en términos de EE (en el ejemplo de arriba, sería 20). 
-
-Luego de eso, tomandolo como referencia, te dice qué tan raro es el estadístico **OBSERVADO** en tu muestra y te brinda la probabilidad de que eso ocurriese. Esa probabilidad es tu p-valor. 
-
-En el ejemplo anterior, sabemos que 59 o 141 estaban dentro de ese otro 5% de probabilidad. Sin embargo, el test estadístico nos da la **probabilidad exacta**, esta probabilidad exacta se llama **p-valor**.
-
-### Paso 5: Tomar una decisión
-
-> Ahora, de acuerdo a la evidencia. Debes tomar una decisión. Si el evento es demasiado raro entonces tienes que rechazar la hipótesis nula (es inocente). Si el evento es normal entonces NO puedes rechazar una hipótesis nula. 
-
-![](figures/sospechoso.jpg)
-
-
-Si el p-valor es menor que el nivel de significancia establecido (por ejemplo, α = 0.05), se rechaza la hipótesis nula (H0: Medias iguales).
-
-Si el p-valor es mayor que el nivel de significancia establecido NO rechazamos la hipótesis nula.
-
-Es importante tener en cuenta que el p-valor no proporciona información sobre la magnitud de la diferencia observada entre las muestras o poblaciones que se están comparando, sino simplemente sobre la probabilidad de que los resultados observados sean producto del azar. Además, la interpretación del p-valor debe contextualizarse adecuadamente y no se debe basar únicamente en la regla general del nivel de significancia establecido.
-
-![](figures/pasos_pvalor.jpg)
-
-> OJO: EN TÉRMINOS ESTRICTOS NUNCA DECIMOS QUE **ACEPTAMOS** LA ALTERNATIVA.
-
-### Paso 6: Interpretación
-
-> El paso final de la investigación es dar tu conclusión como detective. Entonces decimos que con un 95% podemos rechazar que el sospechoso sea inocente, por lo que lo presentamos al Poder Judicial para que un juez dictamine la sentencia. Cumplimos con nuestro trabajo.
-
-![](figures/JUEZ.jpg)
-
-El paso final es proporcionar una interpretación de los resultados. 
-
-Podemos utilizar el siguiente fraseo.
-
-SI EL P-VALOR <0.05
-
-A un 95% de confianza, obtuvimos un p-valor de _____, por lo que rechazamos la hipótesis nula de que _______ y concluimos que existe _______ estadísticamente significativa.
-
-SI EL P-VALOR >=0.05
-
-A un 95% de confianza, obtuvimos un p-valor de _____, por lo que **NO** rechazamos la hipótesis nula de que _______ y concluimos que **NO** existe _______ estadísticamente significativa.

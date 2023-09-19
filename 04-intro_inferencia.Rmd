@@ -1,6 +1,17 @@
-# Estadística Inferencial: Introducción
+# Introducción a la Estadística Inferencial I
 
-## Conceptos principales
+## Objetivo de la sesión
+
+- Entender los principios en los que se basa la estadística inferencial.
+
+- Comprender cómo se calcula un intervalo de confianza de una media.
+
+- Calcular el intervalo de confianza de una media con la función ciMean().
+
+- Visualizar el IC con un gráfico de barras de error. 
+
+
+## Fundamentos
 
 ### Inferencia
 
@@ -145,9 +156,9 @@ El Instituto de Estudios Peruanos, por encargo de Oxfam en Perú, elaboró la I 
 
 Además de factores económicos, la presente encuesta incluye indicadores que permiten medir la magnitud de una serie de brechas sociales y políticas: desde diferencias de género, clase y relaciones étnico-raciales, hasta dimensiones subjetivas de la desigualdad y sus vínculos con orientaciones políticas. Como se muestra a lo largo del informe, la base de datos de este proyecto provee herramientas valiosas a expertos de diferentes campos, tanto académicos como profesionales, estudiantes y personas interesadas en el análisis multidimensional de la desigualdad en el país.
 
-Puedes abrir el cuestionario de la encuestas [aquí](https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf) 
+Puedes abrir el cuestionario de la encuestas **[aquí](https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf)**. 
 
-También puedes ver el informe [aquí](https://iep.org.pe/wp-content/uploads/2022/07/I-Encuesta-nacional-de-percepcion-de-desigualdades-ENADES-2022-v2.pdf)
+También puedes ver el informe **[aquí](https://iep.org.pe/wp-content/uploads/2022/07/I-Encuesta-nacional-de-percepcion-de-desigualdades-ENADES-2022-v2.pdf)**.
 
 ### Abrir base de datos
 
@@ -289,6 +300,49 @@ Es el mismo resultado que obtuvimos arriba. Como te puedes dar cuenta, si hemos 
 
 
 
+### Barras de error
 
+Tras calcular el intervalo de confianza, una práctica recomendada es visualizarlo gráficamente. El representar este intervalo en un gráfico no solo nos facilita la comprensión de su significado, sino que también nos proporciona una perspectiva visual de dónde se sitúa nuestra estimación y el rango dentro del cual esperamos que se encuentre el verdadero valor poblacional. Al observar el intervalo de confianza en un gráfico, podemos tener una idea más intuitiva y clara de la precisión y confiabilidad de nuestra estimación, así como de la variabilidad asociada a ella.
+
+En el contexto de intervalos de confianza, las barras de error se utilizan para representar el nivel de incertidumbre en una estimación puntual del parámetro poblacional. Un intervalo de confianza es un rango de valores plausible para el valor del parámetro poblacional, y se construye a partir de una muestra aleatoria y un nivel de confianza específico.
+
+Las **barras de error** en un gráfico de intervalos de confianza se construyen a partir de los límites superior e inferior del intervalo de confianza. Generalmente se dibujan líneas verticales que se extienden desde el valor estimado del parámetro (que puede ser una media, una proporción, una diferencia de medias, etc.) hasta los límites del intervalo de confianza.
+
+Por ejemplo, si se estima la media de una variable a partir de una muestra y se desea construir un intervalo de confianza al 95%, las barras de error se construirán a partir del límite inferior y superior del intervalo de confianza, que contendrán el verdadero valor de la media poblacional con una probabilidad del 95%.
+
+Las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. Si las barras de error son muy pequeñas, esto sugiere que la estimación es muy precisa y que hay una alta confianza en la validez del intervalo de confianza. Por otro lado, si las barras de error son grandes, esto sugiere que la estimación es menos precisa y que hay una mayor incertidumbre en el intervalo de confianza.
+
+Podemos utilizar `ggplot()`!
+
+```{r}
+mediaEintervalos<-enades %>% 
+  summarise(mean = mean(p17, na.rm = TRUE), #Utilizamos summarise y pedimos la media,
+            ci_lower = ciMean(p17, na.rm = T)[1], # También el PRIMER ELEMENTO de la función ciMean
+            ci_upper = ciMean(p17, na.rm = T)[2]) #Y el SEGUNDO ELEMENTO de la función ciMean
+mediaEintervalos
+```
+
+```{r}
+mediaEintervalos %>% 
+  ggplot() + 
+  aes(x = "Media", y = mean)+
+  geom_point(size = 3) + 
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0.2) + 
+  labs(title = "Media de aceptación de la desigualdad en el Perú (IC al 95%)", y = "Valor", x = "")
+```
+
+
+Puedes incluir más detalle y detallar los límites inferior y superior:
+
+```{r}
+mediaEintervalos %>% 
+  ggplot() + 
+  aes(x = "Media", y = mean) +
+  geom_point(size = 3) + 
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0.2) + 
+  geom_text(aes(label = round(ci_lower, 3), y = ci_lower), vjust = 1.5, hjust = -0.5) +  # Etiqueta para el límite inferior
+  geom_text(aes(label = round(ci_upper, 3), y = ci_upper), vjust = -0.5, hjust = -0.5)+  # Etiqueta para el límite superior
+  labs(title = "Media de aceptación de la desigualdad en el Perú (IC al 95%)", y = "Valor", x = "")
+```
 
 
