@@ -68,7 +68,7 @@ En resumen, es una herramienta vital para académicos, analistas y tomadores de 
 Para nuestros fines, nos alejaremos un poco de la fórmula que vimos la clase pasada y lo haremos todo mucho más rápido con la utilización de la función `ciMean()`.
 
 
-## Ejercicio 1:
+## Ejercicio 1
 
 ### Pregunta de investigación
 
@@ -96,7 +96,11 @@ enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main
 
 ### Creamos el índice aditivo
 
-**Paso 1: Obten los datos**
+**Paso 1: Verificar que las variables corresponden al concepto**
+
+En este caso las tres se destinan a medir una percepción en relación a la desigualdad de la entrega de un servicio por parte del Estado.
+
+**Paso 2: Revisar el sentido de las categorías en el cuestionario/diccionario**
 
 Antes de sumar las variables individuales para crear un índice aditivo, es esencial verificar la estructura y la coherencia de las categorías en las escalas de las variables que se combinarán. Las categorías de cada escala deben alinearse de manera que el progreso a través de las categorías refleje una progresión lógica y uniforme en la variable subyacente.
 
@@ -160,8 +164,7 @@ table(enades$p11.4n)
 ```
 
 
-
-**Paso 2: Creación del índice aditivo**
+**Paso 3: Creación del índice aditivo (sumar)**
 
 Ahora sí podremos realizar el índice aditivo.
 
@@ -180,15 +183,27 @@ enades |>
 Como nuestras variables de insumo tenían como valores posibles 1-3, nuestro índice tendrá una escala posible de 4 (si la persona contestó a todo con 1) a 12 (si la persona contestó a todo con 3).
 
 
-**Paso 3: Estandarización**
+**Paso 4: Estandarización**
 
 
-Sobre este índice ya creado, podemos cambiarle la escala para que no sea de 4-12 sino de 0-8.
+Sobre este índice ya creado, podemos cambiarle la escala para que no sea de 4-12 sino de 0-10.
+
+4A.  Esto lo podemos realizar manualmente: 1) Identificamos el valor mínimo y máximo con summary(); 2) Restar a todos los valores el mínimo; 3) Al resultado, dividir por el máximo menos el mínimo; 4) Multiplicar por el número que será el nuevo máximo. Ejemplo: 
 
 ```{r}
-library(scales)
-enades$indice_aditivo_reescalado<-rescale(enades$indice_aditivo, to=c(1,10))
+enades %>% 
+  mutate(indice_1_10=(indice_aditivo-4)/8*10) %>% # 
+  count(indice_1_10)
 ```
+
+4b. O también con una función (bastante más rápido)
+
+```{r message=FALSE, warning=FALSE}
+library(scales)
+enades$indice_aditivo_reescalado<-rescale(enades$indice_aditivo, to=c(0,10)) #Aquí mencionas que quieresque la nueva escala sea de 0 al 10. 
+```
+
+Vemos que el resultado es exactamente el mismo. 
 
 ```{r}
 enades |> 
@@ -566,7 +581,7 @@ En este caso, se sigue la siguiente interpretación:
 Si el intervalo de confianza no contiene el valor cero, esto sugiere que las proporciones de los dos grupos son significativamente diferentes y que la hipótesis nula de que las proporciones son iguales debe ser rechazada. Por otro lado, si el intervalo de confianza contiene el valor cero, no podemos rechazar la hipótesis nula y no podemos concluir que las proporciones son significativamente diferentes.
 
 
-## Ejercicio 3:
+## Ejercicio 3
 
 **PREGUNTA**
 

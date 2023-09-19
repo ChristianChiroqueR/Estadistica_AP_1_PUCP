@@ -16,10 +16,6 @@ verificar-el-tipo-de-variable
 análisis-exploratorio-de-datos
 estadísticos-descriptivos
 visualización-de-datos-con-ggplot2
-gráficos
-para-numéricas
-para-categóricas
-graficando-con-ggplot2
 introducción-a-la-estadística-inferencial-i
 objetivo-de-la-sesión
 fundamentos
