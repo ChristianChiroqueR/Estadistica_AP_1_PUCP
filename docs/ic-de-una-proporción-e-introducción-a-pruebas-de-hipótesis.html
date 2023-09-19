@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-08-31" />
+<meta name="date" content="2023-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="estadística-inferencial-introducción.html"/>
-<link rel="next" href="comparación-en-dos-muestras-t.test-y-prop.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,13 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -149,91 +142,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Estadística AP I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción a Estadística con R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística-prueba"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística PRUEBA</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#estadística-los-fundamentos"><i class="fa fa-check"></i><b>1.1</b> Estadística: los fundamentos</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
-<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
-<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.1</b> Unidad de análisis</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#tipos-de-variables-y-escalas-de-medición"><i class="fa fa-check"></i><b>1.1.2</b> Tipos de variables y escalas de medición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#r-los-fundamentos"><i class="fa fa-check"></i><b>1.2</b> R: los fundamentos</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
-<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.3.2</b> Un vector especial: los factores</a></li>
-<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.3.3</b> Data frames</a></li>
-<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
-<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#por-qué-r"><i class="fa fa-check"></i><b>1.2.1</b> ¿Por qué R?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#poo"><i class="fa fa-check"></i><b>1.2.2</b> POO</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#los-objetos"><i class="fa fa-check"></i><b>1.2.3</b> Los objetos</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.2.4</b> Los vectores</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#los-factores"><i class="fa fa-check"></i><b>1.2.5</b> Los factores</a></li>
+<li class="chapter" data-level="1.2.6" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.2.6</b> Data frames</a></li>
+<li class="chapter" data-level="1.2.7" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.2.7</b> Índices</a></li>
+<li class="chapter" data-level="1.2.8" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.2.8</b> Nuestras herramientas: Paquetes y funciones</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#importación-y-exploración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Importación y exploración de datos</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
-<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>1.3.1</b> Verificar el tipo de variable</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
+<li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis exploratorio de datos</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación"><i class="fa fa-check"></i><b>2.1</b> Preparación</a>
+<li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-descriptivos"><i class="fa fa-check"></i><b>2.1</b> Estadísticos descriptivos</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.1.1</b> Entorno de trabajo</a></li>
-<li class="chapter" data-level="2.1.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.1.2</b> Paquetes a utilizar</a></li>
+<li class="chapter" data-level="2.1.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#tendencia-central"><i class="fa fa-check"></i><b>2.1.1</b> Tendencia central</a></li>
+<li class="chapter" data-level="2.1.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#dispersión"><i class="fa fa-check"></i><b>2.1.2</b> Dispersión</a></li>
+<li class="chapter" data-level="2.1.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#posición"><i class="fa fa-check"></i><b>2.1.3</b> Posición</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Base de datos</a>
+<li class="chapter" data-level="2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#manipulación-de-tablas"><i class="fa fa-check"></i><b>2.2</b> Manipulación de tablas</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación"><i class="fa fa-check"></i><b>2.2.1</b> Importación</a></li>
-<li class="chapter" data-level="2.2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>2.2.2</b> Verificar el tipo de variable</a></li>
-<li class="chapter" data-level="2.2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.2.3</b> Creación de subset</a></li>
+<li class="chapter" data-level="2.2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#filtrar-filas"><i class="fa fa-check"></i><b>2.2.1</b> Filtrar filas</a></li>
+<li class="chapter" data-level="2.2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#seleccionar-columnas"><i class="fa fa-check"></i><b>2.2.2</b> Seleccionar columnas</a></li>
+<li class="chapter" data-level="2.2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>2.2.3</b> Crear nuevas variables</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.3</b> Estadísticos de tendencia central</a></li>
-<li class="chapter" data-level="2.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.4</b> Estadísticos de posición</a>
+<li class="chapter" data-level="2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>2.3</b> Ejercicios</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles"><i class="fa fa-check"></i><b>2.4.1</b> Percentiles</a></li>
+<li class="chapter" data-level="2.3.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>2.3.1</b> Ejercicio 1</a></li>
+<li class="chapter" data-level="2.3.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>2.3.2</b> Ejercicio 2</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.5</b> Estadísticos de dispersión</a>
+<li class="chapter" data-level="2.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#preparación"><i class="fa fa-check"></i><b>2.4</b> Preparación</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango"><i class="fa fa-check"></i><b>2.5.1</b> El Rango</a></li>
-<li class="chapter" data-level="2.5.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza"><i class="fa fa-check"></i><b>2.5.2</b> La Varianza</a></li>
-<li class="chapter" data-level="2.5.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.5.3</b> La Desviación Estándar</a></li>
-<li class="chapter" data-level="2.5.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.5.4</b> El Rango intercuartílico</a></li>
-<li class="chapter" data-level="2.5.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.5.5</b> Curvas de distribución de frecuencias</a></li>
+<li class="chapter" data-level="2.4.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.4.1</b> Entorno de trabajo</a></li>
+<li class="chapter" data-level="2.4.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.4.2</b> Paquetes a utilizar</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-de-datos"><i class="fa fa-check"></i><b>2.5</b> Base de datos</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#importación"><i class="fa fa-check"></i><b>2.5.1</b> Importación</a></li>
+<li class="chapter" data-level="2.5.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#verificar-el-tipo-de-variable-1"><i class="fa fa-check"></i><b>2.5.2</b> Verificar el tipo de variable</a></li>
+<li class="chapter" data-level="2.5.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.5.3</b> Creación de subset</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.6</b> Estadísticos de tendencia central</a></li>
+<li class="chapter" data-level="2.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.7</b> Estadísticos de posición</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#percentiles"><i class="fa fa-check"></i><b>2.7.1</b> Percentiles</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.8</b> Estadísticos de dispersión</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#el-rango"><i class="fa fa-check"></i><b>2.8.1</b> El Rango</a></li>
+<li class="chapter" data-level="2.8.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#la-varianza"><i class="fa fa-check"></i><b>2.8.2</b> La Varianza</a></li>
+<li class="chapter" data-level="2.8.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.8.3</b> La Desviación Estándar</a></li>
+<li class="chapter" data-level="2.8.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.8.4</b> El Rango intercuartílico</a></li>
+<li class="chapter" data-level="2.8.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.8.5</b> Curvas de distribución de frecuencias</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#ggplot2-una-herramienta-para-la-visualización"><i class="fa fa-check"></i><b>3.1</b> GGPLOT2: Una herramienta para la visualización</a>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#gráficos"><i class="fa fa-check"></i><b>3.1</b> Gráficos</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#descripción"><i class="fa fa-check"></i><b>3.1.1</b> Descripción</a></li>
-<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#las-siete-capas"><i class="fa fa-check"></i><b>3.1.2</b> Las siete capas</a></li>
-<li class="chapter" data-level="3.1.3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#slow-ggplot"><i class="fa fa-check"></i><b>3.1.3</b> Slow ggplot</a></li>
+<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#para-numéricas"><i class="fa fa-check"></i><b>3.1.1</b> Para numéricas</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#para-categóricas"><i class="fa fa-check"></i><b>3.1.2</b> Para categóricas</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#código"><i class="fa fa-check"></i><b>3.2</b> Código</a></li>
+<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#graficando-con-ggplot2"><i class="fa fa-check"></i><b>3.2</b> Graficando con ggplot2</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-relevantes"><i class="fa fa-check"></i><b>4.1</b> Antecedentes relevantes</a></li>
-<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-probabilidad"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de probabilidad</a></li>
-<li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r"><i class="fa fa-check"></i><b>4.3</b> Ejercicio con R</a></li>
-<li class="chapter" data-level="4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia"><i class="fa fa-check"></i><b>4.4</b> Elementos básicos de la inferencia</a>
+<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#conceptos-principales"><i class="fa fa-check"></i><b>4.1</b> Conceptos principales</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#definiciones-preliminares"><i class="fa fa-check"></i><b>4.4.1</b> Definiciones preliminares</a></li>
-<li class="chapter" data-level="4.4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>4.4.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="4.4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-de-muestreo"><i class="fa fa-check"></i><b>4.4.3</b> Error de muestreo</a></li>
-<li class="chapter" data-level="4.4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribuciones-de-muestreo."><i class="fa fa-check"></i><b>4.4.4</b> Distribuciones de muestreo.</a></li>
-<li class="chapter" data-level="4.4.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>4.4.5</b> Error estándar</a></li>
-<li class="chapter" data-level="4.4.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.4.6</b> Teorema del límite central</a></li>
-<li class="chapter" data-level="4.4.7" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.4.7</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="4.1.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#inferencia"><i class="fa fa-check"></i><b>4.1.1</b> Inferencia</a></li>
+<li class="chapter" data-level="4.1.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-desviación-estándar-1"><i class="fa fa-check"></i><b>4.1.2</b> La desviación estándar</a></li>
+<li class="chapter" data-level="4.1.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribución-normal"><i class="fa fa-check"></i><b>4.1.3</b> Distribución normal</a></li>
+<li class="chapter" data-level="4.1.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.1.4</b> Teorema del límite central</a></li>
+<li class="chapter" data-level="4.1.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.1.5</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="4.1.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#varias-muestras"><i class="fa fa-check"></i><b>4.1.6</b> Varias muestras</a></li>
+<li class="chapter" data-level="4.1.7" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>4.1.7</b> Error estándar</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.5</b> Intervalo de confianza de una media</a></li>
-<li class="chapter" data-level="4.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r-enades-2022"><i class="fa fa-check"></i><b>4.6</b> Ejercicio con R: ENADES 2022</a>
+<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#métodos-de-estimación"><i class="fa fa-check"></i><b>4.2</b> Métodos de estimación</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.6.1</b> Abrir base de datos</a></li>
-<li class="chapter" data-level="4.6.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.6.2</b> Identificar una variable numérica</a></li>
-<li class="chapter" data-level="4.6.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral"><i class="fa fa-check"></i><b>4.6.3</b> Cálculo del estimador puntual: media muestral</a></li>
-<li class="chapter" data-level="4.6.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>4.6.4</b> Cálculo del intervalo de confianza al 95%</a></li>
+<li class="chapter" data-level="4.2.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>4.2.1</b> Estimación puntual</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.2.2</b> Intervalo de confianza de una media</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-1-enades-2022"><i class="fa fa-check"></i><b>4.3</b> Ejercicio 1: ENADES 2022</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.3.1</b> Abrir base de datos</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.3.2</b> Identificar una variable numérica</a></li>
+<li class="chapter" data-level="4.3.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual"><i class="fa fa-check"></i><b>4.3.3</b> Cálculo del estimador puntual</a></li>
+<li class="chapter" data-level="4.3.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-ic-al-95"><i class="fa fa-check"></i><b>4.3.4</b> Cálculo del IC al 95%</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> IC de una proporción e introducción a pruebas de hipótesis</a>
@@ -249,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
+<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
 <li class="chapter" data-level="5.2.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
 <li class="chapter" data-level="5.2.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
 <li class="chapter" data-level="5.2.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
@@ -258,206 +265,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
 <li class="chapter" data-level="5.3.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
 <li class="chapter" data-level="5.3.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
 <li class="chapter" data-level="5.3.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
 <li class="chapter" data-level="5.3.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
 <li class="chapter" data-level="5.3.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
 <li class="chapter" data-level="5.3.7" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html"><i class="fa fa-check"></i><b>6</b> Comparación en dos muestras (t.test y prop.test)</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#recordemos-1"><i class="fa fa-check"></i><b>6.1</b> Recordemos</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Prueba de hipótesis</a></li>
-<li class="chapter" data-level="6.1.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#flujograma"><i class="fa fa-check"></i><b>6.1.2</b> Flujograma</a></li>
-<li class="chapter" data-level="6.1.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.3</b> Tipos de prueba de hipótesis</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-medias-t.test"><i class="fa fa-check"></i><b>6.2</b> Diferencia de medias (t.test)</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación"><i class="fa fa-check"></i><b>6.2.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="6.2.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.2.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.2.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.2.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.2.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.2.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.2.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.2.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.2.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-2"><i class="fa fa-check"></i><b>6.2.9</b> Ahora hazlo tú!</a></li>
-<li class="chapter" data-level="6.2.10" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#a-tener-en-cuenta"><i class="fa fa-check"></i><b>6.2.10</b> A tener en cuenta</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-proporciones-prop.test"><i class="fa fa-check"></i><b>6.3</b> Diferencia de proporciones (prop.test)</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación-1"><i class="fa fa-check"></i><b>6.3.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="6.3.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>6.3.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.3.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>6.3.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.3.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>6.3.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.3.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>6.3.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.3.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>6.3.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.3.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>6.3.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.3.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>6.3.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.3.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-3"><i class="fa fa-check"></i><b>6.3.9</b> Ahora hazlo tú!</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html"><i class="fa fa-check"></i><b>7</b> ANOVA: Comparación en más de dos muestras</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#recordemos-2"><i class="fa fa-check"></i><b>7.1</b> Recordemos</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#flujograma-1"><i class="fa fa-check"></i><b>7.1.1</b> Flujograma</a></li>
-<li class="chapter" data-level="7.1.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#qué-sigue"><i class="fa fa-check"></i><b>7.1.2</b> Qué sigue?</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pregunta-de-investigación-2"><i class="fa fa-check"></i><b>7.2.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-3"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#identificar-ellos-grupos-diferentes"><i class="fa fa-check"></i><b>7.3</b> Identificar el/los grupos diferentes</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pruebas-post-hoc-test-de-tukey"><i class="fa fa-check"></i><b>7.3.1</b> Pruebas post hoc: Test de Tukey</a></li>
-<li class="chapter" data-level="7.3.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#visualización"><i class="fa fa-check"></i><b>7.3.2</b> Visualización</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.4</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>8</b> EJERCICIO DE REPASO</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#base-de-datos-lapop"><i class="fa fa-check"></i><b>8.1</b> Base de datos: LAPOP</a></li>
-<li class="chapter" data-level="8.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#problema"><i class="fa fa-check"></i><b>8.2</b> Problema</a></li>
-<li class="chapter" data-level="8.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-1-índice-de-respaldo-al-sistema-político"><i class="fa fa-check"></i><b>8.3</b> Ejercicio 1: Índice de respaldo al sistema político</a></li>
-<li class="chapter" data-level="8.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-2-exploración"><i class="fa fa-check"></i><b>8.4</b> Ejercicio 2: Exploración</a></li>
-<li class="chapter" data-level="8.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-3-ic-de-una-media"><i class="fa fa-check"></i><b>8.5</b> Ejercicio 3: IC de una media</a></li>
-<li class="chapter" data-level="8.6" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-4-comparación-en-dos-grupos"><i class="fa fa-check"></i><b>8.6</b> Ejercicio 4: Comparación en dos grupos</a></li>
-<li class="chapter" data-level="8.7" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-5-comparación-en-más-de-dos-grupos"><i class="fa fa-check"></i><b>8.7</b> Ejercicio 5: Comparación en más de dos grupos</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html"><i class="fa fa-check"></i><b>9</b> Asociación de dos factores</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#base-de-datos-lapop-1"><i class="fa fa-check"></i><b>9.1</b> Base de datos: LAPOP</a></li>
-<li class="chapter" data-level="9.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#pregunta-de-investigaciòn"><i class="fa fa-check"></i><b>9.2</b> Pregunta de investigaciòn</a></li>
-<li class="chapter" data-level="9.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#identificando-las-dos-variables-categóricas"><i class="fa fa-check"></i><b>9.3</b> Identificando las dos variables categóricas</a></li>
-<li class="chapter" data-level="9.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tablas-de-contingencia"><i class="fa fa-check"></i><b>9.4</b> Tablas de contingencia</a>
-<ul>
-<li class="chapter" data-level="9.4.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-frecuencias"><i class="fa fa-check"></i><b>9.4.1</b> TC de frecuencias</a></li>
-<li class="chapter" data-level="9.4.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-proporciones"><i class="fa fa-check"></i><b>9.4.2</b> TC de proporciones</a></li>
-<li class="chapter" data-level="9.4.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#variable-independiente-y-dependiente"><i class="fa fa-check"></i><b>9.4.3</b> Variable independiente y dependiente?</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#gráficando-barras-y-barras-apiladas"><i class="fa fa-check"></i><b>9.5</b> Gráficando: Barras y barras apiladas</a></li>
-<li class="chapter" data-level="9.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#prueba-χ²"><i class="fa fa-check"></i><b>9.6</b> Prueba χ²</a>
-<ul>
-<li class="chapter" data-level="9.6.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-0-análisis-exploratorio"><i class="fa fa-check"></i><b>9.6.1</b> Paso 0: Análisis exploratorio</a></li>
-<li class="chapter" data-level="9.6.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-1-establecer-hipótesis-3"><i class="fa fa-check"></i><b>9.6.2</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="9.6.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-2-verificar-supuestos-4"><i class="fa fa-check"></i><b>9.6.3</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="9.6.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-3-establecer-nivel-de-significancia-4"><i class="fa fa-check"></i><b>9.6.4</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="9.6.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-3"><i class="fa fa-check"></i><b>9.6.5</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="9.6.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-5-tomar-una-decisión-4"><i class="fa fa-check"></i><b>9.6.6</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="9.6.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-6-interpretación-4"><i class="fa fa-check"></i><b>9.6.7</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="9.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#ahora-hazlo-tú-5"><i class="fa fa-check"></i><b>9.7</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><i class="fa fa-check"></i><b>10</b> Midiendo la asociación de dos numéricas: La Correlación</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#objetivo-de-la-sesión"><i class="fa fa-check"></i><b>10.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="10.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#recordando-plano-cartesiano-y-diagrama-de-dispersión"><i class="fa fa-check"></i><b>10.2</b> Recordando: Plano cartesiano y diagrama de dispersión</a></li>
-<li class="chapter" data-level="10.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza"><i class="fa fa-check"></i><b>10.3</b> Varianza</a></li>
-<li class="chapter" data-level="10.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#covarianza"><i class="fa fa-check"></i><b>10.4</b> Covarianza</a></li>
-<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson"><i class="fa fa-check"></i><b>10.5</b> Coeficiente de Correlación de Pearson</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3"><i class="fa fa-check"></i><b>10.5.1</b> Definición</a></li>
-<li class="chapter" data-level="10.5.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación"><i class="fa fa-check"></i><b>10.5.2</b> Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#validación-con-prueba-de-hipótesis"><i class="fa fa-check"></i><b>10.6</b> Validación con prueba de hipótesis</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-1-establecer-hipótesis-4"><i class="fa fa-check"></i><b>10.6.1</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="10.6.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-2-verificar-supuestos-5"><i class="fa fa-check"></i><b>10.6.2</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="10.6.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-3-establecer-nivel-de-significancia-5"><i class="fa fa-check"></i><b>10.6.3</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="10.6.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-4"><i class="fa fa-check"></i><b>10.6.4</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="10.6.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-5-tomar-una-decisión-5"><i class="fa fa-check"></i><b>10.6.5</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="10.6.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5"><i class="fa fa-check"></i><b>10.6.6</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#matriz-de-correlación"><i class="fa fa-check"></i><b>10.7</b> Matriz de correlación</a></li>
-<li class="chapter" data-level="10.8" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota"><i class="fa fa-check"></i><b>10.8</b> Toma nota</a>
-<ul>
-<li class="chapter" data-level="10.8.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad"><i class="fa fa-check"></i><b>10.8.1</b> Correlación no implica causalidad</a></li>
-<li class="chapter" data-level="10.8.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre"><i class="fa fa-check"></i><b>10.8.2</b> Cuidado: Scatterplot como primer paso SIEMPRE</a></li>
-<li class="chapter" data-level="10.8.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos"><i class="fa fa-check"></i><b>10.8.3</b> Valores extremos</a></li>
-<li class="chapter" data-level="10.8.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>10.8.4</b> Tamaño de la muestra</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html"><i class="fa fa-check"></i><b>11</b> Regresión lineal simple: explicar y predecir</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#objetivo-de-la-sesión-1"><i class="fa fa-check"></i><b>11.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="11.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#pregunta-de-investigación-3"><i class="fa fa-check"></i><b>11.2</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="11.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#recordando"><i class="fa fa-check"></i><b>11.3</b> Recordando</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#coeficiente-de-correlación-de-pearson-1"><i class="fa fa-check"></i><b>11.3.1</b> Coeficiente de Correlación de Pearson</a></li>
-<li class="chapter" data-level="11.3.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#ahora-hazlo-tú-6"><i class="fa fa-check"></i><b>11.3.2</b> ¡Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#introducción-a-la-regresión-lineal-simple"><i class="fa fa-check"></i><b>11.4</b> Introducción a la Regresión Lineal Simple</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#variable-dependiente-y-variable-independiente"><i class="fa fa-check"></i><b>11.4.1</b> Variable dependiente y variable independiente</a></li>
-<li class="chapter" data-level="11.4.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#flashback-ecuación-de-la-recta"><i class="fa fa-check"></i><b>11.4.2</b> Flashback: Ecuación de la recta</a></li>
-<li class="chapter" data-level="11.4.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-mejor-recta-para-la-nube-de-puntos"><i class="fa fa-check"></i><b>11.4.3</b> La mejor recta para la nube de puntos</a></li>
-<li class="chapter" data-level="11.4.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-regresión-lineal"><i class="fa fa-check"></i><b>11.4.4</b> La Regresión Lineal</a></li>
-<li class="chapter" data-level="11.4.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#calidad-de-ajuste-r2"><i class="fa fa-check"></i><b>11.4.5</b> Calidad de ajuste: R2</a></li>
-<li class="chapter" data-level="11.4.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#significancia-estadística-de-los-coeficientes"><i class="fa fa-check"></i><b>11.4.6</b> Significancia estadística de los coeficientes</a></li>
-<li class="chapter" data-level="11.4.7" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-rls-como-herramienta-predictiva"><i class="fa fa-check"></i><b>11.4.7</b> La RLS como herramienta predictiva</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#matrícula-escolar-un-modelo-utilizando-rls"><i class="fa fa-check"></i><b>11.5</b> Matrícula escolar: un modelo utilizando RLS</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-0-identificar-claramente-la-variable-dependiente-y-la-variable-independiente"><i class="fa fa-check"></i><b>11.5.1</b> Paso 0: Identificar claramente la variable dependiente y la variable independiente</a></li>
-<li class="chapter" data-level="11.5.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-1-explorar-previamente-la-relación-de-las-variables"><i class="fa fa-check"></i><b>11.5.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
-<li class="chapter" data-level="11.5.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova"><i class="fa fa-check"></i><b>11.5.3</b> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA</a></li>
-<li class="chapter" data-level="11.5.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-3-nivel-explicativo-del-modelo"><i class="fa fa-check"></i><b>11.5.4</b> Paso 3: Nivel explicativo del modelo</a></li>
-<li class="chapter" data-level="11.5.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-4-la-variable-x-aporta-al-modelo"><i class="fa fa-check"></i><b>11.5.5</b> Paso 4: La variable x aporta al modelo</a></li>
-<li class="chapter" data-level="11.5.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-5-construimos-la-ecuación-del-modelo-creado"><i class="fa fa-check"></i><b>11.5.6</b> Paso 5: Construimos la ecuación del modelo creado</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html"><i class="fa fa-check"></i><b>12</b> Regresión lineal múltiple: más de una independiente</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#objetivo-de-la-sesión-2"><i class="fa fa-check"></i><b>12.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="12.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>12.2</b> Regresión Lineal Múltiple</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ecuación"><i class="fa fa-check"></i><b>12.2.1</b> Ecuación</a></li>
-<li class="chapter" data-level="12.2.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#mayor-complejidad-para-visualizar-la-relación"><i class="fa fa-check"></i><b>12.2.2</b> Mayor complejidad para visualizar la relación</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#pregunta-de-investigación-4"><i class="fa fa-check"></i><b>12.3</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="12.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#explicando-y-prediciendo-la-desigualdad-un-modelo-utilizando-rlm"><i class="fa fa-check"></i><b>12.4</b> Explicando y prediciendo la desigualdad: un modelo utilizando RLM</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-0-identificar-claramente-la-variable-dependiente-y-las-variables-independientes"><i class="fa fa-check"></i><b>12.4.1</b> Paso 0: Identificar claramente la variable dependiente y laS variables independientes</a></li>
-<li class="chapter" data-level="12.4.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-1-explorar-previamente-la-relación-de-las-variables-1"><i class="fa fa-check"></i><b>12.4.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
-<li class="chapter" data-level="12.4.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova-1"><i class="fa fa-check"></i><b>12.4.3</b> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA</a></li>
-<li class="chapter" data-level="12.4.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-3-nivel-explicativo-del-modelo-1"><i class="fa fa-check"></i><b>12.4.4</b> Paso 3: Nivel explicativo del modelo</a></li>
-<li class="chapter" data-level="12.4.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-4-la-variable-x-aporta-al-modelo-1"><i class="fa fa-check"></i><b>12.4.5</b> Paso 4: La variable x aporta al modelo</a></li>
-<li class="chapter" data-level="12.4.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-5-construimos-la-ecuación-del-modelo-creado-1"><i class="fa fa-check"></i><b>12.4.6</b> Paso 5: Construimos la ecuación del modelo creado</a></li>
-<li class="chapter" data-level="12.4.7" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-6-predecir"><i class="fa fa-check"></i><b>12.4.7</b> Paso 6: Predecir</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#comparando-modelos-tabla"><i class="fa fa-check"></i><b>12.5</b> Comparando modelos: Tabla</a></li>
-<li class="chapter" data-level="12.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ahora-hazlo-tú-7"><i class="fa fa-check"></i><b>12.6</b> Ahora hazlo tú!</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-1"><i class="fa fa-check"></i><b>12.6.1</b> Ejercicio 1</a></li>
-<li class="chapter" data-level="12.6.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2"><i class="fa fa-check"></i><b>12.6.2</b> Ejercicio 2</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>13</b> Regresión lineal múltiple: elementos adicionales</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-3"><i class="fa fa-check"></i><b>13.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="13.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>13.2</b> Identificar la variable que aporta más al modelo</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>13.2.1</b> El problema de la unidad de medida</a></li>
-<li class="chapter" data-level="13.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>13.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
-<li class="chapter" data-level="13.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>13.2.3</b> Ejercicio</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>13.3</b> Sobre variables categóricas en la RLM</a>
-<ul>
-<li class="chapter" data-level="13.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>13.3.1</b> Variables dummy (1-0): Definición</a></li>
-<li class="chapter" data-level="13.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>13.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
-<li class="chapter" data-level="13.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-3"><i class="fa fa-check"></i><b>13.3.3</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -484,36 +298,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="recordemos" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Recordemos<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#recordemos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Abramos los paquetes que vamos a necesitar:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb126-1" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb126-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb126-2" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span></code></pre></div>
-<pre><code>## Installing package into &#39;C:/Users/Christian Chiroque/AppData/Local/R/win-library/4.3&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.3:
-##   cannot open URL &#39;http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.3/PACKAGES&#39;</code></pre>
-<pre><code>## package &#39;lsr&#39; successfully unpacked and MD5 sums checked
-## 
-## The downloaded binary packages are in
-##  C:\Users\Christian Chiroque\AppData\Local\Temp\Rtmp6dHGK6\downloaded_packages</code></pre>
-<pre><code>## 
-## lsr installed</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-1" tabindex="-1"></a><span class="co"># Esto equivale a:</span></span>
-<span id="cb131-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-2" tabindex="-1"></a><span class="co"># library(haven)</span></span>
-<span id="cb131-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-3" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
-<span id="cb131-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-4" tabindex="-1"></a><span class="co"># library(lsr)</span></span>
-<span id="cb131-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-5" tabindex="-1"></a><span class="co"># library(kableExtra)</span></span>
-<span id="cb131-6"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-6" tabindex="-1"></a></span>
-<span id="cb131-7"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-7" tabindex="-1"></a><span class="co"># Es útil cuando necesitamos abrir un gran número de librerías!</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-1" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb119-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-2" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
+<span id="cb119-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-3" tabindex="-1"></a></span>
+<span id="cb119-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-4" tabindex="-1"></a><span class="co"># Esto equivale a:</span></span>
+<span id="cb119-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-5" tabindex="-1"></a><span class="co"># library(haven)</span></span>
+<span id="cb119-6"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-6" tabindex="-1"></a><span class="co"># library(tidyverse)</span></span>
+<span id="cb119-7"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-7" tabindex="-1"></a><span class="co"># library(lsr)</span></span>
+<span id="cb119-8"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-8" tabindex="-1"></a><span class="co"># library(kableExtra)</span></span>
+<span id="cb119-9"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-9" tabindex="-1"></a></span>
+<span id="cb119-10"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb119-10" tabindex="-1"></a><span class="co"># Es útil cuando necesitamos abrir un gran número de librerías!</span></span></code></pre></div>
 <p>Continuemos con el ejercicio que vimos en la última clase utilizando la ENADES.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb132-1" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
-<span id="cb132-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb132-2" tabindex="-1"></a></span>
-<span id="cb132-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb132-3" tabindex="-1"></a><span class="co"># Si quiere abrirlo desde GitHub entonces corre la siguiente línea:</span></span>
-<span id="cb132-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb132-4" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb120-1" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
+<span id="cb120-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb120-2" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb120-3" tabindex="-1"></a><span class="co"># Si quiere abrirlo desde GitHub entonces corre la siguiente línea:</span></span>
+<span id="cb120-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb120-4" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
 <p>Elijamos la variable P17:</p>
 <ul>
 <li>En una escala del 1 al 10, en la que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable”. ¿Hasta qué punto es aceptable la desigualdad en el Perú? Dígame un número de 1 a 10, recuerde que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable (RESPUESTA ESPONTÁNEA)</li>
 </ul>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb133-1" tabindex="-1"></a>enades<span class="sc">$</span>p17<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p17) <span class="co">#Lo convertimos a numérica</span></span>
-<span id="cb133-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb133-2" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p17) <span class="co"># Calculamos estadísticos de resumen de forma rápida.</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb121-1" tabindex="-1"></a>enades<span class="sc">$</span>p17<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p17) <span class="co">#Lo convertimos a numérica</span></span>
+<span id="cb121-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb121-2" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p17) <span class="co"># Calculamos estadísticos de resumen de forma rápida.</span></span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   1.000   1.000   5.000   4.571   7.000  10.000      23</code></pre>
 <div id="pasos-previos" class="section level3 hasAnchor" number="5.1.1">
@@ -531,15 +336,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.1.2</span> Estimación puntual<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#estimación-puntual-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El estimador puntual es una estadística descriptiva que se utiliza para estimar el valor desconocido de un parámetro poblacional a partir de una muestra. El estimador puntual proporciona una única estimación del valor del parámetro y se calcula a partir de los datos de la muestra.</p>
 <p>En este caso, la mejor estimación de la media población es simplemente la media muestral.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb135-1" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Calculamos la media, obviando valores perdidos. </span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb123-1" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Calculamos la media, obviando valores perdidos. </span></span></code></pre></div>
 <pre><code>## [1] 4.571334</code></pre>
 </div>
 <div id="ic-para-una-media" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> IC para una media<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora, una vez identificado el estimador puntual, podemos cambiar nuestra estimación, ahora utilizando intervalos.</p>
 <p>La clase pasada lo hicimos con la fórmula, paso por paso. Ahora, utilizaremos una función:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb137-1" tabindex="-1"></a><span class="co">#library(lsr) #Recuerda que esta función está en el paquete lsr</span></span>
-<span id="cb137-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb137-2" tabindex="-1"></a><span class="fu">ciMean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> T) <span class="co"># Calculamos el intervalo de confianza de p17, obviando valores perdidos. </span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb125-1" tabindex="-1"></a><span class="co">#library(lsr) #Recuerda que esta función está en el paquete lsr</span></span>
+<span id="cb125-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb125-2" tabindex="-1"></a><span class="fu">ciMean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> T) <span class="co"># Calculamos el intervalo de confianza de p17, obviando valores perdidos. </span></span></code></pre></div>
 <pre><code>##          2.5%    97.5%
 ## [1,] 4.413023 4.729645</code></pre>
 </div>
@@ -555,21 +360,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Recuerda que el factor era una variable que visualmente son números, pero teóricamente sabemos que cada número es un nivel.</p>
 <p>Utilizaremos la variable zona3, la cual separa a los encuestados según su procedencia en: Lima Metropolitana y Perú sin Lima.</p>
 <p>Veamos:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb139-1" tabindex="-1"></a>enades<span class="sc">$</span>zona3<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>zona3, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb139-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb139-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb139-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb139-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Lima Metropolitana&quot;</span>, <span class="st">&quot;Perú sin Lima&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb139-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb139-4" tabindex="-1"></a></span>
-<span id="cb139-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb139-5" tabindex="-1"></a><span class="co">#Con este comando hemos sobreescrito la variable zona3. Ahora lo que inicialmente era una variable numérica, ahora es un factor. </span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb127-1" tabindex="-1"></a>enades<span class="sc">$</span>zona3<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>zona3, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb127-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb127-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb127-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb127-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Lima Metropolitana&quot;</span>, <span class="st">&quot;Perú sin Lima&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb127-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb127-4" tabindex="-1"></a></span>
+<span id="cb127-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb127-5" tabindex="-1"></a><span class="co">#Con este comando hemos sobreescrito la variable zona3. Ahora lo que inicialmente era una variable numérica, ahora es un factor. </span></span></code></pre></div>
 <p>Corroboremos:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb140-1" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>zona3) <span class="co">#Solicitamos la estructura de la variable zona3</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb128-1" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>zona3) <span class="co">#Solicitamos la estructura de la variable zona3</span></span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Lima Metropolitana&quot;,..: 1 1 2 2 2 2 2 2 2 2 ...</code></pre>
 <p>Solicitemos el intervalo de confianza de la variable p17 para cada grupo identificado:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-1" tabindex="-1"></a>p17_segun_zona<span class="ot">&lt;-</span>enades <span class="sc">%&gt;%</span> </span>
-<span id="cb142-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-2" tabindex="-1"></a>  <span class="fu">group_by</span>(zona3) <span class="sc">%&gt;%</span> <span class="co">#Agrupamos por zona</span></span>
-<span id="cb142-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Utilizamos summarise y pedimos la media,</span></span>
-<span id="cb142-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-4" tabindex="-1"></a>            <span class="at">ci_lower =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">1</span>], <span class="co"># También el PRIMER ELEMENTO de la función ciMean</span></span>
-<span id="cb142-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-5" tabindex="-1"></a>            <span class="at">ci_upper =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">2</span>]) <span class="co">#Y el SEGUNDO ELEMENTO de la función ciMean</span></span></code></pre></div>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb143-1" tabindex="-1"></a>p17_segun_zona</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb130-1" tabindex="-1"></a>p17_segun_zona<span class="ot">&lt;-</span>enades <span class="sc">%&gt;%</span> </span>
+<span id="cb130-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb130-2" tabindex="-1"></a>  <span class="fu">group_by</span>(zona3) <span class="sc">%&gt;%</span> <span class="co">#Agrupamos por zona</span></span>
+<span id="cb130-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb130-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Utilizamos summarise y pedimos la media,</span></span>
+<span id="cb130-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb130-4" tabindex="-1"></a>            <span class="at">ci_lower =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">1</span>], <span class="co"># También el PRIMER ELEMENTO de la función ciMean</span></span>
+<span id="cb130-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb130-5" tabindex="-1"></a>            <span class="at">ci_upper =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">2</span>]) <span class="co">#Y el SEGUNDO ELEMENTO de la función ciMean</span></span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb131-1" tabindex="-1"></a>p17_segun_zona</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   zona3               mean ci_lower ci_upper
 ##   &lt;fct&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
@@ -584,20 +389,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Por ejemplo, si se estima la media de una variable a partir de una muestra y se desea construir un intervalo de confianza al 95%, las barras de error se construirán a partir del límite inferior y superior del intervalo de confianza, que contendrán el verdadero valor de la media poblacional con una probabilidad del 95%.</p>
 <p>Las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. Si las barras de error son muy pequeñas, esto sugiere que la estimación es muy precisa y que hay una alta confianza en la validez del intervalo de confianza. Por otro lado, si las barras de error son grandes, esto sugiere que la estimación es menos precisa y que hay una mayor incertidumbre en el intervalo de confianza.</p>
 <p>Podemos utilizar un comando básico como la función <code>plotmeans()</code>:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb145-1" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
-<span id="cb145-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb145-2" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>p17<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
-<span id="cb145-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb145-3" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Aceptación desigualdad&quot;</span>, </span>
-<span id="cb145-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb145-4" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Gráfico de medias de Aceptación de la desigualdad en el Perú&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb133-1" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb133-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb133-2" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>p17<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
+<span id="cb133-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb133-3" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Aceptación desigualdad&quot;</span>, </span>
+<span id="cb133-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb133-4" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Gráfico de medias de Aceptación de la desigualdad en el Perú&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <p>Sin embargo, te recomiendo utilizar <code>ggplot()</code>!</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-1" tabindex="-1"></a>p17_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
-<span id="cb146-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
-<span id="cb146-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>mean, <span class="at">x=</span>zona3)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
-<span id="cb146-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ci_lower, <span class="at">ymax=</span>ci_upper), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
-<span id="cb146-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
-<span id="cb146-6"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
-<span id="cb146-7"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Nivel de aceptación de la desigualdad&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-1" tabindex="-1"></a>p17_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
+<span id="cb134-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
+<span id="cb134-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>mean, <span class="at">x=</span>zona3)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
+<span id="cb134-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ci_lower, <span class="at">ymax=</span>ci_upper), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
+<span id="cb134-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
+<span id="cb134-6"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
+<span id="cb134-7"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb134-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Nivel de aceptación de la desigualdad&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
 <blockquote>
 <p>Una guía: Se superponen los intervalos?</p>
 </blockquote>
@@ -623,8 +428,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="intervalo-de-una-proporción" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Intervalo de una proporción<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="definición-1" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Definición<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="definición" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Definición<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En estadística, el intervalo de una proporción es un rango de valores posibles para la proporción de una característica en una población, que se estima a partir de una muestra aleatoria de la población. Al igual que con la media, el intervalo de una proporción se construye utilizando un nivel de confianza específico y se utiliza para determinar la precisión de la estimación de la proporción en la población.</p>
 <p>Por ejemplo, si se desea estimar la proporción de personas en una población que votará por un candidato específico, se puede seleccionar una muestra aleatoria de la población y estimar la proporción de personas que votarán por ese candidato en la muestra. A partir de esta estimación, se puede construir un intervalo de confianza que contendrá el valor real de la proporción en la población con un cierto nivel de confianza.</p>
 <p>El ancho del intervalo depende del tamaño de la muestra y del nivel de confianza especificado. A medida que el tamaño de la muestra aumenta, el intervalo se estrecha y se vuelve más preciso. Del mismo modo, a medida que se aumenta el nivel de confianza, el intervalo se amplía y se vuelve menos preciso.</p>
@@ -651,15 +456,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1. Muy desigual
 2. Poco desigual
 3. Nada desigual</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-1" tabindex="-1"></a><span class="co">#Configuramos nuestra variable como factor</span></span>
-<span id="cb147-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-2" tabindex="-1"></a>enades<span class="sc">$</span>p11<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb147-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-3" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb147-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-4" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Muy desigual&quot;</span>, <span class="st">&quot;Poco desigual&quot;</span>, <span class="st">&quot;Nada desigual&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb135-1" tabindex="-1"></a><span class="co">#Configuramos nuestra variable como factor</span></span>
+<span id="cb135-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb135-2" tabindex="-1"></a>enades<span class="sc">$</span>p11<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb135-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb135-3" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb135-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb135-4" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Muy desigual&quot;</span>, <span class="st">&quot;Poco desigual&quot;</span>, <span class="st">&quot;Nada desigual&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code></pre></div>
 <p>La muestra se divide entre estas tres opciones. Ahora elegimos <strong>UNA CATEGORÍA</strong> de estas tres a la que vamos a calcular la proporción. En este caso vamos a elegir la proporción de individuos que afirmó que el acceso a la educación en el Perú es “Muy desigual”.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb148-1" tabindex="-1"></a><span class="co">#Calculamos p</span></span>
-<span id="cb148-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb148-2" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb148-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb148-3" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb148-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb148-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb136-1" tabindex="-1"></a><span class="co">#Calculamos p</span></span>
+<span id="cb136-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb136-2" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb136-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb136-3" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb136-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb136-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 3
 ##   p11.1             n      p
 ##   &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
@@ -668,26 +473,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 Nada desigual    80 0.0523
 ## 4 &lt;NA&gt;             35 0.0229</code></pre>
 <p>Ahora sabemos que nuestro <span class="math inline">\(\hat{p}\)</span> = 0.59</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb150-1" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fl">0.5961</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb138-1" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fl">0.5961</span></span></code></pre></div>
 <p>El número total de casos es:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb151-1" tabindex="-1"></a>n<span class="ot">&lt;-</span> <span class="dv">1530</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb139-1" tabindex="-1"></a>n<span class="ot">&lt;-</span> <span class="dv">1530</span></span></code></pre></div>
 <p>Ahora definimos la puntuación crítica. Cuánto era para 95% de confianza?</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb152-1" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fl">1.96</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb140-1" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fl">1.96</span></span></code></pre></div>
 <p>Ahora el error estándar <span class="math inline">\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb153-1" tabindex="-1"></a>error_estandar<span class="ot">&lt;-</span> <span class="fu">sqrt</span>((p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p))<span class="sc">/</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb141-1" tabindex="-1"></a>error_estandar<span class="ot">&lt;-</span> <span class="fu">sqrt</span>((p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p))<span class="sc">/</span>n)</span></code></pre></div>
 <p>Nuestro límite inferior es la proporción muestral menos z*error estándar:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb154-1" tabindex="-1"></a>limite_inferior<span class="ot">&lt;-</span> p<span class="sc">-</span>z<span class="sc">*</span>error_estandar</span>
-<span id="cb154-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb154-2" tabindex="-1"></a>limite_inferior</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-1" tabindex="-1"></a>limite_inferior<span class="ot">&lt;-</span> p<span class="sc">-</span>z<span class="sc">*</span>error_estandar</span>
+<span id="cb142-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb142-2" tabindex="-1"></a>limite_inferior</span></code></pre></div>
 <pre><code>## [1] 0.5715129</code></pre>
 <p>Y el límite superior es la proporción muestral más z*error estándar:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb156-1" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> p<span class="sc">+</span>z<span class="sc">*</span>error_estandar</span>
-<span id="cb156-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb156-2" tabindex="-1"></a>limite_superior</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb144-1" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> p<span class="sc">+</span>z<span class="sc">*</span>error_estandar</span>
+<span id="cb144-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb144-2" tabindex="-1"></a>limite_superior</span></code></pre></div>
 <pre><code>## [1] 0.6206871</code></pre>
 <p>Lo podemos colocar todo en un data frame</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb158-1" tabindex="-1"></a>resultados<span class="ot">&lt;-</span><span class="fu">data.frame</span>(p, error_estandar, limite_inferior, limite_superior)</span>
-<span id="cb158-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb158-2" tabindex="-1"></a>resultados <span class="sc">|&gt;</span> </span>
-<span id="cb158-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb158-3" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb158-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb158-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-1" tabindex="-1"></a>resultados<span class="ot">&lt;-</span><span class="fu">data.frame</span>(p, error_estandar, limite_inferior, limite_superior)</span>
+<span id="cb146-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-2" tabindex="-1"></a>resultados <span class="sc">|&gt;</span> </span>
+<span id="cb146-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-3" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb146-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb146-4" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -727,9 +532,9 @@ limite_superior
 <h3><span class="header-section-number">5.2.4</span> IC de proporción con <code>prop.test()</code><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora bien, también podemos utilizar la función <code>prop.test()</code>:</p>
 <p>Recordemos:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb159-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb159-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb159-2" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb159-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb159-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb147-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-2" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb147-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb147-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 3
 ##   p11.1             n      p
 ##   &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
@@ -738,7 +543,7 @@ limite_superior
 ## 3 Nada desigual    80 0.0523
 ## 4 &lt;NA&gt;             35 0.0229</code></pre>
 <p>Colocamos la <strong>frecuencia</strong> de la categoría elegida y el tamaño total de la muestra.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb161-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="dv">912</span>, <span class="dv">1530</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb149-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="dv">912</span>, <span class="dv">1530</span>)<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.5709514 0.6207178
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
@@ -749,14 +554,14 @@ limite_superior
 <div id="ic-de-proporción-según-grupos" class="section level3 hasAnchor" number="5.2.5">
 <h3><span class="header-section-number">5.2.5</span> IC de proporción según grupos<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-según-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora comparemos la proporción elegida (aquellos que creen que el acceso de los peruanos a la EDUCACIÓN es MUY DESIGUAL) entre el sector rural y urbano (area2).</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-1" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span> <span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb163-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb163-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb151-1" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span> <span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb151-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb151-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb151-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb151-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code></pre></div>
 <p>Primero, nos tenemos que preguntar cuál es la frecuencia en cada grupo</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb164-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb164-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb164-2" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
-<span id="cb164-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb164-3" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb164-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb164-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb152-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb152-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb152-2" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
+<span id="cb152-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb152-3" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb152-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb152-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 4
 ## # Groups:   area2 [2]
 ##   area2  p11.1             n      p
@@ -769,8 +574,8 @@ limite_superior
 ## 6 Rural  Poco desigual    94 0.366 
 ## 7 Rural  Nada desigual    13 0.0506
 ## 8 Rural  &lt;NA&gt;              7 0.0272</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb166-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb166-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb166-2" tabindex="-1"></a>  <span class="fu">count</span>(area2)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb154-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb154-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb154-2" tabindex="-1"></a>  <span class="fu">count</span>(area2)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   area2      n
 ##   &lt;fct&gt;  &lt;int&gt;
@@ -781,36 +586,36 @@ limite_superior
 <li>En el primer grupo hay 769 casos de éxito de un total de 1273.</li>
 </ul>
 <p>Lo ingresamos a la función:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb168-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb156-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.5765493 0.6309849
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
 <ul>
 <li>En el segundo grupo hay 143 casos de éxito de un total de 257.</li>
 </ul>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb170-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb158-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 0.4933505 0.6177753
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
 <p>Lo podemos ordenar en un data.frame.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb172-1" tabindex="-1"></a>resultados_prop<span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(<span class="at">Grupo =</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>), </span>
-<span id="cb172-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb172-2" tabindex="-1"></a>                              <span class="at">P =</span><span class="fu">c</span>(<span class="fl">0.60</span>, <span class="fl">0.55</span>), </span>
-<span id="cb172-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb172-3" tabindex="-1"></a>                              <span class="at">Lim_inf=</span><span class="fu">c</span>(<span class="fl">0.57</span>, <span class="fl">0.49</span>), </span>
-<span id="cb172-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb172-4" tabindex="-1"></a>                              <span class="at">Lim_sup=</span> <span class="fu">c</span>(<span class="fl">0.63</span>,<span class="fl">0.61</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb173-1" tabindex="-1"></a>resultados_prop</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb160-1" tabindex="-1"></a>resultados_prop<span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(<span class="at">Grupo =</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>), </span>
+<span id="cb160-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb160-2" tabindex="-1"></a>                              <span class="at">P =</span><span class="fu">c</span>(<span class="fl">0.60</span>, <span class="fl">0.55</span>), </span>
+<span id="cb160-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb160-3" tabindex="-1"></a>                              <span class="at">Lim_inf=</span><span class="fu">c</span>(<span class="fl">0.57</span>, <span class="fl">0.49</span>), </span>
+<span id="cb160-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb160-4" tabindex="-1"></a>                              <span class="at">Lim_sup=</span> <span class="fu">c</span>(<span class="fl">0.63</span>,<span class="fl">0.61</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb161-1" tabindex="-1"></a>resultados_prop</span></code></pre></div>
 <pre><code>##    Grupo    P Lim_inf Lim_sup
 ## 1 Urbano 0.60    0.57    0.63
 ## 2  Rural 0.55    0.49    0.61</code></pre>
 <p>Lo visualizamos:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb175-1" tabindex="-1"></a>resultados_prop <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
-<span id="cb175-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb175-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
-<span id="cb175-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb175-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>p, <span class="at">x=</span>Grupo)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
-<span id="cb175-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb175-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Lim_inf, <span class="at">ymax=</span>Lim_sup), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
-<span id="cb175-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb175-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
-<span id="cb175-6"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb175-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;P la cobertura en educación es Muy Desigual&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-1" tabindex="-1"></a>resultados_prop <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
+<span id="cb163-2"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
+<span id="cb163-3"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>p, <span class="at">x=</span>Grupo)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
+<span id="cb163-4"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Lim_inf, <span class="at">ymax=</span>Lim_sup), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
+<span id="cb163-5"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
+<span id="cb163-6"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb163-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;P la cobertura en educación es Muy Desigual&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <p>Otra alternativa es pedirlos al mismo tiempo en la función <code>prop.test()</code>. En este caso lo que nos muestra, es el <strong>intervalo de la diferencia</strong>.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb176-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>, <span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#cb164-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>, <span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] -0.02108879  0.11641800
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
@@ -832,8 +637,8 @@ limite_superior
 </div>
 <div id="prueba-de-hipótesis-una-introducción" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Prueba de hipótesis: Una introducción<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="definición-2" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Definición<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="definición-1" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Definición<a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población. Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.</p>
 <p>Para aplicar una prueba debemos seguir pasos muy ordenados y entender qué estamos haciendo en cada uno de ellos.</p>
 <p><img src="figures/prueba_pasos.png" /></p>
@@ -949,8 +754,8 @@ Ok, ahora sí. El test estadístico lo que te indica es cuál es el valor de umb
           </div>
         </div>
       </div>
-<a href="estadística-inferencial-introducción.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="comparación-en-dos-muestras-t.test-y-prop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estadística-inferencial-introducción.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

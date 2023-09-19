@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-09-05" />
+<meta name="date" content="2023-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="manipulación-de-datos-y-estadísticos-descriptivos.html"/>
+<link rel="next" href="análisis-exploratorio-de-datos.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -140,82 +142,136 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Estadística AP I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción a Estadística con R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística-prueba"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística PRUEBA</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#estadística-los-fundamentos"><i class="fa fa-check"></i><b>1.1</b> Estadística: los fundamentos</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
-<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
-<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.1</b> Unidad de análisis</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#tipos-de-variables-y-escalas-de-medición"><i class="fa fa-check"></i><b>1.1.2</b> Tipos de variables y escalas de medición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#r-los-fundamentos"><i class="fa fa-check"></i><b>1.2</b> R: los fundamentos</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
-<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.3.2</b> Un vector especial: los factores</a></li>
-<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.3.3</b> Data frames</a></li>
-<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
-<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#por-qué-r"><i class="fa fa-check"></i><b>1.2.1</b> ¿Por qué R?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#poo"><i class="fa fa-check"></i><b>1.2.2</b> POO</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#los-objetos"><i class="fa fa-check"></i><b>1.2.3</b> Los objetos</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.2.4</b> Los vectores</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#los-factores"><i class="fa fa-check"></i><b>1.2.5</b> Los factores</a></li>
+<li class="chapter" data-level="1.2.6" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.2.6</b> Data frames</a></li>
+<li class="chapter" data-level="1.2.7" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.2.7</b> Índices</a></li>
+<li class="chapter" data-level="1.2.8" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.2.8</b> Nuestras herramientas: Paquetes y funciones</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#importación-y-exploración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Importación y exploración de datos</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
-<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación"><i class="fa fa-check"></i><b>2.1</b> Preparación</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.1.1</b> Entorno de trabajo</a></li>
-<li class="chapter" data-level="2.1.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.1.2</b> Paquetes a utilizar</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Base de datos</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación"><i class="fa fa-check"></i><b>2.2.1</b> Importación</a></li>
-<li class="chapter" data-level="2.2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>2.2.2</b> Verificar el tipo de variable</a></li>
-<li class="chapter" data-level="2.2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.2.3</b> Creación de subset</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.3</b> Estadísticos de tendencia central</a></li>
-<li class="chapter" data-level="2.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.4</b> Estadísticos de posición</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles"><i class="fa fa-check"></i><b>2.4.1</b> Percentiles</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.5</b> Estadísticos de dispersión</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango"><i class="fa fa-check"></i><b>2.5.1</b> El Rango</a></li>
-<li class="chapter" data-level="2.5.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza"><i class="fa fa-check"></i><b>2.5.2</b> La Varianza</a></li>
-<li class="chapter" data-level="2.5.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.5.3</b> La Desviación Estándar</a></li>
-<li class="chapter" data-level="2.5.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.5.4</b> El Rango intercuartílico</a></li>
-<li class="chapter" data-level="2.5.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.5.5</b> Curvas de distribución de frecuencias</a></li>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>1.3.1</b> Verificar el tipo de variable</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a></li>
+<li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis exploratorio de datos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-descriptivos"><i class="fa fa-check"></i><b>2.1</b> Estadísticos descriptivos</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#tendencia-central"><i class="fa fa-check"></i><b>2.1.1</b> Tendencia central</a></li>
+<li class="chapter" data-level="2.1.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#dispersión"><i class="fa fa-check"></i><b>2.1.2</b> Dispersión</a></li>
+<li class="chapter" data-level="2.1.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#posición"><i class="fa fa-check"></i><b>2.1.3</b> Posición</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#manipulación-de-tablas"><i class="fa fa-check"></i><b>2.2</b> Manipulación de tablas</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#filtrar-filas"><i class="fa fa-check"></i><b>2.2.1</b> Filtrar filas</a></li>
+<li class="chapter" data-level="2.2.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#seleccionar-columnas"><i class="fa fa-check"></i><b>2.2.2</b> Seleccionar columnas</a></li>
+<li class="chapter" data-level="2.2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>2.2.3</b> Crear nuevas variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicios"><i class="fa fa-check"></i><b>2.3</b> Ejercicios</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-1"><i class="fa fa-check"></i><b>2.3.1</b> Ejercicio 1</a></li>
+<li class="chapter" data-level="2.3.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#ejercicio-2"><i class="fa fa-check"></i><b>2.3.2</b> Ejercicio 2</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#preparación"><i class="fa fa-check"></i><b>2.4</b> Preparación</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.4.1</b> Entorno de trabajo</a></li>
+<li class="chapter" data-level="2.4.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.4.2</b> Paquetes a utilizar</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#base-de-datos"><i class="fa fa-check"></i><b>2.5</b> Base de datos</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#importación"><i class="fa fa-check"></i><b>2.5.1</b> Importación</a></li>
+<li class="chapter" data-level="2.5.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#verificar-el-tipo-de-variable-1"><i class="fa fa-check"></i><b>2.5.2</b> Verificar el tipo de variable</a></li>
+<li class="chapter" data-level="2.5.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.5.3</b> Creación de subset</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.6</b> Estadísticos de tendencia central</a></li>
+<li class="chapter" data-level="2.7" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.7</b> Estadísticos de posición</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#percentiles"><i class="fa fa-check"></i><b>2.7.1</b> Percentiles</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.8</b> Estadísticos de dispersión</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#el-rango"><i class="fa fa-check"></i><b>2.8.1</b> El Rango</a></li>
+<li class="chapter" data-level="2.8.2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#la-varianza"><i class="fa fa-check"></i><b>2.8.2</b> La Varianza</a></li>
+<li class="chapter" data-level="2.8.3" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.8.3</b> La Desviación Estándar</a></li>
+<li class="chapter" data-level="2.8.4" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.8.4</b> El Rango intercuartílico</a></li>
+<li class="chapter" data-level="2.8.5" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.8.5</b> Curvas de distribución de frecuencias</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#gráficos"><i class="fa fa-check"></i><b>3.1</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#para-numéricas"><i class="fa fa-check"></i><b>3.1.1</b> Para numéricas</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#para-categóricas"><i class="fa fa-check"></i><b>3.1.2</b> Para categóricas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#graficando-con-ggplot2"><i class="fa fa-check"></i><b>3.2</b> Graficando con ggplot2</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#definiciones"><i class="fa fa-check"></i><b>4.1</b> Definiciones</a></li>
-<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#conceptos-principales"><i class="fa fa-check"></i><b>4.2</b> Conceptos principales</a>
+<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#conceptos-principales"><i class="fa fa-check"></i><b>4.1</b> Conceptos principales</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-desviación-estándar-1"><i class="fa fa-check"></i><b>4.2.1</b> La desviación estándar</a></li>
-<li class="chapter" data-level="4.2.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribución-normal"><i class="fa fa-check"></i><b>4.2.2</b> Distribución normal</a></li>
-<li class="chapter" data-level="4.2.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.2.3</b> Teorema del límite central</a></li>
-<li class="chapter" data-level="4.2.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.2.4</b> Ley de los grandes números</a></li>
-<li class="chapter" data-level="4.2.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>4.2.5</b> Error estándar</a></li>
+<li class="chapter" data-level="4.1.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#inferencia"><i class="fa fa-check"></i><b>4.1.1</b> Inferencia</a></li>
+<li class="chapter" data-level="4.1.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#la-desviación-estándar-1"><i class="fa fa-check"></i><b>4.1.2</b> La desviación estándar</a></li>
+<li class="chapter" data-level="4.1.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribución-normal"><i class="fa fa-check"></i><b>4.1.3</b> Distribución normal</a></li>
+<li class="chapter" data-level="4.1.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.1.4</b> Teorema del límite central</a></li>
+<li class="chapter" data-level="4.1.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.1.5</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="4.1.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#varias-muestras"><i class="fa fa-check"></i><b>4.1.6</b> Varias muestras</a></li>
+<li class="chapter" data-level="4.1.7" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>4.1.7</b> Error estándar</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#métodos-de-estimación"><i class="fa fa-check"></i><b>4.3</b> Métodos de estimación</a>
+<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#métodos-de-estimación"><i class="fa fa-check"></i><b>4.2</b> Métodos de estimación</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>4.3.1</b> Estimación puntual</a></li>
-<li class="chapter" data-level="4.3.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.3.2</b> Intervalo de confianza de una media</a></li>
+<li class="chapter" data-level="4.2.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>4.2.1</b> Estimación puntual</a></li>
+<li class="chapter" data-level="4.2.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.2.2</b> Intervalo de confianza de una media</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r-enades-2022"><i class="fa fa-check"></i><b>4.4</b> Ejercicio con R: ENADES 2022</a>
+<li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-1-enades-2022"><i class="fa fa-check"></i><b>4.3</b> Ejercicio 1: ENADES 2022</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.4.1</b> Abrir base de datos</a></li>
-<li class="chapter" data-level="4.4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.4.2</b> Identificar una variable numérica</a></li>
-<li class="chapter" data-level="4.4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral"><i class="fa fa-check"></i><b>4.4.3</b> Cálculo del estimador puntual: media muestral</a></li>
-<li class="chapter" data-level="4.4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>4.4.4</b> Cálculo del intervalo de confianza al 95%</a></li>
+<li class="chapter" data-level="4.3.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.3.1</b> Abrir base de datos</a></li>
+<li class="chapter" data-level="4.3.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.3.2</b> Identificar una variable numérica</a></li>
+<li class="chapter" data-level="4.3.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual"><i class="fa fa-check"></i><b>4.3.3</b> Cálculo del estimador puntual</a></li>
+<li class="chapter" data-level="4.3.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-ic-al-95"><i class="fa fa-check"></i><b>4.3.4</b> Cálculo del IC al 95%</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> IC de una proporción e introducción a pruebas de hipótesis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
+<li class="chapter" data-level="5.1.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
+<li class="chapter" data-level="5.1.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
+<li class="chapter" data-level="5.1.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
+<li class="chapter" data-level="5.2.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
+<li class="chapter" data-level="5.2.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
+<li class="chapter" data-level="5.3.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
+<li class="chapter" data-level="5.3.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="5.3.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="5.3.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="5.3.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="5.3.7" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -240,44 +296,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Estadística para el Análisis Político I</h1>
 <p class="author"><em>Docente: Christian Chiroque Ruiz</em></p>
-<p class="date"><em>2023-09-05</em></p>
+<p class="date"><em>2023-09-18</em></p>
 </div>
-<div id="introducción" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Sesión 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="los-pilares-de-la-estadística-prueba" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Los pilares de la Estadística PRUEBA<a href="index.html#los-pilares-de-la-estadística-prueba" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="definición" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Definición<a href="index.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="introducción-a-estadística-con-r" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Sesión 1</span> Introducción a Estadística con R<a href="index.html#introducción-a-estadística-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="estadística-los-fundamentos" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Estadística: los fundamentos<a href="index.html#estadística-los-fundamentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La estadística es una rama de las matemáticas que se enfoca en el análisis, interpretación y presentación de datos. Los estadísticos se centran en la teoría estadística y en el desarrollo de métodos para analizar datos. Los estadísticos también pueden diseñar estudios experimentales para recopilar datos de una manera rigurosa y controlada.</p>
 <p>En términos generales, la estadística se divide en dos áreas principales: estadística descriptiva y estadística inferencial. La estadística descriptiva se centra en la organización y presentación de datos, mientras que la estadística inferencial se ocupa de la inferencia y la predicción a partir de datos.</p>
-</div>
-<div id="unidad-de-análisis" class="section level3 hasAnchor" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Unidad de análisis<a href="index.html#unidad-de-análisis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="unidad-de-análisis" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Unidad de análisis<a href="index.html#unidad-de-análisis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En estadística, una unidad de análisis se refiere a la entidad o elemento individual que se estudia en una investigación o estudio estadístico.</p>
 <p>Esta entidad puede ser una persona, un animal, un objeto, una organización, un evento, una muestra, etc. Dependiendo del objetivo del estudio y de la pregunta que se pretenda responder, la unidad de análisis puede variar.</p>
 <p>Es importante tener en cuenta que la elección de la unidad de análisis puede tener un impacto significativo en los resultados de un estudio estadístico. Por lo tanto, es fundamental definir claramente la unidad de análisis y asegurarse de que sea coherente con los objetivos y la hipótesis de la investigación.</p>
 </div>
-<div id="tipos-de-variable" class="section level3 hasAnchor" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Tipos de variable<a href="index.html#tipos-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tipos-de-variables-y-escalas-de-medición" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Tipos de variables y escalas de medición<a href="index.html#tipos-de-variables-y-escalas-de-medición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Tipos de variable</strong></p>
 <p>En estadística, una variable es cualquier característica, propiedad o atributo que puede tomar diferentes valores y que se puede medir o observar en los elementos de una población o muestra.</p>
 <p>Distinguimos los tipos de variables porque diferentes métodos estadísticos pueden ser aplicados a cada tipo.</p>
-<p><strong>Variables numéricas</strong>:</p>
-<ul>
-<li><p>Se expresan en términos numéricos y se pueden medir con precisión.</p></li>
-<li><p>Los valores representan diferentes magnitudes (cantidad) de la variable.</p></li>
-<li><p>Ejemplos: ingreso anual, número de sobrinos, edad y número de años de estudio.</p></li>
-<li><p>También denominadas cuantitativas.</p></li>
-</ul>
-<p><strong>Variables categóricas</strong>:</p>
-<ul>
-<li><p>No se expresan en términos numéricos y no se pueden medir con precisión.</p></li>
-<li><p>Se miden utilizando un conjunto de categorías o etiquetas.</p></li>
-<li><p>Ejemplo: estado civil, departamento de residencia, tipo de música favorita.</p></li>
-<li><p>También denominadas cualitativas.</p></li>
-</ul>
-</div>
-<div id="escalas-de-medición" class="section level3 hasAnchor" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Escalas de medición<a href="index.html#escalas-de-medición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="44%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Tipos</strong></th>
+<th align="left"><strong>Variables numéricas</strong></th>
+<th align="left"><strong>Variables categóricas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Características</td>
+<td align="left">- Se expresan en términos numéricos y se pueden medir con precisión.<br>- Los valores representan diferentes magnitudes (cantidad) de la variable.</td>
+<td align="left">- No se expresan en términos numéricos y no se pueden medir con precisión.<br>- Se miden utilizando un conjunto de categorías o etiquetas.</td>
+</tr>
+<tr class="even">
+<td align="left">Ejemplos</td>
+<td align="left">- Ingreso anual<br>- Número de sobrinos<br>- Edad<br>- Número de años de estudio.</td>
+<td align="left">- Estado civil<br>- Departamento de residencia<br>- Tipo de música favorita.</td>
+</tr>
+<tr class="odd">
+<td align="left">Alias</td>
+<td align="left">También denominadas cuantitativas.</td>
+<td align="left">También denominadas cualitativas.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Escalas de medición</strong></p>
 <p>Identifica cómo es medida la variable.</p>
 <p>Para las variables numéricas:
 Se utiliza la escala de intervalo: Existe una distancia específica entre cada par de valores y es comparable. Ej: Existe la misma distancia entre 1500 y 1000 soles que entre 1000 soles y 500 soles.</p>
@@ -289,8 +358,55 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 </ul>
 </div>
 </div>
-<div id="los-objetos-elementos-básicos-en-el-r" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Los objetos: elementos básicos en el R<a href="index.html#los-objetos-elementos-básicos-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-los-fundamentos" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> R: los fundamentos<a href="index.html#r-los-fundamentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="por-qué-r" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> ¿Por qué R?<a href="index.html#por-qué-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R es un lenguaje de programación y un entorno de software libre orientado principalmente al análisis estadístico y la representación gráfica de datos. Desde su creación en 1993 por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, R ha evolucionado para convertirse en una de las herramientas más populares y poderosas en el campo de la estadística y la ciencia de datos.</p>
+<p>Aprender estadística con R tiene varias ventajas:</p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="81%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Ventaja</strong></th>
+<th align="left"><strong>Detalle</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Flexibilidad y Personalización</td>
+<td align="left">R ofrece un amplio rango de análisis y permite la personalización y automatización según las necesidades del usuario.</td>
+</tr>
+<tr class="even">
+<td align="left">Amplio Repositorio de Paquetes</td>
+<td align="left">La comunidad de R ha desarrollado miles de paquetes, permitiendo fácil acceso a técnicas estadísticas avanzadas.</td>
+</tr>
+<tr class="odd">
+<td align="left">Reproducibilidad</td>
+<td align="left">Con R, se pueden crear análisis que otros investigadores pueden verificar y replicar fácilmente.</td>
+</tr>
+<tr class="even">
+<td align="left">Representación Gráfica</td>
+<td align="left">R destaca en la producción de gráficos de alta calidad, esenciales para la visualización de datos.</td>
+</tr>
+<tr class="odd">
+<td align="left">Comunidad Activa</td>
+<td align="left">La activa comunidad de R proporciona numerosos recursos, tutoriales y foros para el aprendizaje y resolución de dudas.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="poo" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> POO<a href="index.html#poo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R es un lenguaje de programación que adopta el paradigma de la “programación orientada a objetos”. Esto significa que, en R, todo se considera un “objeto”, ya sea un conjunto de datos, una función o un modelo. Cada objeto tiene atributos y comportamientos asociados que determinan cómo se puede interactuar con él. Esta estructura permite a los usuarios de R organizar y manipular datos de manera coherente y sistemática. Al entender que todo en R es un objeto, se puede abordar el análisis estadístico con una visión más estructurada, lo que facilita la comprensión y aplicación de técnicas y métodos avanzados en el futuro.</p>
+<p>Imagina que cada objeto en R es como un coche. Los “atributos” de ese coche pueden incluir su color, marca, modelo, y año de fabricación. Estos atributos describen las características específicas del coche. Ahora, piensa en los “comportamientos asociados” como las acciones que puedes realizar con ese coche: encenderlo, acelerar, frenar o encender las luces. Del mismo modo, en R, un objeto, como un conjunto de datos, podría tener atributos que describan su tamaño, tipo y estructura. Y los comportamientos asociados de ese conjunto de datos podrían incluir operaciones como filtrar, ordenar o aplicar una función estadística.</p>
+<p>Por ejemplo, si tienes un objeto en R que es un dataframe (un tipo de estructura de datos tabular), sus “atributos” podrían incluir el número de filas y columnas, los nombres de las columnas y el tipo de datos en cada columna. Los “comportamientos asociados” de ese dataframe podrían ser operaciones como añadir o eliminar una columna, filtrar por ciertos valores o calcular estadísticas sobre una columna específica. Al comprender los atributos y comportamientos de los objetos en R, puedes manipularlos y analizarlos de manera efectiva y eficiente, al igual que un conductor experto sabe cómo manejar y cuidar su coche.</p>
+</div>
+<div id="los-objetos" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Los objetos<a href="index.html#los-objetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vamos a examinar la clase de algunos de los elementos más básicos en R: los números, los caracteres y los elementos lógicos.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">1.5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -322,10 +438,8 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 5+5-&gt;X.</p>
 <p>Sin embargo, el sistema no acepta lo siguiente: 5+5 = X</p>
 </div>
-<div id="las-estructuras-en-el-r" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Las Estructuras en el R<a href="index.html#las-estructuras-en-el-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="los-vectores" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Los vectores<a href="index.html#los-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="los-vectores" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Los vectores<a href="index.html#los-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Un vector es una colección de uno o más datos del mismo tipo.</p></li>
 <li><p>Tipo. Un vector tiene el mismo tipo que los datos que contiene. Si tenemos un vector que contiene datos de tipo numérico, el vector será también de tipo numérico. Los vectores son atómicos, pues sólo pueden contener datos de un sólo tipo, no es posible mezclar datos de tipos diferentes dentro de ellos.</p></li>
@@ -356,9 +470,9 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="index.html#cb33-1" tabindex="-1"></a><span class="fu">class</span>(vector_con_NA)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
-<div id="un-vector-especial-los-factores" class="section level3 hasAnchor" number="1.3.2">
-<h3><span class="header-section-number">1.3.2</span> Un vector especial: los factores<a href="index.html#un-vector-especial-los-factores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Un factor es un tipo de datos específico en R. Puede ser descrito como un dato numérico representado por una etiqueta.</p>
+<div id="los-factores" class="section level3 hasAnchor" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Los factores<a href="index.html#los-factores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un factor es un tipo específico de vector en R. Puede ser descrito como un dato numérico representado por una etiqueta.</p>
 <p>Supongamos que tenemos un conjunto de datos que representan el género de personas encuestadas por teléfono, pero estos se encuentran capturados con los números 1 y 2.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="index.html#cb35-1" tabindex="-1"></a>genero <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <p>El número 1 corresponde a Mujer y el 2 a Hombre. A diferencia del carácter, el factor tiene NIVELES (levels).</p>
@@ -382,8 +496,8 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 ## Levels: Bajo &lt; Medio &lt; Alto</code></pre>
 <p>Vemos que nos indica los niveles, pero en este caso están ordenados de menor a mayor.</p>
 </div>
-<div id="data-frames" class="section level3 hasAnchor" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Data frames<a href="index.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="data-frames" class="section level3 hasAnchor" number="1.2.6">
+<h3><span class="header-section-number">1.2.6</span> Data frames<a href="index.html#data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los data frames son estructuras de datos de dos dimensiones (rectangulares) que pueden contener datos de diferentes tipos, por lo tanto, son heterogéneas. Compuesto por vectores.</p>
 <p>Estructura más usada para ciencia de datos.</p>
 <p>Mientras que en una matriz todas las celdas deben contener datos del mismo tipo, los renglones de un data frame admiten datos de distintos tipos, pero sus columnas conservan la restricción de contener datos de un sólo tipo.</p>
@@ -405,9 +519,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 ##  $ variable2: num  1.2 3.4 4.5
 ##  $ variable3: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot;
 ##  $ variable4: Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 2 3</code></pre>
-</div>
-<div id="propiedades" class="section level3 hasAnchor" number="1.3.4">
-<h3><span class="header-section-number">1.3.4</span> Propiedades<a href="index.html#propiedades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Propiedades</strong></p>
 <p>Un data.frame tiene:</p>
 <ul>
 <li>Dimensión: un número de filas y un número de columnas.</li>
@@ -425,8 +537,8 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" tabindex="-1"></a><span class="fu">names</span>(mi_df) </span></code></pre></div>
 <pre><code>## [1] &quot;variable1&quot; &quot;variable2&quot; &quot;variable3&quot; &quot;variable4&quot;</code></pre>
 </div>
-<div id="índices" class="section level3 hasAnchor" number="1.3.5">
-<h3><span class="header-section-number">1.3.5</span> Índices<a href="index.html#índices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="índices" class="section level3 hasAnchor" number="1.2.7">
+<h3><span class="header-section-number">1.2.7</span> Índices<a href="index.html#índices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Usar índices para obtener subconjuntos es el procedimiento más universal en R, pues funciona para todas las estructuras de datos.</p></li>
 <li><p>Un índice en R representa una posición.</p></li>
@@ -453,16 +565,12 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="index.html#cb56-1" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 3.4</code></pre>
 </div>
-</div>
-<div id="nuestras-herramientas-paquetes-y-funciones" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Nuestras herramientas: Paquetes y funciones<a href="index.html#nuestras-herramientas-paquetes-y-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="paquetes" class="section level3 hasAnchor" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Paquetes<a href="index.html#paquetes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="nuestras-herramientas-paquetes-y-funciones" class="section level3 hasAnchor" number="1.2.8">
+<h3><span class="header-section-number">1.2.8</span> Nuestras herramientas: Paquetes y funciones<a href="index.html#nuestras-herramientas-paquetes-y-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>PAQUETES</strong></p>
 <p>En R, un paquete es un conjunto de herramientas y funciones predefinidas que permiten a los usuarios realizar tareas específicas, como análisis de datos o visualización de gráficos. Los paquetes pueden ser instalados desde los repositorios de CRAN u otros lugares (como repositorios).</p>
 <p>Para instalar un paquete necesitas escribir <code>install.packages("nombre_del_paquete")</code>. Luego de instalarlo, para comenzar a utilizarlo debes abrirlo con el siguiente comando <code>library(nombre_del_paquete)</code>.</p>
-</div>
-<div id="funciones" class="section level3 hasAnchor" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> Funciones<a href="index.html#funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>FUNCIONES</strong></p>
 <ul>
 <li><p>Las funciones son bloques de código que realizan una tarea específica. Pueden ser definidas por el usuario o pueden ser proporcionadas por un paquete (esto es lo más común).</p></li>
 <li><p>Las funciones toman argumentos, que son valores que se pasan a la función para que los utilice en su tarea.</p></li>
@@ -472,8 +580,8 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 </ul>
 </div>
 </div>
-<div id="abrir-una-base-de-datos" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Abrir una base de datos<a href="index.html#abrir-una-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="importación-y-exploración-de-datos" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Importación y exploración de datos<a href="index.html#importación-y-exploración-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En la práctica tenemos el reto de manipular bases de datos que se encuentran en distintos tipos de archivo. Algunas veces se encuentran en formato .xlsx (Excel regular), pero otras veces las encontramos en formato .csv (separado con comas o puntos y comas), .sav (archivos desde el SPSS), entre otros.</p>
 <p>Para ello, tenemos dos opciones. La más sencilla es utilizar el paquete <code>rio</code> y utilizamos la función <code>import()</code>. Este paquete es una navaja suiza porque te permite abrir distintos formatos con la misma función.</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code></pre></div>
@@ -502,23 +610,49 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 ## # ℹ 4 more variables: VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
 ## #   VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
 <p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
-</div>
-<div id="manipulación-de-datos-con-tidyverse" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Manipulación de datos con Tidyverse<a href="index.html#manipulación-de-datos-con-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Por manipulación de datos nos referimos a que, una vez que tengamos nuestro data frame, es usual aplicar algunas funciones para personalizar aún más la data con la que estamos trabajando.</p>
-<p>Algunas de estas funciones son por ejemplo:</p>
-<ul>
-<li><p>Filtrar data: Normalmente no utilizamos toda la data disponible, sino sólo una parte. Para ello podemos filtrar la data con ciertos criterios.</p></li>
-<li><p>Seleccionar columnas: El mismo razonamiento que el punto anterior. Para hacer más ágil la manipulación de un data frame, podemos quedarnos sólo con aquellas columnas que vamos a utilizar.</p></li>
-<li><p>Ordenar según una variable: Hay ocasiones en que necesitamos que nuestra data esté ordenada según una determinada variable.</p></li>
-<li><p>Crear estadísticos de resumen: Lo veremos en la siguiente sesión, pero siempre necesitamos crear estadísticos de resumen, como los relaciones a tendencia central, posición o dispersión.</p></li>
-<li><p>Crear nuevas variable: Esto nos permite generar nuevas variables a partir de las que ya se encuentran en nuestra data.</p></li>
-</ul>
-<p>Para todas estas funciones mencionadas se recomienda utilizar el paquete <code>dplyr()</code>. Pueden visualizar un video tutorial aquí:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/etxZRx3Jx8o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-</iframe>
-<p>El uso de Tidyverse será transversal a lo largo del curso.</p>
+<p>Puedes ver las primeras diez filas con:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="index.html#cb64-1" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 11
+##    UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACIÓN_POLITICA     VOTOS_VALIDOS_OP VOTOS_VALIDOS
+##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;                                &lt;dbl&gt;         &lt;dbl&gt;
+##  1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACIONAL                          6         11148
+##  2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE               24         11148
+##  3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR NACIONAL                      35         11148
+##  4 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS GANA PERU                             2971         11148
+##  5 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FONAVISTAS DEL PERU                      7         11148
+##  6 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS JUSTICIA, TECNOLOGIA, EC…                4         11148
+##  7 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA 2011                           2651         11148
+##  8 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO DESCENTRALISTA F…                2         11148
+##  9 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA POR EL GRAN CAMB…             1479         11148
+## 10 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA SOLIDARIDAD NACI…              773         11148
+## # ℹ 4 more variables: VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
+## #   VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
+<p>También puedes hacerle click en Environment o colocar:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="index.html#cb66-1" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
+<div id="verificar-el-tipo-de-variable" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Verificar el tipo de variable<a href="index.html#verificar-el-tipo-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Veamos las variables, podemos utilizar la función <code>names(nombre_de_data)</code></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="index.html#cb67-1" tabindex="-1"></a><span class="fu">names</span>(elecciones_2011)</span></code></pre></div>
+<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;          &quot;PROVINCIA&quot;             &quot;DISTRITO&quot;             
+##  [5] &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;      &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;         
+##  [9] &quot;VOTOS_NULOS&quot;           &quot;NUMERO_ELECTORES&quot;      &quot;VOTOS_EMITIDOS&quot;</code></pre>
+<p>Veamos si el formato es adecuado.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="index.html#cb69-1" tabindex="-1"></a><span class="fu">str</span>(elecciones_2011)</span></code></pre></div>
+<pre><code>## tibble [23,958 × 11] (S3: tbl_df/tbl/data.frame)
+##  $ UBIGEO               : chr [1:23958] &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; &quot;010101&quot; ...
+##  $ DEPARTAMENTO         : chr [1:23958] &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; &quot;AMAZONAS&quot; ...
+##  $ PROVINCIA            : chr [1:23958] &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; ...
+##  $ DISTRITO             : chr [1:23958] &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; &quot;CHACHAPOYAS&quot; ...
+##  $ ORGANIZACIÓN_POLITICA: chr [1:23958] &quot;FUERZA NACIONAL&quot; &quot;PARTIDO POLITICO ADELANTE&quot; &quot;DESPERTAR NACIONAL&quot; &quot;GANA PERU&quot; ...
+##  $ VOTOS_VALIDOS_OP     : num [1:23958] 6 24 35 2971 7 ...
+##  $ VOTOS_VALIDOS        : num [1:23958] 11148 11148 11148 11148 11148 ...
+##  $ VOTOS_BLANCO         : num [1:23958] 1034 1034 1034 1034 1034 ...
+##  $ VOTOS_NULOS          : num [1:23958] 340 340 340 340 340 340 340 340 340 340 ...
+##  $ NUMERO_ELECTORES     : num [1:23958] 15748 15748 15748 15748 15748 ...
+##  $ VOTOS_EMITIDOS       : num [1:23958] 12522 12522 12522 12522 12522 ...</code></pre>
+<p>Ok, los caracteres están como <code>chr</code> y las variables numéricas como <code>num.</code></p>
 
+</div>
 </div>
 </div>
             </section>
@@ -527,7 +661,7 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
         </div>
       </div>
 
-<a href="manipulación-de-datos-y-estadísticos-descriptivos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="análisis-exploratorio-de-datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,6 +1,8 @@
 # Estadística Inferencial: Introducción
 
-## Definiciones
+## Conceptos principales
+
+### Inferencia
 
 -   La estadística inferencial utiliza la muestra de datos para hacer estimaciones y tomar decisiones acerca de las características de una población. Esto implica la utilización de técnicas y métodos para inferir información sobre la población a partir de la información recopilada en la muestra.
 
@@ -14,7 +16,7 @@
 | Parámetro   | Es una medida numérica que describe alguna característica de la población. En estadística inferencial, el objetivo es hacer inferencias sobre los parámetros de la población a partir de los datos de la muestra.                                                    |
 
 
-## Conceptos principales
+
 
 ### La desviación estándar
 
@@ -77,8 +79,20 @@ El Tablero de Galton ilustra cómo la distribución de frecuencias de los result
 
 > Mientras más grande sea la muestra, la media muestras se acerca a la media poblacional. 
 
+### Varias muestras
+
+Cuando extraemos varias muestras de una población y calculamos la media para cada una de esas muestras, obtenemos una variedad de medias muestrales. Aunque cada muestra es única y puede tener su propia media, si repitiéramos este proceso de muestreo muchas veces, observaríamos que la distribución de estas medias muestrales tiende a adoptar una forma específica. Esta forma es lo que conocemos como la "distribución de muestreo de la media".
+
+El Teorema del Límite Central, uno de los pilares fundamentales de la estadística inferencial, nos dice que, independientemente de la forma de la distribución original de la población, la distribución de las medias muestrales se aproximará a una distribución normal (o gaussiana) a medida que el tamaño de la muestra aumenta. Esta distribución normal centrada en la media verdadera de la población y con una desviación estándar llamada "error estándar" nos permite hacer inferencias sobre la media poblacional a partir de las medias de nuestras muestras, especialmente cuando el tamaño de la muestra es grande.
 
 ### Error estándar
+
+El error estándar es una medida que nos indica cuánto esperamos que varíe una estadística (como la media o la proporción) de una muestra a otra, si tomáramos múltiples muestras de la misma población. En otras palabras, es una forma de medir la variabilidad que se espera en nuestras estimaciones debido al hecho de que estamos trabajando con muestras y no con la totalidad de la población.
+
+Podríamos pensar en el error estándar como una herramienta que nos ayuda a entender cuán "confiables" o "precisas" son nuestras estimaciones basadas en muestras. Un error estándar pequeño sugiere que nuestras estimaciones son relativamente estables y consistentes de una muestra a otra, mientras que un error estándar grande indica que esas estimaciones podrían variar considerablemente entre diferentes muestras.
+
+Es importante destacar que el error estándar está relacionado con la desviación estándar de la población. Mientras que la desviación estándar nos dice cuánto varían los valores individuales alrededor de la media en una población o muestra, el error estándar nos dice cuánto esperamos que varíen nuestras estadísticas de muestra (como la media muestral) alrededor de la verdadera estadística poblacional.
+
 
 -   Recuerdas que habíamos dicho que en la curva normal se podría evidenciar que la totalidad de las observaciones se encontraban entre -3 y +3 desviaciones estándar respecto de la media? En el caso de las distribuciones muestrales, esa desviación estándar es conocida como **error estándar**.
 
@@ -93,7 +107,6 @@ Entonces los puntos más importantes del EE son:
 - El error estándar es importante en el cálculo de los intervalos de confianza. Cuanto menor sea el error estándar, menor será la variabilidad de las medias muestrales y más preciso será el intervalo de confianza.
 
 - El error estándar se calcula dividiendo la desviación estándar de la población entre la raíz cuadrada del tamaño de la muestra. En la mayoría de los casos, la desviación estándar de la población no se conoce y se utiliza **la desviación estándar de la muestra para estimar el error estándar**.
-
 
 
 ## Métodos de estimación
@@ -125,7 +138,8 @@ Es por esta razón que, en muchas situaciones, se complementa con técnicas como
 ![](figures/IC_MEDIAS.jpg)
 - Ese valor que se suma y se resta a la media muestral es el **término de error**, sin embargo, es más conocido como margen de error. 
 
-## Ejercicio con R: ENADES 2022
+
+## Ejercicio 1: ENADES 2022
 
 El Instituto de Estudios Peruanos, por encargo de Oxfam en Perú, elaboró la I Encuesta Nacional de percepción de Desigualdades – ENADES 2022. Este estudio pone a disposición del público el análisis estadístico más completo a la fecha sobre la percepción de las diferentes formas de desigualdad en el Perú.
 
@@ -143,6 +157,13 @@ library(tidyverse)
 enades<-read_spss("data/ENADES_2022.sav") # Con esta función abrimos archivos de SPSS
 # enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav")
 ```
+
+```{r}
+names(enades)
+```
+
+> Recuerda que si en un primer momento te pierdes un poco entre los nombres de las variables, eso quiere decir que tienes que leer el cuestionario y el diccionario de variables!
+
 
 ### Identificar una variable numérica
 
@@ -172,71 +193,102 @@ enades |>
 ```
 
 
-### Cálculo del estimador puntual: media muestral
+### Cálculo del estimador puntual
+
+Calculamos el estimador puntual, en este caso, la media muestral. 
 
 ```{r}
 mean(enades$p17, na.rm = TRUE)
 ```
 
+Tienes que recordar lo básico de este: 
 
-### Cálculo del intervalo de confianza al 95%
+1) Es solo una aproximación del verdadero valor poblacional, y su precisión puede variar dependiendo del tamaño y calidad de la muestra, entre otros factores. 
 
-Calculamos la media:
+2) Es por ello que, a menudo, se complementa con intervalos de confianza para ofrecer un rango de valores en los que es probable que se encuentre el verdadero parámetro poblacional. 
+
+
+### Cálculo del IC al 95% 
+
+**MANUAL**
+
+Recordemos qué necesitamos para calcular el intervalo de confianza de una media. 
+
+Necesitamos la media muestral (mean) de esa única muestra que obtuvimos de la población, la desviación estándar (sd) y el tamaño de muestra que tenemos (n).
+
+Así también, necesitamos elegir qué nivel de confianza vamos a tomar (recuerdas los intervalos de la distribución normal? y cómo se aplicaría a distribuciones muestrales?), es decir, si vamos al 95% (1.96) o algún otro nivel. 
+
+Calculemos cada uno de estos
 
 ```{r}
 media<-mean(enades$p17, na.rm = TRUE)
-media
-```
-
-También la desviación estándar:
-
-```{r}
 SE<- sd(enades$p17, na.rm = TRUE)
-SE
-```
-
-El valor Z cuando realizamos un cálculo al 95% de confianza
-
-```{r}
+n <-length(enades$p17)
 z<- 1.96
 ```
 
-Y finalmente, el tamaño de la muestra
+Ahora recordamos la fórmula:
 
-```{r}
-n <-length(enades$p17)
-n
-```
+![](figures/IC_MEDIAS.jpg)
 
-Ahora calculamos el error estándar:
+Dónde el error estándar está dado por:
 
 $$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
 
-```{r}
-errorst <- SE/sqrt(n)
-```
-
-
-Una vez calculado el error estándar podemos calcular los límite inferior:
+Entonces: 
 
 ```{r}
-lim_inf<- media - (z*errorst)
-lim_inf
+error_estandar <- SE/sqrt(n)
+error_estandar
 ```
 
-Y también el límite superior:
+Por lo pronto, hemos obtenido un error estándar con un valor de 0.08009848. 
+
+El error estándar, en su esencia, nos brinda una medida de cuánta variabilidad podemos esperar en nuestras estimaciones si repitiéramos el muestreo muchas veces. Cuando interpretamos un error estándar específico, como 0.08009848podemos considerar lo siguiente:
+
+Un error estándar de 0.08009848 sugiere que, si tomáramos múltiples muestras del mismo tamaño de la población y calculáramos la estadística de interés (por ejemplo, la media) para cada muestra, esperaríamos que la mayoría de esas estadísticas estuvieran dentro de 0.08009848 unidades de la estadística media de todas esas muestras.
+
+En otras palabras, el valor de 0.08009848 nos da una idea de la "precisión" de nuestra estimación basada en una sola muestra. Una estimación con un error estándar más pequeño generalmente se considera más "precisa" que una con un error estándar más grande, porque indica menos variabilidad entre las estimaciones de diferentes muestras.
+
+Ahora sí, una vez calculado el error estándar podemos calcular los límite inferior o superior. Recuerda que debemos aplicar la fórmula y que la única diferencia para calcular el límite inferior y superior es el signo:
 
 ```{r}
-lim_sup<- media + (z*errorst)
-lim_sup
+limite_inferior<- media - (z*error_estandar)
+limite_superior<- media + (z*error_estandar)
 ```
 
-Con ello podemos concluir que la media poblacional, a un 95% de confianza, se encontrará entre 4.414341 y 4.728327.
+Los presentamos:
+
+```{r}
+limite_inferior
+limite_superior
+```
+
+Con ello podemos concluir que: **Con un 95% de confianza, podemos afirmar que la media poblacional de la aceptación de la desigualdad en el Perú (que va del 1 al 10) se encuentra entre 4.414341 y 4.728327**.
 
 Esto lo podemos interpretar también de las siguientes forma:
 
-- Estoy 95% seguro de que la altura promedio real de todos los estudiantes en la universidad está entre 4.414341 y 4.728327.
+- Estoy 95% seguro de que el promedio de aceptación de la desigualdad en el país real (es decir el parámetro) se encuentra entre 4.414341 y 4.728327.
 
-- Si realizara este estudio 100 veces, esperaría que la altura promedio real de los estudiantes estuviera dentro de este intervalo en 95 de esos estudios.
+- Si realizara este estudio 100 veces, 95 veces obtendré un promedio de aceptación de la desigualdad dentro de este intervalo: 4.414341 y 4.728327.
+
+
+
+**CON LA FUNCIÓN ciMean()**
+
+Una vez que hemos navegado por el proceso de calcular un intervalo de confianza de manera manual, utilizando la fórmula tradicional, es hora de introducir herramientas que simplifiquen y agilicen este proceso en el mundo real del análisis de datos. Para ello, en R, utilizaremos el paquete lsr y, específicamente, la función ciMean. Esta función está diseñada para calcular automáticamente el intervalo de confianza para la media de un conjunto de datos. Al proporcionarle una serie de datos como entrada, ciMean nos devuelve el rango en el que, con un nivel de confianza específico (por defecto, 95%), esperamos que se encuentre la verdadera media poblacional. Es una herramienta poderosa que combina precisión con eficiencia, permitiéndonos centrarnos en la interpretación y aplicación de nuestros resultados.
+
+
+```{r}
+library(lsr)
+ciMean(enades$p17, na.rm = T)
+```
+Es el mismo resultado que obtuvimos arriba. Como te puedes dar cuenta, si hemos recorrido este camino (medio tedioso) es para que te quede claro cómo se obtienen esos dos números que llamamos intervalos de confianza y de qué depende en la práctica al utilizar una muestra real. 
+
+![](https://i.pinimg.com/1200x/a1/bd/fa/a1bdfae8b7dc576b5c2bfaeea7608973.jpg)
+
+
+
+
 
 

@@ -1,4 +1,61 @@
-# Manipulación de datos y estadísticos descriptivos
+# Análisis exploratorio de datos
+
+## Estadísticos descriptivos
+
+
+### Tendencia central
+
+
+
+
+
+### Dispersión
+
+
+
+
+
+
+### Posición
+
+
+
+
+
+
+
+
+## Manipulación de tablas
+
+Por manipulación de datos nos referimos a que, una vez que tengamos nuestro data frame, es usual aplicar algunas funciones para personalizar aún más la data con la que estamos trabajando. 
+
+Para todas estas funciones mencionadas se recomienda utilizar el paquete `dplyr()`. Pueden visualizar un video tutorial aquí:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/etxZRx3Jx8o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+El uso de Tidyverse será transversal a lo largo del curso. 
+
+### Filtrar filas
+
+
+
+
+### Seleccionar columnas
+
+
+
+### Crear nuevas variables
+
+
+
+
+## Ejercicios
+
+### Ejercicio 1
+
+
+### Ejercicio 2
+
 
 
 ## Preparación

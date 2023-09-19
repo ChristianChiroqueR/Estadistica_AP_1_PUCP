@@ -5,11 +5,9 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Introducción 
+# Introducción a Estadística con R 
 
-## Los pilares de la Estadística PRUEBA
-
-### Definición
+## Estadística: los fundamentos
 
 La estadística es una rama de las matemáticas que se enfoca en el análisis, interpretación y presentación de datos. Los estadísticos se centran en la teoría estadística y en el desarrollo de métodos para analizar datos. Los estadísticos también pueden diseñar estudios experimentales para recopilar datos de una manera rigurosa y controlada.
 
@@ -23,35 +21,23 @@ Esta entidad puede ser una persona, un animal, un objeto, una organización, un 
 
 Es importante tener en cuenta que la elección de la unidad de análisis puede tener un impacto significativo en los resultados de un estudio estadístico. Por lo tanto, es fundamental definir claramente la unidad de análisis y asegurarse de que sea coherente con los objetivos y la hipótesis de la investigación.
 
+### Tipos de variables y escalas de medición
 
-### Tipos de variable
+**Tipos de variable**
 
 En estadística, una variable es cualquier característica, propiedad o atributo que puede tomar diferentes valores y que se puede medir o observar en los elementos de una población o muestra.
 
 Distinguimos los tipos de variables porque diferentes métodos estadísticos pueden ser aplicados a cada tipo.
 
-**Variables numéricas**:
 
-- Se expresan en términos numéricos y se pueden medir con precisión.
-
-- Los valores representan diferentes magnitudes (cantidad) de la variable. 
-
-- Ejemplos: ingreso anual, número de sobrinos, edad y número de años de estudio.
-
-- También denominadas cuantitativas.
-	
-**Variables categóricas**:
-
-- No se expresan en términos numéricos y no se pueden medir con precisión.
-
-- Se miden utilizando un conjunto de categorías o etiquetas. 
-
-- Ejemplo: estado civil, departamento de residencia, tipo de música favorita. 
-
-- También denominadas cualitativas. 
+| **Tipos**              | **Variables numéricas**                                                                                                   | **Variables categóricas**                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| Características       | - Se expresan en términos numéricos y se pueden medir con precisión.<br>- Los valores representan diferentes magnitudes (cantidad) de la variable. | - No se expresan en términos numéricos y no se pueden medir con precisión.<br>- Se miden utilizando un conjunto de categorías o etiquetas. |
+| Ejemplos               | - Ingreso anual<br>- Número de sobrinos<br>- Edad<br>- Número de años de estudio.                                         | - Estado civil<br>- Departamento de residencia<br>- Tipo de música favorita.                                                      |
+| Alias                  | También denominadas cuantitativas.                                                                                        | También denominadas cualitativas.                                                                                                |
 
 
-### Escalas de medición
+**Escalas de medición**
 
 Identifica cómo es medida la variable. 
 
@@ -66,7 +52,34 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 - Escala ordinal: Es un caso particular. No son nominales porque tienen un orden natural y no son numéricas porque usan etiquetas (niveles). Ej: Nivel de satisfacción con el Poder Ejecutivo. 
 
 
-## Los objetos: elementos básicos en el R
+
+## R: los fundamentos
+
+### ¿Por qué R?
+
+R es un lenguaje de programación y un entorno de software libre orientado principalmente al análisis estadístico y la representación gráfica de datos. Desde su creación en 1993 por Ross Ihaka y Robert Gentleman en la Universidad de Auckland, R ha evolucionado para convertirse en una de las herramientas más populares y poderosas en el campo de la estadística y la ciencia de datos.
+
+Aprender estadística con R tiene varias ventajas:
+
+
+| **Ventaja**                        | **Detalle**                                                                                                                                                  |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Flexibilidad y Personalización     | R ofrece un amplio rango de análisis y permite la personalización y automatización según las necesidades del usuario.                                        |
+| Amplio Repositorio de Paquetes     | La comunidad de R ha desarrollado miles de paquetes, permitiendo fácil acceso a técnicas estadísticas avanzadas.                                             |
+| Reproducibilidad                   | Con R, se pueden crear análisis que otros investigadores pueden verificar y replicar fácilmente.                                                             |
+| Representación Gráfica             | R destaca en la producción de gráficos de alta calidad, esenciales para la visualización de datos.                                                           |
+| Comunidad Activa                   | La activa comunidad de R proporciona numerosos recursos, tutoriales y foros para el aprendizaje y resolución de dudas.                                       |
+
+### POO
+
+R es un lenguaje de programación que adopta el paradigma de la "programación orientada a objetos". Esto significa que, en R, todo se considera un "objeto", ya sea un conjunto de datos, una función o un modelo. Cada objeto tiene atributos y comportamientos asociados que determinan cómo se puede interactuar con él. Esta estructura permite a los usuarios de R organizar y manipular datos de manera coherente y sistemática. Al entender que todo en R es un objeto, se puede abordar el análisis estadístico con una visión más estructurada, lo que facilita la comprensión y aplicación de técnicas y métodos avanzados en el futuro.
+
+Imagina que cada objeto en R es como un coche. Los "atributos" de ese coche pueden incluir su color, marca, modelo, y año de fabricación. Estos atributos describen las características específicas del coche. Ahora, piensa en los "comportamientos asociados" como las acciones que puedes realizar con ese coche: encenderlo, acelerar, frenar o encender las luces. Del mismo modo, en R, un objeto, como un conjunto de datos, podría tener atributos que describan su tamaño, tipo y estructura. Y los comportamientos asociados de ese conjunto de datos podrían incluir operaciones como filtrar, ordenar o aplicar una función estadística.
+
+Por ejemplo, si tienes un objeto en R que es un dataframe (un tipo de estructura de datos tabular), sus "atributos" podrían incluir el número de filas y columnas, los nombres de las columnas y el tipo de datos en cada columna. Los "comportamientos asociados" de ese dataframe podrían ser operaciones como añadir o eliminar una columna, filtrar por ciertos valores o calcular estadísticas sobre una columna específica. Al comprender los atributos y comportamientos de los objetos en R, puedes manipularlos y analizarlos de manera efectiva y eficiente, al igual que un conductor experto sabe cómo manejar y cuidar su coche.
+
+
+### Los objetos
 
 Vamos a examinar la clase de algunos de los elementos más básicos en R: los números, los caracteres y los elementos lógicos. 
 
@@ -112,8 +125,6 @@ Por ejemplo, uno puede escribir esta sentencia X <-5+5 y
 Sin embargo, el sistema no acepta lo siguiente: 5+5 = X
 
 
-## Las Estructuras en el R
-
 ### Los vectores
 
 - Un vector es una colección de uno o más datos del mismo tipo.
@@ -157,9 +168,10 @@ length(vector_con_NA)
 class(vector_con_NA)
 ```
 
-### Un vector especial: los factores
 
-Un factor es un tipo de datos específico en R. Puede ser descrito como un dato numérico representado por una etiqueta.
+### Los factores
+
+Un factor es un tipo específico de vector en R. Puede ser descrito como un dato numérico representado por una etiqueta.
 
 Supongamos que tenemos un conjunto de datos que representan el género de personas encuestadas por teléfono, pero estos se encuentran capturados con los números 1 y 2.
 
@@ -214,7 +226,8 @@ mi_df <- data.frame(
 mi_df
 str(mi_df)
 ```
-### Propiedades
+
+**Propiedades**
 
 Un data.frame tiene:
 
@@ -269,15 +282,16 @@ mi_df [2,]
 mi_df [2,2]
 ```
 
-## Nuestras herramientas: Paquetes y funciones
+### Nuestras herramientas: Paquetes y funciones
 
-### Paquetes
+**PAQUETES**
 
 En R, un paquete es un conjunto de herramientas y funciones predefinidas que permiten a los usuarios realizar tareas específicas, como análisis de datos o visualización de gráficos. Los paquetes pueden ser instalados desde los repositorios de CRAN u otros lugares (como repositorios).
 
 Para instalar un paquete necesitas escribir `install.packages("nombre_del_paquete")`. Luego de instalarlo, para comenzar a utilizarlo debes abrirlo con el siguiente comando `library(nombre_del_paquete)`.
 
-### Funciones
+
+**FUNCIONES**
 
 - Las funciones son bloques de código que realizan una tarea específica. Pueden ser definidas por el usuario o pueden ser proporcionadas por un paquete (esto es lo más común). 
 
@@ -290,7 +304,9 @@ Para instalar un paquete necesitas escribir `install.packages("nombre_del_paquet
 - Por ejemplo, el paquete "dplyr" es un conjunto de herramientas que se utiliza para manipular y transformar datos en R. Una de las funciones de "dplyr" es "filter", que se utiliza para filtrar filas en un conjunto de datos. Un argumento obligatorio para la función "filter" es el conjunto de datos que se va a filtrar, mientras que un argumento opcional es la condición que se utilizará para filtrar los datos.
 
 
-## Abrir una base de datos
+
+
+## Importación y exploración de datos
 
 En la práctica tenemos el reto de manipular bases de datos que se encuentran en distintos tipos de archivo. Algunas veces se encuentran en formato .xlsx (Excel regular), pero otras veces las encontramos en formato .csv (separado con comas o puntos y comas), .sav (archivos desde el SPSS), entre otros. 
 
@@ -313,24 +329,32 @@ head(elecciones_2011,3)
 Si deseas utilizar esta segunda forma, puedes aplicar la función `read_csv()` para archivos separados con comas. 
 
 
-## Manipulación de datos con Tidyverse
+Puedes ver las primeras diez filas con:
 
-Por manipulación de datos nos referimos a que, una vez que tengamos nuestro data frame, es usual aplicar algunas funciones para personalizar aún más la data con la que estamos trabajando. 
+```{r}
+head(elecciones_2011, 10)
+```
 
-Algunas de estas funciones son por ejemplo:
+También puedes hacerle click en Environment o colocar:
 
-- Filtrar data: Normalmente no utilizamos toda la data disponible, sino sólo una parte. Para ello podemos filtrar la data con ciertos criterios. 
-
-- Seleccionar columnas: El mismo razonamiento que el punto anterior. Para hacer más ágil la manipulación de un data frame, podemos quedarnos sólo con aquellas columnas que vamos a utilizar. 
-- Ordenar según una variable: Hay ocasiones en que necesitamos que nuestra data esté ordenada según una determinada variable. 
-
-- Crear estadísticos de resumen: Lo veremos en la siguiente sesión, pero siempre necesitamos crear estadísticos de resumen, como los relaciones a tendencia central, posición o dispersión. 
-
-- Crear nuevas variable: Esto nos permite generar nuevas variables a partir de las que ya se encuentran en nuestra data. 
-
-Para todas estas funciones mencionadas se recomienda utilizar el paquete `dplyr()`. Pueden visualizar un video tutorial aquí:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/etxZRx3Jx8o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```{r}
+#View(elecciones)
+```
 
 
-El uso de Tidyverse será transversal a lo largo del curso. 
+### Verificar el tipo de variable
+
+Veamos las variables, podemos utilizar la función `names(nombre_de_data)`
+
+```{r}
+names(elecciones_2011)
+```
+
+
+Veamos si el formato es adecuado. 
+
+```{r}
+str(elecciones_2011)
+```
+
+Ok, los caracteres están como `chr` y las variables numéricas como `num.`
