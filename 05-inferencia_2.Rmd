@@ -1,6 +1,6 @@
 # Introducción a la Estadística Inferencial I
 
-## Objetivo de la sesión
+## Objetivo de la sesión.
 
 - Comprender qué es un índice aditivo y cómo se utiliza como medida resumen. 
 

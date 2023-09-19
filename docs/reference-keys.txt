@@ -36,7 +36,7 @@ cálculo-del-estimador-puntual
 cálculo-del-ic-al-95
 barras-de-error
 introducción-a-la-estadística-inferencial-i-1
-objetivo-de-la-sesión-1
+objetivo-de-la-sesión.
 índice-aditivo
 intervalos-de-confianza-para-grupos
 ejercicio-1
