@@ -1,8 +1,6 @@
-# Prueba de hipótesis (t.test y prop.test)
+# Prueba de hipótesis: t.test y prop.test
 
-## Prueba de hipótesis: Una introducción
-
-### Definición
+## Prueba de hipótesis
 
 Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población. Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.
 
@@ -15,127 +13,140 @@ Para aplicar una prueba debemos seguir pasos muy ordenados y entender qué estam
 ![](figures/detective.jpg)
 
 
-### Paso 1: Establer hipótesis
+### Paso 1: Establecer hipótesis
 
 > En este punto somos como detectives (como Benoit Blanc en Knives Out) y estas son nuestras hipótesis de investigación. Si vamos a investigar un crimen partimos con la H0 que la persona investigada es inocente. Nuestra hipótesis alterna es que es culpable!
 
 Las hipótesis son afirmaciones o suposiciones acerca de una población o de un conjunto de datos que se pretende analizar.
 
-En el contexto de las pruebas de hipótesis, se suelen plantear dos hipótesis: la hipótesis nula (H0) y la hipótesis alternativa (H1). La hipótesis nula establece que no hay diferencia significativa entre las muestras o poblaciones que se están comparando, mientras que la hipótesis alternativa indica que sí existe una diferencia significativa.
-
+En el contexto de las pruebas de hipótesis, se suelen plantear dos hipótesis: la hipótesis nula (H0) y la hipótesis alternativa (H1). 
 
 | Hipótesis        | Descripción                         | 
 |----------------------------|---------------------------------|
-| Hipótesis nula (H0)        | Es una afirmación que se establece inicialmente y que se asume verdadera a menos que se disponga de suficiente evidencia para rechazarla. La hipótesis nula generalmente establece que **no hay diferencia significativa entre dos grupos** o variables que se están comparando, o que no hay efecto de un tratamiento o una intervención.                           | 
-| Hipótesis alternativa (H1)   | Es la afirmación opuesta a la hipótesis nula y establece que **sí hay una diferencia significativa entre los dos grupos** o variables que se están comparando, o que sí hay un efecto de un tratamiento o intervención. La hipótesis alternativa se utiliza para probar lo que se espera demostrar si se rechaza la hipótesis nula.                 | 
+| Hipótesis nula (H0)        | La hipótesis nula es una afirmación o suposición inicial que se establece para ser probada. En general, representa la idea de que no hay efecto, cambio o diferencia en el fenómeno o grupo(s) que se está estudiando. Es la hipótesis que se asume como verdadera y que se intenta refutar mediante la prueba de hipótesis.                           | 
+| Hipótesis alternativa (H1)   | La hipótesis alternativa es lo que un investigador quiere demostrar. Representa la idea de que sí hay un efecto, cambio o diferencia en el fenómeno o grupo(s) que se está estudiando. Es la hipótesis que se acepta si los datos proporcionan suficiente evidencia para rechazar la hipótesis nula.                 | 
 
 Tener en cuenta que la forma cómo planteamos nuestras hipótesis va a repercutir en todo el flujograma. 
+
+Normalmente vas a tener que recordar, para cada tipo de prueba que veamos en este curso, cuáles son las hipótesis nula y alterna. **Es clave acordarte el orden**
+
 
 ### Paso 2: Verificar supuestos
 
 ![](figures/detective_escena.jpg)
 
-> Antes de ver los hechos, debemos ver el contexto en el cual se encuentran. No es lo mismo que el crimen se realice en una casa o al aire libre. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!
+> Antes de interrogar o investigar al sospechoso, el detective necesita asegurarse de que tiene todas las herramientas y condiciones adecuadas para hacerlo. Esto puede incluir asegurarse de que el interrogatorio se realice en un lugar adecuado o que se sigan ciertos protocolos. Entender previamente estas características nos permitirá investigar mejor! Es nuestra escena del crimen!
 
-Recuerdas todos los principios de la curva normal, desviaciones estándar, errores estándar (en el caso de las distribuciones muestrales), etc? Eso también se aplica aquí. 
+Recuerdas que en clases anteriores habíamos hablado sobre los principios que fundamentan la inferencia estadística? Es decir, los principios de la curva normal, desviaciones estándar, errores estándar (en el caso de las distribuciones muestrales), etc.... eso también se aplica aquí! 
 
 Partimos de la idea de que si se extraen muchas muestras repetidas (como en la clase anterior), los estadísticos muestrales se centrarán alrededor de un valor con una distribución aproximadamente normal. 
 
 En este caso debemos corroborar ciertas características de la distribución de nuestra muestra. Algunas de estas:
 
-- Que las variables provengan de una distribución gaussiana o normal. 
+- DISTRIBUCIÓN NORMAL: Que las variables provengan de una distribución gaussiana o normal. 
 
-- Que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro. 
+- VARIANZAS IGUALES: Que las varianzas poblacionales sean iguales. Es decir, que la curva de distribución muestral en cada grupo analizado sea homogénea. Si son iguales, el camino de la investigación se dirigirá por un lado, si es diferente irá por otro. 
 
 
 ### Paso 3: Establecer nivel de significancia
 
-> Cuando investigamos un crimen debemos cotejar el comportamiento del investigado frente a una actitud vista como normal o regular. Si encontramos que el investigado asistía a lugares muy fuera de su rutina puede ser un indicio!
+> Cuando investigamos un crimen debemos cotejar el comportamiento del investigado frente a una actitud vista como normal o regular. El detective decide cuánta evidencia necesita antes de considerar al sospechoso como culpable. Por ejemplo, puede decidir que necesita al menos un 95% de certeza para considerar al sospechoso culpable.
 
 Como en el caso del intervalo de confianza, elegir el nivel de confianza con el que estamos trabajando es vital. 
 
-El nivel de significancia en una prueba de hipótesis es la probabilidad máxima de que un resultado observado sea producto del azar, es decir, que no haya una diferencia real entre las muestras o poblaciones que se están comparando. Es un valor establecido previamente por el investigador antes de realizar la prueba de hipótesis y representa el umbral a partir del cual se considera que los resultados son estadísticamente significativos (o en nuestro caso, a partir de qué punto catalogamos un hecho como sospechoso).
+Técnicamente, el nivel de significancia, denotado generalmente como α (alfa), es un valor umbral que se utiliza para determinar si un p-valor es lo suficientemente pequeño como para rechazar la hipótesis nula.
 
-Por ejemplo, si se realiza una prueba de hipótesis con un nivel de significancia del 5%, esto significa que hay una probabilidad máxima del 5% de que los resultados observados se deban al azar, y que hay una diferencia real entre las muestras o poblaciones que se están comparando. En otras palabras, si el valor p obtenido en la prueba de hipótesis es menor que el nivel de significancia establecido, se rechaza la hipótesis nula y se concluye que hay evidencia suficiente para aceptar la hipótesis alternativa.
+Dicho en otras palabras, es el riesgo que estamos dispuestos a asumir de hacer una afirmación incorrecta basándonos en nuestra muestra.
 
-> Por ejemplo, si investigamos un robo y nos damos cuenta que el sospechoso, que había vivido toda su vida en Lima y nunca había viajado a ningún departamento, justamente había decidido mudarse a Europa a los pocos días de acontecido el robo.
+Por ejemplo, si se realiza una prueba de hipótesis (cualquier) con un nivel de significancia del 5% (0.05), esto significa que:
 
-Es importante destacar que el nivel de significancia elegido puede tener un impacto en la interpretación de los resultados y que, en última instancia, es el investigador quien debe decidir el nivel adecuado en función del contexto de la investigación y del grado de incertidumbre que esté dispuesto a asumir.
+- Este número va a ser nuestra referencia. 
+
+- En este caso vamos a considerar una probabilidad máxima del 5% de que los resultados observados se deban al azar. 
+
+- Si el valor p obtenido en la prueba de hipótesis es menor que el nivel de significancia establecido, se rechaza la hipótesis inicial (nula) y se concluye que hay evidencia suficiente para elegir la hipótesis alternativa.
+
+- Es importante destacar que el nivel de significancia elegido puede tener un impacto en la interpretación de los resultados y que, en última instancia, es el investigador quien debe decidir el nivel adecuado en función del contexto de la investigación y del grado de incertidumbre que esté dispuesto a asumir.
+
+
 
 ### Paso 4: Aplicar test estadístico y obtener p-value
 
-> Ahora debemos recopilar evidencia!
+> Ahora debemos recopilar evidencia! El detective recopila y analiza las pruebas contra el sospechoso. El p-valor es similar a la fuerza de la evidencia contra el sospechoso. Una evidencia muy fuerte (p-valor bajo) sugiere que el sospechoso podría ser culpable.
+
 
 ![](figures/detective_rastro.jpg)
 
-Tenemos que identificar el comportamiento extraño, pero para eso debemos saber cuál es el comportamiento normal. 
+**Test Estadístico**: Es como una fórmula o herramienta matemática que usamos para comparar nuestros datos con lo que esperamos bajo la hipótesis nula. Nos da un número que nos indica cuánto difieren nuestros datos de esa expectativa.
 
-En estadística, el **comportamiento** normal nos lo entrega un test estadístico. Este nos brinda un **estadístico de prueba**, el cual va a ser la referencia con la cual vamos a medir la rareza de lo que encontramos en la práctica en nuestra data. 
+**p-value**: Una vez que tenemos el resultado del test, calculamos el p-value. Este valor nos dice qué tan probable es obtener un resultado como el que obtuvimos (o más extremo) si la hipótesis nula fuera cierta. Un p-value pequeño sugiere que nuestros datos son raros bajo la hipótesis nula.
 
-
-Antes de seguir te pido que recuerdes esto:
-
-![](figures/ejemplo_paso4.png)
-Ok, ahora sí. El test estadístico lo que te indica es cuál es el valor de umbral a la confianza elegida, pero en términos de EE (en el ejemplo de arriba, sería 20). 
-
-Luego de eso, tomandolo como referencia, te dice qué tan raro es el estadístico **OBSERVADO** en tu muestra y te brinda la probabilidad de que eso ocurriese. Esa probabilidad es tu p-valor. 
-
-En el ejemplo anterior, sabemos que 59 o 141 estaban dentro de ese otro 5% de probabilidad. Sin embargo, el test estadístico nos da la **probabilidad exacta**, esta probabilidad exacta se llama **p-valor**.
 
 ### Paso 5: Tomar una decisión
 
-> Ahora, de acuerdo a la evidencia. Debes tomar una decisión. Si el evento es demasiado raro entonces tienes que rechazar la hipótesis nula (es inocente). Si el evento es normal entonces NO puedes rechazar una hipótesis nula. 
+> Basándose en la evidencia recolectada, el detective decide si hay suficiente evidencia para considerar al sospechoso como culpable (rechazar la hipótesis nula) o si la evidencia no es suficiente (no rechazar la hipótesis nula). 
 
 ![](figures/sospechoso.jpg)
 
 
-Si el p-valor es menor que el nivel de significancia establecido (por ejemplo, α = 0.05), se rechaza la hipótesis nula (H0: Medias iguales).
+Tenemos los siguientes escenarios
 
-Si el p-valor es mayor que el nivel de significancia establecido NO rechazamos la hipótesis nula.
+Resultado  | Decisión
+------------- | -------------
+$p-value <\alpha$  | Rechazamos la hipótesis nula.
+$p-value >=\alpha$  | No rechazamos la hipótesis nula.
 
-Es importante tener en cuenta que el p-valor no proporciona información sobre la magnitud de la diferencia observada entre las muestras o poblaciones que se están comparando, sino simplemente sobre la probabilidad de que los resultados observados sean producto del azar. Además, la interpretación del p-valor debe contextualizarse adecuadamente y no se debe basar únicamente en la regla general del nivel de significancia establecido.
 
-![](figures/pasos_pvalor.jpg)
+Considerar lo siguiente: 
 
-> OJO: EN TÉRMINOS ESTRICTOS NUNCA DECIMOS QUE **ACEPTAMOS** LA ALTERNATIVA.
+- La convención tradicional es considerar un resultado como estadísticamente significativo si el p-valor es menor que 0.05 (es decir, p<0.05). Es esencial recordar que el umbral de 0.05 es una convención y, dependiendo del contexto o la disciplina, se pueden usar otros valores de α. 
+
+- Cuando el p-valor es menor que 0.05 (o cualquier otro nivel de significancia que hayas establecido), es correcto decir que "rechazamos la hipótesis nula". Sin embargo, es importante ser cauteloso con la terminología que usamos después de eso. No es correcto decir que "aceptamos la hipótesis alternativa". La razón es que las pruebas de hipótesis no están diseñadas para probar directamente la hipótesis alternativa, sino para evaluar la evidencia contra la hipótesis nula. En su lugar, es más adecuado y preciso decir que "tenemos suficiente evidencia para respaldar la hipótesis alternativa", que los datos "son consistentes con la hipótesis alternativa" o que encontramos pruebas "estadísticamente significativas".
+
 
 ### Paso 6: Interpretación
 
-> El paso final de la investigación es dar tu conclusión como detective. Entonces decimos que con un 95% podemos rechazar que el sospechoso sea inocente, por lo que lo presentamos al Poder Judicial para que un juez dictamine la sentencia. Cumplimos con nuestro trabajo.
+> El detective, después de tomar su decisión, reflexiona sobre el caso. Considera cómo encaja la evidencia en el panorama general, si hay otras personas involucradas o si hay otros factores que no se han considerado. Luego, comunica sus hallazgos y conclusiones a las partes interesadas.
 
 ![](figures/JUEZ.jpg)
 
-El paso final es proporcionar una interpretación de los resultados. 
+**Independientemente de la decisión tomada en el paso anterior, es crucial interpretar los resultados en el contexto del estudio o experimento. Esto puede incluir discutir la magnitud del efecto, la relevancia práctica, las limitaciones y las posibles implicaciones.**
 
-Podemos utilizar el siguiente fraseo.
+**Escenario  1: p-valor < α** 
 
-SI EL P-VALOR <0.05
+Luego de realizar la *[nombre de la prueba de hipótesis]*, dado que se obtuvo un p-valor de *[valor específico del p-valor, por ejemplo, 0.03]*, que es menor que nuestro nivel de significancia establecido de *[valor específico de α, por ejemplo, 0.05]*, hay evidencia suficiente para rechazar la hipótesis nula. Por lo tanto, concluimos que *[interpretación específica del contexto, por ejemplo, 'las medias del ingreso es diferente entre hombres y mujeres']*.
 
-A un 95% de confianza, obtuvimos un p-valor de _____, por lo que rechazamos la hipótesis nula de que _______ y concluimos que existe _______ estadísticamente significativa.
+**Escenario  2: p-valor >= α** 
 
-SI EL P-VALOR >=0.05
-
-A un 95% de confianza, obtuvimos un p-valor de _____, por lo que **NO** rechazamos la hipótesis nula de que _______ y concluimos que **NO** existe _______ estadísticamente significativa.
+Luego de realizar la *[nombre de la prueba de hipótesis]*, dado que se obtuvo un p-valor de *[valor específico del p-valor, por ejemplo, 0.03]*, que es mayor que nuestro nivel de significancia establecido de *[valor específico de α, por ejemplo, 0.05]*, no encontramos evidencia suficiente para rechazar la hipótesis nula. Esto sugiere que, basándonos en los datos actuales, no podemos afirmar que *[interpretación específica del contexto, por ejemplo, 'las medias del ingreso es diferente entre hombres y mujeres']*.
 
 
 
+## Tipos error posibles
 
-## Recordemos
+¿En el marco de una investigación cuáles son los errores que puede cometer el investigador? 
 
-### Prueba de hipótesis
+En estadística inferencial, siempre hay un grado de incertidumbre al hacer inferencias sobre una población basándonos en una muestra. Los errores de Tipo I y Tipo II representan los dos tipos principales de errores incorrectos que podemos cometer. Al tener claros estos errores, podemos definir y controlar los riesgos asociados con nuestras decisiones.
 
-Habíamos dicho que una prueba de hipótesis estadística es una herramienta utilizada para evaluar si una **afirmación sobre una población** es **probablemente verdadera o falsa**, basándose en los **datos de una muestra** de esa población.
+**Error tipo I:**
 
-Puedes pensar en una prueba de hipótesis como un juicio, en el cual el acusado es la hipótesis nula (afirmación a evaluar) y la hipótesis alternativa es la acusación. 
+Se comete un error Tipo I cuando rechazamos la hipótesis nula cuando, en realidad, es verdadera. En otras palabras, determinamos que hay un efecto (o diferencia) cuando en realidad no lo hay.
+
+EJ: El detective concluye que el sospechoso es culpable basándose en las evidencias que tiene. Sin embargo, en la realidad, el sospechoso es inocente. En este caso, el detective ha cometido un error Tipo I, ya que ha declarado culpable a una persona inocente.
 
 
-### Flujograma
+**Error tipo II:**
 
-También habíamos establecido algunos pasos básicos para entender el proceso de utilización de una prueba de hipótesis. 
+Se comete un error Tipo II cuando no rechazamos la hipótesis nula cuando, en realidad, es falsa. Esto significa que no detectamos un efecto (o diferencia) cuando en realidad sí existe.
 
-![](figures/prueba_pasos.png)
+EJ: El detective decide que no hay suficientes pruebas para declarar al sospechoso como culpable y lo deja en libertad. En la realidad, el sospechoso sí era el culpable del crimen. En este escenario, el detective ha cometido un error Tipo II, ya que ha declarado inocente a una persona que en realidad era culpable.
 
-### Tipos de prueba de hipótesis
+![](figures/errortipo.jpg)
+
+Ambos tipos de errores son inevitables en estadística y en la toma de decisiones basada en evidencia, como en la investigación criminal. Por eso es esencial ser consciente de ellos, entender sus consecuencias y tratar de minimizarlos tanto como sea posible en función del contexto y las prioridades.
+
+
+## Tipos de prueba de hipótesis
 
 Ahora bien, existen múltiples pruebas de hipótesis dependiendo de:
 
@@ -149,13 +160,11 @@ En este curso vamos a abordar algunas de las preguntas de investigación más co
 
 a) La media de esta variable numérica es distinta en dos grupos a nivel de la población?
 
-b) La media de esta variable numérica es ditinta en tres a más grupos a nivel de la población?
+b) La media de esta variable numérica es distinta en tres a más grupos a nivel de la población?
 
 c) Dos variables categóricas están asociadas en la población?
 
 d) Dos variables numéricas están asociadas en la población?
-
-e) Es posible modelar la relación entre una variable numérica (dependiente) y un conjunto de variables (independientes)?
 
 
 
@@ -264,19 +273,7 @@ Identificamos si las varianzas son iguales en los dos grupos analizados. En el c
 
 ![](figures/comparacion_varianzas.jpg)
 
-Veamos antes una visualización de los datos:
-
-```{r}
-enades |> 
-  ggplot() + 
-  aes(x = p08, fill = area2) + 
-  geom_density(alpha = 0.3) +
-  scale_fill_manual(values = c("#00BFC4", "#F8766D")) +
-  labs(title = "Distribución de variable p08 por grupo", x = "Variable", y = "Densidad")
-```
-De forma predeterminada, vemos que la varianza, es decir cómo varian los datos en el área urbana es distinta a la rural (la mayoría de datos se concentra en un rango menor)
-
-Otra forma de compararlo, es a través de un boxplot:
+Veamos antes una visualización de los datos a través de un boxplot:
 
 ```{r}
 enades |> 
@@ -287,9 +284,10 @@ enades |>
   labs(title = "Distribución de variable p08 por grupo", x = "Variable", y = "Densidad") + coord_flip()
   
 ```
+
 Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano. 
 
-Para fines de este ejercicio, vamos a considerar que las **varianzas son diferentes en ambos grupos analizados**.
+Para fines de este ejercicio, vamos a considerar que las **varianzas son diferentes en ambos grupos analizados**. (después vamos a requerir hacer una prueba para hacer esta afirmación!)
 
 
 ### Paso 3: Establecer nivel de significancia
@@ -344,7 +342,12 @@ En este punto tienes que recordar que estamos trabajando con probabilidades, no 
 **Luego de realizar una prueba T, a un 95% de confianza, obtuvimos un p-valor de 2.2e-16, por lo que rechazamos la hipótesis nula de que el monto mínimo mensual que requiere su hogar para vivir es igual en el área urbana y en el área rural. Por ello, concluimos que existen diferencias estadísticamente significativas en ambos grupos poblacionales.**
 
 
-### Ahora hazlo tú!
+Luego de realizar la *Prueba T para diferencia de medias*, dado que se obtuvo un p-valor de *2.2e-16*, que es menor que nuestro nivel de significancia establecido de *0.05]*, hay evidencia suficiente para rechazar la hipótesis nula. Por lo tanto, concluimos que *existe diferencia estadísticamente significativas en el monto mínimo promedio necesario para que un hogar pueda subsistir entre el área urbana y rural*.
+
+
+
+
+## Ejercicio 1
 
 Considera la variable p19 (ideología). 
 
@@ -353,9 +356,9 @@ Deseamos saber si existe diferencia en el promedio de esta variable en el sector
 - Realice una comparación de medias en ambos grupos utilizando la prueba de hipótesis más pertinente. Muestre sus resultados e interprete. 
 
 
-### A tener en cuenta 
+## Recuerda!
 
-#### Prueba de hipótesis para igualdad de varianzas
+**Prueba de hipótesis para igualdad de varianzas**
 
 Como te sugerí líneas arriba, siempre es bueno realizar una exploración visual con un boxplot para encontrar indicios sobre la existencia de homogeneidad de varianzas en dos o más grupos. 
 
@@ -376,7 +379,7 @@ Hipótesis alterna  | Las varianzas poblacionales son diferentes | $H_1: v_1 \ne
 Luego de realizar una prueba de Levene, a un 95% de confianza, obtuvimos un p-valor de 0.0001660599, por lo que rechazamos la hipótesis nula de que la varianza del monto mínimo mensual que requiere su hogar para vivir es igual/homogénea en el área urbana y en el área rural. Por ello, concluimos que existen diferencias estadísticamente significativas en las varianzas de ambos grupos poblacionales.
 
 
-#### Valores faltantes en las encuestas
+**Valores faltantes en las encuestas**
 
 ![](figures/ENADES_ideologia.png)
 
@@ -385,7 +388,6 @@ En las encuestas, los valores perdidos son aquellos que faltan en las respuestas
 Para manejar los valores perdidos, a menudo se utiliza la técnica de imputación, que implica reemplazar los valores faltantes por algún valor estimado. En algunos casos, se puede asignar un valor específico, como 99 o 999, para indicar que el encuestado no sabe o no responde a la pregunta. Este enfoque se utiliza comúnmente en encuestas de opinión pública y otras encuestas que involucran preguntas sensibles.
 
 Sin embargo, es importante tener en cuenta que asignar un valor específico a los valores perdidos puede afectar los resultados de la encuesta y la validez de los análisis estadísticos posteriores. Por lo tanto, es importante evaluar cuidadosamente las estrategias de manejo de valores perdidos y elegir la opción más adecuada para el conjunto de datos y el análisis específicos.
-
 
 
 ## Diferencia de proporciones (prop.test)
@@ -549,10 +551,11 @@ En nuestro caso nuestro habíamos escogido un $\alpha = 0.05$ por lo que al obte
 
 Concluimos que:
 
-**Luego de realizar una prueba de diferencia de proporciones, a un 95% de confianza, obtuvimos un p-valor de 0.3785, por lo que no podemos rechazar la hipótesis nula de que las proporciones de población que opinan que existe Mucha desigualdad económica son iguales en el área urbana y en el área rural. Por ello, concluimos que no existen diferencias estadísticamente significativas en ambos grupos.**
+Luego de realizar la *prueba de diferencia de proporciones*, dado que se obtuvo un p-valor de *0.3785*, que es mayor que nuestro nivel de significancia establecido de *0.05*, no encontramos evidencia suficiente para rechazar la hipótesis nula. Esto sugiere que, basándonos en los datos actuales, no podemos afirmar que *existe una diferencia entre la proporción de población que opinan que existe Mucha desigualdad económica en el área urbana y el área rural*.
 
 
-### Ahora hazlo tú!
+
+## Ejercicio 2
 
 Considera las siguientes variables:
 

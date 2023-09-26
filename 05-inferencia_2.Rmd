@@ -1,4 +1,4 @@
-# Introducción a la Estadística Inferencial I
+# IC para una media y una proporción, IC entre grupos
 
 ## Objetivo de la sesión.
 
