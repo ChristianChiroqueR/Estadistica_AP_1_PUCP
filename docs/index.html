@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-10-02" />
+<meta name="date" content="2023-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -297,7 +297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Estadística para el Análisis Político I</h1>
 <p class="author"><em>Docente: Christian Chiroque Ruiz</em></p>
-<p class="date"><em>2023-10-02</em></p>
+<p class="date"><em>2023-10-08</em></p>
 </div>
 <div id="introducción-a-estadística-con-r" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Sesión 1</span> Introducción a Estadística con R<a href="index.html#introducción-a-estadística-con-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -590,10 +590,14 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 ## Use &#39;install_formats()&#39; to install them</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="index.html#cb60-1" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb60-2"><a href="index.html#cb60-2" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO     ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS
-## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS           FUERZA NACIONAL                6         11148
-## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE               24         11148
-## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS        DESPERTAR NACIONAL               35         11148
+<pre><code>##   UBIGEO DEPARTAMENTO   PROVINCIA    DISTRITO
+## 1 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+## 2 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+## 3 010101     AMAZONAS CHACHAPOYAS CHACHAPOYAS
+##       ORGANIZACIÓN_POLITICA VOTOS_VALIDOS_OP VOTOS_VALIDOS
+## 1           FUERZA NACIONAL                6         11148
+## 2 PARTIDO POLITICO ADELANTE               24         11148
+## 3        DESPERTAR NACIONAL               35         11148
 ##   VOTOS_BLANCO VOTOS_NULOS NUMERO_ELECTORES VOTOS_EMITIDOS
 ## 1         1034         340            15748          12522
 ## 2         1034         340            15748          12522
@@ -603,30 +607,32 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <span id="cb62-2"><a href="index.html#cb62-2" tabindex="-1"></a>elecciones_2011<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">&quot;RESULTADOS_EG_PRESIDENCIAL_2011.xls&quot;</span>)</span>
 <span id="cb62-3"><a href="index.html#cb62-3" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
-##   UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACIÓN_POLITICA     VOTOS_VALIDOS_OP VOTOS_VALIDOS
-##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;                                &lt;dbl&gt;         &lt;dbl&gt;
-## 1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACIONAL                          6         11148
-## 2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE               24         11148
-## 3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR NACIONAL                      35         11148
-## # ℹ 4 more variables: VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
+##   UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACIÓN_POLITICA  
+##   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;                  
+## 1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACIONAL        
+## 2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELA…
+## 3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR NACIONAL     
+## # ℹ 6 more variables: VOTOS_VALIDOS_OP &lt;dbl&gt;, VOTOS_VALIDOS &lt;dbl&gt;,
+## #   VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
 ## #   VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
 <p>Si deseas utilizar esta segunda forma, puedes aplicar la función <code>read_csv()</code> para archivos separados con comas.</p>
 <p>Puedes ver las primeras diez filas con:</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="index.html#cb64-1" tabindex="-1"></a><span class="fu">head</span>(elecciones_2011, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 11
-##    UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACIÓN_POLITICA     VOTOS_VALIDOS_OP VOTOS_VALIDOS
-##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;                                &lt;dbl&gt;         &lt;dbl&gt;
-##  1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACIONAL                          6         11148
-##  2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADELANTE               24         11148
-##  3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR NACIONAL                      35         11148
-##  4 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS GANA PERU                             2971         11148
-##  5 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FONAVISTAS DEL PERU                      7         11148
-##  6 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS JUSTICIA, TECNOLOGIA, EC…                4         11148
-##  7 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA 2011                           2651         11148
-##  8 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO DESCENTRALISTA F…                2         11148
-##  9 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA POR EL GRAN CAMB…             1479         11148
-## 10 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA SOLIDARIDAD NACI…              773         11148
-## # ℹ 4 more variables: VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
+##    UBIGEO DEPARTAMENTO PROVINCIA   DISTRITO    ORGANIZACIÓN_POLITICA 
+##    &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;                 
+##  1 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA NACIONAL       
+##  2 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO POLITICO ADEL…
+##  3 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS DESPERTAR NACIONAL    
+##  4 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS GANA PERU             
+##  5 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FONAVISTAS DEL PERU   
+##  6 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS JUSTICIA, TECNOLOGIA,…
+##  7 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS FUERZA 2011           
+##  8 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS PARTIDO DESCENTRALIST…
+##  9 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA POR EL GRAN C…
+## 10 010101 AMAZONAS     CHACHAPOYAS CHACHAPOYAS ALIANZA SOLIDARIDAD N…
+## # ℹ 6 more variables: VOTOS_VALIDOS_OP &lt;dbl&gt;, VOTOS_VALIDOS &lt;dbl&gt;,
+## #   VOTOS_BLANCO &lt;dbl&gt;, VOTOS_NULOS &lt;dbl&gt;, NUMERO_ELECTORES &lt;dbl&gt;,
 ## #   VOTOS_EMITIDOS &lt;dbl&gt;</code></pre>
 <p>También puedes hacerle click en Environment o colocar:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="index.html#cb66-1" tabindex="-1"></a><span class="co">#View(elecciones)</span></span></code></pre></div>
@@ -634,9 +640,12 @@ Si las categorías no están ordenadas (no hay un alto o bajo, o comparación de
 <h3><span class="header-section-number">1.3.1</span> Verificar el tipo de variable<a href="index.html#verificar-el-tipo-de-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos las variables, podemos utilizar la función <code>names(nombre_de_data)</code></p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="index.html#cb67-1" tabindex="-1"></a><span class="fu">names</span>(elecciones_2011)</span></code></pre></div>
-<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;          &quot;PROVINCIA&quot;             &quot;DISTRITO&quot;             
-##  [5] &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;      &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;         
-##  [9] &quot;VOTOS_NULOS&quot;           &quot;NUMERO_ELECTORES&quot;      &quot;VOTOS_EMITIDOS&quot;</code></pre>
+<pre><code>##  [1] &quot;UBIGEO&quot;                &quot;DEPARTAMENTO&quot;         
+##  [3] &quot;PROVINCIA&quot;             &quot;DISTRITO&quot;             
+##  [5] &quot;ORGANIZACIÓN_POLITICA&quot; &quot;VOTOS_VALIDOS_OP&quot;     
+##  [7] &quot;VOTOS_VALIDOS&quot;         &quot;VOTOS_BLANCO&quot;         
+##  [9] &quot;VOTOS_NULOS&quot;           &quot;NUMERO_ELECTORES&quot;     
+## [11] &quot;VOTOS_EMITIDOS&quot;</code></pre>
 <p>Veamos si el formato es adecuado.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="index.html#cb69-1" tabindex="-1"></a><span class="fu">str</span>(elecciones_2011)</span></code></pre></div>
 <pre><code>## tibble [23,958 × 11] (S3: tbl_df/tbl/data.frame)

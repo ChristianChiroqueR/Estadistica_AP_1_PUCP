@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-10-02" />
+<meta name="date" content="2023-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -456,11 +456,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(p-value &lt;=\alpha\)</span></td>
+<td><span class="math inline">\(p-value &lt;\alpha\)</span></td>
 <td>Rechazamos la hipótesis nula.</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(p-value &gt;\alpha\)</span></td>
+<td><span class="math inline">\(p-value &gt;=\alpha\)</span></td>
 <td>No rechazamos la hipótesis nula.</td>
 </tr>
 </tbody>
@@ -490,10 +490,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Fit: aov(formula = enades$indice_aditivo ~ enades$ambito)
 ## 
 ## $`enades$ambito`
-##                                       diff        lwr         upr     p adj
-## Perú urbano-Lima Metropolitana -0.31593910 -0.5702069 -0.06167134 0.0100916
-## Perú rural-Lima Metropolitana  -0.23833440 -0.5838902  0.10722141 0.2382426
-## Perú rural-Perú urbano          0.07760471 -0.2538591  0.40906848 0.8468574</code></pre>
+##                                       diff        lwr         upr
+## Perú urbano-Lima Metropolitana -0.31593910 -0.5702069 -0.06167134
+## Perú rural-Lima Metropolitana  -0.23833440 -0.5838902  0.10722141
+## Perú rural-Perú urbano          0.07760471 -0.2538591  0.40906848
+##                                    p adj
+## Perú urbano-Lima Metropolitana 0.0100916
+## Perú rural-Lima Metropolitana  0.2382426
+## Perú rural-Perú urbano         0.8468574</code></pre>
 <p>Para leer este resultado debemos preguntarnos dos cosas:</p>
 <ul>
 <li>¿En qué parejas existe una diferencia significativa?</li>
@@ -510,14 +514,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Exploramos el objeto que creamos arriba.</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb198-1" tabindex="-1"></a>diferencias_parejas <span class="ot">=</span> <span class="fu">as.data.frame</span>(comparacion[<span class="dv">1</span>])</span>
 <span id="cb198-2"><a href="anova-comparación-en-más-de-dos-muestras.html#cb198-2" tabindex="-1"></a>diferencias_parejas</span></code></pre></div>
-<pre><code>##                                enades.ambito.diff enades.ambito.lwr enades.ambito.upr
-## Perú urbano-Lima Metropolitana        -0.31593910        -0.5702069       -0.06167134
-## Perú rural-Lima Metropolitana         -0.23833440        -0.5838902        0.10722141
-## Perú rural-Perú urbano                 0.07760471        -0.2538591        0.40906848
-##                                enades.ambito.p.adj
-## Perú urbano-Lima Metropolitana          0.01009162
-## Perú rural-Lima Metropolitana           0.23824258
-## Perú rural-Perú urbano                  0.84685736</code></pre>
+<pre><code>##                                enades.ambito.diff enades.ambito.lwr
+## Perú urbano-Lima Metropolitana        -0.31593910        -0.5702069
+## Perú rural-Lima Metropolitana         -0.23833440        -0.5838902
+## Perú rural-Perú urbano                 0.07760471        -0.2538591
+##                                enades.ambito.upr enades.ambito.p.adj
+## Perú urbano-Lima Metropolitana       -0.06167134          0.01009162
+## Perú rural-Lima Metropolitana         0.10722141          0.23824258
+## Perú rural-Perú urbano                0.40906848          0.84685736</code></pre>
 <p>Hemos generado un dataframe con los valores de las diferencias estimadas en cada pareja y los límites inferiores y superiores de cada diferencia estimada.</p>
 <p>Ahora creamos una columna adicional en dicho data frame que tenga el detalle de la pareja.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="anova-comparación-en-más-de-dos-muestras.html#cb200-1" tabindex="-1"></a>diferencias_parejas<span class="sc">$</span>parejas <span class="ot">=</span> <span class="fu">rownames</span>(diferencias_parejas)</span></code></pre></div>

@@ -162,8 +162,8 @@ Tenemos los siguientes escenarios
 
 Resultado  | Decisión
 ------------- | -------------
-$p-value <=\alpha$  | Rechazamos la hipótesis nula.
-$p-value >\alpha$  | No rechazamos la hipótesis nula.
+$p-value <\alpha$  | Rechazamos la hipótesis nula.
+$p-value >=\alpha$  | No rechazamos la hipótesis nula.
 
 
 Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.0132 rechazamos la hipótesis nula de que nuestras medias poblacionales son iguales en todos los grupos.
