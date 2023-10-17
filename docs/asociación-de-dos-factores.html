@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Sesión 9 Asociación de dos factores | Estadística para el Análisis Político I</title>
-  <meta name="description" content="Sesión 9 Asociación de dos factores | Estadística para el Análisis Político I" />
+  <title>Sesión 8 Asociación de dos factores | Estadística para el Análisis Político I</title>
+  <meta name="description" content="Sesión 8 Asociación de dos factores | Estadística para el Análisis Político I" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Sesión 9 Asociación de dos factores | Estadística para el Análisis Político I" />
+  <meta property="og:title" content="Sesión 8 Asociación de dos factores | Estadística para el Análisis Político I" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Sesión 9 Asociación de dos factores | Estadística para el Análisis Político I" />
+  <meta name="twitter:title" content="Sesión 8 Asociación de dos factores | Estadística para el Análisis Político I" />
   
   
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-08-31" />
+<meta name="date" content="2023-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ejercicio-de-repaso.html"/>
-<link rel="next" href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"/>
+<link rel="prev" href="anova-comparación-en-más-de-dos-muestras.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,13 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -149,316 +142,163 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Estadística AP I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción a Estadística con R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#los-pilares-de-la-estadística-prueba"><i class="fa fa-check"></i><b>1.1</b> Los pilares de la Estadística PRUEBA</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#estadística-los-fundamentos"><i class="fa fa-check"></i><b>1.1</b> Estadística: los fundamentos</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#definición"><i class="fa fa-check"></i><b>1.1.1</b> Definición</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.2</b> Unidad de análisis</a></li>
-<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#tipos-de-variable"><i class="fa fa-check"></i><b>1.1.3</b> Tipos de variable</a></li>
-<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="index.html#escalas-de-medición"><i class="fa fa-check"></i><b>1.1.4</b> Escalas de medición</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#unidad-de-análisis"><i class="fa fa-check"></i><b>1.1.1</b> Unidad de análisis</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#tipos-de-variables-y-escalas-de-medición"><i class="fa fa-check"></i><b>1.1.2</b> Tipos de variables y escalas de medición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#los-objetos-elementos-básicos-en-el-r"><i class="fa fa-check"></i><b>1.2</b> Los objetos: elementos básicos en el R</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#las-estructuras-en-el-r"><i class="fa fa-check"></i><b>1.3</b> Las Estructuras en el R</a>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#r-los-fundamentos"><i class="fa fa-check"></i><b>1.2</b> R: los fundamentos</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.3.1</b> Los vectores</a></li>
-<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#un-vector-especial-los-factores"><i class="fa fa-check"></i><b>1.3.2</b> Un vector especial: los factores</a></li>
-<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.3.3</b> Data frames</a></li>
-<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#propiedades"><i class="fa fa-check"></i><b>1.3.4</b> Propiedades</a></li>
-<li class="chapter" data-level="1.3.5" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.3.5</b> Índices</a></li>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#por-qué-r"><i class="fa fa-check"></i><b>1.2.1</b> ¿Por qué R?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#poo"><i class="fa fa-check"></i><b>1.2.2</b> POO</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#los-objetos"><i class="fa fa-check"></i><b>1.2.3</b> Los objetos</a></li>
+<li class="chapter" data-level="1.2.4" data-path="index.html"><a href="index.html#los-vectores"><i class="fa fa-check"></i><b>1.2.4</b> Los vectores</a></li>
+<li class="chapter" data-level="1.2.5" data-path="index.html"><a href="index.html#los-factores"><i class="fa fa-check"></i><b>1.2.5</b> Los factores</a></li>
+<li class="chapter" data-level="1.2.6" data-path="index.html"><a href="index.html#data-frames"><i class="fa fa-check"></i><b>1.2.6</b> Data frames</a></li>
+<li class="chapter" data-level="1.2.7" data-path="index.html"><a href="index.html#índices"><i class="fa fa-check"></i><b>1.2.7</b> Índices</a></li>
+<li class="chapter" data-level="1.2.8" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.2.8</b> Nuestras herramientas: Paquetes y funciones</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#nuestras-herramientas-paquetes-y-funciones"><i class="fa fa-check"></i><b>1.4</b> Nuestras herramientas: Paquetes y funciones</a>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#importación-y-exploración-de-datos"><i class="fa fa-check"></i><b>1.3</b> Importación y exploración de datos</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#paquetes"><i class="fa fa-check"></i><b>1.4.1</b> Paquetes</a></li>
-<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#funciones"><i class="fa fa-check"></i><b>1.4.2</b> Funciones</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#abrir-una-base-de-datos"><i class="fa fa-check"></i><b>1.5</b> Abrir una base de datos</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#manipulación-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>1.6</b> Manipulación de datos con Tidyverse</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html"><i class="fa fa-check"></i><b>2</b> Manipulación de datos y estadísticos descriptivos</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#preparación"><i class="fa fa-check"></i><b>2.1</b> Preparación</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#entorno-de-trabajo"><i class="fa fa-check"></i><b>2.1.1</b> Entorno de trabajo</a></li>
-<li class="chapter" data-level="2.1.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#paquetes-a-utilizar"><i class="fa fa-check"></i><b>2.1.2</b> Paquetes a utilizar</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Base de datos</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#importación"><i class="fa fa-check"></i><b>2.2.1</b> Importación</a></li>
-<li class="chapter" data-level="2.2.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>2.2.2</b> Verificar el tipo de variable</a></li>
-<li class="chapter" data-level="2.2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#creación-de-subset"><i class="fa fa-check"></i><b>2.2.3</b> Creación de subset</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-tendencia-central"><i class="fa fa-check"></i><b>2.3</b> Estadísticos de tendencia central</a></li>
-<li class="chapter" data-level="2.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-posición"><i class="fa fa-check"></i><b>2.4</b> Estadísticos de posición</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#percentiles"><i class="fa fa-check"></i><b>2.4.1</b> Percentiles</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#estadísticos-de-dispersión"><i class="fa fa-check"></i><b>2.5</b> Estadísticos de dispersión</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango"><i class="fa fa-check"></i><b>2.5.1</b> El Rango</a></li>
-<li class="chapter" data-level="2.5.2" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-varianza"><i class="fa fa-check"></i><b>2.5.2</b> La Varianza</a></li>
-<li class="chapter" data-level="2.5.3" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#la-desviación-estándar"><i class="fa fa-check"></i><b>2.5.3</b> La Desviación Estándar</a></li>
-<li class="chapter" data-level="2.5.4" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#el-rango-intercuartílico"><i class="fa fa-check"></i><b>2.5.4</b> El Rango intercuartílico</a></li>
-<li class="chapter" data-level="2.5.5" data-path="manipulación-de-datos-y-estadísticos-descriptivos.html"><a href="manipulación-de-datos-y-estadísticos-descriptivos.html#curvas-de-distribución-de-frecuencias"><i class="fa fa-check"></i><b>2.5.5</b> Curvas de distribución de frecuencias</a></li>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#verificar-el-tipo-de-variable"><i class="fa fa-check"></i><b>1.3.1</b> Verificar el tipo de variable</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a>
+<li class="chapter" data-level="2" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html"><i class="fa fa-check"></i><b>2</b> Análisis exploratorio de datos</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#ggplot2-una-herramienta-para-la-visualización"><i class="fa fa-check"></i><b>3.1</b> GGPLOT2: Una herramienta para la visualización</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#descripción"><i class="fa fa-check"></i><b>3.1.1</b> Descripción</a></li>
-<li class="chapter" data-level="3.1.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#las-siete-capas"><i class="fa fa-check"></i><b>3.1.2</b> Las siete capas</a></li>
-<li class="chapter" data-level="3.1.3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#slow-ggplot"><i class="fa fa-check"></i><b>3.1.3</b> Slow ggplot</a></li>
+<li class="chapter" data-level="2.1" data-path="análisis-exploratorio-de-datos.html"><a href="análisis-exploratorio-de-datos.html#estadísticos-descriptivos"><i class="fa fa-check"></i><b>2.1</b> Estadísticos descriptivos</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html#código"><i class="fa fa-check"></i><b>3.2</b> Código</a></li>
+<li class="chapter" data-level="3" data-path="visualización-de-datos-con-ggplot2.html"><a href="visualización-de-datos-con-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualización de datos con ggplot2</a></li>
+<li class="chapter" data-level="4" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html"><i class="fa fa-check"></i><b>4</b> Introducción a la Estadística Inferencial I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#objetivo-de-la-sesión"><i class="fa fa-check"></i><b>4.1</b> Objetivo de la sesión</a></li>
+<li class="chapter" data-level="4.2" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#fundamentos"><i class="fa fa-check"></i><b>4.2</b> Fundamentos</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#inferencia"><i class="fa fa-check"></i><b>4.2.1</b> Inferencia</a></li>
+<li class="chapter" data-level="4.2.2" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#la-desviación-estándar"><i class="fa fa-check"></i><b>4.2.2</b> La desviación estándar</a></li>
+<li class="chapter" data-level="4.2.3" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#distribución-normal"><i class="fa fa-check"></i><b>4.2.3</b> Distribución normal</a></li>
+<li class="chapter" data-level="4.2.4" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.2.4</b> Teorema del límite central</a></li>
+<li class="chapter" data-level="4.2.5" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.2.5</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="4.2.6" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#varias-muestras"><i class="fa fa-check"></i><b>4.2.6</b> Varias muestras</a></li>
+<li class="chapter" data-level="4.2.7" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#error-estándar"><i class="fa fa-check"></i><b>4.2.7</b> Error estándar</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html"><i class="fa fa-check"></i><b>4</b> Estadística Inferencial: Introducción</a>
+<li class="chapter" data-level="4.3" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#métodos-de-estimación"><i class="fa fa-check"></i><b>4.3</b> Métodos de estimación</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#antecedentes-relevantes"><i class="fa fa-check"></i><b>4.1</b> Antecedentes relevantes</a></li>
-<li class="chapter" data-level="4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-probabilidad"><i class="fa fa-check"></i><b>4.2</b> Elementos básicos de probabilidad</a></li>
-<li class="chapter" data-level="4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r"><i class="fa fa-check"></i><b>4.3</b> Ejercicio con R</a></li>
-<li class="chapter" data-level="4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#elementos-básicos-de-la-inferencia"><i class="fa fa-check"></i><b>4.4</b> Elementos básicos de la inferencia</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#definiciones-preliminares"><i class="fa fa-check"></i><b>4.4.1</b> Definiciones preliminares</a></li>
-<li class="chapter" data-level="4.4.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#estimación-puntual"><i class="fa fa-check"></i><b>4.4.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="4.4.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-de-muestreo"><i class="fa fa-check"></i><b>4.4.3</b> Error de muestreo</a></li>
-<li class="chapter" data-level="4.4.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#distribuciones-de-muestreo."><i class="fa fa-check"></i><b>4.4.4</b> Distribuciones de muestreo.</a></li>
-<li class="chapter" data-level="4.4.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#error-estándar"><i class="fa fa-check"></i><b>4.4.5</b> Error estándar</a></li>
-<li class="chapter" data-level="4.4.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>4.4.6</b> Teorema del límite central</a></li>
-<li class="chapter" data-level="4.4.7" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ley-de-los-grandes-números"><i class="fa fa-check"></i><b>4.4.7</b> Ley de los grandes números</a></li>
+<li class="chapter" data-level="4.3.1" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#estimación-puntual"><i class="fa fa-check"></i><b>4.3.1</b> Estimación puntual</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.3.2</b> Intervalo de confianza de una media</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#intervalo-de-confianza-de-una-media"><i class="fa fa-check"></i><b>4.5</b> Intervalo de confianza de una media</a></li>
-<li class="chapter" data-level="4.6" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#ejercicio-con-r-enades-2022"><i class="fa fa-check"></i><b>4.6</b> Ejercicio con R: ENADES 2022</a>
+<li class="chapter" data-level="4.4" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#ejercicio-1-enades-2022"><i class="fa fa-check"></i><b>4.4</b> Ejercicio 1: ENADES 2022</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.6.1</b> Abrir base de datos</a></li>
-<li class="chapter" data-level="4.6.2" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.6.2</b> Identificar una variable numérica</a></li>
-<li class="chapter" data-level="4.6.3" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-estimador-puntual-media-muestral"><i class="fa fa-check"></i><b>4.6.3</b> Cálculo del estimador puntual: media muestral</a></li>
-<li class="chapter" data-level="4.6.4" data-path="estadística-inferencial-introducción.html"><a href="estadística-inferencial-introducción.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>4.6.4</b> Cálculo del intervalo de confianza al 95%</a></li>
+<li class="chapter" data-level="4.4.1" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#abrir-base-de-datos"><i class="fa fa-check"></i><b>4.4.1</b> Abrir base de datos</a></li>
+<li class="chapter" data-level="4.4.2" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#identificar-una-variable-numérica"><i class="fa fa-check"></i><b>4.4.2</b> Identificar una variable numérica</a></li>
+<li class="chapter" data-level="4.4.3" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#cálculo-del-estimador-puntual"><i class="fa fa-check"></i><b>4.4.3</b> Cálculo del estimador puntual</a></li>
+<li class="chapter" data-level="4.4.4" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#cálculo-del-ic-al-95"><i class="fa fa-check"></i><b>4.4.4</b> Cálculo del IC al 95%</a></li>
+<li class="chapter" data-level="4.4.5" data-path="introducción-a-la-estadística-inferencial-i.html"><a href="introducción-a-la-estadística-inferencial-i.html#barras-de-error"><i class="fa fa-check"></i><b>4.4.5</b> Barras de error</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> IC de una proporción e introducción a pruebas de hipótesis</a>
+<li class="chapter" data-level="5" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><i class="fa fa-check"></i><b>5</b> IC para una media y una proporción, IC entre grupos</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#recordemos"><i class="fa fa-check"></i><b>5.1</b> Recordemos</a>
+<li class="chapter" data-level="5.1" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#objetivo-de-la-sesión."><i class="fa fa-check"></i><b>5.1</b> Objetivo de la sesión.</a></li>
+<li class="chapter" data-level="5.2" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#índice-aditivo"><i class="fa fa-check"></i><b>5.2</b> Índice Aditivo</a></li>
+<li class="chapter" data-level="5.3" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#intervalos-de-confianza-para-grupos"><i class="fa fa-check"></i><b>5.3</b> Intervalos de confianza para grupos</a></li>
+<li class="chapter" data-level="5.4" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ejercicio-1"><i class="fa fa-check"></i><b>5.4</b> Ejercicio 1</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#pasos-previos"><i class="fa fa-check"></i><b>5.1.1</b> Pasos previos</a></li>
-<li class="chapter" data-level="5.1.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#estimación-puntual-1"><i class="fa fa-check"></i><b>5.1.2</b> Estimación puntual</a></li>
-<li class="chapter" data-level="5.1.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.1.3</b> IC para una media</a></li>
-<li class="chapter" data-level="5.1.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.1.4</b> IC para una media según grupos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#barras-de-error"><i class="fa fa-check"></i><b>5.1.5</b> Barras de error</a></li>
-<li class="chapter" data-level="5.1.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>5.1.6</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="5.4.1" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#pregunta-de-investigación"><i class="fa fa-check"></i><b>5.4.1</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#creamos-el-índice-aditivo"><i class="fa fa-check"></i><b>5.4.2</b> Creamos el índice aditivo</a></li>
+<li class="chapter" data-level="5.4.3" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cálculo-del-intervalo-de-confianza-al-95"><i class="fa fa-check"></i><b>5.4.3</b> Cálculo del intervalo de confianza al 95%</a></li>
+<li class="chapter" data-level="5.4.4" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ic-para-una-media"><i class="fa fa-check"></i><b>5.4.4</b> IC para una media</a></li>
+<li class="chapter" data-level="5.4.5" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ic-para-una-media-según-grupos"><i class="fa fa-check"></i><b>5.4.5</b> IC para una media según grupos</a></li>
+<li class="chapter" data-level="5.4.6" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#visualización"><i class="fa fa-check"></i><b>5.4.6</b> Visualización</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.2</b> Intervalo de una proporción</a>
+<li class="chapter" data-level="5.5" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ejercicio-2"><i class="fa fa-check"></i><b>5.5</b> Ejercicio 2</a></li>
+<li class="chapter" data-level="5.6" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#intervalo-de-una-proporción"><i class="fa fa-check"></i><b>5.6</b> Intervalo de una proporción</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-1"><i class="fa fa-check"></i><b>5.2.1</b> Definición</a></li>
-<li class="chapter" data-level="5.2.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#fórmula"><i class="fa fa-check"></i><b>5.2.2</b> Fórmula</a></li>
-<li class="chapter" data-level="5.2.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.2.3</b> IC de proporción con la fórmula</a></li>
-<li class="chapter" data-level="5.2.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.2.4</b> IC de proporción con <code>prop.test()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.2.5</b> IC de proporción según grupos</a></li>
-<li class="chapter" data-level="5.2.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#ahora-hazlo-tú-1"><i class="fa fa-check"></i><b>5.2.6</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="5.6.1" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#definición"><i class="fa fa-check"></i><b>5.6.1</b> Definición</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#fórmula"><i class="fa fa-check"></i><b>5.6.2</b> Fórmula</a></li>
+<li class="chapter" data-level="5.6.3" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ic-de-proporción-con-la-fórmula"><i class="fa fa-check"></i><b>5.6.3</b> IC de proporción con la fórmula</a></li>
+<li class="chapter" data-level="5.6.4" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ic-de-proporción-con-prop.test"><i class="fa fa-check"></i><b>5.6.4</b> IC de proporción con <code>prop.test()</code></a></li>
+<li class="chapter" data-level="5.6.5" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ic-de-proporción-según-grupos"><i class="fa fa-check"></i><b>5.6.5</b> IC de proporción según grupos</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#prueba-de-hipótesis-una-introducción"><i class="fa fa-check"></i><b>5.3</b> Prueba de hipótesis: Una introducción</a>
+<li class="chapter" data-level="5.7" data-path="ic-para-una-media-y-una-proporción-ic-entre-grupos.html"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#ejercicio-3"><i class="fa fa-check"></i><b>5.7</b> Ejercicio 3</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html"><i class="fa fa-check"></i><b>6</b> Prueba de hipótesis: t.test y prop.test</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#definición-2"><i class="fa fa-check"></i><b>5.3.1</b> Definición</a></li>
-<li class="chapter" data-level="5.3.2" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-1-establer-hipótesis"><i class="fa fa-check"></i><b>5.3.2</b> Paso 1: Establer hipótesis</a></li>
-<li class="chapter" data-level="5.3.3" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>5.3.3</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="5.3.4" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>5.3.4</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="5.3.5" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>5.3.5</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
-<li class="chapter" data-level="5.3.6" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>5.3.6</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="5.3.7" data-path="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html"><a href="ic-de-una-proporción-e-introducción-a-pruebas-de-hipótesis.html#paso-6-interpretación"><i class="fa fa-check"></i><b>5.3.7</b> Paso 6: Interpretación</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html"><i class="fa fa-check"></i><b>6</b> Comparación en dos muestras (t.test y prop.test)</a>
+<li class="chapter" data-level="6.1" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1</b> Prueba de hipótesis</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#recordemos-1"><i class="fa fa-check"></i><b>6.1</b> Recordemos</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Prueba de hipótesis</a></li>
-<li class="chapter" data-level="6.1.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#flujograma"><i class="fa fa-check"></i><b>6.1.2</b> Flujograma</a></li>
-<li class="chapter" data-level="6.1.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.1.3</b> Tipos de prueba de hipótesis</a></li>
+<li class="chapter" data-level="6.1.1" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.1.1</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="6.1.2" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-2-verificar-supuestos"><i class="fa fa-check"></i><b>6.1.2</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="6.1.3" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia"><i class="fa fa-check"></i><b>6.1.3</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="6.1.4" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-4-aplicar-test-estadístico-y-obtener-p-value"><i class="fa fa-check"></i><b>6.1.4</b> Paso 4: Aplicar test estadístico y obtener p-value</a></li>
+<li class="chapter" data-level="6.1.5" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-5-tomar-una-decisión"><i class="fa fa-check"></i><b>6.1.5</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="6.1.6" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-6-interpretación"><i class="fa fa-check"></i><b>6.1.6</b> Paso 6: Interpretación</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-medias-t.test"><i class="fa fa-check"></i><b>6.2</b> Diferencia de medias (t.test)</a>
+<li class="chapter" data-level="6.2" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#tipos-error-posibles"><i class="fa fa-check"></i><b>6.2</b> Tipos error posibles</a></li>
+<li class="chapter" data-level="6.3" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#tipos-de-prueba-de-hipótesis"><i class="fa fa-check"></i><b>6.3</b> Tipos de prueba de hipótesis</a></li>
+<li class="chapter" data-level="6.4" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#diferencia-de-medias-t.test"><i class="fa fa-check"></i><b>6.4</b> Diferencia de medias (t.test)</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación"><i class="fa fa-check"></i><b>6.2.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="6.2.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.2.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis"><i class="fa fa-check"></i><b>6.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.2.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.2.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.2.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.2.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.2.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.2.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.2.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-2"><i class="fa fa-check"></i><b>6.2.9</b> Ahora hazlo tú!</a></li>
-<li class="chapter" data-level="6.2.10" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#a-tener-en-cuenta"><i class="fa fa-check"></i><b>6.2.10</b> A tener en cuenta</a></li>
+<li class="chapter" data-level="6.4.1" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#pregunta-de-investigación-1"><i class="fa fa-check"></i><b>6.4.1</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="6.4.2" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda"><i class="fa fa-check"></i><b>6.4.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="6.4.3" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>6.4.3</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="6.4.4" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-2-verificar-supuestos-1"><i class="fa fa-check"></i><b>6.4.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="6.4.5" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-1"><i class="fa fa-check"></i><b>6.4.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="6.4.6" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor"><i class="fa fa-check"></i><b>6.4.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="6.4.7" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-5-tomar-una-decisión-1"><i class="fa fa-check"></i><b>6.4.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="6.4.8" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#paso-6-interpretación-1"><i class="fa fa-check"></i><b>6.4.8</b> Paso 6: Interpretación</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#diferencia-de-proporciones-prop.test"><i class="fa fa-check"></i><b>6.3</b> Diferencia de proporciones (prop.test)</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#pregunta-de-investigación-1"><i class="fa fa-check"></i><b>6.3.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="6.3.2" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>6.3.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
-<li class="chapter" data-level="6.3.3" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-1-establecer-hipótesis-1"><i class="fa fa-check"></i><b>6.3.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="6.3.4" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>6.3.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="6.3.5" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>6.3.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="6.3.6" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>6.3.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="6.3.7" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>6.3.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="6.3.8" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>6.3.8</b> Paso 6: Interpretación</a></li>
-<li class="chapter" data-level="6.3.9" data-path="comparación-en-dos-muestras-t.test-y-prop.html"><a href="comparación-en-dos-muestras-t.test-y-prop.html#ahora-hazlo-tú-3"><i class="fa fa-check"></i><b>6.3.9</b> Ahora hazlo tú!</a></li>
-</ul></li>
+<li class="chapter" data-level="6.5" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#ejercicio-1-1"><i class="fa fa-check"></i><b>6.5</b> Ejercicio 1</a></li>
+<li class="chapter" data-level="6.6" data-path="prueba-de-hipótesis-t.test-y-prop.html"><a href="prueba-de-hipótesis-t.test-y-prop.html#recuerda"><i class="fa fa-check"></i><b>6.6</b> Recuerda!</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html"><i class="fa fa-check"></i><b>7</b> ANOVA: Comparación en más de dos muestras</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#recordemos-2"><i class="fa fa-check"></i><b>7.1</b> Recordemos</a>
+<li class="chapter" data-level="7.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#recordemos"><i class="fa fa-check"></i><b>7.1</b> Recordemos</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#flujograma-1"><i class="fa fa-check"></i><b>7.1.1</b> Flujograma</a></li>
+<li class="chapter" data-level="7.1.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#flujograma"><i class="fa fa-check"></i><b>7.1.1</b> Flujograma</a></li>
 <li class="chapter" data-level="7.1.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#qué-sigue"><i class="fa fa-check"></i><b>7.1.2</b> Qué sigue?</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#anova-de-un-factor"><i class="fa fa-check"></i><b>7.2</b> ANOVA de un factor</a>
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pregunta-de-investigación-2"><i class="fa fa-check"></i><b>7.2.1</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-2"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-0-análisis-exploratorio-de-datos-eda-1"><i class="fa fa-check"></i><b>7.2.2</b> Paso 0: Análisis exploratorio de datos (EDA)</a></li>
 <li class="chapter" data-level="7.2.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-1-establecer-hipótesis-2"><i class="fa fa-check"></i><b>7.2.3</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-3"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="7.2.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-2-verificar-supuestos-2"><i class="fa fa-check"></i><b>7.2.4</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="7.2.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-3-establecer-nivel-de-significancia-2"><i class="fa fa-check"></i><b>7.2.5</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="7.2.6" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-1"><i class="fa fa-check"></i><b>7.2.6</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="7.2.7" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-5-tomar-una-decisión-2"><i class="fa fa-check"></i><b>7.2.7</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="7.2.8" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#paso-6-interpretación-2"><i class="fa fa-check"></i><b>7.2.8</b> Paso 6: Interpretación</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#identificar-ellos-grupos-diferentes"><i class="fa fa-check"></i><b>7.3</b> Identificar el/los grupos diferentes</a>
 <ul>
 <li class="chapter" data-level="7.3.1" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#pruebas-post-hoc-test-de-tukey"><i class="fa fa-check"></i><b>7.3.1</b> Pruebas post hoc: Test de Tukey</a></li>
-<li class="chapter" data-level="7.3.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#visualización"><i class="fa fa-check"></i><b>7.3.2</b> Visualización</a></li>
+<li class="chapter" data-level="7.3.2" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#visualización-1"><i class="fa fa-check"></i><b>7.3.2</b> Visualización</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ahora-hazlo-tú-4"><i class="fa fa-check"></i><b>7.4</b> Ahora hazlo tú!</a></li>
+<li class="chapter" data-level="7.4" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ejercicio-1-2"><i class="fa fa-check"></i><b>7.4</b> Ejercicio 1</a></li>
+<li class="chapter" data-level="7.5" data-path="anova-comparación-en-más-de-dos-muestras.html"><a href="anova-comparación-en-más-de-dos-muestras.html#ejercicio-2-1"><i class="fa fa-check"></i><b>7.5</b> Ejercicio 2</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>8</b> EJERCICIO DE REPASO</a>
+<li class="chapter" data-level="8" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html"><i class="fa fa-check"></i><b>8</b> Asociación de dos factores</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#base-de-datos-lapop"><i class="fa fa-check"></i><b>8.1</b> Base de datos: LAPOP</a></li>
-<li class="chapter" data-level="8.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#problema"><i class="fa fa-check"></i><b>8.2</b> Problema</a></li>
-<li class="chapter" data-level="8.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-1-índice-de-respaldo-al-sistema-político"><i class="fa fa-check"></i><b>8.3</b> Ejercicio 1: Índice de respaldo al sistema político</a></li>
-<li class="chapter" data-level="8.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-2-exploración"><i class="fa fa-check"></i><b>8.4</b> Ejercicio 2: Exploración</a></li>
-<li class="chapter" data-level="8.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-3-ic-de-una-media"><i class="fa fa-check"></i><b>8.5</b> Ejercicio 3: IC de una media</a></li>
-<li class="chapter" data-level="8.6" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-4-comparación-en-dos-grupos"><i class="fa fa-check"></i><b>8.6</b> Ejercicio 4: Comparación en dos grupos</a></li>
-<li class="chapter" data-level="8.7" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#ejercicio-5-comparación-en-más-de-dos-grupos"><i class="fa fa-check"></i><b>8.7</b> Ejercicio 5: Comparación en más de dos grupos</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html"><i class="fa fa-check"></i><b>9</b> Asociación de dos factores</a>
+<li class="chapter" data-level="8.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#base-de-datos-lapop"><i class="fa fa-check"></i><b>8.1</b> Base de datos: LAPOP</a></li>
+<li class="chapter" data-level="8.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#pregunta-de-investigaciòn"><i class="fa fa-check"></i><b>8.2</b> Pregunta de investigaciòn</a></li>
+<li class="chapter" data-level="8.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#preprocesamiento"><i class="fa fa-check"></i><b>8.3</b> Preprocesamiento</a></li>
+<li class="chapter" data-level="8.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#comparación-clave"><i class="fa fa-check"></i><b>8.4</b> Comparación clave</a></li>
+<li class="chapter" data-level="8.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tablas-de-contingencia"><i class="fa fa-check"></i><b>8.5</b> Tablas de contingencia</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#base-de-datos-lapop-1"><i class="fa fa-check"></i><b>9.1</b> Base de datos: LAPOP</a></li>
-<li class="chapter" data-level="9.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#pregunta-de-investigaciòn"><i class="fa fa-check"></i><b>9.2</b> Pregunta de investigaciòn</a></li>
-<li class="chapter" data-level="9.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#identificando-las-dos-variables-categóricas"><i class="fa fa-check"></i><b>9.3</b> Identificando las dos variables categóricas</a></li>
-<li class="chapter" data-level="9.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tablas-de-contingencia"><i class="fa fa-check"></i><b>9.4</b> Tablas de contingencia</a>
-<ul>
-<li class="chapter" data-level="9.4.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-frecuencias"><i class="fa fa-check"></i><b>9.4.1</b> TC de frecuencias</a></li>
-<li class="chapter" data-level="9.4.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-proporciones"><i class="fa fa-check"></i><b>9.4.2</b> TC de proporciones</a></li>
-<li class="chapter" data-level="9.4.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#variable-independiente-y-dependiente"><i class="fa fa-check"></i><b>9.4.3</b> Variable independiente y dependiente?</a></li>
+<li class="chapter" data-level="8.5.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-frecuencias"><i class="fa fa-check"></i><b>8.5.1</b> TC de frecuencias</a></li>
+<li class="chapter" data-level="8.5.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#tc-de-proporciones"><i class="fa fa-check"></i><b>8.5.2</b> TC de proporciones</a></li>
+<li class="chapter" data-level="8.5.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#variable-independiente-y-dependiente"><i class="fa fa-check"></i><b>8.5.3</b> Variable independiente y dependiente?</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#gráficando-barras-y-barras-apiladas"><i class="fa fa-check"></i><b>9.5</b> Gráficando: Barras y barras apiladas</a></li>
-<li class="chapter" data-level="9.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#prueba-χ²"><i class="fa fa-check"></i><b>9.6</b> Prueba χ²</a>
+<li class="chapter" data-level="8.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#gráficando-barras-y-barras-apiladas"><i class="fa fa-check"></i><b>8.6</b> Gráficando: Barras y barras apiladas</a></li>
+<li class="chapter" data-level="8.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#prueba-χ²"><i class="fa fa-check"></i><b>8.7</b> Prueba χ²</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-0-análisis-exploratorio"><i class="fa fa-check"></i><b>9.6.1</b> Paso 0: Análisis exploratorio</a></li>
-<li class="chapter" data-level="9.6.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-1-establecer-hipótesis-3"><i class="fa fa-check"></i><b>9.6.2</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="9.6.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-2-verificar-supuestos-4"><i class="fa fa-check"></i><b>9.6.3</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="9.6.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-3-establecer-nivel-de-significancia-4"><i class="fa fa-check"></i><b>9.6.4</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="9.6.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-3"><i class="fa fa-check"></i><b>9.6.5</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="9.6.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-5-tomar-una-decisión-4"><i class="fa fa-check"></i><b>9.6.6</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="9.6.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-6-interpretación-4"><i class="fa fa-check"></i><b>9.6.7</b> Paso 6: Interpretación</a></li>
+<li class="chapter" data-level="8.7.1" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-0-análisis-exploratorio"><i class="fa fa-check"></i><b>8.7.1</b> Paso 0: Análisis exploratorio</a></li>
+<li class="chapter" data-level="8.7.2" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-1-establecer-hipótesis-3"><i class="fa fa-check"></i><b>8.7.2</b> Paso 1: Establecer hipótesis</a></li>
+<li class="chapter" data-level="8.7.3" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-2-verificar-supuestos-3"><i class="fa fa-check"></i><b>8.7.3</b> Paso 2: Verificar supuestos</a></li>
+<li class="chapter" data-level="8.7.4" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-3-establecer-nivel-de-significancia-3"><i class="fa fa-check"></i><b>8.7.4</b> Paso 3: Establecer nivel de significancia</a></li>
+<li class="chapter" data-level="8.7.5" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2"><i class="fa fa-check"></i><b>8.7.5</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
+<li class="chapter" data-level="8.7.6" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-5-tomar-una-decisión-3"><i class="fa fa-check"></i><b>8.7.6</b> Paso 5: Tomar una decisión</a></li>
+<li class="chapter" data-level="8.7.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#paso-6-interpretación-3"><i class="fa fa-check"></i><b>8.7.7</b> Paso 6: Interpretación</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#ahora-hazlo-tú-5"><i class="fa fa-check"></i><b>9.7</b> Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><i class="fa fa-check"></i><b>10</b> Midiendo la asociación de dos numéricas: La Correlación</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#objetivo-de-la-sesión"><i class="fa fa-check"></i><b>10.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="10.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#recordando-plano-cartesiano-y-diagrama-de-dispersión"><i class="fa fa-check"></i><b>10.2</b> Recordando: Plano cartesiano y diagrama de dispersión</a></li>
-<li class="chapter" data-level="10.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza"><i class="fa fa-check"></i><b>10.3</b> Varianza</a></li>
-<li class="chapter" data-level="10.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#covarianza"><i class="fa fa-check"></i><b>10.4</b> Covarianza</a></li>
-<li class="chapter" data-level="10.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#coeficiente-de-correlación-de-pearson"><i class="fa fa-check"></i><b>10.5</b> Coeficiente de Correlación de Pearson</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#definición-3"><i class="fa fa-check"></i><b>10.5.1</b> Definición</a></li>
-<li class="chapter" data-level="10.5.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#interpretación"><i class="fa fa-check"></i><b>10.5.2</b> Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#validación-con-prueba-de-hipótesis"><i class="fa fa-check"></i><b>10.6</b> Validación con prueba de hipótesis</a>
-<ul>
-<li class="chapter" data-level="10.6.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-1-establecer-hipótesis-4"><i class="fa fa-check"></i><b>10.6.1</b> Paso 1: Establecer hipótesis</a></li>
-<li class="chapter" data-level="10.6.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-2-verificar-supuestos-5"><i class="fa fa-check"></i><b>10.6.2</b> Paso 2: Verificar supuestos</a></li>
-<li class="chapter" data-level="10.6.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-3-establecer-nivel-de-significancia-5"><i class="fa fa-check"></i><b>10.6.3</b> Paso 3: Establecer nivel de significancia</a></li>
-<li class="chapter" data-level="10.6.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-4"><i class="fa fa-check"></i><b>10.6.4</b> Paso 4: Calcular estadístico de prueba y p-valor</a></li>
-<li class="chapter" data-level="10.6.5" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-5-tomar-una-decisión-5"><i class="fa fa-check"></i><b>10.6.5</b> Paso 5: Tomar una decisión</a></li>
-<li class="chapter" data-level="10.6.6" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#paso-6-interpretación-5"><i class="fa fa-check"></i><b>10.6.6</b> Paso 6: Interpretación</a></li>
-</ul></li>
-<li class="chapter" data-level="10.7" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#matriz-de-correlación"><i class="fa fa-check"></i><b>10.7</b> Matriz de correlación</a></li>
-<li class="chapter" data-level="10.8" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#toma-nota"><i class="fa fa-check"></i><b>10.8</b> Toma nota</a>
-<ul>
-<li class="chapter" data-level="10.8.1" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#correlación-no-implica-causalidad"><i class="fa fa-check"></i><b>10.8.1</b> Correlación no implica causalidad</a></li>
-<li class="chapter" data-level="10.8.2" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cuidado-scatterplot-como-primer-paso-siempre"><i class="fa fa-check"></i><b>10.8.2</b> Cuidado: Scatterplot como primer paso SIEMPRE</a></li>
-<li class="chapter" data-level="10.8.3" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#valores-extremos"><i class="fa fa-check"></i><b>10.8.3</b> Valores extremos</a></li>
-<li class="chapter" data-level="10.8.4" data-path="midiendo-la-asociación-de-dos-numéricas-la-correlación.html"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#tamaño-de-la-muestra"><i class="fa fa-check"></i><b>10.8.4</b> Tamaño de la muestra</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html"><i class="fa fa-check"></i><b>11</b> Regresión lineal simple: explicar y predecir</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#objetivo-de-la-sesión-1"><i class="fa fa-check"></i><b>11.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="11.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#pregunta-de-investigación-3"><i class="fa fa-check"></i><b>11.2</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="11.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#recordando"><i class="fa fa-check"></i><b>11.3</b> Recordando</a>
-<ul>
-<li class="chapter" data-level="11.3.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#coeficiente-de-correlación-de-pearson-1"><i class="fa fa-check"></i><b>11.3.1</b> Coeficiente de Correlación de Pearson</a></li>
-<li class="chapter" data-level="11.3.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#ahora-hazlo-tú-6"><i class="fa fa-check"></i><b>11.3.2</b> ¡Ahora hazlo tú!</a></li>
-</ul></li>
-<li class="chapter" data-level="11.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#introducción-a-la-regresión-lineal-simple"><i class="fa fa-check"></i><b>11.4</b> Introducción a la Regresión Lineal Simple</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#variable-dependiente-y-variable-independiente"><i class="fa fa-check"></i><b>11.4.1</b> Variable dependiente y variable independiente</a></li>
-<li class="chapter" data-level="11.4.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#flashback-ecuación-de-la-recta"><i class="fa fa-check"></i><b>11.4.2</b> Flashback: Ecuación de la recta</a></li>
-<li class="chapter" data-level="11.4.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-mejor-recta-para-la-nube-de-puntos"><i class="fa fa-check"></i><b>11.4.3</b> La mejor recta para la nube de puntos</a></li>
-<li class="chapter" data-level="11.4.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-regresión-lineal"><i class="fa fa-check"></i><b>11.4.4</b> La Regresión Lineal</a></li>
-<li class="chapter" data-level="11.4.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#calidad-de-ajuste-r2"><i class="fa fa-check"></i><b>11.4.5</b> Calidad de ajuste: R2</a></li>
-<li class="chapter" data-level="11.4.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#significancia-estadística-de-los-coeficientes"><i class="fa fa-check"></i><b>11.4.6</b> Significancia estadística de los coeficientes</a></li>
-<li class="chapter" data-level="11.4.7" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#la-rls-como-herramienta-predictiva"><i class="fa fa-check"></i><b>11.4.7</b> La RLS como herramienta predictiva</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#matrícula-escolar-un-modelo-utilizando-rls"><i class="fa fa-check"></i><b>11.5</b> Matrícula escolar: un modelo utilizando RLS</a>
-<ul>
-<li class="chapter" data-level="11.5.1" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-0-identificar-claramente-la-variable-dependiente-y-la-variable-independiente"><i class="fa fa-check"></i><b>11.5.1</b> Paso 0: Identificar claramente la variable dependiente y la variable independiente</a></li>
-<li class="chapter" data-level="11.5.2" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-1-explorar-previamente-la-relación-de-las-variables"><i class="fa fa-check"></i><b>11.5.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
-<li class="chapter" data-level="11.5.3" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova"><i class="fa fa-check"></i><b>11.5.3</b> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA</a></li>
-<li class="chapter" data-level="11.5.4" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-3-nivel-explicativo-del-modelo"><i class="fa fa-check"></i><b>11.5.4</b> Paso 3: Nivel explicativo del modelo</a></li>
-<li class="chapter" data-level="11.5.5" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-4-la-variable-x-aporta-al-modelo"><i class="fa fa-check"></i><b>11.5.5</b> Paso 4: La variable x aporta al modelo</a></li>
-<li class="chapter" data-level="11.5.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#paso-5-construimos-la-ecuación-del-modelo-creado"><i class="fa fa-check"></i><b>11.5.6</b> Paso 5: Construimos la ecuación del modelo creado</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html"><i class="fa fa-check"></i><b>12</b> Regresión lineal múltiple: más de una independiente</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#objetivo-de-la-sesión-2"><i class="fa fa-check"></i><b>12.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="12.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>12.2</b> Regresión Lineal Múltiple</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ecuación"><i class="fa fa-check"></i><b>12.2.1</b> Ecuación</a></li>
-<li class="chapter" data-level="12.2.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#mayor-complejidad-para-visualizar-la-relación"><i class="fa fa-check"></i><b>12.2.2</b> Mayor complejidad para visualizar la relación</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#pregunta-de-investigación-4"><i class="fa fa-check"></i><b>12.3</b> Pregunta de investigación</a></li>
-<li class="chapter" data-level="12.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#explicando-y-prediciendo-la-desigualdad-un-modelo-utilizando-rlm"><i class="fa fa-check"></i><b>12.4</b> Explicando y prediciendo la desigualdad: un modelo utilizando RLM</a>
-<ul>
-<li class="chapter" data-level="12.4.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-0-identificar-claramente-la-variable-dependiente-y-las-variables-independientes"><i class="fa fa-check"></i><b>12.4.1</b> Paso 0: Identificar claramente la variable dependiente y laS variables independientes</a></li>
-<li class="chapter" data-level="12.4.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-1-explorar-previamente-la-relación-de-las-variables-1"><i class="fa fa-check"></i><b>12.4.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
-<li class="chapter" data-level="12.4.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-2-planteamos-el-modelo-y-verificamos-si-es-válido-con-anova-1"><i class="fa fa-check"></i><b>12.4.3</b> Paso 2: Planteamos el modelo y verificamos si es válido con ANOVA</a></li>
-<li class="chapter" data-level="12.4.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-3-nivel-explicativo-del-modelo-1"><i class="fa fa-check"></i><b>12.4.4</b> Paso 3: Nivel explicativo del modelo</a></li>
-<li class="chapter" data-level="12.4.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-4-la-variable-x-aporta-al-modelo-1"><i class="fa fa-check"></i><b>12.4.5</b> Paso 4: La variable x aporta al modelo</a></li>
-<li class="chapter" data-level="12.4.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-5-construimos-la-ecuación-del-modelo-creado-1"><i class="fa fa-check"></i><b>12.4.6</b> Paso 5: Construimos la ecuación del modelo creado</a></li>
-<li class="chapter" data-level="12.4.7" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-6-predecir"><i class="fa fa-check"></i><b>12.4.7</b> Paso 6: Predecir</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#comparando-modelos-tabla"><i class="fa fa-check"></i><b>12.5</b> Comparando modelos: Tabla</a></li>
-<li class="chapter" data-level="12.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ahora-hazlo-tú-7"><i class="fa fa-check"></i><b>12.6</b> Ahora hazlo tú!</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-1"><i class="fa fa-check"></i><b>12.6.1</b> Ejercicio 1</a></li>
-<li class="chapter" data-level="12.6.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2"><i class="fa fa-check"></i><b>12.6.2</b> Ejercicio 2</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>13</b> Regresión lineal múltiple: elementos adicionales</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-3"><i class="fa fa-check"></i><b>13.1</b> Objetivo de la sesión</a></li>
-<li class="chapter" data-level="13.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>13.2</b> Identificar la variable que aporta más al modelo</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>13.2.1</b> El problema de la unidad de medida</a></li>
-<li class="chapter" data-level="13.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>13.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
-<li class="chapter" data-level="13.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>13.2.3</b> Ejercicio</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>13.3</b> Sobre variables categóricas en la RLM</a>
-<ul>
-<li class="chapter" data-level="13.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>13.3.1</b> Variables dummy (1-0): Definición</a></li>
-<li class="chapter" data-level="13.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>13.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
-<li class="chapter" data-level="13.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-3"><i class="fa fa-check"></i><b>13.3.3</b> Ejercicio</a></li>
-</ul></li>
+<li class="chapter" data-level="8.8" data-path="asociación-de-dos-factores.html"><a href="asociación-de-dos-factores.html#ahora-hazlo-tú"><i class="fa fa-check"></i><b>8.8</b> Ahora hazlo tú!</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -479,40 +319,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="asociación-de-dos-factores" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Sesión 9</span> Asociación de dos factores<a href="asociación-de-dos-factores.html#asociación-de-dos-factores" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="base-de-datos-lapop-1" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Base de datos: LAPOP<a href="asociación-de-dos-factores.html#base-de-datos-lapop-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="asociación-de-dos-factores" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Sesión 8</span> Asociación de dos factores<a href="asociación-de-dos-factores.html#asociación-de-dos-factores" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="base-de-datos-lapop" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Base de datos: LAPOP<a href="asociación-de-dos-factores.html#base-de-datos-lapop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>El Proyecto de Opinión Pública de América Latina (LAPOP) es un proyecto de investigación multinacional especializando en el desarrollo, implementación y análisis de encuestas de opinión pública.</p>
 <p><img src="figures/LAPOP.jpg" /></p>
 <p>La encuesta mide los valores y comportamientos democráticos en el continente americano usando muestras probabilísticas nacionales de la población adulta en edad de votar.</p>
 <p>Puede visualizar el cuestionario de la encuesta 2018 <a href="http://datasets.americasbarometer.org/database/files/ABPer18-v12.0.7.1-Spa-190214_W.pdf">aqui</a></p>
 <p>Puedes descargar la data <a href="http://datasets.americasbarometer.org/database/files/Peru%20LAPOP%20AmericasBarometer%202019%20v1.0_W.dta">aqui</a></p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="asociación-de-dos-factores.html#cb258-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb258-2"><a href="asociación-de-dos-factores.html#cb258-2" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb258-3"><a href="asociación-de-dos-factores.html#cb258-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb258-4"><a href="asociación-de-dos-factores.html#cb258-4" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="asociación-de-dos-factores.html#cb199-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb199-2"><a href="asociación-de-dos-factores.html#cb199-2" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb199-3"><a href="asociación-de-dos-factores.html#cb199-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb199-4"><a href="asociación-de-dos-factores.html#cb199-4" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta&quot;</span>)</span></code></pre></div>
 </div>
-<div id="pregunta-de-investigaciòn" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Pregunta de investigaciòn<a href="asociación-de-dos-factores.html#pregunta-de-investigaciòn" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pregunta-de-investigaciòn" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Pregunta de investigaciòn<a href="asociación-de-dos-factores.html#pregunta-de-investigaciòn" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="figures/manifestacion.jpg" /></p>
 <p>El presente estudio tiene como objetivo investigar la posible asociación entre el ámbito de residencia (urbano, rural) y la asistencia a manifestaciones. Las manifestaciones públicas son eventos que reflejan la participación activa de la población en la expresión de demandas, opiniones o protestas sobre temas sociales, políticos o económicos.</p>
-<p>La diferenciación (brechas) entre los contextos urbanos y rurales puede influir en la participación y la motivación de las personas para asistir a manifestaciones. Se plantea la hipótesis de que existe una asociación entre el ámbito de residencia y la asistencia a manifestaciones.</p>
+<p>Las brechas entre los contextos urbanos y rurales podría influir en la participación y la motivación de las personas para asistir a manifestaciones. Se plantea la hipótesis de que existe una asociación entre el ámbito de residencia y la asistencia a manifestaciones.</p>
 </div>
-<div id="identificando-las-dos-variables-categóricas" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Identificando las dos variables categóricas<a href="asociación-de-dos-factores.html#identificando-las-dos-variables-categóricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="preprocesamiento" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Preprocesamiento<a href="asociación-de-dos-factores.html#preprocesamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: lower-alpha">
 <li>Identifique la variable prot3 “En los últimos 12 meses ha participado en una manifestación o protesta pública” y configure adecuadamente.</li>
 </ol>
 <p><img src="figures/lapop_prot3.png" /></p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="asociación-de-dos-factores.html#cb259-1" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="asociación-de-dos-factores.html#cb200-1" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ##  217 1303</code></pre>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="asociación-de-dos-factores.html#cb261-1" tabindex="-1"></a>lapop<span class="sc">$</span>prot3<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>prot3, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb261-2"><a href="asociación-de-dos-factores.html#cb261-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb261-3"><a href="asociación-de-dos-factores.html#cb261-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Sí participó&quot;</span>, <span class="st">&quot;No participó&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb261-4"><a href="asociación-de-dos-factores.html#cb261-4" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="asociación-de-dos-factores.html#cb202-1" tabindex="-1"></a>lapop<span class="sc">$</span>prot3<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>prot3, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb202-2"><a href="asociación-de-dos-factores.html#cb202-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb202-3"><a href="asociación-de-dos-factores.html#cb202-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Sí participó&quot;</span>, <span class="st">&quot;No participó&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb202-4"><a href="asociación-de-dos-factores.html#cb202-4" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code></pre></div>
 <pre><code>## 
 ## Sí participó No participó 
 ##          217         1303</code></pre>
@@ -524,36 +364,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>1: Zona urbana (Capital Nacional/Ciudad Grande/Ciudad mediana/ Ciudad pequeña)</p></li>
 <li><p>2: Zona rural (Área rural)</p></li>
 </ul>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="asociación-de-dos-factores.html#cb263-1" tabindex="-1"></a>lapop<span class="ot">&lt;-</span>lapop <span class="sc">|&gt;</span> </span>
-<span id="cb263-2"><a href="asociación-de-dos-factores.html#cb263-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ambito=</span><span class="fu">case_when</span>(tamano<span class="sc">&lt;</span><span class="dv">5</span><span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb263-3"><a href="asociación-de-dos-factores.html#cb263-3" tabindex="-1"></a>                          tamano<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb263-4"><a href="asociación-de-dos-factores.html#cb263-4" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="asociación-de-dos-factores.html#cb204-1" tabindex="-1"></a>lapop<span class="ot">&lt;-</span>lapop <span class="sc">|&gt;</span> </span>
+<span id="cb204-2"><a href="asociación-de-dos-factores.html#cb204-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ambito=</span><span class="fu">case_when</span>(tamano<span class="sc">&lt;</span><span class="dv">5</span><span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb204-3"><a href="asociación-de-dos-factores.html#cb204-3" tabindex="-1"></a>                          tamano<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb204-4"><a href="asociación-de-dos-factores.html#cb204-4" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code></pre></div>
 <p>Convertimos a factor y asignamos niveles:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="asociación-de-dos-factores.html#cb264-1" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="asociación-de-dos-factores.html#cb205-1" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code></pre></div>
 <pre><code>## 
 ##    1    2 
 ## 1165  356</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="asociación-de-dos-factores.html#cb266-1" tabindex="-1"></a>lapop<span class="sc">$</span>ambito<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>ambito, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb266-2"><a href="asociación-de-dos-factores.html#cb266-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb266-3"><a href="asociación-de-dos-factores.html#cb266-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb266-4"><a href="asociación-de-dos-factores.html#cb266-4" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="asociación-de-dos-factores.html#cb207-1" tabindex="-1"></a>lapop<span class="sc">$</span>ambito<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>ambito, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb207-2"><a href="asociación-de-dos-factores.html#cb207-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb207-3"><a href="asociación-de-dos-factores.html#cb207-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb207-4"><a href="asociación-de-dos-factores.html#cb207-4" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code></pre></div>
 <pre><code>## 
 ## Urbano  Rural 
 ##   1165    356</code></pre>
 </div>
-<div id="tablas-de-contingencia" class="section level2 hasAnchor" number="9.4">
-<h2><span class="header-section-number">9.4</span> Tablas de contingencia<a href="asociación-de-dos-factores.html#tablas-de-contingencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="comparación-clave" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Comparación clave<a href="asociación-de-dos-factores.html#comparación-clave" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recuerdas nuestra pregunta de investigación?</p>
+<p>Queremos saber si existe una asociación entre el ámbito de residencia y la asistencia a manifestaciones.</p>
+<p>Dicho de otra forma:</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="asociación-de-dos-factores.html#cb209-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(lapop<span class="sc">$</span>prot3))</span></code></pre></div>
+<pre><code>## 
+## Sí participó No participó 
+##    0.1427632    0.8572368</code></pre>
+<p>A nivel de toda la muestra vemos que el 14.3% asistió a una manifestación y el 85.7% no. Estos porcentajes se replicaran también en el ámbito rural y en el ámbito urbano?</p>
+</div>
+<div id="tablas-de-contingencia" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Tablas de contingencia<a href="asociación-de-dos-factores.html#tablas-de-contingencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="figures/tabla_contingencia.png" /></p>
 <p>Una tabla de contingencia, también conocida como <strong>tabla de frecuencia cruzada</strong>, es una forma de organizar y resumir datos en el contexto de un estudio o investigación. Se utiliza para analizar la relación entre dos o más variables categóricas y mostrar <strong>cómo se distribuyen las observaciones en cada combinación de categorías</strong>.</p>
 <p>En una tabla de contingencia, las variables de interés se representan en filas y columnas, y se registran las frecuencias o recuentos de las observaciones que caen en cada combinación de categorías. Esto permite visualizar de manera clara y estructurada cómo se relacionan las variables y si existe alguna asociación o dependencia entre ellas.</p>
 <p>Las tablas de contingencia son especialmente útiles cuando se quiere examinar la relación entre variables categóricas, como género y preferencia política, ubicación geográfica y nivel educativo, o, como en este caso, el ámbito y si asiste a manifestaciones o no.</p>
 <p>Ahora bien, estas tablas pueden contener recuentos absolutos o frecuencias relativas, y a menudo se incluyen totales marginales que muestran las frecuencias totales de cada variable.</p>
 <p>Vamos por partes utilizando el ejemplo que hemos presentado en este ejercicio.</p>
-<div id="tc-de-frecuencias" class="section level3 hasAnchor" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> TC de frecuencias<a href="asociación-de-dos-factores.html#tc-de-frecuencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tc-de-frecuencias" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> TC de frecuencias<a href="asociación-de-dos-factores.html#tc-de-frecuencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta tabla se compone de filas y columnas que representan las categorías de las dos variables en estudio. En cada celda de la tabla se registra la frecuencia o recuento de observaciones que pertenecen a una combinación específica de categorías.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="asociación-de-dos-factores.html#cb268-1" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(lapop<span class="sc">$</span>prot3, lapop<span class="sc">$</span>ambito)</span>
-<span id="cb268-2"><a href="asociación-de-dos-factores.html#cb268-2" tabindex="-1"></a>tabla_simple</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="asociación-de-dos-factores.html#cb211-1" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(lapop<span class="sc">$</span>prot3, lapop<span class="sc">$</span>ambito)</span>
+<span id="cb211-2"><a href="asociación-de-dos-factores.html#cb211-2" tabindex="-1"></a>tabla_simple</span></code></pre></div>
 <pre><code>##               
 ##                Urbano Rural
 ##   Sí participó    157    60
@@ -563,16 +414,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>A esta tabla simple se le puede agregar los totales marginales agregando <code>addmargins</code>.</p>
 <p>Podemos agregar ambos, tanto los marginales de columnas como filas.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="asociación-de-dos-factores.html#cb270-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
-<span id="cb270-2"><a href="asociación-de-dos-factores.html#cb270-2" tabindex="-1"></a><span class="fu">addmargins</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="asociación-de-dos-factores.html#cb213-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb213-2"><a href="asociación-de-dos-factores.html#cb213-2" tabindex="-1"></a><span class="fu">addmargins</span>()</span></code></pre></div>
 <pre><code>##               
 ##                Urbano Rural  Sum
 ##   Sí participó    157    60  217
 ##   No participó   1008   295 1303
 ##   Sum            1165   355 1520</code></pre>
-<p>O uno de estos:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="asociación-de-dos-factores.html#cb272-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
-<span id="cb272-2"><a href="asociación-de-dos-factores.html#cb272-2" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="dv">1</span>) </span></code></pre></div>
+<p>O sólo uno de estos:</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="asociación-de-dos-factores.html#cb215-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb215-2"><a href="asociación-de-dos-factores.html#cb215-2" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="dv">1</span>) </span></code></pre></div>
 <pre><code>##               
 ##                Urbano Rural
 ##   Sí participó    157    60
@@ -582,8 +433,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>RECUERDA: 1 para filas y 2 para columnas!!</p>
 </blockquote>
 </div>
-<div id="tc-de-proporciones" class="section level3 hasAnchor" number="9.4.2">
-<h3><span class="header-section-number">9.4.2</span> TC de proporciones<a href="asociación-de-dos-factores.html#tc-de-proporciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tc-de-proporciones" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> TC de proporciones<a href="asociación-de-dos-factores.html#tc-de-proporciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para nuestros fines, esta tabla de contingencia es la más importante.</p>
 <p>En una tabla de contingencia de proporciones, en lugar de mostrar los recuentos absolutos de observaciones en cada casilla, se presentan las proporciones o porcentajes de cada categoría en relación al total de observaciones.</p>
 <p>Esta tabla de contingencia de proporciones proporciona una visión relativa de la distribución de las categorías y permite comparar las proporciones entre diferentes grupos o categorías.</p>
 <p>El uso de la tabla de contingencia de proporciones puede ser útil para identificar patrones o tendencias en los datos y facilita la interpretación de los resultados en términos de porcentajes relativos.</p>
@@ -591,29 +443,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Al utilizar la función<code>prop.table()</code> en R, el argumento margin se utiliza para especificar si se deben calcular las proporciones por filas o por columnas en una tabla de contingencia.</p>
 <p>La elección de este argumento es importante en el marco de un análisis de asociación de variables categóricas, ya que determina cómo se calcularán las proporciones y cómo se interpretarán los resultados.</p>
 <p>Si se selecciona margin = 1, se calcularán las proporciones por filas, lo que significa que las proporciones se calcularán dentro de cada fila de la tabla. En este caso, las proporciones se interpretan como la frecuencia de una categoría en relación con el total de observaciones en esa fila.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="asociación-de-dos-factores.html#cb274-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
-<span id="cb274-2"><a href="asociación-de-dos-factores.html#cb274-2" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="asociación-de-dos-factores.html#cb217-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb217-2"><a href="asociación-de-dos-factores.html#cb217-2" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##               
 ##                   Urbano     Rural
 ##   Sí participó 0.7235023 0.2764977
 ##   No participó 0.7735994 0.2264006</code></pre>
 <p>Por otro lado, si se selecciona margin = 2, se calcularán las proporciones por columnas, lo que implica que las proporciones se calcularán dentro de cada columna de la tabla. En este caso, las proporciones se interpretan como la frecuencia de una categoría en relación con el total de observaciones en esa columna.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="asociación-de-dos-factores.html#cb276-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
-<span id="cb276-2"><a href="asociación-de-dos-factores.html#cb276-2" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="asociación-de-dos-factores.html#cb219-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb219-2"><a href="asociación-de-dos-factores.html#cb219-2" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##               
 ##                   Urbano     Rural
 ##   Sí participó 0.1347639 0.1690141
 ##   No participó 0.8652361 0.8309859</code></pre>
 <p>La elección adecuada del argumento margin depende del objetivo del análisis y las preguntas de investigación que se deseen responder. Es importante tener claridad sobre qué aspecto de la asociación entre las variables categóricas se quiere resaltar y qué interpretación es más relevante en el contexto del análisis.</p>
 </div>
-<div id="variable-independiente-y-dependiente" class="section level3 hasAnchor" number="9.4.3">
-<h3><span class="header-section-number">9.4.3</span> Variable independiente y dependiente?<a href="asociación-de-dos-factores.html#variable-independiente-y-dependiente" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variable-independiente-y-dependiente" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Variable independiente y dependiente?<a href="asociación-de-dos-factores.html#variable-independiente-y-dependiente" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En una tabla de contingencia, ambas variables se consideran igualmente importantes y no se establece una relación de dependencia o causalidad entre ellas.</p>
 <p>Sin embargo, el investigador normalmente desea investigar la distribución de una variable categórica particular (FILAS) en una variable de grupo (COLUMNAS). En nuestro caso, la primera sería “prot3” y la de grupo “ámbito”.</p>
 <p>Por ello, se recomienda utilizar la siguiente tabla:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="asociación-de-dos-factores.html#cb278-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
-<span id="cb278-2"><a href="asociación-de-dos-factores.html#cb278-2" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb278-3"><a href="asociación-de-dos-factores.html#cb278-3" tabindex="-1"></a>  <span class="fu">addmargins</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="asociación-de-dos-factores.html#cb221-1" tabindex="-1"></a>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb221-2"><a href="asociación-de-dos-factores.html#cb221-2" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb221-3"><a href="asociación-de-dos-factores.html#cb221-3" tabindex="-1"></a>  <span class="fu">addmargins</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##               
 ##                   Urbano     Rural
 ##   Sí participó 0.1347639 0.1690141
@@ -631,32 +483,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>En resumen, una tabla de contingencia es una herramienta que permite organizar y resumir los datos de variables categóricas, facilitando el análisis de la relación entre ellas y la realización de pruebas estadísticas para evaluar la asociación o dependencia.</p>
 </div>
 </div>
-<div id="gráficando-barras-y-barras-apiladas" class="section level2 hasAnchor" number="9.5">
-<h2><span class="header-section-number">9.5</span> Gráficando: Barras y barras apiladas<a href="asociación-de-dos-factores.html#gráficando-barras-y-barras-apiladas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="gráficando-barras-y-barras-apiladas" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Gráficando: Barras y barras apiladas<a href="asociación-de-dos-factores.html#gráficando-barras-y-barras-apiladas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ahora bien, siempre es mejor contar con un gráfico. Para ello, convertimos nuestra tabla (de proporciones por columna) en un data frame (es la manera más simple).</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="asociación-de-dos-factores.html#cb280-1" tabindex="-1"></a>tabla_simple_p<span class="ot">&lt;-</span>tabla_simple <span class="sc">|&gt;</span> </span>
-<span id="cb280-2"><a href="asociación-de-dos-factores.html#cb280-2" tabindex="-1"></a>                  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb280-3"><a href="asociación-de-dos-factores.html#cb280-3" tabindex="-1"></a>                  <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb280-4"><a href="asociación-de-dos-factores.html#cb280-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tabla_simple_p)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="asociación-de-dos-factores.html#cb223-1" tabindex="-1"></a>tabla_simple_p<span class="ot">&lt;-</span>tabla_simple <span class="sc">|&gt;</span> </span>
+<span id="cb223-2"><a href="asociación-de-dos-factores.html#cb223-2" tabindex="-1"></a>                  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb223-3"><a href="asociación-de-dos-factores.html#cb223-3" tabindex="-1"></a>                  <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb223-4"><a href="asociación-de-dos-factores.html#cb223-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tabla_simple_p)</span></code></pre></div>
 <p>Calculamos el gráfico de barras simple.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="asociación-de-dos-factores.html#cb281-1" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb281-2"><a href="asociación-de-dos-factores.html#cb281-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb281-3"><a href="asociación-de-dos-factores.html#cb281-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Var2, <span class="at">y=</span>Freq, <span class="at">fill=</span>Var1)<span class="sc">+</span></span>
-<span id="cb281-4"><a href="asociación-de-dos-factores.html#cb281-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb281-5"><a href="asociación-de-dos-factores.html#cb281-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq), </span>
-<span id="cb281-6"><a href="asociación-de-dos-factores.html#cb281-6" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb281-7"><a href="asociación-de-dos-factores.html#cb281-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Proporción&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="asociación-de-dos-factores.html#cb224-1" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb224-2"><a href="asociación-de-dos-factores.html#cb224-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb224-3"><a href="asociación-de-dos-factores.html#cb224-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Var2, <span class="at">y=</span>Freq, <span class="at">fill=</span>Var1)<span class="sc">+</span></span>
+<span id="cb224-4"><a href="asociación-de-dos-factores.html#cb224-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb224-5"><a href="asociación-de-dos-factores.html#cb224-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq), </span>
+<span id="cb224-6"><a href="asociación-de-dos-factores.html#cb224-6" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb224-7"><a href="asociación-de-dos-factores.html#cb224-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Proporción&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
 <p>Sin embargo, es mejor visualizar a través de barras apiladas.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="asociación-de-dos-factores.html#cb282-1" tabindex="-1"></a>barras_apiladas<span class="ot">&lt;-</span>df <span class="sc">|&gt;</span> </span>
-<span id="cb282-2"><a href="asociación-de-dos-factores.html#cb282-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb282-3"><a href="asociación-de-dos-factores.html#cb282-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Var2, <span class="at">y=</span>Freq, <span class="at">fill=</span>Var1) <span class="sc">+</span></span>
-<span id="cb282-4"><a href="asociación-de-dos-factores.html#cb282-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;stack&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
-<span id="cb282-5"><a href="asociación-de-dos-factores.html#cb282-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq), </span>
-<span id="cb282-6"><a href="asociación-de-dos-factores.html#cb282-6" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(), <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb282-7"><a href="asociación-de-dos-factores.html#cb282-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Porcentaje&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span>
-<span id="cb282-8"><a href="asociación-de-dos-factores.html#cb282-8" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="asociación-de-dos-factores.html#cb225-1" tabindex="-1"></a>barras_apiladas<span class="ot">&lt;-</span>df <span class="sc">|&gt;</span> </span>
+<span id="cb225-2"><a href="asociación-de-dos-factores.html#cb225-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb225-3"><a href="asociación-de-dos-factores.html#cb225-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Var2, <span class="at">y=</span>Freq, <span class="at">fill=</span>Var1) <span class="sc">+</span></span>
+<span id="cb225-4"><a href="asociación-de-dos-factores.html#cb225-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;stack&quot;</span>, <span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb225-5"><a href="asociación-de-dos-factores.html#cb225-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>Freq), </span>
+<span id="cb225-6"><a href="asociación-de-dos-factores.html#cb225-6" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(), <span class="at">vjust=</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb225-7"><a href="asociación-de-dos-factores.html#cb225-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">y=</span><span class="st">&quot;Porcentaje&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Asistió a una protesta&quot;</span>)</span>
+<span id="cb225-8"><a href="asociación-de-dos-factores.html#cb225-8" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
 <p>Las ventajas son las siguientes:</p>
 <ul>
 <li><p>Las barras apiladas son un tipo de gráfico en el cual se representan las proporciones de distintas categorías en forma de barras que se apilan una encima de la otra. En lugar de mostrar los valores absolutos, se muestran los valores relativos en forma de porcentajes.</p></li>
@@ -665,8 +517,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Si no se identifica asociación se ven barras muy similares.</p></li>
 </ul>
 </div>
-<div id="prueba-χ²" class="section level2 hasAnchor" number="9.6">
-<h2><span class="header-section-number">9.6</span> Prueba χ²<a href="asociación-de-dos-factores.html#prueba-χ²" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="prueba-χ²" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Prueba χ²<a href="asociación-de-dos-factores.html#prueba-χ²" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La prueba chi-cuadrado (χ²) es una prueba estadística utilizada para determinar si existe una asociación entre dos variables categóricas en una población.</p>
 <p>Recuerda:</p>
 <table>
@@ -687,12 +539,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El objetivo de la prueba chi-cuadrado (χ²) es evaluar si las diferencias observadas en la distribución de frecuencias entre las categorías de las variables son significativas o podrían haber ocurrido por azar.</p>
 <p>La prueba chi-cuadrado se basa en comparar las frecuencias observadas en una tabla de contingencia con las frecuencias que se esperarían si no hubiera ninguna asociación entre las variables. La idea es calcular un estadístico chi-cuadrado, el cual mide la discrepancia entre las frecuencias observadas y las esperadas bajo la hipótesis nula de independencia.</p>
 <p>Es una prueba ampliamente utilizada y de fácil interpretación, lo que la convierte en una herramienta valiosa en el análisis de datos categóricos.</p>
-<div id="paso-0-análisis-exploratorio" class="section level3 hasAnchor" number="9.6.1">
-<h3><span class="header-section-number">9.6.1</span> Paso 0: Análisis exploratorio<a href="asociación-de-dos-factores.html#paso-0-análisis-exploratorio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-0-análisis-exploratorio" class="section level3 hasAnchor" number="8.7.1">
+<h3><span class="header-section-number">8.7.1</span> Paso 0: Análisis exploratorio<a href="asociación-de-dos-factores.html#paso-0-análisis-exploratorio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En este paso realizamos la configuración y exploración que ya hemos realizado líneas arriba. Es decir, configuración de cada variable, exploración y cálculo de las tablas de contingencia, tanto de frecuencias absolutas como de proporciones.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="asociación-de-dos-factores.html#cb283-1" tabindex="-1"></a>tabla_simple_p <span class="sc">|&gt;</span> </span>
-<span id="cb283-2"><a href="asociación-de-dos-factores.html#cb283-2" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span>        </span>
-<span id="cb283-3"><a href="asociación-de-dos-factores.html#cb283-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="asociación-de-dos-factores.html#cb226-1" tabindex="-1"></a>tabla_simple_p <span class="sc">|&gt;</span> </span>
+<span id="cb226-2"><a href="asociación-de-dos-factores.html#cb226-2" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span>        </span>
+<span id="cb226-3"><a href="asociación-de-dos-factores.html#cb226-3" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -732,12 +584,12 @@ No participó
 </tbody>
 </table>
 <p>Así como el gráfico:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="asociación-de-dos-factores.html#cb284-1" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="asociación-de-dos-factores.html#cb227-1" tabindex="-1"></a>barras_apiladas</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
 <p>De forma preliminar vemos grandes diferencias? Podríamos coincidir que no es mucho. Por ello, hace falta un análisis más riguroso con un método inferencial.</p>
 </div>
-<div id="paso-1-establecer-hipótesis-3" class="section level3 hasAnchor" number="9.6.2">
-<h3><span class="header-section-number">9.6.2</span> Paso 1: Establecer hipótesis<a href="asociación-de-dos-factores.html#paso-1-establecer-hipótesis-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-1-establecer-hipótesis-3" class="section level3 hasAnchor" number="8.7.2">
+<h3><span class="header-section-number">8.7.2</span> Paso 1: Establecer hipótesis<a href="asociación-de-dos-factores.html#paso-1-establecer-hipótesis-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Debemos plantear las hipótesis nula y alternativa.</p>
 <table>
 <thead>
@@ -759,50 +611,51 @@ No participó
 </table>
 <p>Estas son las hipótesis que vamos a validar con nuestra prueba.</p>
 </div>
-<div id="paso-2-verificar-supuestos-4" class="section level3 hasAnchor" number="9.6.3">
-<h3><span class="header-section-number">9.6.3</span> Paso 2: Verificar supuestos<a href="asociación-de-dos-factores.html#paso-2-verificar-supuestos-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-2-verificar-supuestos-3" class="section level3 hasAnchor" number="8.7.3">
+<h3><span class="header-section-number">8.7.3</span> Paso 2: Verificar supuestos<a href="asociación-de-dos-factores.html#paso-2-verificar-supuestos-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para el caso de la prueba chi2, existe un requisito y es que deben existir al menos 5 casos en cada celda de la tabla de frecuencia original.</p>
 <p>Esta es una condición importante que se debe cumplir al realizar el cálculo de la prueba de chi-cuadrado (χ^2) en el análisis de tablas de contingencia. Este requisito se basa en consideraciones estadísticas y tiene como objetivo asegurar la validez y confiabilidad de los resultados obtenidos.</p>
 <p>La importancia de este requisito radica en que, cuando el número de observaciones en una celda es demasiado pequeño, puede haber problemas relacionados con la precisión y la estabilidad de los resultados del análisis de chi-cuadrado. Si hay muy pocas observaciones en una celda, es más probable que se obtengan estimaciones inexactas de las frecuencias esperadas y, por lo tanto, los resultados pueden no ser representativos de la verdadera relación entre las variables.</p>
 <p>En nuestro caso sí pasamos este requisito.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="asociación-de-dos-factores.html#cb285-1" tabindex="-1"></a>tabla_simple</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="asociación-de-dos-factores.html#cb228-1" tabindex="-1"></a>tabla_simple</span></code></pre></div>
 <pre><code>##               
 ##                Urbano Rural
 ##   Sí participó    157    60
 ##   No participó   1008   295</code></pre>
 </div>
-<div id="paso-3-establecer-nivel-de-significancia-4" class="section level3 hasAnchor" number="9.6.4">
-<h3><span class="header-section-number">9.6.4</span> Paso 3: Establecer nivel de significancia<a href="asociación-de-dos-factores.html#paso-3-establecer-nivel-de-significancia-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-3-establecer-nivel-de-significancia-3" class="section level3 hasAnchor" number="8.7.4">
+<h3><span class="header-section-number">8.7.4</span> Paso 3: Establecer nivel de significancia<a href="asociación-de-dos-factores.html#paso-3-establecer-nivel-de-significancia-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.</p>
 <p><span class="math display">\[\alpha = 0.05\]</span></p>
 </div>
-<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-3" class="section level3 hasAnchor" number="9.6.5">
-<h3><span class="header-section-number">9.6.5</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-4-calcular-estadístico-de-prueba-y-p-valor-2" class="section level3 hasAnchor" number="8.7.5">
+<h3><span class="header-section-number">8.7.5</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="asociación-de-dos-factores.html#paso-4-calcular-estadístico-de-prueba-y-p-valor-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para calcular la prueba de hipótesis utilizamos la función <code>chisq.test</code>:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="asociación-de-dos-factores.html#cb287-1" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span>
-<span id="cb287-2"><a href="asociación-de-dos-factores.html#cb287-2" tabindex="-1"></a>prueba</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="asociación-de-dos-factores.html#cb230-1" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span>
+<span id="cb230-2"><a href="asociación-de-dos-factores.html#cb230-2" tabindex="-1"></a>prueba</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+##  Pearson&#39;s Chi-squared test with Yates&#39;
+##  continuity correction
 ## 
 ## data:  tabla_simple
 ## X-squared = 2.3357, df = 1, p-value = 0.1264</code></pre>
 <p>En este caso calculamos que el estadístico de prueba. Recuerda que como vimos en el Anova, lo que hacemos es comparar un indicador (estadístico de prueba) calculado con la variabilidad de nuestra muestra con un valor teórico.</p>
 <p>Cuáles son los valores teóricos (frecuencias esperadas) con lo que se compara los valores observados?</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="asociación-de-dos-factores.html#cb289-1" tabindex="-1"></a>prueba<span class="sc">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="asociación-de-dos-factores.html#cb232-1" tabindex="-1"></a>prueba<span class="sc">$</span>expected</span></code></pre></div>
 <pre><code>##               
 ##                  Urbano     Rural
 ##   Sí participó 166.3191  50.68092
 ##   No participó 998.6809 304.31908</code></pre>
 <p>Y cómo sabemos que estos valores son los que se esperaría si no existe asociación? Porque si calculamos los porcentajes por columna nos indica que no hay diferencia en la distribución según la variable de grupo:</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="asociación-de-dos-factores.html#cb291-1" tabindex="-1"></a><span class="fu">prop.table</span>(prueba<span class="sc">$</span>expected,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="asociación-de-dos-factores.html#cb234-1" tabindex="-1"></a><span class="fu">prop.table</span>(prueba<span class="sc">$</span>expected,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##               
 ##                   Urbano     Rural
 ##   Sí participó 0.1427632 0.1427632
 ##   No participó 0.8572368 0.8572368</code></pre>
 <p>Fruto de esa comparación se calcula el χ² el cual es 2.3357. Ahora bien el pvalor obtenido es 0.1264.</p>
 </div>
-<div id="paso-5-tomar-una-decisión-4" class="section level3 hasAnchor" number="9.6.6">
-<h3><span class="header-section-number">9.6.6</span> Paso 5: Tomar una decisión<a href="asociación-de-dos-factores.html#paso-5-tomar-una-decisión-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-5-tomar-una-decisión-3" class="section level3 hasAnchor" number="8.7.6">
+<h3><span class="header-section-number">8.7.6</span> Paso 5: Tomar una decisión<a href="asociación-de-dos-factores.html#paso-5-tomar-una-decisión-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Tenemos los siguientes escenarios</p>
 <table>
 <thead>
@@ -825,14 +678,14 @@ No participó
 <p>Habíamos escogido un <span class="math inline">\(\alpha = 0.05\)</span> por lo que al obtener un p-valor de 0.1264 no podemos rechazar la hipótesis nula de que no existe asociación en las variables elegidas.</p>
 <p>Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa.</p>
 </div>
-<div id="paso-6-interpretación-4" class="section level3 hasAnchor" number="9.6.7">
-<h3><span class="header-section-number">9.6.7</span> Paso 6: Interpretación<a href="asociación-de-dos-factores.html#paso-6-interpretación-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="paso-6-interpretación-3" class="section level3 hasAnchor" number="8.7.7">
+<h3><span class="header-section-number">8.7.7</span> Paso 6: Interpretación<a href="asociación-de-dos-factores.html#paso-6-interpretación-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora bien, al finalizar este proceso debemos interpretar nuestros resultados:</p>
 <p><strong>Luego de realizar una prueba chi cuadrado, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que no podemos rechazar la hipótesis nula de que existe asociación entre la asistencia a manifestaciones y la procedencia de la persona. Por ello, concluimos que no existen asociación estadísticamente significativas en los grupos poblacionales indicados.</strong></p>
 </div>
 </div>
-<div id="ahora-hazlo-tú-5" class="section level2 hasAnchor" number="9.7">
-<h2><span class="header-section-number">9.7</span> Ahora hazlo tú!<a href="asociación-de-dos-factores.html#ahora-hazlo-tú-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ahora-hazlo-tú" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Ahora hazlo tú!<a href="asociación-de-dos-factores.html#ahora-hazlo-tú" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ahora realiza la comparación de la misma variable prot3 (En los últimos 12 meses ha participado en una manifestación o protesta pública) pero considerando como grupo la posición ideológica de la persona</p>
 <p>Para ello, utiliza la variable l1.</p>
 <p><img src="figures/lapop_ideologia.png" /></p>
@@ -845,8 +698,8 @@ No participó
           </div>
         </div>
       </div>
-<a href="ejercicio-de-repaso.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="anova-comparación-en-más-de-dos-muestras.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -877,7 +730,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/09-CHI2.Rmd",
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/edit/master/08-CHI2.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -885,7 +738,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/09-CHI2.Rmd",
+"link": "https://github.com/ChristianChiroqueR/Estadistica_AP_1_PUCP/blob/master/08-CHI2.Rmd",
 "text": null
 },
 "download": null,
