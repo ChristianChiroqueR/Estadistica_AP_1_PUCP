@@ -299,16 +299,18 @@ Estas son las hipótesis que vamos a validar con nuestra prueba.
 
 ### Paso 2: Verificar supuestos
 
-Para el caso de la prueba chi2, existe un requisito y es que deben existir al menos 5 casos en cada celda de la tabla de frecuencia original. 
+Para analizar asociación se requiere que el número de observaciones **esperadas** en cada celda de la tabla de contingencia debe ser suficientemente grande.
 
-Esta es una condición importante que se debe cumplir al realizar el cálculo de la prueba de chi-cuadrado (χ^2) en el análisis de tablas de contingencia. Este requisito se basa en consideraciones estadísticas y tiene como objetivo asegurar la validez y confiabilidad de los resultados obtenidos.
+Para fines de este curso, al menos cada celda de la TC de frecuencias esperadas debe ser de 5.
 
-La importancia de este requisito radica en que, cuando el número de observaciones en una celda es demasiado pequeño, puede haber problemas relacionados con la precisión y la estabilidad de los resultados del análisis de chi-cuadrado. Si hay muy pocas observaciones en una celda, es más probable que se obtengan estimaciones inexactas de las frecuencias esperadas y, por lo tanto, los resultados pueden no ser representativos de la verdadera relación entre las variables.
+Ten en cuenta que si estas condiciones no se cumplen, entonces la prueba podría no funcionar adecuadamente y los resultados de la prueba podrían no ser válidos. Si es que encuentran que no se cumple este supuesto: 
+
+Repórtalo!
 
 En nuestro caso sí pasamos este requisito.
 
 ```{r}
-tabla_simple
+chisq.test(tabla_simple)$expected
 ```
 
 
