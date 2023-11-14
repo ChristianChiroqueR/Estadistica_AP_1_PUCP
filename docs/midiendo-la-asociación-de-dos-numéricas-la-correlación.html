@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-10-31" />
+<meta name="date" content="2023-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,13 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -368,6 +375,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="regresión-lineal-simple-explicar-y-predecir.html"><a href="regresión-lineal-simple-explicar-y-predecir.html#ejercicio-2-3"><i class="fa fa-check"></i><b>10.6</b> Ejercicio 2</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html"><i class="fa fa-check"></i><b>11</b> Regresión lineal múltiple: más de una independiente</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#objetivo-de-la-sesión-3"><i class="fa fa-check"></i><b>11.1</b> Objetivo de la sesión</a></li>
+<li class="chapter" data-level="11.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#regresión-lineal-múltiple"><i class="fa fa-check"></i><b>11.2</b> Regresión Lineal Múltiple</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ecuación"><i class="fa fa-check"></i><b>11.2.1</b> Ecuación</a></li>
+<li class="chapter" data-level="11.2.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#mayor-complejidad-para-visualizar-la-relación"><i class="fa fa-check"></i><b>11.2.2</b> Mayor complejidad para visualizar la relación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#pregunta-de-investigación-4"><i class="fa fa-check"></i><b>11.3</b> Pregunta de investigación</a></li>
+<li class="chapter" data-level="11.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-1-explicando-la-desigualdad-con-rlm"><i class="fa fa-check"></i><b>11.4</b> Ejercicio 1: Explicando la desigualdad con RLM</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-0-identificar-claramente-la-variable-dependiente-y-las-variables-independientes"><i class="fa fa-check"></i><b>11.4.1</b> Paso 0: Identificar claramente la variable dependiente y laS variables independientes</a></li>
+<li class="chapter" data-level="11.4.2" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-1-explorar-previamente-la-relación-de-las-variables-1"><i class="fa fa-check"></i><b>11.4.2</b> Paso 1: Explorar previamente la relación de las variables</a></li>
+<li class="chapter" data-level="11.4.3" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-2-nuestro-modelo-es-válido"><i class="fa fa-check"></i><b>11.4.3</b> Paso 2: ¿Nuestro modelo es válido?</a></li>
+<li class="chapter" data-level="11.4.4" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-3-qué-tanto-explica-mi-modelo"><i class="fa fa-check"></i><b>11.4.4</b> Paso 3: ¿Qué tanto explica mi modelo?</a></li>
+<li class="chapter" data-level="11.4.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-4-las-variables-x-aportan-al-modelo-cuál-es-la-más-importante"><i class="fa fa-check"></i><b>11.4.5</b> Paso 4: ¿Las variables X aportan al modelo? ¿Cuál es la más importante?</a></li>
+<li class="chapter" data-level="11.4.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#paso-5-cuál-es-la-ecuación-del-modelo"><i class="fa fa-check"></i><b>11.4.6</b> Paso 5: ¿Cuál es la ecuación del modelo?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#tabla-para-comparar-modelos-stargazer"><i class="fa fa-check"></i><b>11.5</b> Tabla para comparar modelos (stargazer)</a></li>
+<li class="chapter" data-level="11.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2-4"><i class="fa fa-check"></i><b>11.6</b> Ejercicio 2</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -428,7 +456,7 @@ El plano cartesiano proporciona un marco de referencia visual que facilita la re
 <span id="cb239-8"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb239-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Índice de democracia&quot;</span>, </span>
 <span id="cb239-9"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb239-9" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;Índice de percepción de la Corrupción&quot;</span>)<span class="sc">+</span> </span>
 <span id="cb239-10"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb239-10" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 </div>
 <div id="varianza" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Varianza<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -613,24 +641,24 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <span id="cb246-5"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb246-5" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
 <span id="cb246-6"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb246-6" tabindex="-1"></a><span class="fu">head</span>(df,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>##       x        y
-## 1 -0.99 6.225937
-## 2 -0.98 6.948749
-## 3 -0.97 6.057789
-## 4 -0.96 6.158821
-## 5 -0.95 6.133107</code></pre>
+## 1 -0.99 6.379187
+## 2 -0.98 6.802037
+## 3 -0.97 6.273761
+## 4 -0.96 6.323608
+## 5 -0.95 6.543033</code></pre>
 <p>Ahora, vamos a generar nuestro cor.test entre las dos variables. Qué concluimos?</p>
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb248-1" tabindex="-1"></a><span class="fu">cor.test</span>(df<span class="sc">$</span>x,df<span class="sc">$</span>y)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  df$x and df$y
-## t = 7.5076, df = 198, p-value = 2.008e-12
+## t = 7.9577, df = 198, p-value = 1.328e-13
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  0.3551875 0.5721081
+##  0.3794343 0.5906619
 ## sample estimates:
 ##       cor 
-## 0.4707313</code></pre>
+## 0.4922612</code></pre>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb250-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb250-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb250-2" tabindex="-1"></a><span class="co"># df |&gt; </span></span>
 <span id="cb250-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb250-3" tabindex="-1"></a><span class="co">#   ggplot()+</span></span>
@@ -690,7 +718,7 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <p>Utilizamos pairs y vemos en un sólo gráfico varios cruces de scatterplots.</p>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb254-1" tabindex="-1"></a><span class="fu">pairs</span>(<span class="sc">~</span>lifeExp<span class="sc">+</span>pop<span class="sc">+</span>gdpPercap, <span class="at">data =</span> data3, </span>
 <span id="cb254-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb254-2" tabindex="-1"></a>      <span class="at">main =</span><span class="st">&quot;Matriz de scatterplots de data3&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
 </div>
 <div id="matriz-de-correlación" class="section level3 hasAnchor" number="9.7.2">
 <h3><span class="header-section-number">9.7.2</span> Matriz de correlación<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#matriz-de-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -698,8 +726,19 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <p>La matriz de correlación es una herramienta útil en el análisis de datos multivariable, ya que proporciona una visión general de las relaciones de asociación entre todas las variables en estudio. Permite identificar patrones y tendencias de correlación entre variables y proporciona información sobre la fuerza y la dirección de las relaciones lineales entre ellas.</p>
 <p>La matriz de correlación es una herramienta importante para explorar la estructura de las relaciones entre variables y puede utilizarse para tomar decisiones informadas en el análisis de datos, como seleccionar variables para modelos de regresión, identificar variables colineales o evaluar la asociación entre conjuntos de variables.</p>
 <p>Calculamos la matriz de correlación. Vemos que con la función <code>corr.test</code> podemos calcular todos los cruces de nuestra data de numéricas, incluyendo también los p valores obtenidos en cada cruce. Es mucho más rápido que estar calculando una prueba de correlación por cada pareja por separado.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb255-1" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb255-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb255-2" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">corr.test</span>(data3, <span class="at">use =</span> <span class="st">&quot;complete&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb255-1" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;psych&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:DescTools&#39;:
+## 
+##     AUC, ICC, SD</code></pre>
+<pre><code>## The following objects are masked from &#39;package:scales&#39;:
+## 
+##     alpha, rescale</code></pre>
+<pre><code>## The following objects are masked from &#39;package:ggplot2&#39;:
+## 
+##     %+%, alpha</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb260-1" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">corr.test</span>(data3, <span class="at">use =</span> <span class="st">&quot;complete&quot;</span>)</span></code></pre></div>
 <pre><code>## Call:psych::corr.test(x = data3, use = &quot;complete&quot;)
 ## Correlation matrix 
 ##           lifeExp   pop gdpPercap
@@ -715,16 +754,17 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 ## gdpPercap    0.00 0.29      0.00
 ## 
 ##  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb257-1" tabindex="-1"></a><span class="co">#Importante: use=&quot;complete&quot; will select just complete cases</span></span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb262-1" tabindex="-1"></a><span class="co">#Importante: use=&quot;complete&quot; will select just complete cases</span></span></code></pre></div>
 </div>
 <div id="graficando-la-matriz-de-correlación-con-corrplot" class="section level3 hasAnchor" number="9.7.3">
 <h3><span class="header-section-number">9.7.3</span> Graficando la matriz de correlación con <code>corrplot</code><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#graficando-la-matriz-de-correlación-con-corrplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podemos visualizarlo de forma conjunta:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb258-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb258-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb258-2" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(data3), <span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">type=</span><span class="st">&quot;lower&quot;</span>) </span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb259-1" tabindex="-1"></a><span class="co">#Prueba cambiando el método. Ve más detalle apretando F1 sobre el nombre de la función.</span></span>
-<span id="cb259-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb259-2" tabindex="-1"></a><span class="co"># corrplot(cor(data3), method=&quot;number&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb263-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
+<pre><code>## corrplot 0.92 loaded</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb265-1" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(data3), <span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">type=</span><span class="st">&quot;lower&quot;</span>) </span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb266-1" tabindex="-1"></a><span class="co">#Prueba cambiando el método. Ve más detalle apretando F1 sobre el nombre de la función.</span></span>
+<span id="cb266-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb266-2" tabindex="-1"></a><span class="co"># corrplot(cor(data3), method=&quot;number&quot;)</span></span></code></pre></div>
 <p>Ten en cuenta que la forma de solicitar el gráfico con el paquete <code>corrplot</code> puede variar. Puedes personalizar la matriz de la forma en que más se te acomode. Para mayor detalle, visita la página:</p>
 <p><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html" class="uri">https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html</a></p>
 </div>
@@ -732,10 +772,10 @@ r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-
 <div id="ejercicio-2-2" class="section level2 hasAnchor" number="9.8">
 <h2><span class="header-section-number">9.8</span> Ejercicio 2<a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#ejercicio-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Contamos con una base de datos con variables sociodemográficas a nivel mundial:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb260-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb260-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb260-2" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb260-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb260-3" tabindex="-1"></a>matricula<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/matricula.xlsx&quot;</span>)</span>
-<span id="cb260-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb260-4" tabindex="-1"></a><span class="fu">colnames</span>(matricula)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;pais&quot;</span>,<span class="st">&quot;matricula&quot;</span>,<span class="st">&quot;pbiPC&quot;</span>,<span class="st">&quot;pobreza&quot;</span>,<span class="st">&quot;urbano&quot;</span>,<span class="st">&quot;gastoeducacion&quot;</span>,<span class="st">&quot;ratio_prof&quot;</span>,<span class="st">&quot;alcohol&quot;</span>,<span class="st">&quot;natalidad_ado&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb267-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb267-2"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb267-2" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb267-3"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb267-3" tabindex="-1"></a>matricula<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/matricula.xlsx&quot;</span>)</span>
+<span id="cb267-4"><a href="midiendo-la-asociación-de-dos-numéricas-la-correlación.html#cb267-4" tabindex="-1"></a><span class="fu">colnames</span>(matricula)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;pais&quot;</span>,<span class="st">&quot;matricula&quot;</span>,<span class="st">&quot;pbiPC&quot;</span>,<span class="st">&quot;pobreza&quot;</span>,<span class="st">&quot;urbano&quot;</span>,<span class="st">&quot;gastoeducacion&quot;</span>,<span class="st">&quot;ratio_prof&quot;</span>,<span class="st">&quot;alcohol&quot;</span>,<span class="st">&quot;natalidad_ado&quot;</span>)</span></code></pre></div>
 <p>Contamos con las siguientes variables:</p>
 <ul>
 <li><p>Porcentaje de inscripción escolar neta por país</p></li>
