@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-11-13" />
+<meta name="date" content="2023-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -396,6 +396,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#tabla-para-comparar-modelos-stargazer"><i class="fa fa-check"></i><b>11.5</b> Tabla para comparar modelos (stargazer)</a></li>
 <li class="chapter" data-level="11.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2-4"><i class="fa fa-check"></i><b>11.6</b> Ejercicio 2</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>12</b> Regresión lineal múltiple: elementos adicionales</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-4"><i class="fa fa-check"></i><b>12.1</b> Objetivo de la sesión</a></li>
+<li class="chapter" data-level="12.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>12.2</b> Identificar la variable que aporta más al modelo</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>12.2.1</b> El problema de la unidad de medida</a></li>
+<li class="chapter" data-level="12.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>12.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
+<li class="chapter" data-level="12.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>12.2.3</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>12.3</b> Sobre variables categóricas en la RLM</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>12.3.1</b> Variables dummy (1-0): Definición</a></li>
+<li class="chapter" data-level="12.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>12.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
+<li class="chapter" data-level="12.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4"><i class="fa fa-check"></i><b>12.3.3</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -606,11 +622,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>También puedes ver el informe <strong><a href="https://iep.org.pe/wp-content/uploads/2022/07/I-Encuesta-nacional-de-percepcion-de-desigualdades-ENADES-2022-v2.pdf">aquí</a></strong>.</p>
 <div id="abrir-base-de-datos" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Abrir base de datos<a href="introducción-a-la-estadística-inferencial-i.html#abrir-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb69-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb69-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb69-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb69-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb69-3" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
-<span id="cb69-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb69-4" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb70-1" tabindex="-1"></a><span class="fu">names</span>(enades)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb71-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb71-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb71-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb71-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb71-3" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
+<span id="cb71-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb71-4" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb72-1" tabindex="-1"></a><span class="fu">names</span>(enades)</span></code></pre></div>
 <pre><code>##  [1] &quot;NC&quot;          &quot;edad&quot;        &quot;edadr&quot;       &quot;sexo&quot;        &quot;dep&quot;         &quot;prov&quot;        &quot;dist&quot;       
 ##  [8] &quot;zona1&quot;       &quot;zona2&quot;       &quot;zona3&quot;       &quot;zonali1&quot;     &quot;zonali2&quot;     &quot;region&quot;      &quot;area&quot;       
 ## [15] &quot;area2&quot;       &quot;ambito&quot;      &quot;hijos18&quot;     &quot;hogar&quot;       &quot;edu&quot;         &quot;edur&quot;        &quot;edu2&quot;       
@@ -635,22 +651,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>En una escala del 1 al 10, en la que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable”. ¿Hasta qué punto es aceptable la desigualdad en el Perú? Dígame un número de 1 a 10, recuerde que 1 es “Totalmente inaceptable” y 10 es “Totalmente aceptable (RESPUESTA ESPONTÁNEA)</li>
 </ul>
 <p>La convertimos en numérica.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb72-1" tabindex="-1"></a>enades<span class="sc">$</span>p17<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb74-1" tabindex="-1"></a>enades<span class="sc">$</span>p17<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
 <p>Solicitamos los estadísticos descriptivos para darle una primera mirada.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb73-1" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb75-1" tabindex="-1"></a><span class="fu">summary</span>(enades<span class="sc">$</span>p17)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##   1.000   1.000   5.000   4.571   7.000  10.000      23</code></pre>
 <p>Podemos graficarlo</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb75-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb75-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb75-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb75-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb75-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>p17)<span class="sc">+</span></span>
-<span id="cb75-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb75-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb77-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb77-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>p17)<span class="sc">+</span></span>
+<span id="cb77-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 </div>
 <div id="cálculo-del-estimador-puntual" class="section level3 hasAnchor" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> Cálculo del estimador puntual<a href="introducción-a-la-estadística-inferencial-i.html#cálculo-del-estimador-puntual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calculamos el estimador puntual, en este caso, la media muestral.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb76-1" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb78-1" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 4.571334</code></pre>
 <p>Tienes que recordar lo básico de este:</p>
 <ol style="list-style-type: decimal">
@@ -665,29 +681,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Necesitamos la media muestral (mean) de esa única muestra que obtuvimos de la población, la desviación estándar (sd) y el tamaño de muestra que tenemos (n).</p>
 <p>Así también, necesitamos elegir qué nivel de confianza vamos a tomar (recuerdas los intervalos de la distribución normal? y cómo se aplicaría a distribuciones muestrales?), es decir, si vamos al 95% (1.96) o algún otro nivel.</p>
 <p>Calculemos cada uno de estos</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb78-1" tabindex="-1"></a>media<span class="ot">&lt;-</span><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb78-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb78-2" tabindex="-1"></a>SE<span class="ot">&lt;-</span> <span class="fu">sd</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb78-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb78-3" tabindex="-1"></a>n <span class="ot">&lt;-</span><span class="fu">length</span>(enades<span class="sc">$</span>p17)</span>
-<span id="cb78-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb78-4" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fl">1.96</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb80-1" tabindex="-1"></a>media<span class="ot">&lt;-</span><span class="fu">mean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb80-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb80-2" tabindex="-1"></a>SE<span class="ot">&lt;-</span> <span class="fu">sd</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb80-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb80-3" tabindex="-1"></a>n <span class="ot">&lt;-</span><span class="fu">length</span>(enades<span class="sc">$</span>p17)</span>
+<span id="cb80-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb80-4" tabindex="-1"></a>z<span class="ot">&lt;-</span> <span class="fl">1.96</span></span></code></pre></div>
 <p>Ahora recordamos la fórmula:</p>
 <p><img src="figures/IC_MEDIAS.jpg" /></p>
 <p>Dónde el error estándar está dado por:</p>
 <p><span class="math display">\[s_{\hat{x}} = \frac{s}{\sqrt{n}}\]</span></p>
 <p>Entonces:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb79-1" tabindex="-1"></a>error_estandar <span class="ot">&lt;-</span> SE<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
-<span id="cb79-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb79-2" tabindex="-1"></a>error_estandar</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb81-1" tabindex="-1"></a>error_estandar <span class="ot">&lt;-</span> SE<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
+<span id="cb81-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb81-2" tabindex="-1"></a>error_estandar</span></code></pre></div>
 <pre><code>## [1] 0.08009848</code></pre>
 <p>Por lo pronto, hemos obtenido un error estándar con un valor de 0.08009848.</p>
 <p>El error estándar, en su esencia, nos brinda una medida de cuánta variabilidad podemos esperar en nuestras estimaciones si repitiéramos el muestreo muchas veces. Cuando interpretamos un error estándar específico, como 0.08009848podemos considerar lo siguiente:</p>
 <p>Un error estándar de 0.08009848 sugiere que, si tomáramos múltiples muestras del mismo tamaño de la población y calculáramos la estadística de interés (por ejemplo, la media) para cada muestra, esperaríamos que la mayoría de esas estadísticas estuvieran dentro de 0.08009848 unidades de la estadística media de todas esas muestras.</p>
 <p>En otras palabras, el valor de 0.08009848 nos da una idea de la “precisión” de nuestra estimación basada en una sola muestra. Una estimación con un error estándar más pequeño generalmente se considera más “precisa” que una con un error estándar más grande, porque indica menos variabilidad entre las estimaciones de diferentes muestras.</p>
 <p>Ahora sí, una vez calculado el error estándar podemos calcular los límite inferior o superior. Recuerda que debemos aplicar la fórmula y que la única diferencia para calcular el límite inferior y superior es el signo:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb81-1" tabindex="-1"></a>limite_inferior<span class="ot">&lt;-</span> media <span class="sc">-</span> (z<span class="sc">*</span>error_estandar)</span>
-<span id="cb81-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb81-2" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> media <span class="sc">+</span> (z<span class="sc">*</span>error_estandar)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb83-1" tabindex="-1"></a>limite_inferior<span class="ot">&lt;-</span> media <span class="sc">-</span> (z<span class="sc">*</span>error_estandar)</span>
+<span id="cb83-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb83-2" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> media <span class="sc">+</span> (z<span class="sc">*</span>error_estandar)</span></code></pre></div>
 <p>Los presentamos:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb82-1" tabindex="-1"></a>limite_inferior</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb84-1" tabindex="-1"></a>limite_inferior</span></code></pre></div>
 <pre><code>## [1] 4.414341</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb84-1" tabindex="-1"></a>limite_superior</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb86-1" tabindex="-1"></a>limite_superior</span></code></pre></div>
 <pre><code>## [1] 4.728327</code></pre>
 <p>Con ello podemos concluir que: <strong>Con un 95% de confianza, podemos afirmar que la media poblacional de la aceptación de la desigualdad en el Perú (que va del 1 al 10) se encuentra entre 4.414341 y 4.728327</strong>.</p>
 <p>Esto lo podemos interpretar también de las siguientes forma:</p>
@@ -697,8 +713,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>CON LA FUNCIÓN ciMean()</strong></p>
 <p>Una vez que hemos navegado por el proceso de calcular un intervalo de confianza de manera manual, utilizando la fórmula tradicional, es hora de introducir herramientas que simplifiquen y agilicen este proceso en el mundo real del análisis de datos. Para ello, en R, utilizaremos el paquete lsr y, específicamente, la función ciMean. Esta función está diseñada para calcular automáticamente el intervalo de confianza para la media de un conjunto de datos. Al proporcionarle una serie de datos como entrada, ciMean nos devuelve el rango en el que, con un nivel de confianza específico (por defecto, 95%), esperamos que se encuentre la verdadera media poblacional. Es una herramienta poderosa que combina precisión con eficiencia, permitiéndonos centrarnos en la interpretación y aplicación de nuestros resultados.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb86-1" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
-<span id="cb86-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb86-2" tabindex="-1"></a><span class="fu">ciMean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-1" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb88-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-2" tabindex="-1"></a><span class="fu">ciMean</span>(enades<span class="sc">$</span>p17, <span class="at">na.rm =</span> T)</span></code></pre></div>
 <pre><code>##          2.5%    97.5%
 ## [1,] 4.413023 4.729645</code></pre>
 <p>Es el mismo resultado que obtuvimos arriba. Como te puedes dar cuenta, si hemos recorrido este camino (medio tedioso) es para que te quede claro cómo se obtienen esos dos números que llamamos intervalos de confianza y de qué depende en la práctica al utilizar una muestra real.</p>
@@ -712,32 +728,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Por ejemplo, si se estima la media de una variable a partir de una muestra y se desea construir un intervalo de confianza al 95%, las barras de error se construirán a partir del límite inferior y superior del intervalo de confianza, que contendrán el verdadero valor de la media poblacional con una probabilidad del 95%.</p>
 <p>Las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones. Si las barras de error son muy pequeñas, esto sugiere que la estimación es muy precisa y que hay una alta confianza en la validez del intervalo de confianza. Por otro lado, si las barras de error son grandes, esto sugiere que la estimación es menos precisa y que hay una mayor incertidumbre en el intervalo de confianza.</p>
 <p>Podemos utilizar <code>ggplot()</code>!</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-1" tabindex="-1"></a>mediaEintervalos<span class="ot">&lt;-</span>enades <span class="sc">%&gt;%</span> </span>
-<span id="cb88-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Utilizamos summarise y pedimos la media,</span></span>
-<span id="cb88-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-3" tabindex="-1"></a>            <span class="at">ci_lower =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">1</span>], <span class="co"># También el PRIMER ELEMENTO de la función ciMean</span></span>
-<span id="cb88-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-4" tabindex="-1"></a>            <span class="at">ci_upper =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">2</span>]) <span class="co">#Y el SEGUNDO ELEMENTO de la función ciMean</span></span>
-<span id="cb88-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb88-5" tabindex="-1"></a>mediaEintervalos</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-1" tabindex="-1"></a>mediaEintervalos<span class="ot">&lt;-</span>enades <span class="sc">%&gt;%</span> </span>
+<span id="cb90-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(p17, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Utilizamos summarise y pedimos la media,</span></span>
+<span id="cb90-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-3" tabindex="-1"></a>            <span class="at">ci_lower =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">1</span>], <span class="co"># También el PRIMER ELEMENTO de la función ciMean</span></span>
+<span id="cb90-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-4" tabindex="-1"></a>            <span class="at">ci_upper =</span> <span class="fu">ciMean</span>(p17, <span class="at">na.rm =</span> T)[<span class="dv">2</span>]) <span class="co">#Y el SEGUNDO ELEMENTO de la función ciMean</span></span>
+<span id="cb90-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-5" tabindex="-1"></a>mediaEintervalos</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##    mean ci_lower ci_upper
 ##   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
 ## 1  4.57     4.41     4.73</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-1" tabindex="-1"></a>mediaEintervalos <span class="sc">%&gt;%</span> </span>
-<span id="cb90-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb90-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;Media&quot;</span>, <span class="at">y =</span> mean)<span class="sc">+</span></span>
-<span id="cb90-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb90-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_lower, <span class="at">ymax =</span> ci_upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb90-6"><a href="introducción-a-la-estadística-inferencial-i.html#cb90-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Media de aceptación de la desigualdad en el Perú (IC al 95%)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Valor&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-1" tabindex="-1"></a>mediaEintervalos <span class="sc">%&gt;%</span> </span>
+<span id="cb92-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb92-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;Media&quot;</span>, <span class="at">y =</span> mean)<span class="sc">+</span></span>
+<span id="cb92-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb92-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_lower, <span class="at">ymax =</span> ci_upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb92-6"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Media de aceptación de la desigualdad en el Perú (IC al 95%)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Valor&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>Puedes incluir más detalle y detallar los límites inferior y superior:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-1" tabindex="-1"></a>mediaEintervalos <span class="sc">%&gt;%</span> </span>
-<span id="cb91-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb91-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;Media&quot;</span>, <span class="at">y =</span> mean) <span class="sc">+</span></span>
-<span id="cb91-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb91-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_lower, <span class="at">ymax =</span> ci_upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb91-6"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-6" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(ci_lower, <span class="dv">3</span>), <span class="at">y =</span> ci_lower), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Etiqueta para el límite inferior</span></span>
-<span id="cb91-7"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(ci_upper, <span class="dv">3</span>), <span class="at">y =</span> ci_upper), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.5</span>)<span class="sc">+</span>  <span class="co"># Etiqueta para el límite superior</span></span>
-<span id="cb91-8"><a href="introducción-a-la-estadística-inferencial-i.html#cb91-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Media de aceptación de la desigualdad en el Perú (IC al 95%)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Valor&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-1" tabindex="-1"></a>mediaEintervalos <span class="sc">%&gt;%</span> </span>
+<span id="cb93-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb93-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;Media&quot;</span>, <span class="at">y =</span> mean) <span class="sc">+</span></span>
+<span id="cb93-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb93-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_lower, <span class="at">ymax =</span> ci_upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb93-6"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-6" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(ci_lower, <span class="dv">3</span>), <span class="at">y =</span> ci_lower), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Etiqueta para el límite inferior</span></span>
+<span id="cb93-7"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(ci_upper, <span class="dv">3</span>), <span class="at">y =</span> ci_upper), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.5</span>)<span class="sc">+</span>  <span class="co"># Etiqueta para el límite superior</span></span>
+<span id="cb93-8"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Media de aceptación de la desigualdad en el Perú (IC al 95%)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Valor&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 
 </div>
 </div>

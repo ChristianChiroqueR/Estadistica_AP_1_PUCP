@@ -173,7 +173,9 @@ Siguiendo nuestro intervalo, diremos que el modelo tiene un **BAJO** nivel expli
 
 En este paso exploramos la significancia de los coeficientes de las X. 
 
-En este caso al tener dos independientes (Voz Política y Libertad de Movimiento), tenemos dos coeficientes. 
+En este caso al tener dos independientes (Voz Política y Libertad de Movimiento), tenemos dos pruebas de significancia, una por cada variable.
+
+Como hemos explicado, tenemos que ver el p-valor en la tabla de coeficientes:
 
 ![](figures/multiple_significancia.jpg)
 
@@ -208,8 +210,6 @@ $$
 La ecuación de regresión permite predecir los valores de la variable dependiente para nuevos valores de la variable independiente. 
 
 
-
-
 ## Tabla para comparar modelos (stargazer)
 
 El paquete `stargazer` en R es una herramienta útil para comparar modelos de regresión lineal múltiple de manera concisa y organizada. Proporciona una forma conveniente de generar tablas resumidas que muestran los resultados de varios modelos de regresión en una presentación fácil de leer.
@@ -240,7 +240,6 @@ stargazer(modelo1,modelo2,modelo3, type="text")
 
 
 Listo para incluir en tu trabajo final!
-
 
 
 ## Ejercicio 2

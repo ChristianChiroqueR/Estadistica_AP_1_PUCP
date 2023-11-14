@@ -1,0 +1,160 @@
+# Regresión lineal múltiple: elementos adicionales
+
+## Objetivo de la sesión
+
+El objetivo de esta clase es ampliar nuestro conocimiento sobre la regresión lineal múltiple al introducir dos componentes clave dentro del modelamiento:
+
+- Identificar cuál es la variable que aporta más al modelo explicativo.
+
+- Introducir variables variables categóricas como variables independientes en nuestros modelos. 
+
+
+## Identificar la variable que aporta más al modelo
+
+Los coeficientes en un modelo de regresión lineal representan las relaciones y las contribuciones relativas entre la variable dependiente (Y) y las variables independientes (X). Estos coeficientes cuantifican el cambio promedio en la variable dependiente por cada unidad de cambio en la variable independiente correspondiente, manteniendo constantes todas las demás variables.
+
+En una regresión lineal simple, donde se tiene una única variable independiente, el coeficiente de regresión (también conocido como pendiente) indica la variación promedio en la variable dependiente por cada unidad de cambio en la variable independiente. Por ejemplo, si el coeficiente es 0.5, significa que, en promedio, la variable dependiente aumentará en 0.5 unidades por cada unidad de cambio en la variable independiente.
+
+En una regresión lineal múltiple, donde se tienen múltiples variables independientes, los coeficientes de regresión se interpretan de manera similar. Cada coeficiente representa el cambio promedio en la variable dependiente por cada unidad de cambio en la variable independiente correspondiente, manteniendo constantes todas las demás variables. Se puede considerar que los coeficientes reflejan la contribución individual de cada variable independiente en la variabilidad de la variable dependiente.
+
+Es importante tener en cuenta que los coeficientes no indican necesariamente una relación causal entre las variables, sino que reflejan una asociación estadística. Además, los coeficientes están influenciados por la escala de las variables, por lo que no se pueden comparar directamente si están en diferentes escalas de medición.
+
+
+### El problema de la unidad de medida
+
+Las escalas de medición diferentes pueden llevar a conclusiones erróneas al explicar el efecto de las variables independientes (X) sobre la variable dependiente (Y) en una regresión por varias razones. Aquí se presenta un ejemplo ilustrativo:
+
+Supongamos que se está realizando un estudio para investigar el impacto del nivel de ingresos (medido en dólares) y la edad (medida en años) en el gasto mensual en alimentos (medido en dólares) de los hogares. Se ajusta un modelo de regresión lineal múltiple y se obtienen los siguientes coeficientes estimados:
+
+Coeficiente de ingresos: 0.02
+Coeficiente de edad: 10
+
+Si se interpreta únicamente basándose en los coeficientes, se podría concluir que la edad tiene un efecto mucho más fuerte en el gasto mensual en alimentos que los ingresos. Sin embargo, esta conclusión sería errónea debido a las escalas de medición diferentes.
+
+El coeficiente de ingresos de 0.02 indica que, en promedio, por cada aumento de 1 unidad en los ingresos (en dólares), el gasto mensual en alimentos aumenta en 0.02 unidades (en dólares). Por otro lado, el coeficiente de edad de 10 indica que, en promedio, por cada aumento de 1 año en la edad, el gasto mensual en alimentos aumenta en 10 unidades (en dólares).
+
+La razón por la cual la conclusión sería errónea es que los ingresos y la edad no están en la misma escala de medición. Un aumento de 1 unidad en los ingresos (por ejemplo, de 1000 dólares a  1001 dólares) es mucho más pequeño en magnitud que un aumento de 1 año en la edad. Por lo tanto, comparar directamente los coeficientes sin considerar las escalas de medición puede llevar a una interpretación incorrecta.
+
+Para evitar este tipo de errores, es importante estandarizar o normalizar las variables para que estén en una escala comparable antes de realizar comparaciones directas. Además, es fundamental tener en cuenta el contexto y la interpretación sustantiva de las variables para comprender el efecto relativo de cada variable independiente sobre la variable dependiente en un modelo de regresión.
+
+
+### Solución: Uso de coeficientes estandarizados
+
+El paquete "lm.beta" en R es una herramienta útil para analizar la importancia relativa de las variables independientes en un modelo de regresión lineal. Proporciona una medida llamada "beta estandarizada" que permite comparar directamente los efectos relativos de las variables independientes en la variable dependiente, independientemente de sus escalas de medición.
+
+Estos valores de beta estandarizados representan la cantidad de desviación estándar en la variable dependiente asociada con un incremento de una desviación estándar en la variable independiente, manteniendo constantes las demás variables. Esto permite identificar las variables que tienen el mayor impacto relativo en el modelo, lo cual es especialmente útil cuando se trabaja con variables de diferentes escalas. 
+
+Probemos:
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rio)
+data<-import("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/trabajadores.sav")
+```
+
+
+Hacemos un modelo de regresión múltiple:
+
+```{r}
+modelo1 <- lm(salario_actual~salario_inicial + antiguedad, data=data)
+```
+
+Si vemos los coeficientes no estandarizados vemos lo siguientes:
+
+```{r}
+modelo1$coefficients
+```
+Sin embargo, esto nos puede llevar al error pues las variables están en escalas distintas:
+
+```{r}
+range(data$salario_inicial)
+```
+
+```{r}
+range(data$antiguedad)
+```
+
+Para ello, utilizamos los coeficientes estandarizados:
+
+```{r}
+library(lm.beta)
+lm.beta(modelo1)
+```
+
+Vemos que la variable salario inicial aporta mucho más que la variable antiguedad si ambas variables están estandarizadas. 
+
+
+### Ejercicio
+
+Con la data utilizada la clase pasada:
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(rio)
+data<-import("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/desigualdad.xlsx")
+```
+
+Cree un modelo para explicar la DesigualdadGenero que utilice las siguientes variables como predictoras: VozPolitica, LibertadMov, CuentaF.
+
+Cuál variable aporta más al modelo explicativo de la variable dependiente?
+
+
+
+## Sobre variables categóricas en la RLM
+
+Las variables categóricas, también conocidas como variables cualitativas o nominales, son aquellas que representan características no numéricas, como género, estado civil, nivel de educación, ubicación geográfica, entre otros. Estas variables son de gran importancia en el análisis de datos en ciencias sociales, ya que nos permiten examinar el impacto de factores que no pueden expresarse en términos de magnitudes o cantidades.
+
+A diferencia de las variables numéricas que hemos utilizado anteriormente, las variables categóricas requieren un enfoque distinto en el análisis estadístico. No podemos simplemente ingresarlas como están en nuestro modelo de regresión lineal múltiple, ya que los algoritmos de regresión se basan en operaciones matemáticas que no pueden aplicarse directamente a variables no numéricas.
+
+Para eso, es necesario entender qué es una variable dummy.
+
+
+### Variables dummy (1-0): Definición
+
+Una variable dummy, también conocida como variable ficticia, es una variable binaria que se utiliza para representar una característica cualitativa o categórica en un análisis estadístico. En lugar de tomar valores continuos, una variable dummy toma solo dos valores posibles, generalmente codificados como 0 o 1. Estos valores indican la presencia o ausencia de una determinada categoría o condición.
+
+En el contexto de la regresión lineal, las variables dummy se utilizan para incorporar características categóricas en el modelo. Se crea una variable dummy para cada categoría o condición distinta de la variable categórica que se está analizando. Se asigna el valor 1 a la variable dummy correspondiente a la categoría de interés y se asigna el valor 0 a las demás variables dummy y a la categoría de referencia.
+
+Ejemplos: 
+
+Variable dummy de género:
+
+En un estudio sociológico sobre la participación política, se puede utilizar una variable dummy para representar el género de los individuos. Se podría asignar el valor de 1 para la categoría "Mujer" y el valor de 0 para la categoría "Hombre". De esta manera, la variable dummy de género permite analizar cómo el género influye en la participación política, al incluirlo como una variable independiente en un modelo de regresión lineal.
+
+Variable dummy de nivel educativo:
+
+En un análisis económico sobre los salarios, se puede utilizar una variable dummy para representar el nivel educativo de los trabajadores. Por ejemplo, se podría crear una variable dummy para la categoría "Título universitario" y asignarle el valor de 1 si un individuo tiene un título universitario, y el valor de 0 si no tiene dicho título. Esto permitiría examinar cómo el nivel educativo afecta los salarios, al incluir la variable dummy de nivel educativo como una variable independiente en el modelo de regresión lineal.
+
+En ambos ejemplos, las variables dummy permiten capturar características categóricas relevantes y representarlas de manera numérica en los modelos de regresión lineal. Esto facilita la interpretación del impacto de estas características en la variable dependiente y proporciona una forma efectiva de analizar cómo los factores cualitativos influyen en los fenómenos estudiados.
+
+
+### Variables dummy (1-0): Utilidad en la RLM
+
+- Representación de variables categóricas: Las variables dummy proporcionan una forma de representar variables categóricas en modelos de regresión. Mientras que las variables categóricas no pueden ser introducidas directamente en el modelo debido a la naturaleza no numérica, las variables dummy asignan valores numéricos (por ejemplo, 0 y 1) para indicar la presencia o ausencia de una categoría particular. Esto permite que las características cualitativas se incluyan en el análisis y se examinen sus efectos en la variable dependiente.
+
+
+- Comparación relativa de categorías: Al crear variables dummy, se establece una categoría de referencia, generalmente la más común o la que se considera la base de comparación. Las variables dummy para las otras categorías se comparan con la categoría de referencia. Los coeficientes estimados asociados con las variables dummy reflejan las diferencias en el efecto de cada categoría en comparación con la categoría de referencia. Esto permite interpretar y cuantificar el impacto relativo de cada categoría sobre la variable dependiente. Así, las variables dummy permiten realizar comparaciones entre grupos categóricos y analizar cómo influyen en el fenómeno de estudio.
+
+
+- Control de confusión y variables omitidas: Al incluir variables dummy en el modelo de regresión, se evita el problema de omitir variables relevantes y se controla la influencia de las características categóricas en el efecto de otras variables independientes. Si no se utilizan variables dummy y se omiten las variables categóricas, se corre el riesgo de obtener coeficientes sesgados y resultados incorrectos. Al incluir variables dummy en el modelo, se captura el efecto específico de cada categoría y se evitan suposiciones erróneas sobre las relaciones entre las variables.
+
+
+- Análisis de interacciones y modificadores de efecto: Las variables dummy también pueden ser utilizadas en el análisis de interacciones y efectos modificadores en los modelos de regresión. Al combinar una variable dummy con otra variable independiente, se puede examinar cómo el efecto de una variable varía según las diferentes categorías de la variable dummy. Esto permite comprender cómo ciertos factores pueden influir de manera diferente en grupos categóricos específicos, lo cual es fundamental para el análisis diferencial en ciencias sociales.
+
+
+> Las variables dummy desempeñan un papel fundamental en los modelos de regresión al permitir la inclusión de variables categóricas en un marco analítico basado en regresión lineal. Proporcionan una representación numérica de características cualitativas, permiten la comparación relativa de categorías, controlan variables omitidas y facilitan el análisis de interacciones y efectos modificadores. Su uso adecuado y su interpretación correcta son esenciales para comprender cómo las características categóricas influyen en los fenómenos estudiados en las ciencias sociales
+
+
+### Ejercicio
+
+```{r message=FALSE, warning=FALSE}
+data<-import("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/trabajadores.sav")
+names(data)
+```
+
+Ahora realizaremos unos modelos que tengan como variable explicativa la categoría laboral.
+
+```{r}
+str(data$catlab)
+```
+

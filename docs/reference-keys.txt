@@ -177,3 +177,13 @@ paso-4-las-variables-x-aportan-al-modelo-cuál-es-la-más-importante
 paso-5-cuál-es-la-ecuación-del-modelo
 tabla-para-comparar-modelos-stargazer
 ejercicio-2-4
+regresión-lineal-múltiple-elementos-adicionales
+objetivo-de-la-sesión-4
+identificar-la-variable-que-aporta-más-al-modelo
+el-problema-de-la-unidad-de-medida
+solución-uso-de-coeficientes-estandarizados
+ejercicio
+sobre-variables-categóricas-en-la-rlm
+variables-dummy-1-0-definición
+variables-dummy-1-0-utilidad-en-la-rlm
+ejercicio-4

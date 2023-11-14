@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-11-13" />
+<meta name="date" content="2023-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -396,6 +396,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.5" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#tabla-para-comparar-modelos-stargazer"><i class="fa fa-check"></i><b>11.5</b> Tabla para comparar modelos (stargazer)</a></li>
 <li class="chapter" data-level="11.6" data-path="regresión-lineal-múltiple-más-de-una-independiente.html"><a href="regresión-lineal-múltiple-más-de-una-independiente.html#ejercicio-2-4"><i class="fa fa-check"></i><b>11.6</b> Ejercicio 2</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html"><i class="fa fa-check"></i><b>12</b> Regresión lineal múltiple: elementos adicionales</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#objetivo-de-la-sesión-4"><i class="fa fa-check"></i><b>12.1</b> Objetivo de la sesión</a></li>
+<li class="chapter" data-level="12.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#identificar-la-variable-que-aporta-más-al-modelo"><i class="fa fa-check"></i><b>12.2</b> Identificar la variable que aporta más al modelo</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#el-problema-de-la-unidad-de-medida"><i class="fa fa-check"></i><b>12.2.1</b> El problema de la unidad de medida</a></li>
+<li class="chapter" data-level="12.2.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#solución-uso-de-coeficientes-estandarizados"><i class="fa fa-check"></i><b>12.2.2</b> Solución: Uso de coeficientes estandarizados</a></li>
+<li class="chapter" data-level="12.2.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio"><i class="fa fa-check"></i><b>12.2.3</b> Ejercicio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#sobre-variables-categóricas-en-la-rlm"><i class="fa fa-check"></i><b>12.3</b> Sobre variables categóricas en la RLM</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-definición"><i class="fa fa-check"></i><b>12.3.1</b> Variables dummy (1-0): Definición</a></li>
+<li class="chapter" data-level="12.3.2" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#variables-dummy-1-0-utilidad-en-la-rlm"><i class="fa fa-check"></i><b>12.3.2</b> Variables dummy (1-0): Utilidad en la RLM</a></li>
+<li class="chapter" data-level="12.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4"><i class="fa fa-check"></i><b>12.3.3</b> Ejercicio</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -587,33 +603,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>No está en el flujograma, pero siempre debes seguir algunos pasos previos.</p>
 <p>Desde lo más general a lo más específico, nosotros debemos:</p>
 <p>Abrir la base de datos. Vamos a seguir usando ENADES. Puedes ver el cuestionario <a href="https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf">aqui</a>:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb167-1" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb167-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb167-2" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
-<span id="cb167-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb167-3" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb169-1" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb169-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb169-2" tabindex="-1"></a><span class="fu">p_load</span>(haven, tidyverse, lsr, kableExtra)</span>
+<span id="cb169-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb169-3" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>)</span></code></pre></div>
 <p><strong>CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR</strong></p>
 <p>En este caso deseo comparar la variable monto mínimo mensual que requiere su hogar para vivir (p08)…</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb168-1" tabindex="-1"></a>enades<span class="sc">$</span>p08<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p08)</span>
-<span id="cb168-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb168-2" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>p08)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb170-1" tabindex="-1"></a>enades<span class="sc">$</span>p08<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p08)</span>
+<span id="cb170-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb170-2" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>p08)</span></code></pre></div>
 <pre><code>##  num [1:1530] 20000 16000 15000 15000 10000 10000 10000 10000 10000 10000 ...</code></pre>
 <p>…En los grupos establecidos por la variable ámbito (urbano/rural)</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb170-1" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb170-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb170-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb170-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb170-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb170-4"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb170-4" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb172-1" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb172-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb172-2" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb172-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb172-3" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb172-4"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb172-4" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>area2)</span></code></pre></div>
 <pre><code>##  Factor w/ 2 levels &quot;Urbano&quot;,&quot;Rural&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <p><strong>EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES</strong></p>
 <p>Si bien nos interesa calcular la media poblacional, primero tenemos que tener en cuenta cuál es la media en nuestra muestra.</p>
 <p>Ahora hacemos un primer sondeo de cuál es la media muestral…</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb172-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb172-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb172-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb174-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb174-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb174-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   `mean(p08, na.rm = T)`
 ##                    &lt;dbl&gt;
 ## 1                  2334.</code></pre>
 <p>…y cuál es la media muestral en cada uno de los grupos seleccionados que deseamos comparar.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb174-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb174-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb174-2" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
-<span id="cb174-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb174-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb176-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-2" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
+<span id="cb176-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   area2  `mean(p08, na.rm = T)`
 ##   &lt;fct&gt;                   &lt;dbl&gt;
@@ -663,14 +679,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Identificamos si las varianzas son iguales en los dos grupos analizados. En el caso de que sean diferentes, vamos a necesitar hacer un **ajuste* a la fórmular de cálculo.</p>
 <p><img src="figures/comparacion_varianzas.jpg" /></p>
 <p>Veamos antes una visualización de los datos a través de un boxplot:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
-<span id="cb176-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb176-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
-<span id="cb176-4"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb176-5"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-5" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb176-6"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb176-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-1" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb178-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb178-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> p08, <span class="at">fill =</span> area2) <span class="sc">+</span> </span>
+<span id="cb178-4"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb178-5"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-5" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00BFC4&quot;</span>, <span class="st">&quot;#F8766D&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb178-6"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribución de variable p08 por grupo&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Variable&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Densidad&quot;</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 127 rows containing non-finite values (`stat_boxplot()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <p>Esto lo corroboramos con el gráfico de cajas. El 50% superior en el caso urbano tiene un rango mucho mayor. Asimismo, podemos ver algunos valores extremos que se alejan a valores muy altos, en el caso del sector Urbano.</p>
 <p>Para fines de este ejercicio, vamos a considerar que las <strong>varianzas son diferentes en ambos grupos analizados</strong>. (después vamos a requerir hacer una prueba para hacer esta afirmación!)</p>
 </div>
@@ -682,10 +698,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="paso-4-calcular-estadístico-de-prueba-y-p-valor" class="section level3 hasAnchor" number="6.4.6">
 <h3><span class="header-section-number">6.4.6</span> Paso 4: Calcular estadístico de prueba y p-valor<a href="prueba-de-hipótesis-t.test-y-prop.html#paso-4-calcular-estadístico-de-prueba-y-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ahora utilizemos la función <code>t.test()</code> para realizar el cálculo del Estadístico T y el cálculo del p-valor.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-1" tabindex="-1"></a><span class="fu">t.test</span>(p08 <span class="sc">~</span> area2, <span class="co">#Colocamos la variable numérica y la variable grupo. Ese símbolo ~ (en Windows) es ALT + 126</span></span>
-<span id="cb178-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-2" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="co"># Siempre que comparemos un estadístico en dos grupos usaremos &quot;two.sided&quot;.</span></span>
-<span id="cb178-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-3" tabindex="-1"></a>       <span class="at">data =</span> enades, <span class="co"># Precisamos la data</span></span>
-<span id="cb178-4"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb178-4" tabindex="-1"></a>       <span class="at">var.equal=</span>F) <span class="co"># Precisamos si las varianzas son iguales. En este caso colocamos F, porque identificamos diferencia </span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb180-1" tabindex="-1"></a><span class="fu">t.test</span>(p08 <span class="sc">~</span> area2, <span class="co">#Colocamos la variable numérica y la variable grupo. Ese símbolo ~ (en Windows) es ALT + 126</span></span>
+<span id="cb180-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb180-2" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="co"># Siempre que comparemos un estadístico en dos grupos usaremos &quot;two.sided&quot;.</span></span>
+<span id="cb180-3"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb180-3" tabindex="-1"></a>       <span class="at">data =</span> enades, <span class="co"># Precisamos la data</span></span>
+<span id="cb180-4"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb180-4" tabindex="-1"></a>       <span class="at">var.equal=</span>F) <span class="co"># Precisamos si las varianzas son iguales. En este caso colocamos F, porque identificamos diferencia </span></span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -750,8 +766,8 @@ Tenemos los siguientes escenarios</p>
 <p><strong>Prueba de hipótesis para igualdad de varianzas</strong></p>
 <p>Como te sugerí líneas arriba, siempre es bueno realizar una exploración visual con un boxplot para encontrar indicios sobre la existencia de homogeneidad de varianzas en dos o más grupos.</p>
 <p>Sin perjuicio de ello, para poder verificar este supuesto de homogenedidad de varianzas de forma más rigurosa podemos aplicar una <strong>Prueba de Levene de Homogeneidad de Varianzas</strong>.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb180-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb180-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb180-2" tabindex="-1"></a><span class="fu">LeveneTest</span>(enades<span class="sc">$</span>p08, enades<span class="sc">$</span>area2)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb182-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb182-2"><a href="prueba-de-hipótesis-t.test-y-prop.html#cb182-2" tabindex="-1"></a><span class="fu">LeveneTest</span>(enades<span class="sc">$</span>p08, enades<span class="sc">$</span>area2)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##         Df F value    Pr(&gt;F)    
 ## group    1  14.258 0.0001661 ***
