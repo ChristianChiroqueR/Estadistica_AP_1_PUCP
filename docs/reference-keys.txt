@@ -187,3 +187,9 @@ sobre-variables-categóricas-en-la-rlm
 variables-dummy-1-0-definición
 variables-dummy-1-0-utilidad-en-la-rlm
 ejercicio-4
+ejercicio-de-repaso
+situación
+pregunta-1
+pregunta-2
+pregunta-3
+planteamiento-de-conclusiones

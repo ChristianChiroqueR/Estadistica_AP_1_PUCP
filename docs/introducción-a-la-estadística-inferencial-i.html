@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-11-14" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,6 +412,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4"><i class="fa fa-check"></i><b>12.3.3</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>13</b> Ejercicio de repaso</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#situación"><i class="fa fa-check"></i><b>13.1</b> Situación</a></li>
+<li class="chapter" data-level="13.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-1"><i class="fa fa-check"></i><b>13.2</b> Pregunta 1</a></li>
+<li class="chapter" data-level="13.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-2"><i class="fa fa-check"></i><b>13.3</b> Pregunta 2</a></li>
+<li class="chapter" data-level="13.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-3"><i class="fa fa-check"></i><b>13.4</b> Pregunta 3</a></li>
+<li class="chapter" data-level="13.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#planteamiento-de-conclusiones"><i class="fa fa-check"></i><b>13.5</b> Planteamiento de conclusiones</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -627,18 +635,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb71-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb71-3" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">&quot;data/ENADES_2022.sav&quot;</span>) <span class="co"># Con esta función abrimos archivos de SPSS</span></span>
 <span id="cb71-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb71-4" tabindex="-1"></a><span class="co"># enades&lt;-read_spss(&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav&quot;)</span></span></code></pre></div>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb72-1" tabindex="-1"></a><span class="fu">names</span>(enades)</span></code></pre></div>
-<pre><code>##  [1] &quot;NC&quot;          &quot;edad&quot;        &quot;edadr&quot;       &quot;sexo&quot;        &quot;dep&quot;         &quot;prov&quot;        &quot;dist&quot;       
-##  [8] &quot;zona1&quot;       &quot;zona2&quot;       &quot;zona3&quot;       &quot;zonali1&quot;     &quot;zonali2&quot;     &quot;region&quot;      &quot;area&quot;       
-## [15] &quot;area2&quot;       &quot;ambito&quot;      &quot;hijos18&quot;     &quot;hogar&quot;       &quot;edu&quot;         &quot;edur&quot;        &quot;edu2&quot;       
-## [22] &quot;edupadre&quot;    &quot;edupadrer&quot;   &quot;edupadre2&quot;   &quot;edumadre&quot;    &quot;edumadrer&quot;   &quot;edumadre2&quot;   &quot;ocup1&quot;      
-## [29] &quot;ocup2.CIUO1&quot; &quot;ocup2.CIUO2&quot; &quot;ocupadre&quot;    &quot;p01.1&quot;       &quot;p01.2&quot;       &quot;p01.3&quot;       &quot;p01.4&quot;      
-## [36] &quot;p01.5&quot;       &quot;p01.99&quot;      &quot;p02&quot;         &quot;p03.1&quot;       &quot;p03.2&quot;       &quot;p03.3&quot;       &quot;p03.4&quot;      
-## [43] &quot;p03.5&quot;       &quot;p04&quot;         &quot;p04a&quot;        &quot;p05&quot;         &quot;p06&quot;         &quot;p07&quot;         &quot;p07a&quot;       
-## [50] &quot;p08&quot;         &quot;yhogar&quot;      &quot;yhogar_pc1&quot;  &quot;yhogar_pc2&quot;  &quot;ABq10d&quot;      &quot;p10.1&quot;       &quot;p10.2&quot;      
-## [57] &quot;p10.3&quot;       &quot;p10.4&quot;       &quot;p10.5&quot;       &quot;p10.6&quot;       &quot;p10.7&quot;       &quot;p11.1&quot;       &quot;p11.2&quot;      
-## [64] &quot;p11.3&quot;       &quot;p11.4&quot;       &quot;p12.1&quot;       &quot;p12.2&quot;       &quot;p12.3&quot;       &quot;p12.4&quot;       &quot;ABros1&quot;     
-## [71] &quot;ABros6&quot;      &quot;ABros4&quot;      &quot;p13&quot;         &quot;p14_1&quot;       &quot;p14_2&quot;       &quot;p14_3&quot;       &quot;p15&quot;        
-## [78] &quot;p16&quot;         &quot;p17&quot;         &quot;etnicidad&quot;   &quot;etnicidad2&quot;  &quot;ideología&quot;   &quot;ideologia2&quot;  &quot;NSE&quot;        
+<pre><code>##  [1] &quot;NC&quot;          &quot;edad&quot;        &quot;edadr&quot;       &quot;sexo&quot;       
+##  [5] &quot;dep&quot;         &quot;prov&quot;        &quot;dist&quot;        &quot;zona1&quot;      
+##  [9] &quot;zona2&quot;       &quot;zona3&quot;       &quot;zonali1&quot;     &quot;zonali2&quot;    
+## [13] &quot;region&quot;      &quot;area&quot;        &quot;area2&quot;       &quot;ambito&quot;     
+## [17] &quot;hijos18&quot;     &quot;hogar&quot;       &quot;edu&quot;         &quot;edur&quot;       
+## [21] &quot;edu2&quot;        &quot;edupadre&quot;    &quot;edupadrer&quot;   &quot;edupadre2&quot;  
+## [25] &quot;edumadre&quot;    &quot;edumadrer&quot;   &quot;edumadre2&quot;   &quot;ocup1&quot;      
+## [29] &quot;ocup2.CIUO1&quot; &quot;ocup2.CIUO2&quot; &quot;ocupadre&quot;    &quot;p01.1&quot;      
+## [33] &quot;p01.2&quot;       &quot;p01.3&quot;       &quot;p01.4&quot;       &quot;p01.5&quot;      
+## [37] &quot;p01.99&quot;      &quot;p02&quot;         &quot;p03.1&quot;       &quot;p03.2&quot;      
+## [41] &quot;p03.3&quot;       &quot;p03.4&quot;       &quot;p03.5&quot;       &quot;p04&quot;        
+## [45] &quot;p04a&quot;        &quot;p05&quot;         &quot;p06&quot;         &quot;p07&quot;        
+## [49] &quot;p07a&quot;        &quot;p08&quot;         &quot;yhogar&quot;      &quot;yhogar_pc1&quot; 
+## [53] &quot;yhogar_pc2&quot;  &quot;ABq10d&quot;      &quot;p10.1&quot;       &quot;p10.2&quot;      
+## [57] &quot;p10.3&quot;       &quot;p10.4&quot;       &quot;p10.5&quot;       &quot;p10.6&quot;      
+## [61] &quot;p10.7&quot;       &quot;p11.1&quot;       &quot;p11.2&quot;       &quot;p11.3&quot;      
+## [65] &quot;p11.4&quot;       &quot;p12.1&quot;       &quot;p12.2&quot;       &quot;p12.3&quot;      
+## [69] &quot;p12.4&quot;       &quot;ABros1&quot;      &quot;ABros6&quot;      &quot;ABros4&quot;     
+## [73] &quot;p13&quot;         &quot;p14_1&quot;       &quot;p14_2&quot;       &quot;p14_3&quot;      
+## [77] &quot;p15&quot;         &quot;p16&quot;         &quot;p17&quot;         &quot;etnicidad&quot;  
+## [81] &quot;etnicidad2&quot;  &quot;ideología&quot;   &quot;ideologia2&quot;  &quot;NSE&quot;        
 ## [85] &quot;NSE1&quot;        &quot;NSE2&quot;        &quot;pondera&quot;</code></pre>
 <blockquote>
 <p>Recuerda que si en un primer momento te pierdes un poco entre los nombres de las variables, eso quiere decir que tienes que leer el cuestionario y el diccionario de variables!</p>
@@ -661,7 +678,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb77-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb77-3"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>p17)<span class="sc">+</span></span>
 <span id="cb77-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb77-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 </div>
 <div id="cálculo-del-estimador-puntual" class="section level3 hasAnchor" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> Cálculo del estimador puntual<a href="introducción-a-la-estadística-inferencial-i.html#cálculo-del-estimador-puntual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -743,7 +760,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb92-4"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
 <span id="cb92-5"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-5" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_lower, <span class="at">ymax =</span> ci_upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
 <span id="cb92-6"><a href="introducción-a-la-estadística-inferencial-i.html#cb92-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Media de aceptación de la desigualdad en el Perú (IC al 95%)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Valor&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>Puedes incluir más detalle y detallar los límites inferior y superior:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-1" tabindex="-1"></a>mediaEintervalos <span class="sc">%&gt;%</span> </span>
 <span id="cb93-2"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-2" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
@@ -753,7 +770,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb93-6"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-6" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(ci_lower, <span class="dv">3</span>), <span class="at">y =</span> ci_lower), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Etiqueta para el límite inferior</span></span>
 <span id="cb93-7"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(ci_upper, <span class="dv">3</span>), <span class="at">y =</span> ci_upper), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.5</span>)<span class="sc">+</span>  <span class="co"># Etiqueta para el límite superior</span></span>
 <span id="cb93-8"><a href="introducción-a-la-estadística-inferencial-i.html#cb93-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Media de aceptación de la desigualdad en el Perú (IC al 95%)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Valor&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 
 </div>
 </div>

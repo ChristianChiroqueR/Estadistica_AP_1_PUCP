@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-11-14" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="regresión-lineal-múltiple-más-de-una-independiente.html"/>
-
+<link rel="next" href="ejercicio-de-repaso.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -412,6 +412,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4"><i class="fa fa-check"></i><b>12.3.3</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>13</b> Ejercicio de repaso</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#situación"><i class="fa fa-check"></i><b>13.1</b> Situación</a></li>
+<li class="chapter" data-level="13.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-1"><i class="fa fa-check"></i><b>13.2</b> Pregunta 1</a></li>
+<li class="chapter" data-level="13.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-2"><i class="fa fa-check"></i><b>13.3</b> Pregunta 2</a></li>
+<li class="chapter" data-level="13.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-3"><i class="fa fa-check"></i><b>13.4</b> Pregunta 3</a></li>
+<li class="chapter" data-level="13.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#planteamiento-de-conclusiones"><i class="fa fa-check"></i><b>13.5</b> Planteamiento de conclusiones</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -531,9 +539,10 @@ Coeficiente de edad: 10</p>
 <h3><span class="header-section-number">12.3.3</span> Ejercicio<a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb315-1" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">&quot;https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/trabajadores.sav&quot;</span>)</span>
 <span id="cb315-2"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb315-2" tabindex="-1"></a><span class="fu">names</span>(data)</span></code></pre></div>
-<pre><code>##  [1] &quot;id&quot;              &quot;sexo&quot;            &quot;fechnac&quot;         &quot;educ&quot;            &quot;catlab&quot;         
-##  [6] &quot;salario_actual&quot;  &quot;salario_inicial&quot; &quot;antiguedad&quot;      &quot;experiencia&quot;     &quot;minoría&quot;        
-## [11] &quot;directivo&quot;</code></pre>
+<pre><code>##  [1] &quot;id&quot;              &quot;sexo&quot;            &quot;fechnac&quot;        
+##  [4] &quot;educ&quot;            &quot;catlab&quot;          &quot;salario_actual&quot; 
+##  [7] &quot;salario_inicial&quot; &quot;antiguedad&quot;      &quot;experiencia&quot;    
+## [10] &quot;minoría&quot;         &quot;directivo&quot;</code></pre>
 <p>Ahora realizaremos unos modelos que tengan como variable explicativa la categoría laboral.</p>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="regresión-lineal-múltiple-elementos-adicionales.html#cb317-1" tabindex="-1"></a><span class="fu">str</span>(data<span class="sc">$</span>catlab)</span></code></pre></div>
 <pre><code>##  num [1:474] 3 1 1 1 1 1 1 1 1 1 ...
@@ -550,8 +559,8 @@ Coeficiente de edad: 10</p>
           </div>
         </div>
       </div>
-<a href="regresión-lineal-múltiple-más-de-una-independiente.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="regresión-lineal-múltiple-más-de-una-independiente.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ejercicio-de-repaso.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

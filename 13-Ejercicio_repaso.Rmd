@@ -1,0 +1,56 @@
+# Ejercicio de repaso
+
+En el siguiente texto, exploraremos los pasos habituales que se siguen en un proceso de investigación, destacando las preguntas clave que nos plantearemos en cada etapa. Este recorrido nos llevará desde la comprensión inicial de nuestro tema de estudio hasta el desarrollo de un modelo predictivo sofisticado, poniendo especial énfasis en las decisiones y consideraciones críticas que se presentan a lo largo del camino.    
+
+## Situación
+
+![](https://cdn.corporatefinanceinstitute.com/assets/money-laundering.jpeg)
+
+Imagina que eres parte de un equipo de investigación en una universidad prestigiosa. Tu grupo se ha enfocado en el estudio del lavado de activos, un fenómeno complejo y multifacético que afecta a la economía global. El objetivo principal del proyecto es desarrollar un modelo predictivo avanzado que pueda explicar y prever las tendencias y patrones en el lavado de activos. Este modelo busca identificar los factores clave que contribuyen al lavado de activos, incluyendo variables económicas, políticas, sociales y tecnológicas.
+
+
+
+## Pregunta 1
+
+Antes de sumergirte en el modelado predictivo, es crucial realizar una exploración descriptiva exhaustiva de los datos que tu equipo ha compilado. 
+
+Esta base de datos incluye el índice de lavado de activos, junto con otros indicadores a nivel mundial, como el índice de criminalidad organizada, el índice de percepción de lavado de activos, el índice de democracia, y variables sociodemográficas como el nivel de pobreza y el gasto en educación. Esta fase exploratoria te permitirá comprender mejor las relaciones entre estas variables y cómo podrían influir en el fenómeno del lavado de activos. 
+
+- Haz una tabla de los países de la región con su respectivo Índice de AML ordenado de mayor a menor. **Extra: Dale un formato HTML para que se visibilice mejor en un reporte**
+
+- Haz un gráfico de barras de la región con su respectivo Índice de AML ordenado de mayor a menor. **Extra: Resalta el caso de Perú. No olvides colocar título, nombre a los ejes y fuente.**
+
+- A nivel de la data, existe diferencia en el promedio del Índice AML a nivel de continente? 
+
+
+## Pregunta 2
+
+Ahora deberás verificar la significancia estadística de las relaciones entre la variable de interés (el índice de lavado de activos) y las otras variables. Para esto, se pueden emplear pruebas estadísticas como t.test, ANOVA y chi-cuadrado. Al menos uno de estos tests debe ser ejecutado para validar la relevancia de las relaciones observadas. Esta etapa es crucial para asegurar que las variables incluidas en el modelo final sean estadísticamente significativas. 
+
+- Compara si existen diferencias entre el Índice AML entre países que tienen un nivel de pobreza alta o baja (cuando la pobreza es mayor a 40 la vamos a considerar alta).
+
+- Compara si existen diferencias entre el Índice AML entre los grupos de países según el régimen en el que se encuentran (Índice de la Decracia).
+
+- Convierte el AML Index en categórica. Identifica si existe asociación entre este y el régimen en el que se encuentran (Índice de la Decracia).
+
+## Pregunta 3
+
+Finalmente, el paso siguiente es desarrollar y comparar modelos de regresión lineal múltiple. Esta comparación te permitirá evaluar cuál modelo es el más adecuado y efectivo para predecir el lavado de activos. Con estos resultados, estarás listo para presentar tus hallazgos y recomendaciones al comité de investigación, destacando cuál modelo consideras que es el mejor basado en tu análisis estadístico y exploratorio.
+
+- Identifica con qué variables existen mayor correlación. Puedes hacerlo por cada pareja o a nivel de matriz. 
+
+- Genera un modelo de regresión lineal simple con la variable que tenga mayor correlación. 
+
+
+## Planteamiento de conclusiones
+
+Tras haber detallado los pasos esenciales del proceso de investigación y las preguntas pertinentes en cada etapa, es crucial reflexionar sobre la importancia de la fase de conclusión en el estudio. Más allá de la mera presentación de valores estadísticos como el p-valor o de cifras específicas, lo esencial es extraer un enunciado o idea concluyente que aporte valor significativo. La conclusión no es simplemente el final de un análisis; es el punto donde la investigación trasciende los datos y se transforma en conocimiento aplicable.
+
+En esta fase, es vital sintetizar los hallazgos de manera que estos no solo respondan a la pregunta de investigación inicial, sino que también ofrezcan perspectivas e implicaciones más amplias. Una conclusión efectiva no se limita a recapitular los resultados; debe proporcionar una interpretación profunda que ilumine la comprensión del fenómeno estudiado y sugiera direcciones para futuras investigaciones. Es aquí donde se evalúa cómo las conclusiones pueden influir en la toma de decisiones, informar políticas, o inspirar nuevas líneas de indagación.
+
+En el contexto de nuestro estudio sobre el lavado de activos, la conclusión debería ir más allá de la presentación de los modelos predictivos más efectivos. Debería ofrecer una visión integral de cómo estos modelos pueden ser utilizados en la práctica, qué implicaciones tienen para la prevención y el combate del lavado de activos, y cómo pueden informar a los responsables de la toma de decisiones. Por lo tanto, al redactar la conclusión, se debe tener en cuenta que su propósito es no solo cerrar el estudio, sino abrir nuevas vías para la comprensión y la acción.
+
+
+- Qué sugerirías al grupo de investigación?
+
+

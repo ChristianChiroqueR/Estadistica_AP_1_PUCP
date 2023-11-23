@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-11-14" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,6 +412,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4"><i class="fa fa-check"></i><b>12.3.3</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>13</b> Ejercicio de repaso</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#situación"><i class="fa fa-check"></i><b>13.1</b> Situación</a></li>
+<li class="chapter" data-level="13.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-1"><i class="fa fa-check"></i><b>13.2</b> Pregunta 1</a></li>
+<li class="chapter" data-level="13.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-2"><i class="fa fa-check"></i><b>13.3</b> Pregunta 2</a></li>
+<li class="chapter" data-level="13.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-3"><i class="fa fa-check"></i><b>13.4</b> Pregunta 3</a></li>
+<li class="chapter" data-level="13.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#planteamiento-de-conclusiones"><i class="fa fa-check"></i><b>13.5</b> Planteamiento de conclusiones</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -482,12 +490,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">10.3.2</span> ¡Ahora hazlo tú!<a href="regresión-lineal-simple-explicar-y-predecir.html#ahora-hazlo-tú-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En base a la data presentada vamos a considerar que deseamos explicar el fenómeno de la “Porcentaje de inscripción escolar neta por país”.</p>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb271-1" tabindex="-1"></a><span class="fu">head</span>(matricula,<span class="dv">5</span>)</span></code></pre></div>
-<pre><code>##          pais matricula    pbiPC pobreza urbano gastoeducacion ratio_prof alcohol natalidad_ado
-## 1 Afghanistan     50.14   551.87    54.5   26.0           4.06   33.50124     0.3          62.0
-## 2     Albania     86.61  5223.81    14.3   62.1           2.47   11.19927    37.7          15.9
-## 3      Angola     11.29  3437.30    36.6   66.8           3.42   26.76619    33.5         163.0
-## 4   Argentina     90.80 11687.60    25.7   92.1           5.46    9.54885    54.5          54.4
-## 5     Armenia     87.74  4212.13    32.0   63.3           2.71    8.01689    16.3          21.2</code></pre>
+<pre><code>##          pais matricula    pbiPC pobreza urbano gastoeducacion
+## 1 Afghanistan     50.14   551.87    54.5   26.0           4.06
+## 2     Albania     86.61  5223.81    14.3   62.1           2.47
+## 3      Angola     11.29  3437.30    36.6   66.8           3.42
+## 4   Argentina     90.80 11687.60    25.7   92.1           5.46
+## 5     Armenia     87.74  4212.13    32.0   63.3           2.71
+##   ratio_prof alcohol natalidad_ado
+## 1   33.50124     0.3          62.0
+## 2   11.19927    37.7          15.9
+## 3   26.76619    33.5         163.0
+## 4    9.54885    54.5          54.4
+## 5    8.01689    16.3          21.2</code></pre>
 <p>Para ello vamos a:</p>
 <ul>
 <li>Calcular las correlaciones individuales entre “matricula” y el resto de variables, utilizando cor.test(). Rápidamente mencionen si encontraron correlaciones significativas.</li>
@@ -508,36 +522,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb275-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb275-2" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">corr.test</span>(matricula2, <span class="at">use =</span> <span class="st">&quot;complete&quot;</span>)</span></code></pre></div>
 <pre><code>## Call:psych::corr.test(x = matricula2, use = &quot;complete&quot;)
 ## Correlation matrix 
-##                matricula pbiPC pobreza urbano gastoeducacion ratio_prof alcohol natalidad_ado
-## matricula           1.00  0.54   -0.73   0.60           0.29      -0.67    0.66         -0.84
-## pbiPC               0.54  1.00   -0.45   0.56           0.36      -0.41    0.77         -0.53
-## pobreza            -0.73 -0.45    1.00  -0.53          -0.18       0.49   -0.49          0.70
-## urbano              0.60  0.56   -0.53   1.00           0.29      -0.55    0.62         -0.49
-## gastoeducacion      0.29  0.36   -0.18   0.29           1.00      -0.16    0.32         -0.26
-## ratio_prof         -0.67 -0.41    0.49  -0.55          -0.16       1.00   -0.53          0.58
-## alcohol             0.66  0.77   -0.49   0.62           0.32      -0.53    1.00         -0.53
-## natalidad_ado      -0.84 -0.53    0.70  -0.49          -0.26       0.58   -0.53          1.00
+##                matricula pbiPC pobreza urbano gastoeducacion
+## matricula           1.00  0.54   -0.73   0.60           0.29
+## pbiPC               0.54  1.00   -0.45   0.56           0.36
+## pobreza            -0.73 -0.45    1.00  -0.53          -0.18
+## urbano              0.60  0.56   -0.53   1.00           0.29
+## gastoeducacion      0.29  0.36   -0.18   0.29           1.00
+## ratio_prof         -0.67 -0.41    0.49  -0.55          -0.16
+## alcohol             0.66  0.77   -0.49   0.62           0.32
+## natalidad_ado      -0.84 -0.53    0.70  -0.49          -0.26
+##                ratio_prof alcohol natalidad_ado
+## matricula           -0.67    0.66         -0.84
+## pbiPC               -0.41    0.77         -0.53
+## pobreza              0.49   -0.49          0.70
+## urbano              -0.55    0.62         -0.49
+## gastoeducacion      -0.16    0.32         -0.26
+## ratio_prof           1.00   -0.53          0.58
+## alcohol             -0.53    1.00         -0.53
+## natalidad_ado        0.58   -0.53          1.00
 ## Sample Size 
 ## [1] 95
 ## Probability values (Entries above the diagonal are adjusted for multiple tests.) 
-##                matricula pbiPC pobreza urbano gastoeducacion ratio_prof alcohol natalidad_ado
-## matricula              0     0    0.00      0           0.02       0.00    0.00          0.00
-## pbiPC                  0     0    0.00      0           0.00       0.00    0.00          0.00
-## pobreza                0     0    0.00      0           0.17       0.00    0.00          0.00
-## urbano                 0     0    0.00      0           0.02       0.00    0.00          0.00
-## gastoeducacion         0     0    0.08      0           0.00       0.17    0.01          0.03
-## ratio_prof             0     0    0.00      0           0.11       0.00    0.00          0.00
-## alcohol                0     0    0.00      0           0.00       0.00    0.00          0.00
-## natalidad_ado          0     0    0.00      0           0.01       0.00    0.00          0.00
+##                matricula pbiPC pobreza urbano gastoeducacion
+## matricula              0     0    0.00      0           0.02
+## pbiPC                  0     0    0.00      0           0.00
+## pobreza                0     0    0.00      0           0.17
+## urbano                 0     0    0.00      0           0.02
+## gastoeducacion         0     0    0.08      0           0.00
+## ratio_prof             0     0    0.00      0           0.11
+## alcohol                0     0    0.00      0           0.00
+## natalidad_ado          0     0    0.00      0           0.01
+##                ratio_prof alcohol natalidad_ado
+## matricula            0.00    0.00          0.00
+## pbiPC                0.00    0.00          0.00
+## pobreza              0.00    0.00          0.00
+## urbano               0.00    0.00          0.00
+## gastoeducacion       0.17    0.01          0.03
+## ratio_prof           0.00    0.00          0.00
+## alcohol              0.00    0.00          0.00
+## natalidad_ado        0.00    0.00          0.00
 ## 
 ##  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
 <p>Como puede ser un poco tedioso, podemos calcular un gráfico.</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb277-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
 <span id="cb277-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb277-2" tabindex="-1"></a></span>
 <span id="cb277-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb277-3" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(matricula2), <span class="at">method=</span><span class="st">&quot;number&quot;</span>, <span class="at">type=</span><span class="st">&quot;lower&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-146-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb278-1" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(matricula2), <span class="at">method=</span><span class="st">&quot;ellipse&quot;</span>, <span class="at">type=</span><span class="st">&quot;lower&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-146-2.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-138-2.png" width="672" /></p>
 </div>
 </div>
 <div id="introducción-a-la-regresión-lineal-simple" class="section level2 hasAnchor" number="10.4">
@@ -692,7 +724,7 @@ Y = 1 + 2X
 <span id="cb279-2"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb279-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb279-3"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb279-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>pobreza, <span class="at">y=</span>matricula)<span class="sc">+</span></span>
 <span id="cb279-4"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb279-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
 <div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb280-1" tabindex="-1"></a><span class="fu">cor.test</span>(matricula<span class="sc">$</span>matricula, matricula<span class="sc">$</span>pobreza)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
@@ -817,7 +849,7 @@ La ecuación de regresión permite predecir los valores de la variable dependien
 <span id="cb290-5"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb290-5" tabindex="-1"></a>  <span class="fu">stat_poly_eq</span>(<span class="fu">use_label</span>(<span class="fu">c</span>(<span class="st">&quot;eq&quot;</span>, <span class="st">&quot;R2&quot;</span>)),<span class="at">label.x =</span> <span class="st">&quot;right&quot;</span>) <span class="sc">+</span></span>
 <span id="cb290-6"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb290-6" tabindex="-1"></a>  <span class="fu">stat_fit_deviations</span>(<span class="at">colour =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb290-7"><a href="regresión-lineal-simple-explicar-y-predecir.html#cb290-7" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
 <p><a href="https://cran.r-project.org/web/packages/ggpmisc/readme/README.html" class="uri">https://cran.r-project.org/web/packages/ggpmisc/readme/README.html</a></p>
 </div>
 </div>

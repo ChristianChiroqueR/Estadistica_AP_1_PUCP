@@ -23,7 +23,7 @@
 <meta name="author" content="Docente: Christian Chiroque Ruiz" />
 
 
-<meta name="date" content="2023-11-14" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,6 +412,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.3" data-path="regresión-lineal-múltiple-elementos-adicionales.html"><a href="regresión-lineal-múltiple-elementos-adicionales.html#ejercicio-4"><i class="fa fa-check"></i><b>12.3.3</b> Ejercicio</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html"><i class="fa fa-check"></i><b>13</b> Ejercicio de repaso</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#situación"><i class="fa fa-check"></i><b>13.1</b> Situación</a></li>
+<li class="chapter" data-level="13.2" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-1"><i class="fa fa-check"></i><b>13.2</b> Pregunta 1</a></li>
+<li class="chapter" data-level="13.3" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-2"><i class="fa fa-check"></i><b>13.3</b> Pregunta 2</a></li>
+<li class="chapter" data-level="13.4" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#pregunta-3"><i class="fa fa-check"></i><b>13.4</b> Pregunta 3</a></li>
+<li class="chapter" data-level="13.5" data-path="ejercicio-de-repaso.html"><a href="ejercicio-de-repaso.html#planteamiento-de-conclusiones"><i class="fa fa-check"></i><b>13.5</b> Planteamiento de conclusiones</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -633,13 +641,15 @@ Para crear el índice, simplemente sumarías las puntuaciones de estas tres vari
 <span id="cb123-3"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb123-3" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>indice_aditivo_reescalado)<span class="sc">+</span></span>
 <span id="cb123-4"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb123-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span></span>
 <span id="cb123-5"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb123-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat=</span><span class="st">&#39;count&#39;</span>, <span class="fu">aes</span>(<span class="at">label=</span>..count..), <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>## Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+<pre><code>## Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2
+## 3.4.0.
 ## ℹ Please use `after_stat(count)` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this
+## warning was generated.</code></pre>
 <pre><code>## Warning: Removed 84 rows containing non-finite values (`stat_count()`).
 ## Removed 84 rows containing non-finite values (`stat_count()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 </div>
 <div id="cálculo-del-intervalo-de-confianza-al-95" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Cálculo del intervalo de confianza al 95%<a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cálculo-del-intervalo-de-confianza-al-95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -723,7 +733,7 @@ Para crear el índice, simplemente sumarías las puntuaciones de estas tres vari
 <span id="cb138-2"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb138-2" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>indice_aditivo_reescalado<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
 <span id="cb138-3"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb138-3" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">&quot;Ámbito&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Índice de percepción de desigualdad en acceso a servicios&quot;</span>, </span>
 <span id="cb138-4"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb138-4" tabindex="-1"></a>          <span class="at">main=</span><span class="st">&quot;Gráfico de medias de Índice Aditivo&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <p>Sin embargo, te recomiendo utilizar <code>ggplot()</code>!</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb139-1" tabindex="-1"></a>indice_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
 <span id="cb139-2"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb139-2" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
@@ -732,7 +742,7 @@ Para crear el índice, simplemente sumarías las puntuaciones de estas tres vari
 <span id="cb139-5"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb139-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
 <span id="cb139-6"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb139-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
 <span id="cb139-7"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb139-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Percepción de la desigualdad&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <blockquote>
 <p>RECUERDA: Se superponen los intervalos?</p>
 </blockquote>
@@ -935,7 +945,7 @@ limite_superior
 <span id="cb166-4"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb166-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Lim_inf, <span class="at">ymax=</span>Lim_sup), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
 <span id="cb166-5"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb166-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Procedencia&quot;</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
 <span id="cb166-6"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb166-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;P la cobertura en educación es Muy Desigual&quot;</span>) <span class="co"># Etiqueta del eje y</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <p>Otra alternativa es pedirlos al mismo tiempo en la función <code>prop.test()</code>. En este caso lo que nos muestra, es el <strong>intervalo de la diferencia</strong>.</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="ic-para-una-media-y-una-proporción-ic-entre-grupos.html#cb167-1" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>, <span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] -0.02108879  0.11641800
